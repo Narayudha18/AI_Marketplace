@@ -1,0 +1,14 @@
+[
+  { "name": "GPT-4o API", "desc": "Multimodal LLM — text, image, audio", "price": "Pay-as-you-go", "badge": "Popular", "category": "LLM", "seed": "gpt4o" },
+  { "name": "DALL-E 3 API", "desc": "Text-to-image generation API", "price": "From $0.04/image", "badge": "New", "category": "Image", "seed": "dalle3" },
+  { "name": "Whisper API", "desc": "Speech-to-text with 100+ languages", "price": "From $0.006/min", "badge": "", "category": "Audio", "seed": "whisper" },
+  { "name": "Claude 3 API", "desc": "Anthropic Claude 3 Opus & Sonnet", "price": "From $0.015/1k", "badge": "Popular", "category": "LLM", "seed": "claude3" },
+  { "name": "Stable Diffusion XL", "desc": "Open-source image generation", "price": "From $0.009/img", "badge": "", "category": "Image", "seed": "sdxl" },
+  { "name": "ElevenLabs TTS", "desc": "Voice synthesis with emotion control", "price": "From $5/mo", "badge": "Trending", "category": "Audio", "seed": "elevenlabs" },
+  { "name": "Pinecone Vector DB", "desc": "Serverless vector database", "price": "From $70/mo", "badge": "", "category": "Infra", "seed": "pinecone" },
+  { "name": "LangChain SDK", "desc": "LLM orchestration framework", "price": "Free (Open Source)", "badge": "", "category": "Framework", "seed": "langchain" },
+  { "name": "Weaviate Cloud", "desc": "AI-native vector database", "price": "From $25/mo", "badge": "New", "category": "Infra", "seed": "weaviate" },
+  { "name": "Replicate API", "desc": "Run 50k+ ML models in cloud", "price": "Pay-as-you-go", "badge": "", "category": "Compute", "seed": "replicate" },
+  { "name": "Cohere API", "desc": "Embeddings, rerank & classify", "price": "From $0.001/1k", "badge": "", "category": "LLM", "seed": "cohere" },
+  { "name": "Modal Serverless", "desc": "GPU compute for AI workloads", "price": "From $0.10/hr", "badge": "", "category": "Compute", "seed": "modal" }
+]

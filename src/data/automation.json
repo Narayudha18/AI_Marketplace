@@ -1,0 +1,10 @@
+[
+  { "name": "WorkFlow Pro", "desc": "Visual drag-drop automation builder", "price": "$49/mo", "sales": "4.1k", "rating": 4.8, "category": "Workflow", "seed": "workflowpro" },
+  { "name": "DataSync AI", "desc": "Automated ETL & data pipeline orchestration", "price": "$79/mo", "sales": "2.3k", "rating": 4.7, "category": "Data", "seed": "datasync" },
+  { "name": "EmailCraft", "desc": "AI email sequences & campaign automation", "price": "$29/mo", "sales": "6.8k", "rating": 4.6, "category": "Marketing", "seed": "emailcraft" },
+  { "name": "SocialPulse", "desc": "Cross-platform social media scheduler", "price": "$34/mo", "sales": "3.5k", "rating": 4.5, "category": "Social", "seed": "socialpulse" },
+  { "name": "InvoiceBot", "desc": "Auto invoicing & payment collection", "price": "$39/mo", "sales": "1.9k", "rating": 4.7, "category": "Finance", "seed": "invoicebot" },
+  { "name": "LeadGenius", "desc": "Automated lead capture & enrichment", "price": "$59/mo", "sales": "5.2k", "rating": 4.8, "category": "Sales", "seed": "leadgenius" },
+  { "name": "DeployBot", "desc": "CI/CD pipeline automation & monitoring", "price": "$69/mo", "sales": "2.8k", "rating": 4.6, "category": "DevOps", "seed": "deploybot" },
+  { "name": "HR Flow", "desc": "Employee onboarding & offboarding automation", "price": "$44/mo", "sales": "1.2k", "rating": 4.5, "category": "HR", "seed": "hrflow" }
+]

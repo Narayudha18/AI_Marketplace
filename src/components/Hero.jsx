@@ -1,4 +1,7 @@
+import { Link, useNavigate } from 'react-router-dom'
+
 export default function Hero() {
+  const navigate = useNavigate()
   return (
     <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
       <div className="w-full lg:w-1/2 flex flex-col gap-6">
@@ -11,7 +14,8 @@ export default function Hero() {
         <div className="flex w-full max-w-lg bg-surface rounded-lg shadow-sm border border-border-light p-1">
           <input type="text" placeholder="e.g. Customer support agent"
             className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none" />
-          <button className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
+          <button onClick={() => navigate('/templates')}
+            className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
             <span className="material-symbols-outlined" style={{ fontSize: 20 }}>search</span>
             Search
           </button>

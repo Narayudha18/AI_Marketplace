@@ -1,0 +1,10 @@
+[
+  { "name": "CustomerGPT", "desc": "24/7 customer support agent with RAG", "price": "$29/mo", "sales": "3.2k", "rating": 4.8, "platform": "Web", "seed": "customergpt" },
+  { "name": "SalesFunnel AI", "desc": "Lead qualification & appointment setter", "price": "$49/mo", "sales": "2.1k", "rating": 4.7, "platform": "Web + API", "seed": "salesfunnel" },
+  { "name": "DocuBot", "desc": "Document Q&A with multi-format RAG", "price": "$39/mo", "sales": "1.8k", "rating": 4.9, "platform": "Web", "seed": "docubot" },
+  { "name": "HR Assistant Pro", "desc": "Employee onboarding & HR query agent", "price": "$34/mo", "sales": "956", "rating": 4.6, "platform": "Slack + Web", "seed": "hrassistant" },
+  { "name": "CodeReview AI", "desc": "Automated PR review & code analysis", "price": "$59/mo", "sales": "4.5k", "rating": 4.8, "platform": "GitHub", "seed": "codereview" },
+  { "name": "EduTutor", "desc": "Personalised tutoring & quiz generator", "price": "$19/mo", "sales": "6.7k", "rating": 4.5, "platform": "Web + Mobile", "seed": "edututor" },
+  { "name": "HealthMate", "desc": "Medical triage & appointment scheduling", "price": "$69/mo", "sales": "743", "rating": 4.7, "platform": "Web", "seed": "healthmate" },
+  { "name": "FinanceBot", "desc": "Expense tracking & financial insights", "price": "$44/mo", "sales": "2.3k", "rating": 4.6, "platform": "API", "seed": "financebot" }
+]

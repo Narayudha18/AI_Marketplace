@@ -1,0 +1,14 @@
+[
+  { "name": "OpenAI", "desc": "GPT-4, GPT-4o, DALL-E, Whisper APIs", "icon": "psychiatry", "category": "LLM Providers", "type": "API", "rating": 4.9, "users": "12.4k" },
+  { "name": "Anthropic", "desc": "Claude 3 Opus, Sonnet, Haiku models", "icon": "flutter_dash", "category": "LLM Providers", "type": "API", "rating": 4.8, "users": "8.7k" },
+  { "name": "Google AI", "desc": "Gemini, Vertex AI, Cloud Vision", "icon": "cloud", "category": "Cloud AI", "type": "SDK", "rating": 4.7, "users": "9.2k" },
+  { "name": "Hugging Face", "desc": "100k+ open-source models & pipelines", "icon": "favorite", "category": "Model Hub", "type": "API", "rating": 4.8, "users": "15.1k" },
+  { "name": "Stability AI", "desc": "Stable Diffusion, SDXL, Video", "icon": "filter_vintage", "category": "Image Gen", "type": "API", "rating": 4.6, "users": "6.8k" },
+  { "name": "LangChain", "desc": "LLM orchestration & RAG framework", "icon": "link", "category": "Frameworks", "type": "SDK", "rating": 4.9, "users": "18.3k" },
+  { "name": "Pinecone", "desc": "Vector database for semantic search", "icon": "storage", "category": "Vector DB", "type": "API", "rating": 4.7, "users": "7.5k" },
+  { "name": "Weaviate", "desc": "AI-native vector database", "icon": "database", "category": "Vector DB", "type": "API", "rating": 4.5, "users": "3.2k" },
+  { "name": "ElevenLabs", "desc": "Voice synthesis & cloning API", "icon": "record_voice_over", "category": "Voice AI", "type": "API", "rating": 4.8, "users": "5.6k" },
+  { "name": "Replicate", "desc": "Run ML models in the cloud", "icon": "cloud_queue", "category": "Model Hosting", "type": "API", "rating": 4.6, "users": "4.9k" },
+  { "name": "Cohere", "desc": "Embeddings, rerank, classify APIs", "icon": "token", "category": "LLM Providers", "type": "API", "rating": 4.5, "users": "3.8k" },
+  { "name": "Modal", "desc": "Serverless GPU compute platform", "icon": "developer_board", "category": "Compute", "type": "SDK", "rating": 4.7, "users": "2.1k" }
+]

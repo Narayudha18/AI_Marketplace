@@ -1,68 +1,27 @@
+import { Link } from 'react-router-dom'
+
+function toSlug(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+const filters = [
+  { label: 'All categories', to: '/templates' },
+  { label: 'ChatGPT Agents', to: '/chatbots' },
+  { label: 'Voice AI', to: '/ai-tools/c/audio-speech' },
+  { label: 'Automation', to: '/automation' },
+  { label: 'RAG', to: '/integrations' },
+  { label: 'Vision', to: '/ai-tools' },
+]
+
 const products = [
-  {
-    title: 'AgentForge | Multi-LLM Orchestrator',
-    author: 'saaadelab',
-    category: 'Frameworks',
-    price: '$79',
-    sales: '234 Sales',
-    seed: 'agentforge',
-  },
-  {
-    title: 'VoiceFlow Pro | Voice Assistant SDK',
-    author: 'morningstar',
-    category: 'Voice AI',
-    price: '$59',
-    sales: '189 Sales',
-    seed: 'voiceflow',
-  },
-  {
-    title: 'VisionCortex | Real-time Object Detector',
-    author: 'ticempresarial',
-    category: 'Computer Vision',
-    price: '$99',
-    sales: '312 Sales',
-    seed: 'visioncortex',
-  },
-  {
-    title: 'ChatCraft | Custom GPT Builder',
-    author: 'Rado-Labs',
-    category: 'Chatbots',
-    price: '$49',
-    sales: '567 Sales',
-    seed: 'chatcraft',
-  },
-  {
-    title: 'DataPulse | Analytics Agent',
-    author: 'neuralforge',
-    category: 'Analytics',
-    price: '$69',
-    sales: '98 Sales',
-    seed: 'datapulse',
-  },
-  {
-    title: 'SecureGate | AI Guardrails',
-    author: 'cybermind',
-    category: 'Security',
-    price: '$89',
-    sales: '76 Sales',
-    seed: 'securegate',
-  },
-  {
-    title: 'RAGStack | Knowledge Base Agent',
-    author: 'deeplearn',
-    category: 'RAG Pipelines',
-    price: '$109',
-    sales: '145 Sales',
-    seed: 'ragstack',
-  },
-  {
-    title: 'AutoWorkflow | Process Automation',
-    author: 'flowlabs',
-    category: 'Automation',
-    price: '$39',
-    sales: '423 Sales',
-    seed: 'autoworkflow',
-  },
+  { title: 'AgentForge | Multi-LLM Orchestrator', author: 'saaadelab', category: 'Frameworks', price: '$79', sales: '234 Sales', seed: 'agentforge' },
+  { title: 'VoiceFlow Pro | Voice Assistant SDK', author: 'morningstar', category: 'Voice AI', price: '$59', sales: '189 Sales', seed: 'voiceflow' },
+  { title: 'VisionCortex | Real-time Object Detector', author: 'ticempresarial', category: 'Computer Vision', price: '$99', sales: '312 Sales', seed: 'visioncortex' },
+  { title: 'ChatCraft | Custom GPT Builder', author: 'Rado-Labs', category: 'Chatbots', price: '$49', sales: '567 Sales', seed: 'chatcraft' },
+  { title: 'DataPulse | Analytics Agent', author: 'neuralforge', category: 'Analytics', price: '$69', sales: '98 Sales', seed: 'datapulse' },
+  { title: 'SecureGate | AI Guardrails', author: 'cybermind', category: 'Security', price: '$89', sales: '76 Sales', seed: 'securegate' },
+  { title: 'RAGStack | Knowledge Base Agent', author: 'deeplearn', category: 'RAG Pipelines', price: '$109', sales: '145 Sales', seed: 'ragstack' },
+  { title: 'AutoWorkflow | Process Automation', author: 'flowlabs', category: 'Automation', price: '$39', sales: '423 Sales', seed: 'autoworkflow' },
 ];
 
 export default function ProductGrid() {
@@ -78,21 +37,21 @@ export default function ProductGrid() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {['All categories', 'ChatGPT Agents', 'Voice AI', 'Automation', 'RAG', 'Vision'].map((cat) => (
-          <button key={cat}
+        {filters.map((f) => (
+          <Link key={f.label} to={f.to}
             className={`px-6 py-2 rounded-full text-xs font-semibold shadow-sm transition-colors ${
-              cat === 'All categories'
+              f.label === 'All categories'
                 ? 'bg-surface border-2 border-primary text-primary'
                 : 'bg-surface border border-border-light text-text-muted hover:border-outline-variant hover:text-text-main'
             }`}>
-            {cat}
-          </button>
+            {f.label}
+          </Link>
         ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((p) => (
-          <div key={p.title}
+          <Link key={p.title} to={`/templates/${toSlug(p.title)}`}
             className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
             <div className="relative h-40 overflow-hidden bg-surface-container-low">
               <img src={`https://picsum.photos/seed/${p.seed}/400/200`} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -117,14 +76,15 @@ export default function ProductGrid() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
       <div className="mt-8 flex justify-center">
-        <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
+        <Link to="/templates"
+          className="inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
           View more new items
-        </button>
+        </Link>
       </div>
     </section>
   );

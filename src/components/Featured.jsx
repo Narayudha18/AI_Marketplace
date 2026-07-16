@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Featured() {
   return (
     <section className="px-6 py-16 my-6 bg-surface-container-lowest border-y border-border-light">
@@ -7,9 +9,10 @@ export default function Featured() {
           <p className="text-[15px] text-text-muted leading-relaxed mb-8">
             Every week, our team hand-picks the best new AI agents, tools, and automation workflows from our collection.
           </p>
-          <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold self-start hover:opacity-90 transition-opacity">
+          <Link to="/templates"
+            className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold self-start hover:opacity-90 transition-opacity">
             View all featured items
-          </button>
+          </Link>
         </div>
         <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <img
