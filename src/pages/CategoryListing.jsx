@@ -5,6 +5,8 @@ import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
 import automations from '../data/automation.json'
 import tools from '../data/aitools.json'
+import { useCart } from '../CartContext'
+import CartDrawer from '../components/CartDrawer'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -119,6 +121,8 @@ const categoryConfig = {
 }
 
 export default function CategoryListing() {
+  const { totalItems, toggleFavorite, isFavorite } = useCart()
+  const [cartOpen, setCartOpen] = useState(false)
   const location = useLocation()
   const parts = location.pathname.split('/')
   const category = parts[1]
@@ -166,7 +170,10 @@ export default function CategoryListing() {
               <span>Products</span>
             </div>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <span className="material-symbols-outlined text-surface-variant hover:text-surface cursor-pointer" style={{ fontSize: 20 }}>shopping_cart</span>
+              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+              </button>
               <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
             </div>
           </div>
@@ -299,6 +306,10 @@ export default function CategoryListing() {
                       <div className="relative h-40 overflow-hidden bg-surface-container-low">
                         <img src={`https://picsum.photos/seed/${item.seed}/400/200`} alt={itemName}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <button onClick={e => { e.preventDefault(); e.stopPropagation(); toggleFavorite(slug, category) }}
+                          className="absolute top-2 right-2 p-1.5 bg-surface/80 backdrop-blur-sm rounded-full hover:bg-surface transition-colors cursor-pointer">
+                          <span className={`material-symbols-outlined ${isFavorite(slug, category) ? 'text-red-500' : 'text-text-muted'}`} style={{ fontSize: 18 }}>{isFavorite(slug, category) ? 'favorite' : 'favorite_border'}</span>
+                        </button>
                       </div>
                       <div className="p-4 flex flex-col flex-1">
                         <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{itemName}</h4>
@@ -398,6 +409,7 @@ export default function CategoryListing() {
           </Link>
         </div>
       </footer>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

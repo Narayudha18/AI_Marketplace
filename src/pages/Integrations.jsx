@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import integrations from '../data/integrations.json'
+import { useCart } from '../CartContext'
+import CartDrawer from '../components/CartDrawer'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
 export default function Integrations() {
+  const { totalItems, toggleFavorite, isFavorite } = useCart()
+  const [cartOpen, setCartOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategories, setSelectedCategories] = useState(['All'])
@@ -70,7 +74,10 @@ export default function Integrations() {
               <span>Products</span>
             </div>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <span className="material-symbols-outlined text-surface-variant hover:text-surface cursor-pointer" style={{ fontSize: 20 }}>shopping_cart</span>
+              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+              </button>
               <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
             </div>
           </div>
@@ -228,7 +235,15 @@ export default function Integrations() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredIntegrations.map((item) => (
                   <Link key={item.name} to={`/integrations/${toSlug(item.name)}`}
-                    className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
+                    className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col relative">
+                    <button
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(toSlug(item.name), 'integrations'); }}
+                      className="absolute top-2 right-2 p-1.5 bg-surface/80 backdrop-blur-sm rounded-full hover:bg-surface transition-colors cursor-pointer"
+                    >
+                        <span className={`material-symbols-outlined ${isFavorite(toSlug(item.name), 'integrations') ? 'text-red-500' : 'text-text-muted'}`}>
+                          {isFavorite(toSlug(item.name), 'integrations') ? 'favorite' : 'favorite_border'}
+                      </span>
+                    </button>
                     <div className="p-5 flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center flex-shrink-0">
                         <span className="material-symbols-outlined text-primary" style={{ fontSize: 24 }}>{item.icon}</span>
@@ -319,6 +334,7 @@ export default function Integrations() {
           </div>
         </div>
       </footer>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

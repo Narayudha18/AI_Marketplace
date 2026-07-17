@@ -1,4 +1,7 @@
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
+import { useCart } from '../CartContext'
+import CartDrawer from '../components/CartDrawer'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -83,10 +86,11 @@ const categoryConfig = {
 };
 
 export default function ProductDetail() {
-  const { slug } = useParams()
   const location = useLocation()
   const navigate = useNavigate()
-  const category = location.pathname.split('/')[1]
+  const parts = location.pathname.split('/')
+  const category = parts[1]
+  const slug = parts[2]
   const config = categoryConfig[category]
   if (!config) return null
 
@@ -96,15 +100,66 @@ export default function ProductDetail() {
   const name = item.title || item.name
   const relatedItems = config.getRelated(item)
 
+  const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
+  const [cartOpen, setCartOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState('product')
+  const reviewKey = `reviews_${category}_${slug}`
+  const commentKey = `comments_${category}_${slug}`
+  const [reviews, setReviews] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(reviewKey)) || [] } catch { return [] }
+  })
+  const [comments, setComments] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(commentKey)) || [] } catch { return [] }
+  })
+  const [reviewName, setReviewName] = useState('')
+  const [reviewText, setReviewText] = useState('')
+  const [reviewRating, setReviewRating] = useState(0)
+  const [hoverRating, setHoverRating] = useState(0)
+  const [commentName, setCommentName] = useState('')
+  const [commentText, setCommentText] = useState('')
+
+  useEffect(() => {
+    localStorage.setItem(reviewKey, JSON.stringify(reviews))
+  }, [reviews, reviewKey])
+  useEffect(() => {
+    localStorage.setItem(commentKey, JSON.stringify(comments))
+  }, [comments, commentKey])
+
+  const cartItem = { slug, category, seed: item.seed, title: item.title, name: item.name, price: item.price }
+
+  const submitReview = (e) => {
+    e.preventDefault()
+    if (!reviewName.trim() || !reviewText.trim() || reviewRating === 0) return
+    setReviews(prev => [...prev, {
+      name: reviewName.trim(), text: reviewText.trim(), rating: reviewRating,
+      date: new Date().toISOString().split('T')[0],
+    }])
+    setReviewName(''); setReviewText(''); setReviewRating(0)
+  }
+
+  const submitComment = (e) => {
+    e.preventDefault()
+    if (!commentName.trim() || !commentText.trim()) return
+    setComments(prev => [...prev, {
+      name: commentName.trim(), text: commentText.trim(),
+      date: new Date().toISOString().split('T')[0],
+    }])
+    setCommentName(''); setCommentText('')
+  }
+
+  const avgRating = reviews.length > 0
+    ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)
+    : null
+
   const breadcrumbCat = category === 'ai-tools' ? 'AI Tools & APIs' : config.label
 
-  const renderStars = (rating) => {
+  const renderStars = (rating, size = 16) => {
     const full = Math.floor(rating)
     return (
       <span className="flex items-center gap-0.5">
         {Array.from({ length: 5 }, (_, i) => (
-          <span key={i} className={`material-symbols-outlined ${i < full ? 'text-amber-400' : 'text-gray-300'}`} style={{ fontSize: 16 }}>
-            {i < full ? 'star' : 'star'}
+          <span key={i} className={`material-symbols-outlined ${i < full ? 'text-amber-400' : 'text-gray-300'}`} style={{ fontSize: size }}>
+            {i < full ? 'star' : 'star_border'}
           </span>
         ))}
       </span>
@@ -128,7 +183,10 @@ export default function ProductDetail() {
               <span>Products</span>
             </div>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <span className="material-symbols-outlined text-surface-variant hover:text-surface cursor-pointer" style={{ fontSize: 20 }}>shopping_cart</span>
+              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+                {inCart(slug, category) && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
+              </button>
               <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
             </div>
           </div>
@@ -158,7 +216,25 @@ export default function ProductDetail() {
         <span className="text-text-main font-semibold truncate max-w-[300px]">{name}</span>
       </div>
 
+      <section className="px-6 py-8 border-b border-border-light">
+        <div className="flex gap-0">
+          {[
+            { key: 'product', label: 'Produk', icon: 'shopping_bag' },
+            { key: 'reviews', label: 'Review & Rating', icon: 'star_rate' },
+            { key: 'comments', label: 'Komentar', icon: 'forum' },
+            { key: 'support', label: 'Support', icon: 'headset_mic' },
+          ].map(tab => (
+            <button key={tab.key} onClick={() => setActiveTab(tab.key)}
+              className={`flex items-center gap-1.5 px-5 py-2.5 text-xs font-semibold border-b-2 transition-colors cursor-pointer ${activeTab === tab.key ? 'border-primary text-primary' : 'border-transparent text-text-muted hover:text-text-main'}`}>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </section>
+
       <main className="w-full max-w-[1440px] mx-auto pb-16">
+        {activeTab === 'product' && (
         <section className="px-6 py-10 flex flex-col lg:flex-row gap-10">
           <div className="w-full lg:w-3/5">
             <div className="relative rounded-2xl overflow-hidden border border-border-light bg-surface-container-low">
@@ -168,7 +244,9 @@ export default function ProductDetail() {
           </div>
           <div className="w-full lg:w-2/5 flex flex-col gap-5">
             <div>
-              <h1 className="text-[28px] md:text-[34px] font-bold text-text-main leading-tight tracking-tight">{name}</h1>
+              <div className="flex items-start justify-between gap-4">
+                <h1 className="text-[28px] md:text-[34px] font-bold text-text-main leading-tight tracking-tight">{name}</h1>
+              </div>
               <div className="flex items-center gap-3 mt-2">
                 {'rating' in item && (
                   <div className="flex items-center gap-1.5">
@@ -220,12 +298,12 @@ export default function ProductDetail() {
                 </div>
               )}
               <div className="flex gap-3">
-                <button className="flex-1 bg-primary text-surface px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="flex-1 bg-primary text-surface px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
-                  Add to Cart
+                  Tambah ke Keranjang
                 </button>
-                <button className="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-surface transition-colors text-xs font-semibold flex items-center gap-2">
-                  <span className="material-symbols-outlined" style={{ fontSize: 18 }}>favorite_border</span>
+                <button onClick={() => toggleFavorite(slug, category)} className={`px-4 py-3 border rounded-lg text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${isFavorite(slug, category) ? 'bg-red-50 border-red-200 text-red-500' : 'border-primary text-primary hover:bg-primary hover:text-surface'}`}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{isFavorite(slug, category) ? 'favorite' : 'favorite_border'}</span>
                 </button>
                 <button className="px-4 py-3 border border-border-light text-text-muted rounded-lg hover:bg-surface-container-low transition-colors">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>share</span>
@@ -249,6 +327,158 @@ export default function ProductDetail() {
             </div>
           </div>
         </section>
+        )}
+
+        {activeTab === 'reviews' && (
+          <section className="px-6 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                {reviews.length === 0 ? (
+                  <p className="text-sm text-text-muted">Belum ada review. Jadilah yang pertama!</p>
+                ) : (
+                  <div className="space-y-4">
+                    {reviews.map((r, idx) => (
+                      <div key={idx} className="bg-surface border border-border-light rounded-xl p-5">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-primary-container/20 flex items-center justify-center text-xs font-bold text-primary uppercase">
+                              {r.name.charAt(0)}
+                            </div>
+                            <div>
+                              <p className="text-xs font-semibold text-text-main">{r.name}</p>
+                              <p className="text-[11px] text-text-muted">{r.date}</p>
+                            </div>
+                          </div>
+                          {renderStars(r.rating, 14)}
+                        </div>
+                        <p className="text-xs text-text-muted leading-relaxed">{r.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div>
+                {avgRating && (
+                  <div className="bg-surface border border-border-light rounded-xl p-5 mb-6 text-center">
+                    <div className="text-[36px] font-bold text-text-main">{avgRating}</div>
+                    {renderStars(Math.round(parseFloat(avgRating)), 18)}
+                    <p className="text-xs text-text-muted mt-2">{reviews.length} review{reviews.length > 1 ? 's' : ''}</p>
+                  </div>
+                )}
+                {hasPurchased(slug, category) ? (
+                  <form onSubmit={submitReview} className="bg-surface border border-border-light rounded-xl p-5">
+                    <h3 className="text-sm font-semibold text-text-main mb-4">Tulis Review</h3>
+                    <div className="mb-4">
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Rating</label>
+                      <div className="flex items-center gap-1">
+                        {[1, 2, 3, 4, 5].map(s => (
+                          <button key={s} type="button" onClick={() => setReviewRating(s)}
+                            onMouseEnter={() => setHoverRating(s)} onMouseLeave={() => setHoverRating(0)}
+                            className={`material-symbols-outlined transition-colors ${(hoverRating || reviewRating) >= s ? 'text-amber-400' : 'text-gray-300'} hover:text-amber-400`} style={{ fontSize: 28 }}>
+                            {(hoverRating || reviewRating) >= s ? 'star' : 'star_border'}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mb-4">
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Nama</label>
+                      <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} placeholder="Nama Anda"
+                        className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
+                    </div>
+                    <div className="mb-4">
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Review</label>
+                      <textarea value={reviewText} onChange={e => setReviewText(e.target.value)} placeholder="Bagikan pengalaman Anda..." rows={3}
+                        className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
+                    </div>
+                    <button type="submit" disabled={!reviewName.trim() || !reviewText.trim() || reviewRating === 0}
+                      className="w-full bg-primary text-surface py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity disabled:opacity-40">
+                      Kirim Review
+                    </button>
+                  </form>
+                ) : (
+                  <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
+                    <span className="material-symbols-outlined text-primary text-4xl mb-3 block">lock</span>
+                    <h3 className="text-sm font-semibold text-text-main mb-2">Anda belum membeli produk ini</h3>
+                    <p className="text-xs text-text-muted mb-4">Hanya pembeli yang dapat memberikan rating & review. Checkout produk ini untuk memberi review.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'comments' && (
+          <section className="px-6 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                {comments.length === 0 ? (
+                  <p className="text-sm text-text-muted">Belum ada komentar. Mulai diskusi!</p>
+                ) : (
+                  <div className="space-y-4">
+                    {comments.map((c, idx) => (
+                      <div key={idx} className="bg-surface border border-border-light rounded-xl p-5">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-xs font-bold text-primary uppercase">
+                            {c.name.charAt(0)}
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-text-main">{c.name}</p>
+                            <p className="text-[11px] text-text-muted">{c.date}</p>
+                          </div>
+                        </div>
+                        <p className="text-xs text-text-muted leading-relaxed">{c.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div>
+                <form onSubmit={submitComment} className="bg-surface border border-border-light rounded-xl p-5">
+                  <h3 className="text-sm font-semibold text-text-main mb-4">Tulis Komentar</h3>
+                  <div className="mb-4">
+                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Nama</label>
+                    <input type="text" value={commentName} onChange={e => setCommentName(e.target.value)} placeholder="Nama Anda"
+                      className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
+                  </div>
+                  <div className="mb-4">
+                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Komentar</label>
+                    <textarea value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="Tulis komentar..." rows={3}
+                      className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
+                  </div>
+                  <button type="submit" disabled={!commentName.trim() || !commentText.trim()}
+                    className="w-full bg-primary text-surface py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity disabled:opacity-40">
+                    Kirim Komentar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'support' && (
+          <section className="px-6 py-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
+                <span className="material-symbols-outlined text-primary text-4xl mb-3 block">mail</span>
+                <h4 className="text-sm font-semibold text-text-main mb-1">Email Support</h4>
+                <p className="text-xs text-text-muted">support@aiagents.market</p>
+                <p className="text-[11px] text-text-muted mt-1">Respon dalam 24 jam</p>
+              </div>
+              <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
+                <span className="material-symbols-outlined text-primary text-4xl mb-3 block">forum</span>
+                <h4 className="text-sm font-semibold text-text-main mb-1">Forum Diskusi</h4>
+                <p className="text-xs text-text-muted">Tanya jawab dengan komunitas</p>
+                <p className="text-[11px] text-text-muted mt-1">200+ anggota aktif</p>
+              </div>
+              <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
+                <span className="material-symbols-outlined text-primary text-4xl mb-3 block">description</span>
+                <h4 className="text-sm font-semibold text-text-main mb-1">Dokumentasi</h4>
+                <p className="text-xs text-text-muted">Panduan & tutorial lengkap</p>
+                <p className="text-[11px] text-text-muted mt-1">Update mingguan</p>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
           <h2 className="text-[22px] font-semibold text-text-main mb-6">About this product</h2>
@@ -339,13 +569,9 @@ export default function ProductDetail() {
           <a className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors" href="#">Authors</a>
           <a className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors" href="#">Sitemap</a>
         </div>
-        <div className="col-span-2 md:col-span-1 flex flex-col gap-6 justify-end items-start md:items-end mt-8 md:mt-0">
-          <button onClick={() => navigate(config.navLink)}
-            className="bg-primary-container text-on-primary-container px-6 py-2.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-            Back to {config.label}
-          </button>
-        </div>
+
       </footer>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useCart } from '../CartContext'
+import CartDrawer from './CartDrawer'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -19,6 +22,8 @@ const navSubLinks = {
 }
 
 export default function Navbar() {
+  const { totalItems } = useCart()
+  const [cartOpen, setCartOpen] = useState(false)
   const location = useLocation()
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/'
@@ -41,7 +46,10 @@ export default function Navbar() {
               <span>Our Products</span>
             </Link>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <span className="material-symbols-outlined text-surface-variant hover:text-surface cursor-pointer" style={{ fontSize: 20 }}>shopping_cart</span>
+              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+              </button>
               <Link to="/templates" className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</Link>
             </div>
           </div>
@@ -83,6 +91,7 @@ export default function Navbar() {
           )
         })}
       </div>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

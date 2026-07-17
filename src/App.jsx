@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Categories from './components/Categories'
 import ProductGrid from './components/ProductGrid'
 import Featured from './components/Featured'
+import FavoriteRecommendations from './components/FavoriteRecommendations'
 import Footer from './components/Footer'
 import Templates from './pages/Templates'
 import Integrations from './pages/Integrations'
@@ -22,6 +23,7 @@ function Home() {
         <Categories />
         <ProductGrid />
         <Featured />
+        <FavoriteRecommendations />
       </main>
       <Footer />
     </>

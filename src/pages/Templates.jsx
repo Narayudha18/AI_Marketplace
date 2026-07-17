@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import templates from '../data/templates.json'
+import { useCart } from '../CartContext'
+import CartDrawer from '../components/CartDrawer'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -16,6 +18,8 @@ function parseSales(sales) {
 }
 
 export default function Templates() {
+  const { totalItems, toggleFavorite, isFavorite } = useCart()
+  const [cartOpen, setCartOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategories, setSelectedCategories] = useState(['All Templates'])
@@ -89,7 +93,10 @@ export default function Templates() {
               <span>Products</span>
             </div>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <span className="material-symbols-outlined text-surface-variant hover:text-surface cursor-pointer" style={{ fontSize: 20 }}>shopping_cart</span>
+              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+              </button>
               <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
             </div>
           </div>
@@ -268,6 +275,10 @@ export default function Templates() {
                     <div className="relative h-40 overflow-hidden bg-surface-container-low">
                       <img src={`https://picsum.photos/seed/${t.seed}/400/200`} alt={t.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <button onClick={e => { e.preventDefault(); e.stopPropagation(); toggleFavorite(toSlug(t.title), 'templates') }}
+                        className="absolute top-2 right-2 p-1.5 bg-surface/80 backdrop-blur-sm rounded-full hover:bg-surface transition-colors cursor-pointer">
+                        <span className={`material-symbols-outlined ${isFavorite(toSlug(t.title), 'templates') ? 'text-red-500' : 'text-text-muted'}`} style={{ fontSize: 18 }}>{isFavorite(toSlug(t.title), 'templates') ? 'favorite' : 'favorite_border'}</span>
+                      </button>
                     </div>
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{t.title}</h4>
@@ -355,6 +366,7 @@ export default function Templates() {
           </div>
         </div>
       </footer>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }
