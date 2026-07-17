@@ -78,14 +78,14 @@ export default function Navbar() {
         </div>
       </header>
 
-      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-6 overflow-x-auto">
+      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 gap-6 overflow-x-auto">
         {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
           const linkPath = navSubLinks[item]
           const fullPath = linkPath ? `/${linkPath}` : '/'
           const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
           return (
             <Link key={item} to={fullPath}
-              className={`text-xs font-semibold whitespace-nowrap ${isSubActive ? 'text-primary border-b-2 border-primary pb-[2px]' : 'text-on-surface-variant hover:text-primary transition-colors'}`}>
+              className={`text-xs font-semibold flex items-center px-4 whitespace-nowrap ${isSubActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary transition-colors'}`}>
               {item}
             </Link>
           )

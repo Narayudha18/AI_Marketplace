@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import chatbots from '../data/chatbots.json'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
@@ -16,6 +16,8 @@ export default function Chatbots() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedPlatform, setSelectedPlatform] = useState('All')
   const [selectedRating, setSelectedRating] = useState('Any Rating')
+  const location = useLocation()
+  const gridRef = useRef(null)
 
   const [appliedSearch, setAppliedSearch] = useState('')
   const [appliedSidebar, setAppliedSidebar] = useState('')
@@ -48,7 +50,7 @@ export default function Chatbots() {
     <>
       <div className="bg-primary-container text-on-primary-container py-2 px-6 text-center text-xs font-semibold flex justify-center items-center gap-4">
         <span>Deploy intelligent chatbots with zero coding. 500+ pre-built agents.</span>
-        <button className="bg-text-main text-surface px-4 py-1 rounded text-[11px] font-bold">Explore Chatbots</button>
+        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })} className="bg-text-main text-surface px-4 py-1 rounded text-[11px] font-bold cursor-pointer">Explore Chatbots</button>
       </div>
 
       <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
@@ -72,12 +74,22 @@ export default function Chatbots() {
 
         <div className="px-6 h-12 flex items-center justify-between border-t border-outline">
           <nav className="flex h-full">
-            <a href="/" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold flex items-center px-4">AI Agents</a>
-            <a href="/templates" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold flex items-center px-4">Templates</a>
-            <a href="/integrations" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold flex items-center px-4">Integrations</a>
-            <a href="/chatbots" className="text-primary border-b-2 border-primary pb-1 text-xs font-semibold flex items-center px-4">Chatbots</a>
-            <a href="/automation" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold flex items-center px-4">Automation</a>
-            <a href="/ai-tools" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold flex items-center px-4">AI Tools & APIs</a>
+            {[
+              { to: '/', label: 'AI Agents' },
+              { to: '/templates', label: 'Templates' },
+              { to: '/integrations', label: 'Integrations' },
+              { to: '/chatbots', label: 'Chatbots' },
+              { to: '/automation', label: 'Automation' },
+              { to: '/ai-tools', label: 'AI Tools & APIs' },
+            ].map(link => {
+              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
+              return (
+                <Link key={link.to} to={link.to}
+                  className={`text-xs font-semibold flex items-center px-4 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-surface-variant hover:text-surface transition-colors'}`}>
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
           <div className="bg-surface-variant text-text-main px-4 py-1.5 rounded-t text-xs font-semibold flex items-center gap-2">
             <span className="material-symbols-outlined" style={{ fontSize: 16 }}>smart_toy</span>
@@ -87,18 +99,20 @@ export default function Chatbots() {
       </header>
 
       <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-6 overflow-x-auto">
-        {['All Chatbots', 'Customer Support', 'Sales', 'HR', 'Education', 'Healthcare', 'Finance', 'Developer Tools', 'Productivity'].map(item => {
-          const slug = item === 'All Chatbots' ? '' : toSlug(item)
-          return (
-            <Link key={item} to={slug ? `/chatbots/c/${slug}` : '/chatbots'}
-              className="text-on-surface-variant hover:text-primary transition-colors text-xs font-semibold whitespace-nowrap">
-              {item}
-            </Link>
-          )
-        })}
+          {['All Chatbots', 'Customer Support', 'Sales', 'HR', 'Education', 'Healthcare', 'Finance', 'Developer Tools', 'Productivity'].map(item => {
+            const slug = item === 'All Chatbots' ? '' : toSlug(item)
+            const target = slug ? `/chatbots/c/${slug}` : '/chatbots'
+            const isSubActive = location.pathname === target
+            return (
+              <Link key={item} to={target}
+                className={`text-xs font-semibold flex items-center px-4 whitespace-nowrap ${isSubActive ? 'text-primary border-b-2 border-primary pb-[2px]' : 'text-on-surface-variant hover:text-primary transition-colors'}`}>
+                {item}
+              </Link>
+            )
+          })}
       </div>
 
-      <main className="w-full max-w-[1440px] mx-auto pb-16">
+      <main ref={gridRef} className="w-full max-w-[1440px] mx-auto pb-16">
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
