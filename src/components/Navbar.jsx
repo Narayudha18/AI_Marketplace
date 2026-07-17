@@ -41,10 +41,6 @@ export default function Navbar() {
           <Link to="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</Link>
           <div className="flex items-center gap-6">
             <Link to="/templates" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <Link to="/templates" className="flex items-center gap-2 text-surface-variant hover:text-surface transition-colors text-xs font-semibold cursor-pointer">
-              <span className="material-symbols-outlined" style={{ fontSize: 18 }}>apps</span>
-              <span>Our Products</span>
-            </Link>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
               <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
                 <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
