@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -12,10 +10,9 @@ export default function Login() {
   }
 
   return (
-    <>
-      <Navbar />
-      <main className="w-full max-w-[1440px] mx-auto px-6 py-16 flex flex-col items-center">
-        <div className="w-full max-w-md bg-surface border border-border-light rounded-xl p-8">
+    <div className="min-h-screen bg-surface flex items-center justify-center px-4">
+      <div className="w-full max-w-md">
+        <div className="bg-surface border border-border-light rounded-xl p-8">
           <div className="flex flex-col items-center mb-8">
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <span className="text-primary text-lg font-bold">AI</span>
@@ -59,20 +56,19 @@ export default function Login() {
           </form>
         </div>
 
-        <div className="w-full max-w-md mt-4 text-center">
+        <div className="mt-4 text-center">
           <p className="text-sm text-text-muted">
             Don't have an account?{' '}
             <Link to="/register" className="text-primary font-medium hover:underline">Create account</Link>
           </p>
         </div>
 
-        <div className="w-full max-w-md mt-8 flex items-center justify-center gap-6 text-xs text-text-muted">
+        <div className="mt-8 flex items-center justify-center gap-6 text-xs text-text-muted">
           <Link to="/" className="hover:text-text-main transition-colors">Help</Link>
           <Link to="/privacy" className="hover:text-text-main transition-colors">Privacy</Link>
           <Link to="/terms" className="hover:text-text-main transition-colors">Terms</Link>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </div>
   )
 }
