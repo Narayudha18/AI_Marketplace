@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 const AuthContext = createContext()
 
@@ -33,12 +33,12 @@ export function AuthProvider({ children }) {
     return { ok: true }
   }
 
-  const updatePicture = useCallback((dataUrl) => {
+  const updatePicture = (dataUrl) => {
     if (!currentUser) return
     const updated = { ...currentUser, picture: dataUrl }
     setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
     setCurrentUser(updated)
-  }, [currentUser])
+  }
 
   return (
     <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture }}>

@@ -9,19 +9,18 @@ export default function Profile() {
   const { currentUser, updatePassword, updatePicture } = useAuth()
   const { cart, purchased, favorites } = useCart()
   const fileInputRef = useRef()
-
   const [currentPw, setCurrentPw] = useState('')
   const [newPw, setNewPw] = useState('')
   const [confirmPw, setConfirmPw] = useState('')
-  const [pwMsg, setPwMsg] = useState({ ok: false, text: '' })
+  const [pwMsg, setPwMsg] = useState(null)
 
   const handlePasswordChange = (e) => {
     e.preventDefault()
-    setPwMsg({ ok: false, text: '' })
-    if (newPw !== confirmPw) { setPwMsg({ ok: false, text: 'Passwords do not match' }); return }
+    setPwMsg(null)
+    if (newPw !== confirmPw) { setPwMsg('Passwords do not match'); return }
     const result = updatePassword(currentPw, newPw)
-    if (result.ok) { setPwMsg({ ok: true, text: 'Password changed successfully' }); setCurrentPw(''); setNewPw(''); setConfirmPw('') }
-    else setPwMsg({ ok: false, text: result.error })
+    if (result.ok) { setPwMsg('Password changed!'); setCurrentPw(''); setNewPw(''); setConfirmPw('') }
+    else setPwMsg(result.error)
   }
 
   const handlePictureUpload = (e) => {
@@ -46,12 +45,6 @@ export default function Profile() {
     )
   }
 
-  const stats = [
-    { label: 'In Cart', value: cart.length, color: 'bg-blue-500/10 text-blue-500' },
-    { label: 'Purchased', value: purchased.length, color: 'bg-green-500/10 text-green-500' },
-    { label: 'Favorites', value: favorites.length, color: 'bg-red-500/10 text-red-500' },
-  ]
-
   return (
     <>
       <Navbar />
@@ -63,9 +56,9 @@ export default function Profile() {
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary flex-shrink-0 overflow-hidden">
                   {currentUser.picture
                     ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
-                    : (currentUser.name ? currentUser.name[0].toUpperCase() : '?')}
+                    : currentUser.name[0].toUpperCase()}
                 </div>
-                <button onClick={() => fileInputRef.current?.click()}
+                <button onClick={() => fileInputRef.current.click()}
                   className="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
                   <span className="material-symbols-outlined text-white text-lg">photo_camera</span>
                 </button>
@@ -76,12 +69,11 @@ export default function Profile() {
                 <p className="text-sm text-text-muted mt-0.5">{currentUser.email}</p>
               </div>
             </div>
-
             <div className="grid grid-cols-3 gap-4 mt-6">
-              {stats.map(s => (
-                <div key={s.label} className={`rounded-xl p-4 text-center ${s.color}`}>
-                  <div className="text-2xl font-bold">{s.value}</div>
-                  <div className="text-xs font-medium mt-1">{s.label}</div>
+              {[{ label: 'In Cart', value: cart.length }, { label: 'Purchased', value: purchased.length }, { label: 'Favorites', value: favorites.length }].map(s => (
+                <div key={s.label} className="rounded-xl p-4 text-center bg-surface-container-low">
+                  <div className="text-2xl font-bold text-text-main">{s.value}</div>
+                  <div className="text-xs text-text-muted mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -108,9 +100,7 @@ export default function Profile() {
           <div className="mt-6 bg-surface border border-border-light rounded-xl p-6">
             <h2 className="text-sm font-bold text-text-main mb-4">Change Password</h2>
             <form onSubmit={handlePasswordChange} className="flex flex-col gap-4 max-w-sm">
-              {pwMsg.text && (
-                <p className={`text-xs px-3 py-2 rounded-lg border ${pwMsg.ok ? 'text-green-600 bg-green-500/5 border-green-500/20' : 'text-red-500 bg-red-500/5 border-red-500/20'}`}>{pwMsg.text}</p>
-              )}
+              {pwMsg && <p className="text-xs text-red-500 bg-red-500/5 border border-red-500/20 rounded-lg px-3 py-2">{pwMsg}</p>}
               <div className="flex flex-col gap-1">
                 <label className="text-xs font-medium text-text-muted">Current Password</label>
                 <input type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} required
