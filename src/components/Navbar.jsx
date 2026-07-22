@@ -31,7 +31,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="bg-primary text-on-primary px-6 py-3 text-center text-xs font-semibold flex justify-center items-center gap-4">
+      <div className="bg-primary-container text-on-primary-container px-6 py-3 text-center text-xs font-semibold flex justify-center items-center gap-4">
         <span>All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
         <Link to="/templates" className="bg-text-main text-surface px-5 py-1.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">Explore Now</Link>
       </div>
