@@ -31,61 +31,68 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="bg-primary-container text-on-primary-container px-6 py-3 text-center text-xs font-semibold flex justify-center items-center gap-4">
+      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
+        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
         <span>All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
-        <Link to="/templates" className="bg-text-main text-surface px-5 py-1.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">Explore Now</Link>
+        <Link to="/templates" className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity whitespace-nowrap">Explore Now</Link>
       </div>
 
-      <header className="bg-text-main flex flex-col w-full">
-        <div className="px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</Link>
-          <div className="flex items-center gap-6">
-            <Link to="/start-selling" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-              </button>
-              <Link to="/templates" className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</Link>
-            </div>
+      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
+        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
+              <span className="material-symbols-outlined text-white" style={{ fontSize: 18 }}>smart_toy</span>
+            </span>
+            <span className="text-lg font-bold text-surface tracking-tight">AIAgents</span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-1">
+            {[
+              { to: '/', label: 'AI Agents', icon: 'smart_toy' },
+              { to: '/templates', label: 'Templates', icon: 'dashboard' },
+              { to: '/integrations', label: 'Integrations', icon: 'api' },
+              { to: '/chatbots', label: 'Chatbots', icon: 'forum' },
+              { to: '/automation', label: 'Automation', icon: 'sync_alt' },
+              { to: '/ai-tools', label: 'AI Tools', icon: 'build' },
+            ].map(link => {
+              const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
+              return (
+                <Link key={link.to} to={link.to}
+                  className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{link.icon}</span>
+                  {link.label}
+                  {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
+                </Link>
+              )
+            })}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+            </button>
+            <Link to="/templates" className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">Sign In</Link>
           </div>
         </div>
-
-        <nav className="flex items-center px-6 h-12 border-t border-outline gap-1 overflow-x-auto">
-          {[
-            { to: '/', label: 'AI Agents', icon: 'smart_toy' },
-            { to: '/templates', label: 'Templates', icon: 'dashboard' },
-            { to: '/integrations', label: 'Integrations', icon: 'api' },
-            { to: '/chatbots', label: 'Chatbots', icon: 'forum' },
-            { to: '/automation', label: 'Automation', icon: 'sync_alt' },
-            { to: '/ai-tools', label: 'AI Tools', icon: 'build' },
-          ].map(link => (
-            <Link key={link.to} to={link.to}
-              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded whitespace-nowrap transition-all ${isActive(link.to) ? 'bg-primary/20 text-primary' : 'text-surface-variant hover:bg-white/10 hover:text-surface'}`}>
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{link.icon}</span>
-              {link.label}
-            </Link>
-          ))}
-          <div className="ml-auto bg-surface-variant/20 text-surface-variant px-3 py-1.5 rounded text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap">
-            <span className="material-symbols-outlined" style={{ fontSize: 14 }}>smart_toy</span>
-            aiagents.market
-          </div>
-        </nav>
       </header>
 
-      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-1 overflow-x-auto">
-        {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
-          const linkPath = navSubLinks[item].path
-          const fullPath = linkPath ? `/${linkPath}` : '/'
-          const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
-          return (
-            <Link key={item} to={fullPath}
-              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded whitespace-nowrap transition-all ${isSubActive ? 'bg-primary/10 text-primary border border-primary/20' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{navSubLinks[item].icon}</span>
-              {item}
-            </Link>
-          )
-        })}
+      <div className="bg-surface border-b border-border-light">
+        <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
+          {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
+            const { path, icon } = navSubLinks[item]
+            const fullPath = path ? `/${path}` : '/'
+            const isSubActive = path ? location.pathname.startsWith(`/${path}`) : location.pathname === '/'
+            return (
+              <Link key={item} to={fullPath}
+                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
+                <span className="material-symbols-outlined" style={{ fontSize: 15 }}>{icon}</span>
+                {item}
+              </Link>
+            )
+          })}
+        </div>
       </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
