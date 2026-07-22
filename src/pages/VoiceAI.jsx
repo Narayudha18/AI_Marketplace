@@ -90,64 +90,70 @@ export default function VoiceAI() {
 
   return (
     <>
-      <div className="bg-primary-container text-on-primary-container py-2 px-6 text-center text-xs font-semibold flex justify-center items-center gap-4">
+      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
+        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
         <span>Premium voice AI APIs & SDKs for speech-enabled applications.</span>
-        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })} className="bg-text-main text-surface px-4 py-1 rounded text-[11px] font-bold cursor-pointer">Browse All</button>
+        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap">
+          Browse All
+        </button>
       </div>
 
-      <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
-        <div className="px-6 h-16 flex items-center justify-between">
-          <a href="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</a>
-          <div className="flex items-center gap-6">
-            <Link to="/start-selling" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-              </button>
-              <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
-            </div>
-          </div>
-        </div>
+      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
+        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
+              <span className="material-symbols-outlined text-white" style={{ fontSize: 18 }}>smart_toy</span>
+            </span>
+            <span className="text-lg font-bold text-surface tracking-tight">AIAgents</span>
+          </Link>
 
-        <div className="px-6 h-12 flex items-center justify-between border-t border-outline">
-          <nav className="flex h-full">
+          <div className="hidden md:flex items-center gap-1">
             {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools & APIs' },
+              { to: '/', label: 'AI Agents', icon: 'smart_toy' },
+              { to: '/templates', label: 'Templates', icon: 'dashboard' },
+              { to: '/integrations', label: 'Integrations', icon: 'api' },
+              { to: '/chatbots', label: 'Chatbots', icon: 'forum' },
+              { to: '/automation', label: 'Automation', icon: 'sync_alt' },
+              { to: '/ai-tools', label: 'AI Tools', icon: 'build' },
             ].map(link => {
               const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
                 <Link key={link.to} to={link.to}
-                  className={`text-xs font-semibold flex items-center px-4 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-surface-variant hover:text-surface transition-colors'}`}>
+                  className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{link.icon}</span>
                   {link.label}
+                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
                 </Link>
               )
             })}
-          </nav>
-          <div className="bg-surface-variant text-text-main px-4 py-1.5 rounded-t text-xs font-semibold flex items-center gap-2">
-            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>dashboard</span>
-            voice.market
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+            </button>
+            <Link to="/templates" className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">Sign In</Link>
           </div>
         </div>
       </header>
 
-      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-6 overflow-x-auto">
+      <div className="bg-surface border-b border-border-light">
+        <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
           {['All Voice AI', 'Speech Recognition', 'Text-to-Speech', 'Voice Cloning', 'Audio Processing'].map(item => {
             const slug = item === 'All Voice AI' ? '' : toSlug(item)
             const target = slug ? `/voice-ai/c/${slug}` : '/voice-ai'
             const isSubActive = location.pathname === target
             return (
               <Link key={item} to={target}
-                className={`text-xs font-semibold flex items-center px-4 whitespace-nowrap ${isSubActive ? 'text-primary border-b-2 border-primary pb-[2px]' : 'text-on-surface-variant hover:text-primary transition-colors'}`}>
+                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
                 {item}
               </Link>
             )
           })}
+        </div>
       </div>
 
       <main className="w-full max-w-[1440px] mx-auto pb-16">
