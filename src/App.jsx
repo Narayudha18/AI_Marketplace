@@ -14,6 +14,13 @@ import AiTools from './pages/AiTools'
 import ProductDetail from './pages/ProductDetail'
 import CategoryListing from './pages/CategoryListing'
 import StartSelling from './pages/StartSelling'
+import Terms from './pages/Terms'
+import Licenses from './pages/Licenses'
+import ApiDocs from './pages/ApiDocs'
+import Privacy from './pages/Privacy'
+import HelpCenter from './pages/HelpCenter'
+import Authors from './pages/Authors'
+import Sitemap from './pages/Sitemap'
 
 function Home() {
   return (
@@ -51,6 +58,13 @@ export default function App() {
       <Route path="/ai-tools/c/:filter" element={<CategoryListing />} />
       <Route path="/ai-tools/:slug" element={<ProductDetail />} />
       <Route path="/start-selling" element={<StartSelling />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/licenses" element={<Licenses />} />
+      <Route path="/api" element={<ApiDocs />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/help" element={<HelpCenter />} />
+      <Route path="/authors" element={<Authors />} />
+      <Route path="/sitemap" element={<Sitemap />} />
     </Routes>
   );
 }

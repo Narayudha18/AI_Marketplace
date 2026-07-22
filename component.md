@@ -48,6 +48,13 @@
 | Seller Registration | **SellerForm** | `src/components/SellerForm.jsx` | `onSuccess` | `step`, `form{}`, `errors{}`, `submitting` | `next`, `prev`, `validateStep`, `handleSubmit` | `sellers (INSERT)` | `POST /api/seller/register` |
 | Seller Registration (Sidebar) | Benefit Card | inline di StartSelling | — | — | — | — | — |
 | Seller Registration (Sidebar) | Step Guide | inline di StartSelling | — | — | — | — | — |
+| Footer Page | **Terms** | `src/pages/Terms.jsx` | — | — | — | — | — |
+| Footer Page | **Licenses** | `src/pages/Licenses.jsx` | — | — | — | — | — |
+| Footer Page | **ApiDocs** | `src/pages/ApiDocs.jsx` | — | — | — | — | `GET/POST /api/*` |
+| Footer Page | **Privacy** | `src/pages/Privacy.jsx` | — | — | — | — | — |
+| Footer Page | **HelpCenter** | `src/pages/HelpCenter.jsx` | — | — | — | — | — |
+| Footer Page | **Authors** | `src/pages/Authors.jsx` | — | — | — | — | — |
+| Footer Page | **Sitemap** | `src/pages/Sitemap.jsx` | — | — | — | — | — |
 
 ### 1.5. Halaman Detail & Kategori
 
@@ -234,6 +241,34 @@ App.jsx (Routes)
 │   ├── SellerForm (2/3 width)
 │   └── Sidebar info (1/3): benefit card, step guide, FAQ note
 │
+├── Terms (/terms)
+│   └── Static content: Terms of Service + Navbar + Footer
+│
+├── Licenses (/licenses)
+│   ├── 3 license cards (Regular, Extended, Enterprise)
+│   └── Navbar + Footer
+│
+├── ApiDocs (/api)
+│   ├── REST API endpoint list with method badges
+│   └── Navbar + Footer
+│
+├── Privacy (/privacy)
+│   └── Static content: Privacy Policy + Navbar + Footer
+│
+├── HelpCenter (/help)
+│   ├── FAQ accordion
+│   ├── Support contact card
+│   └── Navbar + Footer
+│
+├── Authors (/authors)
+│   ├── 4-step selling guide grid
+│   ├── Author benefits list
+│   └── Navbar + Footer
+│
+├── Sitemap (/sitemap)
+│   ├── Link grid (Marketplace, Legal, Support)
+│   └── Navbar + Footer
+│
 ├── ProductDetail (/:category/:slug)
 │   ├── Tabs: Produk | Review & Rating | Komentar | Support
 │   ├── Review form (hanya jika sudah purchase)
@@ -343,6 +378,13 @@ App.jsx (Routes)
 | `/ai-tools/c/:filter` | CategoryListing | Filter AI tools per kategori |
 | `/ai-tools/:slug` | ProductDetail | Detail AI tool |
 | `/start-selling` | StartSelling | Pendaftaran penjual dengan form multi-step |
+| `/terms` | Terms | Terms of Service |
+| `/licenses` | Licenses | Opsi lisensi produk |
+| `/api` | ApiDocs | Dokumentasi REST API |
+| `/privacy` | Privacy | Kebijakan privasi |
+| `/help` | HelpCenter | Pusat bantuan & FAQ |
+| `/authors` | Authors | Panduan penulis |
+| `/sitemap` | Sitemap | Indeks seluruh halaman |
 
 ---
 

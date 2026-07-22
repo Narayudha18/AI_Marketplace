@@ -1,3 +1,18 @@
+## v3.0 — 2026-07-22
+
+### Komponen
+- **Terms** — Halaman Terms of Service baru [file: src/pages/Terms.jsx]
+- **Licenses** — Halaman license options dengan 3 pricing cards [file: src/pages/Licenses.jsx]
+- **ApiDocs** — Halaman dokumentasi REST API [file: src/pages/ApiDocs.jsx]
+- **Privacy** — Halaman Privacy Policy baru [file: src/pages/Privacy.jsx]
+- **HelpCenter** — Halaman FAQ accordion + support contact [file: src/pages/HelpCenter.jsx]
+- **Authors** — Halaman panduan author + benefits [file: src/pages/Authors.jsx]
+- **Sitemap** — Halaman site index dengan link grid [file: src/pages/Sitemap.jsx]
+- **Footer** — Semua link placeholder (`href="#"`) diganti ke route sebenarnya [file: src/components/Footer.jsx]
+
+### Routing
+- Tambah 7 route baru: /terms, /licenses, /api, /privacy, /help, /authors, /sitemap
+
 ## v2.3 — 2026-07-22
 
 ### Komponen

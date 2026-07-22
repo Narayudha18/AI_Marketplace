@@ -28,6 +28,13 @@
 | `/ai-tools/c/:filter` | CategoryListing | Filtered tools listing |
 | `/ai-tools/:slug` | ProductDetail | Product detail page |
 | `/start-selling` | StartSelling | Seller registration form |
+| `/terms` | Terms | Terms of Service |
+| `/licenses` | Licenses | License options |
+| `/api` | ApiDocs | API documentation |
+| `/privacy` | Privacy | Privacy Policy |
+| `/help` | HelpCenter | FAQ & support |
+| `/authors` | Authors | Author benefits & guide |
+| `/sitemap` | Sitemap | Complete site index |
 
 ## Component Architecture
 
@@ -56,6 +63,13 @@
 - **CategoryListing.jsx** — Generic filtered listing for all categories (reads URL param `:filter`)
 - **ProductDetail.jsx** — Product detail: tabs (Produk, Review & Rating, Komentar, Support), favorites heart, cart, payment
 - **StartSelling.jsx** — Seller onboarding page: hero, stats, 2/3 form + 1/3 sidebar info
+- **Terms.jsx** — Terms of Service content page
+- **Licenses.jsx** — License options with 3 pricing cards
+- **ApiDocs.jsx** — REST API endpoint documentation
+- **Privacy.jsx** — Privacy Policy content page
+- **HelpCenter.jsx** — FAQ accordion + support contact
+- **Authors.jsx** — Author guide + benefits list
+- **Sitemap.jsx** — Site index with link grid
 
 Each listing page has:
 - A top banner with a CTA button that scrolls to the product grid (`scrollIntoView`)
