@@ -15,7 +15,9 @@
 |---|---|---|---|---|---|---|---|
 | Semua Halaman | **App** | `src/App.jsx` | — | — | Route rendering | — | — |
 | Semua Halaman | **CartProvider** | `src/CartContext.jsx` | `children` | `cart`, `purchased`, `favorites` (all localStorage) | `addToCart`, `removeFromCart`, `clearCart`, `markAsPurchased`, `inCart`, `hasPurchased`, `toggleFavorite`, `isFavorite`, `getFavoriteCategories` | `carts`, `purchases`, `favorites` | `GET/POST /api/cart`, `POST /api/orders`, `GET/POST /api/favorites` |
+| Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (in-memory only) | `register`, `login`, `logout`, `updatePassword`, `updatePicture` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
 | Semua Halaman | **Navbar** | `src/components/Navbar.jsx` | — | `cartOpen` | `setCartOpen(true)` → buka CartDrawer | `categories` (static) | `GET /api/categories` |
+| Semua Halaman | **AuthButton** | `src/components/AuthButton.jsx` | — | `open` (dropdown) | Logged out→Link to /login, logged in→Link to /profile + dropdown Sign Out | — | — |
 | Semua Halaman | **CartDrawer** | `src/components/CartDrawer.jsx` | `open`, `onClose` | `paymentOpen` | `removeFromCart`, `clearCart`, `markAsPurchased`; body scroll lock | `carts (SELECT, DELETE)`, `orders (INSERT)` | `GET/POST /api/cart`, `POST /api/orders` |
 | Semua Halaman | **PaymentModal** | `src/components/PaymentModal.jsx` | `open`, `onClose`, `total`, `cart`, `onSuccess` | `step`, `selected` | `onSuccess` → `markAsPurchased` + `clearCart`; QR/barcode canvas render | `orders (INSERT)`, `payments (INSERT)` | `POST /api/orders`, `POST /api/payments` |
 | Semua Halaman | **Footer** | `src/components/Footer.jsx` | — | — | — | — | — |
@@ -61,6 +63,9 @@
 | Listing Page | **FineTuning** | `src/pages/FineTuning.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='fine-tuning')` | `GET /api/products/fine-tuning` |
 | Listing Page | **Monitoring** | `src/pages/Monitoring.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='monitoring')` | `GET /api/products/monitoring` |
 | Listing Page | **Security** | `src/pages/Security.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='security')` | `GET /api/products/security` |
+| Auth Page | **Login** | `src/pages/Login.jsx` | — | `email`, `password`, `error` | `handleSubmit` → `login()` from AuthContext, redirect `/` | `users` | `POST /api/auth/login` |
+| Auth Page | **Register** | `src/pages/Register.jsx` | — | `name`, `email`, `password`, `confirm`, `error` | `handleSubmit` → `register()` from AuthContext, redirect `/` | `users` | `POST /api/auth/register` |
+| Auth Page | **Profile** | `src/pages/Profile.jsx` | — | `currentPw`, `newPw`, `confirmPw`, `pwMsg` | `updatePassword`, `updatePicture`, stats from CartContext | `users` | `GET /api/auth/me`, `PUT /api/auth/password`, `PUT /api/auth/picture` |
 
 ### 1.5. Halaman Detail & Kategori
 
@@ -397,6 +402,9 @@ App.jsx (Routes)
 | `/help` | HelpCenter | Pusat bantuan & FAQ |
 | `/authors` | Authors | Panduan penulis |
 | `/sitemap` | Sitemap | Indeks seluruh halaman |
+| `/login` | Login | Login (standalone, tanpa navbar/footer) |
+| `/register` | Register | Register (standalone, tanpa navbar/footer) |
+| `/profile` | Profile | Dashboard user (harus login) |
 
 ---
 
@@ -431,6 +439,6 @@ App.jsx (Routes)
 | **Favorites** | localStorage via CartContext | DB `favorites` via API |
 | **Reviews/Comments** | localStorage per produk | DB `reviews` + `comments` via API |
 | **Payment** | Canvas QR/barcode simulasi | Payment gateway (Midtrans/Xendit) |
-| **Auth** | Tombol statis "Sign In" | JWT + register/login flow |
+| **Auth** | Dummy in-memory state (AuthContext) | JWT + register/login flow |
 | **Search** | Client-side filter array | Full-text search (tsvector / Elasticsearch) |
 | **Gambar** | picsum.photos (external) | Self-hosted / CDN |

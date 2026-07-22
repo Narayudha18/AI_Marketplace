@@ -1,3 +1,21 @@
+## v5.0 — 2026-07-22
+
+### Auth
+- **AuthContext** — Global auth state in-memory: users array, currentUser, register/login/logout, updatePassword, updatePicture [file: src/AuthContext.jsx]
+- **AuthButton** — Conditional UI: logged out→"Sign In" link, logged in→avatar+name link ke /profile + dropdown Sign Out [file: src/components/AuthButton.jsx]
+
+### Halaman
+- **Login** — Standalone (tanpa navbar/footer), Google OAuth button, email/password form, redirect ke / [file: src/pages/Login.jsx]
+- **Register** — Standalone (tanpa navbar/footer), Google OAuth button, email/password form, redirect ke / [file: src/pages/Register.jsx]
+- **Profile** — Dashboard user: avatar (upload via FileReader/base64), stat cards (cart/purchased/favorites), account details, change password form [file: src/pages/Profile.jsx]
+
+### Navbar
+- **Navbar** — Semua tombol Sign In diganti AuthButton (termasuk 14 halaman listing inline navbar) [file: src/components/Navbar.jsx]
+- **Premium style** — Gradient announcement bar ("New" badge), sticky header, pill tabs, no icons, sync di semua halaman
+
+### Fix
+- Hapus duplicate security routes di App.jsx
+
 ## v4.0 — 2026-07-22
 
 ### Komponen

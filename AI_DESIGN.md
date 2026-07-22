@@ -51,17 +51,19 @@
 | `/monitoring/c/:filter` | CategoryListing | Filtered monitoring listing |
 | `/monitoring/:slug` | ProductDetail | Product detail page |
 | `/security` | Security | Security listing |
-| `/security/c/:filter` | CategoryListing | Filtered security listing |
-| `/security/:slug` | ProductDetail | Product detail page |
+| `/login` | Login | Standalone login page (Google OAuth + email/password) |
+| `/register` | Register | Standalone register page (Google OAuth + email/password) |
+| `/profile` | Profile | User dashboard: avatar, stats, account details, change password, upload PP |
 
 ## Component Architecture
 
 ### App-level
 - **App.jsx** — Route definitions, Home wrapper
 - **CartContext.jsx** — Global state: cart items, purchased items, favorites. Persisted to localStorage.
+- **AuthContext.jsx** — Global auth state: users array, currentUser, register/login/logout, updatePassword, updatePicture. In-memory only.
 
 ### Shared Components (`src/components/`)
-- **Navbar.jsx** — Main nav (AI Agents, Templates, Integrations, Chatbots, Automation, AI Tools & APIs) + sub-navbar (All Items, GPT Agents, Voice AI→`/voice-ai`, Image Gen→`/image-gen`, RAG Pipelines→`/integrations`, Workflow→`/automation`, Analytics→`/analytics`, Fine-tuning→`/fine-tuning`, Deployment→`/templates`, Monitoring→`/monitoring`, Security→`/security`) with active-state underlines (`useLocation`)
+- **Navbar.jsx** — Premium style: gradient announcement bar ("New" badge), sticky header, pill-tab main nav with bottom active indicator, sub-nav pills, no icons. Uses `AuthButton` for auth state.
 - **Hero.jsx** — Homepage hero with search bar (navigates to `/templates?search=QUERY`), Ctrl+Enter or button click
 - **Categories.jsx** — Expandable category grid (3 visible → 10 expanded, toggle with "View more categories" / "Show less")
 - **ProductGrid.jsx** — Featured products grid (from templates data)
@@ -71,6 +73,7 @@
 - **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet (DANA, GoPay, ShopeePay, OVO, LinkAja), Bank Transfer, Convenience Store
 - **Footer.jsx** — Site footer
 - **SellerForm.jsx** — Multi-step seller registration form (Akun → Toko → Verifikasi → Selesai)
+- **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown arrow for Sign Out
 
 ### Page Components (`src/pages/`)
 - **Templates.jsx** — Template listing: search, sidebar filters, 3→8 expandable categories, product grid with favorites
@@ -94,6 +97,9 @@
 - **FineTuning.jsx** — Fine-tuning listing: search, sidebar filters, category cards, product grid
 - **Monitoring.jsx** — Monitoring listing: search, sidebar filters, category cards, product grid
 - **Security.jsx** — Security listing: search, sidebar filters, category cards, product grid
+- **Login.jsx** — Standalone login (no navbar/footer). Google OAuth button + email/password form. Redirects to `/` on success.
+- **Register.jsx** — Standalone register (no navbar/footer). Google OAuth button + email/password form. Redirects to `/` on success.
+- **Profile.jsx** — User dashboard: avatar (with upload), name, email, stat cards (cart/purchased/favorites), account details table, change password form.
 
 Each listing page has:
 - A top banner with a CTA button that scrolls to the product grid (`scrollIntoView`)
