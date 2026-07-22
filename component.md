@@ -55,6 +55,12 @@
 | Footer Page | **HelpCenter** | `src/pages/HelpCenter.jsx` | — | — | — | — | — |
 | Footer Page | **Authors** | `src/pages/Authors.jsx` | — | — | — | — | — |
 | Footer Page | **Sitemap** | `src/pages/Sitemap.jsx` | — | — | — | — | — |
+| Listing Page | **VoiceAI** | `src/pages/VoiceAI.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='voice-ai')` | `GET /api/products/voice-ai` |
+| Listing Page | **ImageGen** | `src/pages/ImageGen.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='image-gen')` | `GET /api/products/image-gen` |
+| Listing Page | **Analytics** | `src/pages/Analytics.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='analytics')` | `GET /api/products/analytics` |
+| Listing Page | **FineTuning** | `src/pages/FineTuning.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='fine-tuning')` | `GET /api/products/fine-tuning` |
+| Listing Page | **Monitoring** | `src/pages/Monitoring.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='monitoring')` | `GET /api/products/monitoring` |
+| Listing Page | **Security** | `src/pages/Security.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='security')` | `GET /api/products/security` |
 
 ### 1.5. Halaman Detail & Kategori
 
@@ -103,6 +109,12 @@
 | `src/data/chatbots.json` | 8 | `name`, `desc`, `price`, `sales`, `rating`, `platform`, `seed` | `products` (type='chatbot') | Chatbots, ProductDetail, CategoryListing, FavoriteRecommendations |
 | `src/data/automation.json` | 8 | `name`, `desc`, `price`, `sales`, `rating`, `category`, `seed` | `products` (type='automation') | Automation, ProductDetail, CategoryListing, FavoriteRecommendations |
 | `src/data/aitools.json` | 13 | `name`, `desc`, `price`, `badge`, `category`, `seed` | `products` (type='aitool') | AiTools, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/voice-ai.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='voice-ai') | VoiceAI, ProductDetail, CategoryListing |
+| `src/data/image-gen.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='image-gen') | ImageGen, ProductDetail, CategoryListing |
+| `src/data/analytics.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='analytics') | Analytics, ProductDetail, CategoryListing |
+| `src/data/fine-tuning.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='fine-tuning') | FineTuning, ProductDetail, CategoryListing |
+| `src/data/monitoring.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='monitoring') | Monitoring, ProductDetail, CategoryListing |
+| `src/data/security.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='security') | Security, ProductDetail, CategoryListing |
 
 ### 3.2. Future Database Schema (PostgreSQL)
 

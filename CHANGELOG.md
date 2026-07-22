@@ -1,3 +1,33 @@
+## v4.0 — 2026-07-22
+
+### Komponen
+- **VoiceAI** — Halaman listing Voice AI baru dengan sidebar filter [file: src/pages/VoiceAI.jsx]
+- **ImageGen** — Halaman listing Image Gen baru dengan sidebar filter [file: src/pages/ImageGen.jsx]
+- **Analytics** — Halaman listing Analytics baru dengan sidebar filter [file: src/pages/Analytics.jsx]
+- **FineTuning** — Halaman listing Fine-tuning baru dengan sidebar filter [file: src/pages/FineTuning.jsx]
+- **Monitoring** — Halaman listing Monitoring baru dengan sidebar filter [file: src/pages/Monitoring.jsx]
+- **Security** — Halaman listing Security baru dengan sidebar filter [file: src/pages/Security.jsx]
+
+### Data
+- voice-ai.json — 8 item Voice AI baru [file: src/data/voice-ai.json]
+- image-gen.json — 8 item Image Gen baru [file: src/data/image-gen.json]
+- analytics.json — 8 item Analytics baru [file: src/data/analytics.json]
+- fine-tuning.json — 8 item Fine-tuning baru [file: src/data/fine-tuning.json]
+- monitoring.json — 8 item Monitoring baru [file: src/data/monitoring.json]
+- security.json — 8 item Security baru [file: src/data/security.json]
+
+### Routing
+- Tambah 6 route listing baru: /voice-ai, /image-gen, /analytics, /fine-tuning, /monitoring, /security
+- Tambah 6 route kategori (/:filter) untuk masing-masing
+- Tambah 6 route detail (/:slug) untuk masing-masing
+- Navbar navSubLinks diarahkan ke halaman masing-masing (tidak lagi redirect ke /ai-tools atau /integrations)
+
+### CategoryListing
+- Tambah 6 config entry baru: voice-ai, image-gen, analytics, fine-tuning, monitoring, security
+
+### ProductDetail
+- Tambah 6 config entry baru: voice-ai, image-gen, analytics, fine-tuning, monitoring, security
+
 ## v3.0 — 2026-07-22
 
 ### Komponen

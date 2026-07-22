@@ -10,15 +10,15 @@ function toSlug(str) {
 const navSubLinks = {
   'All Items': '',
   'GPT Agents': 'chatbots',
-  'Voice AI': 'ai-tools/c/audio-speech',
-  'Image Gen': 'ai-tools/c/image-gen',
+  'Voice AI': 'voice-ai',
+  'Image Gen': 'image-gen',
   'RAG Pipelines': 'integrations',
   'Workflow': 'automation',
-  'Analytics': 'ai-tools',
-  'Fine-tuning': 'ai-tools',
+  'Analytics': 'analytics',
+  'Fine-tuning': 'fine-tuning',
   'Deployment': 'templates',
-  'Monitoring': 'integrations',
-  'Security': 'integrations',
+  'Monitoring': 'monitoring',
+  'Security': 'security',
 }
 
 export default function Navbar() {

@@ -1,0 +1,10 @@
+[
+  { "title": "GuardianAI | LLM Guardrails Suite", "author": "safetynet", "category": "Guardrails", "price": "$99", "sales": "456 Sales", "seed": "guardianai" },
+  { "title": "FenceKeep | Content Policy Enforcer", "author": "boundarylab", "category": "Guardrails", "price": "$69", "sales": "678 Sales", "seed": "fencekeep" },
+  { "title": "RedTeamX | AI Penetration Tester", "author": "cyberforge", "category": "Red Teaming", "price": "$149", "sales": "123 Sales", "seed": "redteamx" },
+  { "title": "AdversarySim | Attack Simulation", "author": "threatlabs", "category": "Red Teaming", "price": "$109", "sales": "89 Sales", "seed": "adversarysim" },
+  { "title": "RegulaAI | Compliance Auditor", "author": "complycore", "category": "Compliance", "price": "$129", "sales": "198 Sales", "seed": "regulaai" },
+  { "title": "DocuCheck | Policy & Regulation Tool", "author": "governlab", "category": "Compliance", "price": "$79", "sales": "267 Sales", "seed": "docucheck" },
+  { "title": "PrivyShield | Data Privacy Manager", "author": "privacore", "category": "Data Privacy", "price": "$89", "sales": "345 Sales", "seed": "privyshield" },
+  { "title": "AnonyFlow | Data Anonymization", "author": "masklayer", "category": "Data Privacy", "price": "$59", "sales": "512 Sales", "seed": "anonyflow" }
+]

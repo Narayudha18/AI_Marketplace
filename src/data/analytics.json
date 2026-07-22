@@ -1,0 +1,10 @@
+[
+  { "title": "MetricVue | Executive Dashboard", "author": "datavision", "category": "Dashboards", "price": "$69", "sales": "1.9k Sales", "seed": "metricvue" },
+  { "title": "InsightBoard | KPI Tracker", "author": "analytixlab", "category": "Dashboards", "price": "$49", "sales": "2.4k Sales", "seed": "insightboard" },
+  { "title": "ChartFlow | Interactive Data Viz", "author": "visualizeio", "category": "Data Viz", "price": "$59", "sales": "1.7k Sales", "seed": "chartflow" },
+  { "title": "GraphPulse | Real-time Charts", "author": "plotwave", "category": "Data Viz", "price": "$34", "sales": "3.2k Sales", "seed": "graphpulse" },
+  { "title": "DecisiX | BI Decision Platform", "author": "intelldata", "category": "BI Tools", "price": "$99", "sales": "567 Sales", "seed": "decisix" },
+  { "title": "QueryCraft | Natural Language BI", "author": "speakdata", "category": "BI Tools", "price": "$79", "sales": "823 Sales", "seed": "querycraft" },
+  { "title": "ReportGen | Automated Reporting", "author": "papersync", "category": "Reporting", "price": "$44", "sales": "1.4k Sales", "seed": "reportgen" },
+  { "title": "PDFly | Insight Summarizer", "author": "digestlabs", "category": "Reporting", "price": "$29", "sales": "2.1k Sales", "seed": "pdfly" }
+]

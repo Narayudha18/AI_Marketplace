@@ -1,0 +1,10 @@
+[
+  { "title": "ModelWatch | LLM Performance Monitor", "author": "observeai", "category": "LLM Monitoring", "price": "$79", "sales": "567 Sales", "seed": "modelwatch" },
+  { "title": "TraceMind | Inference Log Analyzer", "author": "logilabs", "category": "LLM Monitoring", "price": "$59", "sales": "423 Sales", "seed": "tracemind" },
+  { "title": "CostVue | AI Spend Tracker", "author": "financelab", "category": "Cost Tracking", "price": "$49", "sales": "1.1k Sales", "seed": "costvue" },
+  { "title": "TokenBudget | Usage & Cost Dashboard", "author": "pricelens", "category": "Cost Tracking", "price": "$34", "sales": "2.3k Sales", "seed": "tokenbudget" },
+  { "title": "LogStream | AI Inference Logger", "author": "streamcore", "category": "Logging", "price": "$44", "sales": "789 Sales", "seed": "logstream" },
+  { "title": "PromptLog | Prompt History Recorder", "author": "audittrail", "category": "Logging", "price": "$29", "sales": "1.5k Sales", "seed": "promptlog" },
+  { "title": "AlertCortex | Anomaly Detection Alert", "author": "pulseguard", "category": "Alerting", "price": "$69", "sales": "345 Sales", "seed": "alertcortex" },
+  { "title": "NotifyAI | Smart Incident Response", "author": "oncallmind", "category": "Alerting", "price": "$89", "sales": "234 Sales", "seed": "notifyai" }
+]

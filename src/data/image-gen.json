@@ -1,0 +1,10 @@
+[
+  { "title": "PixelForge | Text-to-Image Generator", "author": "artivision", "category": "Text-to-Image", "price": "$49", "sales": "4.2k Sales", "seed": "pixelforge" },
+  { "title": "DreamCanvas | AI Art Studio", "author": "creativemind", "category": "Text-to-Image", "price": "$39", "sales": "3.8k Sales", "seed": "dreamcanvas" },
+  { "title": "RetouchAI | Smart Image Editor", "author": "editlabs", "category": "Image Editing", "price": "$29", "sales": "2.5k Sales", "seed": "retouchai" },
+  { "title": "StyleShift | Image Transformation", "author": "pixelpulse", "category": "Image Editing", "price": "$44", "sales": "1.6k Sales", "seed": "styleshift" },
+  { "title": "MotionCraft | AI Video Generator", "author": "framelabs", "category": "Video Gen", "price": "$99", "sales": "978 Sales", "seed": "motioncraft" },
+  { "title": "ClipForge | Short Video Creator", "author": "reelcraft", "category": "Video Gen", "price": "$59", "sales": "1.3k Sales", "seed": "clipforge" },
+  { "title": "ShapeMind | 3D Model Generator", "author": "depthlabs", "category": "3D Models", "price": "$129", "sales": "445 Sales", "seed": "shapemind" },
+  { "title": "VoxelForge | Procedural 3D Assets", "author": "polycraft", "category": "3D Models", "price": "$89", "sales": "623 Sales", "seed": "voxelforge" }
+]

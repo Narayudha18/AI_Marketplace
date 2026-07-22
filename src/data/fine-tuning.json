@@ -1,0 +1,10 @@
+[
+  { "title": "TuneMaster | LLM Fine-Tuning Suite", "author": "modelforge", "category": "LLM Tuning", "price": "$149", "sales": "234 Sales", "seed": "tunemaster" },
+  { "title": "LoRAForge | Parameter-Efficient Tuning", "author": "weightlabs", "category": "LLM Tuning", "price": "$89", "sales": "567 Sales", "seed": "loraforge" },
+  { "title": "EmbedCraft | Vector Embedding Pipeline", "author": "semanticai", "category": "Embeddings", "price": "$59", "sales": "1.2k Sales", "seed": "embedcraft" },
+  { "title": "VectorFlow | Embedding Management", "author": "indexlab", "category": "Embeddings", "price": "$69", "sales": "978 Sales", "seed": "vectorflow" },
+  { "title": "PreferencePro | RLHF Training Kit", "author": "alignminds", "category": "RLHF", "price": "$129", "sales": "145 Sales", "seed": "preferencepro" },
+  { "title": "RewardStack | Human Feedback Pipeline", "author": "trainloop", "category": "RLHF", "price": "$99", "sales": "198 Sales", "seed": "rewardstack" },
+  { "title": "DistilML | Model Distillation Tool", "author": "compressai", "category": "Model Distillation", "price": "$109", "sales": "312 Sales", "seed": "distilml" },
+  { "title": "TinyBrain | Compact Model Generator", "author": "edgelabs", "category": "Model Distillation", "price": "$79", "sales": "456 Sales", "seed": "tinybrain" }
+]

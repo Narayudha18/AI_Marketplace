@@ -1,0 +1,10 @@
+[
+  { "title": "DeepListen | Speech Recognition API", "author": "audiolabs", "category": "Speech Recognition", "price": "$49", "sales": "2.3k Sales", "seed": "deeplisten" },
+  { "title": "VoxScript | Real-time Transcription", "author": "wavemind", "category": "Speech Recognition", "price": "$39", "sales": "1.8k Sales", "seed": "voxscript" },
+  { "title": "SpeakSync | Text-to-Speech Engine", "author": "voicraft", "category": "Text-to-Speech", "price": "$59", "sales": "3.1k Sales", "seed": "speaksync" },
+  { "title": "Narraly | AI Voice Narrator", "author": "soundforge", "category": "Text-to-Speech", "price": "$29", "sales": "894 Sales", "seed": "narraly" },
+  { "title": "CloneVoice | Voice Cloning Studio", "author": "resonancelab", "category": "Voice Cloning", "price": "$149", "sales": "567 Sales", "seed": "clonevoice" },
+  { "title": "VoiceMask | Identity Protection", "author": "privacycore", "category": "Voice Cloning", "price": "$79", "sales": "312 Sales", "seed": "voicemask" },
+  { "title": "Audiflow | Audio Processing Pipeline", "author": "soundwave", "category": "Audio Processing", "price": "$69", "sales": "1.1k Sales", "seed": "audiflow" },
+  { "title": "NoiseGate | Clean Audio Filter", "author": "clearsignal", "category": "Audio Processing", "price": "$34", "sales": "2.7k Sales", "seed": "noisegate" }
+]

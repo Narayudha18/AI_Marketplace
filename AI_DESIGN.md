@@ -35,6 +35,24 @@
 | `/help` | HelpCenter | FAQ & support |
 | `/authors` | Authors | Author benefits & guide |
 | `/sitemap` | Sitemap | Complete site index |
+| `/voice-ai` | VoiceAI | Voice AI listing |
+| `/voice-ai/c/:filter` | CategoryListing | Filtered voice AI listing |
+| `/voice-ai/:slug` | ProductDetail | Product detail page |
+| `/image-gen` | ImageGen | Image Gen listing |
+| `/image-gen/c/:filter` | CategoryListing | Filtered image gen listing |
+| `/image-gen/:slug` | ProductDetail | Product detail page |
+| `/analytics` | Analytics | Analytics listing |
+| `/analytics/c/:filter` | CategoryListing | Filtered analytics listing |
+| `/analytics/:slug` | ProductDetail | Product detail page |
+| `/fine-tuning` | FineTuning | Fine-tuning listing |
+| `/fine-tuning/c/:filter` | CategoryListing | Filtered fine-tuning listing |
+| `/fine-tuning/:slug` | ProductDetail | Product detail page |
+| `/monitoring` | Monitoring | Monitoring listing |
+| `/monitoring/c/:filter` | CategoryListing | Filtered monitoring listing |
+| `/monitoring/:slug` | ProductDetail | Product detail page |
+| `/security` | Security | Security listing |
+| `/security/c/:filter` | CategoryListing | Filtered security listing |
+| `/security/:slug` | ProductDetail | Product detail page |
 
 ## Component Architecture
 
@@ -43,7 +61,7 @@
 - **CartContext.jsx** — Global state: cart items, purchased items, favorites. Persisted to localStorage.
 
 ### Shared Components (`src/components/`)
-- **Navbar.jsx** — Main nav (AI Agents, Templates, Integrations, Chatbots, Automation, AI Tools & APIs) + sub-navbar (All Items, GPT Agents, Voice AI, etc.) with active-state underlines (`useLocation`)
+- **Navbar.jsx** — Main nav (AI Agents, Templates, Integrations, Chatbots, Automation, AI Tools & APIs) + sub-navbar (All Items, GPT Agents, Voice AI→`/voice-ai`, Image Gen→`/image-gen`, RAG Pipelines→`/integrations`, Workflow→`/automation`, Analytics→`/analytics`, Fine-tuning→`/fine-tuning`, Deployment→`/templates`, Monitoring→`/monitoring`, Security→`/security`) with active-state underlines (`useLocation`)
 - **Hero.jsx** — Homepage hero with search bar (navigates to `/templates?search=QUERY`), Ctrl+Enter or button click
 - **Categories.jsx** — Expandable category grid (3 visible → 10 expanded, toggle with "View more categories" / "Show less")
 - **ProductGrid.jsx** — Featured products grid (from templates data)
@@ -70,6 +88,12 @@
 - **HelpCenter.jsx** — FAQ accordion + support contact
 - **Authors.jsx** — Author guide + benefits list
 - **Sitemap.jsx** — Site index with link grid
+- **VoiceAI.jsx** — Voice AI listing: search, sidebar filters, category cards, product grid
+- **ImageGen.jsx** — Image Gen listing: search, sidebar filters, category cards, product grid
+- **Analytics.jsx** — Analytics listing: search, sidebar filters, category cards, product grid
+- **FineTuning.jsx** — Fine-tuning listing: search, sidebar filters, category cards, product grid
+- **Monitoring.jsx** — Monitoring listing: search, sidebar filters, category cards, product grid
+- **Security.jsx** — Security listing: search, sidebar filters, category cards, product grid
 
 Each listing page has:
 - A top banner with a CTA button that scrolls to the product grid (`scrollIntoView`)
@@ -116,5 +140,11 @@ Static JSON in `src/data/`:
 - `chatbots.json`
 - `automation.json`
 - `aitools.json`
+- `voice-ai.json`
+- `image-gen.json`
+- `analytics.json`
+- `fine-tuning.json`
+- `monitoring.json`
+- `security.json`
 
 Each item has: name/title, description, price, sales, rating, category, image, author, etc.

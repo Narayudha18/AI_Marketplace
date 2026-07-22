@@ -7,6 +7,12 @@ import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
 import automations from '../data/automation.json'
 import tools from '../data/aitools.json'
+import voiceAi from '../data/voice-ai.json'
+import imageGen from '../data/image-gen.json'
+import analyticsData from '../data/analytics.json'
+import fineTuningData from '../data/fine-tuning.json'
+import monitoringData from '../data/monitoring.json'
+import securityData from '../data/security.json'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -82,6 +88,66 @@ const categoryConfig = {
     items: tools,
     nameKey: 'name',
     getRelated: (item) => tools.filter(t => t.category === item.category && t.name !== item.name).slice(0, 3),
+  },
+  'voice-ai': {
+    label: 'Voice AI', navLink: '/voice-ai', icon: 'record_voice_over', badge: 'voice.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/voice-ai', label: 'Voice AI', active: true },
+    ],
+    items: voiceAi,
+    nameKey: 'title',
+    getRelated: (item) => voiceAi.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+  },
+  'image-gen': {
+    label: 'Image Gen', navLink: '/image-gen', icon: 'image', badge: 'image.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/image-gen', label: 'Image Gen', active: true },
+    ],
+    items: imageGen,
+    nameKey: 'title',
+    getRelated: (item) => imageGen.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+  },
+  analytics: {
+    label: 'Analytics', navLink: '/analytics', icon: 'analytics', badge: 'analytics.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/analytics', label: 'Analytics', active: true },
+    ],
+    items: analyticsData,
+    nameKey: 'title',
+    getRelated: (item) => analyticsData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+  },
+  'fine-tuning': {
+    label: 'Fine-tuning', navLink: '/fine-tuning', icon: 'tune', badge: 'finetune.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/fine-tuning', label: 'Fine-tuning', active: true },
+    ],
+    items: fineTuningData,
+    nameKey: 'title',
+    getRelated: (item) => fineTuningData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+  },
+  monitoring: {
+    label: 'Monitoring', navLink: '/monitoring', icon: 'monitoring', badge: 'monitor.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/monitoring', label: 'Monitoring', active: true },
+    ],
+    items: monitoringData,
+    nameKey: 'title',
+    getRelated: (item) => monitoringData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+  },
+  security: {
+    label: 'Security', navLink: '/security', icon: 'security', badge: 'secure.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/security', label: 'Security', active: true },
+    ],
+    items: securityData,
+    nameKey: 'title',
+    getRelated: (item) => securityData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
   },
 };
 

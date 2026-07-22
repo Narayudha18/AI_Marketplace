@@ -5,6 +5,12 @@ import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
 import automations from '../data/automation.json'
 import tools from '../data/aitools.json'
+import voiceAi from '../data/voice-ai.json'
+import imageGen from '../data/image-gen.json'
+import analyticsData from '../data/analytics.json'
+import fineTuningData from '../data/fine-tuning.json'
+import monitoringData from '../data/monitoring.json'
+import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 
@@ -116,6 +122,108 @@ const categoryConfig = {
       { href: '/chatbots', label: 'Chatbots' },
       { href: '/automation', label: 'Automation' },
       { href: '/ai-tools', label: 'AI Tools & APIs', active: true },
+    ],
+  },
+  'voice-ai': {
+    label: 'Voice AI', icon: 'record_voice_over', badge: 'voice.market', singular: 'voice ai',
+    banner: 'Build speech-enabled applications with cutting-edge voice recognition, TTS, and voice cloning APIs.',
+    heroTitle: 'Voice AI APIs & SDKs',
+    heroDesc: 'Build speech-enabled applications with cutting-edge voice recognition, text-to-speech, and voice cloning APIs.',
+    heroImg: 'voice-ai-hero',
+    searchPlaceholder: 'e.g. Speech recognition, TTS',
+    allLabel: 'All Voice AI',
+    items: voiceAi, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Voice AI', 'Speech Recognition', 'Text-to-Speech', 'Voice Cloning', 'Audio Processing'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/voice-ai', label: 'Voice AI', active: true },
+    ],
+  },
+  'image-gen': {
+    label: 'Image Gen', icon: 'image', badge: 'image.market', singular: 'image gen',
+    banner: 'Generate stunning visuals with text-to-image, image editing, video gen, and 3D model APIs.',
+    heroTitle: 'AI Image Generation Tools',
+    heroDesc: 'Generate stunning visuals with text-to-image, image editing, video generation, and 3D model APIs.',
+    heroImg: 'image-gen-hero',
+    searchPlaceholder: 'e.g. Stable Diffusion, DALL-E',
+    allLabel: 'All Image Gen',
+    items: imageGen, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Image Gen', 'Text-to-Image', 'Image Editing', 'Video Gen', '3D Models'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/image-gen', label: 'Image Gen', active: true },
+    ],
+  },
+  analytics: {
+    label: 'Analytics', icon: 'analytics', badge: 'analytics.market', singular: 'analytics',
+    banner: 'Uncover insights with intelligent dashboards, data visualization, BI tools, and automated reporting APIs.',
+    heroTitle: 'AI-Powered Analytics Tools',
+    heroDesc: 'Uncover insights with intelligent dashboards, data visualization, BI tools, and automated reporting APIs.',
+    heroImg: 'analytics-hero',
+    searchPlaceholder: 'e.g. Dashboard, BI tool',
+    allLabel: 'All Analytics',
+    items: analyticsData, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Analytics', 'Dashboards', 'Data Viz', 'BI Tools', 'Reporting'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/analytics', label: 'Analytics', active: true },
+    ],
+  },
+  'fine-tuning': {
+    label: 'Fine-tuning', icon: 'tune', badge: 'finetune.market', singular: 'fine-tuning',
+    banner: 'Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case.',
+    heroTitle: 'Model Fine-Tuning Platforms',
+    heroDesc: 'Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case.',
+    heroImg: 'finetuning-hero',
+    searchPlaceholder: 'e.g. LLM fine-tuning, RLHF',
+    allLabel: 'All Fine-tuning',
+    items: fineTuningData, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Fine-tuning', 'LLM Tuning', 'Embeddings', 'RLHF', 'Model Distillation'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/fine-tuning', label: 'Fine-tuning', active: true },
+    ],
+  },
+  monitoring: {
+    label: 'Monitoring', icon: 'monitoring', badge: 'monitor.market', singular: 'monitoring',
+    banner: 'Track LLM performance, monitor costs, centralize logging, and set up intelligent alerting.',
+    heroTitle: 'AI Monitoring & Observability',
+    heroDesc: 'Track LLM performance, monitor costs, centralize logging, and set up intelligent alerting for your AI stack.',
+    heroImg: 'monitoring-hero',
+    searchPlaceholder: 'e.g. LLM monitoring, cost tracking',
+    allLabel: 'All Monitoring',
+    items: monitoringData, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Monitoring', 'LLM Monitoring', 'Cost Tracking', 'Logging', 'Alerting'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/monitoring', label: 'Monitoring', active: true },
+    ],
+  },
+  security: {
+    label: 'Security', icon: 'security', badge: 'secure.market', singular: 'security',
+    banner: 'Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools.',
+    heroTitle: 'AI Security & Compliance',
+    heroDesc: 'Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools.',
+    heroImg: 'security-hero',
+    searchPlaceholder: 'e.g. Guardrails, compliance',
+    allLabel: 'All Security',
+    items: securityData, nameKey: 'title',
+    dataFilterKey: 'category',
+    filterCategories: ['All Security', 'Guardrails', 'Red Teaming', 'Compliance', 'Data Privacy'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/security', label: 'Security', active: true },
     ],
   },
 }

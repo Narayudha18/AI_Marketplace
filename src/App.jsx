@@ -21,6 +21,12 @@ import Privacy from './pages/Privacy'
 import HelpCenter from './pages/HelpCenter'
 import Authors from './pages/Authors'
 import Sitemap from './pages/Sitemap'
+import VoiceAI from './pages/VoiceAI'
+import ImageGen from './pages/ImageGen'
+import Analytics from './pages/Analytics'
+import FineTuning from './pages/FineTuning'
+import Monitoring from './pages/Monitoring'
+import Security from './pages/Security'
 
 function Home() {
   return (
@@ -65,6 +71,24 @@ export default function App() {
       <Route path="/help" element={<HelpCenter />} />
       <Route path="/authors" element={<Authors />} />
       <Route path="/sitemap" element={<Sitemap />} />
+      <Route path="/voice-ai" element={<VoiceAI />} />
+      <Route path="/voice-ai/c/:filter" element={<CategoryListing />} />
+      <Route path="/voice-ai/:slug" element={<ProductDetail />} />
+      <Route path="/image-gen" element={<ImageGen />} />
+      <Route path="/image-gen/c/:filter" element={<CategoryListing />} />
+      <Route path="/image-gen/:slug" element={<ProductDetail />} />
+      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/analytics/c/:filter" element={<CategoryListing />} />
+      <Route path="/analytics/:slug" element={<ProductDetail />} />
+      <Route path="/fine-tuning" element={<FineTuning />} />
+      <Route path="/fine-tuning/c/:filter" element={<CategoryListing />} />
+      <Route path="/fine-tuning/:slug" element={<ProductDetail />} />
+      <Route path="/monitoring" element={<Monitoring />} />
+      <Route path="/monitoring/c/:filter" element={<CategoryListing />} />
+      <Route path="/monitoring/:slug" element={<ProductDetail />} />
+      <Route path="/security" element={<Security />} />
+      <Route path="/security/c/:filter" element={<CategoryListing />} />
+      <Route path="/security/:slug" element={<ProductDetail />} />
     </Routes>
   );
 }
