@@ -8,17 +8,17 @@ function toSlug(str) {
 }
 
 const navSubLinks = {
-  'All Items': { path: '', icon: 'apps' },
-  'GPT Agents': { path: 'chatbots', icon: 'smart_toy' },
-  'Voice AI': { path: 'voice-ai', icon: 'record_voice_over' },
-  'Image Gen': { path: 'image-gen', icon: 'image' },
-  'RAG Pipelines': { path: 'integrations', icon: 'layers' },
-  'Workflow': { path: 'automation', icon: 'sync_alt' },
-  'Analytics': { path: 'analytics', icon: 'analytics' },
-  'Fine-tuning': { path: 'fine-tuning', icon: 'tune' },
-  'Deployment': { path: 'templates', icon: 'cloud' },
-  'Monitoring': { path: 'monitoring', icon: 'monitoring' },
-  'Security': { path: 'security', icon: 'security' },
+  'All Items': '',
+  'GPT Agents': 'chatbots',
+  'Voice AI': 'voice-ai',
+  'Image Gen': 'image-gen',
+  'RAG Pipelines': 'integrations',
+  'Workflow': 'automation',
+  'Analytics': 'analytics',
+  'Fine-tuning': 'fine-tuning',
+  'Deployment': 'templates',
+  'Monitoring': 'monitoring',
+  'Security': 'security',
 }
 
 export default function Navbar() {
@@ -39,27 +39,21 @@ export default function Navbar() {
 
       <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
         <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
-              <span className="material-symbols-outlined text-white" style={{ fontSize: 18 }}>smart_toy</span>
-            </span>
-            <span className="text-lg font-bold text-surface tracking-tight">AIAgents</span>
-          </Link>
+          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
 
           <div className="hidden md:flex items-center gap-1">
             {[
-              { to: '/', label: 'AI Agents', icon: 'smart_toy' },
-              { to: '/templates', label: 'Templates', icon: 'dashboard' },
-              { to: '/integrations', label: 'Integrations', icon: 'api' },
-              { to: '/chatbots', label: 'Chatbots', icon: 'forum' },
-              { to: '/automation', label: 'Automation', icon: 'sync_alt' },
-              { to: '/ai-tools', label: 'AI Tools', icon: 'build' },
+              { to: '/', label: 'AI Agents' },
+              { to: '/templates', label: 'Templates' },
+              { to: '/integrations', label: 'Integrations' },
+              { to: '/chatbots', label: 'Chatbots' },
+              { to: '/automation', label: 'Automation' },
+              { to: '/ai-tools', label: 'AI Tools' },
             ].map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
                 <Link key={link.to} to={link.to}
-                  className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{link.icon}</span>
+                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
                 </Link>
@@ -81,13 +75,12 @@ export default function Navbar() {
       <div className="bg-surface border-b border-border-light">
         <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
           {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
-            const { path, icon } = navSubLinks[item]
-            const fullPath = path ? `/${path}` : '/'
-            const isSubActive = path ? location.pathname.startsWith(`/${path}`) : location.pathname === '/'
+            const linkPath = navSubLinks[item]
+            const fullPath = linkPath ? `/${linkPath}` : '/'
+            const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
             return (
               <Link key={item} to={fullPath}
-                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
-                <span className="material-symbols-outlined" style={{ fontSize: 15 }}>{icon}</span>
+                className={`text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
                 {item}
               </Link>
             )
