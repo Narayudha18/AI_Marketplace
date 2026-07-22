@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from './CartDrawer'
+import AuthButton from './AuthButton'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -67,7 +68,7 @@ export default function Navbar() {
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
-            <Link to="/login" className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">Sign In</Link>
+            <AuthButton />
           </div>
         </div>
       </header>

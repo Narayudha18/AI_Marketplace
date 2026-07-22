@@ -1,12 +1,20 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../AuthContext'
 
 export default function Login() {
+  const { login } = useAuth()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setError('')
+    const result = login(email, password)
+    if (result.ok) navigate('/')
+    else setError(result.error)
   }
 
   return (
@@ -34,6 +42,7 @@ export default function Login() {
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            {error && <p className="text-xs text-red-500 bg-red-500/5 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>}
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-text-muted">Email</label>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com"

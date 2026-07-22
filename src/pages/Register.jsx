@@ -1,14 +1,23 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../AuthContext'
 
 export default function Register() {
+  const { register } = useAuth()
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setError('')
+    if (password !== confirm) { setError('Passwords do not match'); return }
+    const result = register(name, email, password)
+    if (result.ok) navigate('/')
+    else setError(result.error)
   }
 
   return (
@@ -36,6 +45,7 @@ export default function Register() {
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            {error && <p className="text-xs text-red-500 bg-red-500/5 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>}
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-text-muted">Full Name</label>
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe"

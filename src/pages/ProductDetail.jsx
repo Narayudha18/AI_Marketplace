@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
+import AuthButton from '../components/AuthButton'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -270,7 +271,7 @@ export default function ProductDetail() {
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {inCart(slug, category) && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
             </button>
-            <Link to="/login" className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">Sign In</Link>
+            <AuthButton />
           </div>
         </div>
       </header>
