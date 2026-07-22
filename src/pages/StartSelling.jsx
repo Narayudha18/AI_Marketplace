@@ -11,47 +11,41 @@ export default function StartSelling() {
 
   return (
     <>
-      <div className="bg-primary-container text-on-primary-container py-2 px-6 text-center text-xs font-semibold">
-        Mulai jual produk AI Anda di marketplace terbesar di Indonesia.
+      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold">
+        <span>Mulai jual produk AI Anda di marketplace terbesar di Indonesia.</span>
       </div>
 
-      <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
-        <div className="px-6 h-16 flex items-center justify-between">
-          <a href="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</a>
-          <div className="flex items-center gap-6">
-            <Link to="/start-selling" className="text-primary border-b-2 border-primary text-xs font-semibold pb-0.5">Start Selling</Link>
-            <div className="flex items-center gap-4 pl-4 border-l border-outline">
-              <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-                {totalItems > 0 && <span className="absolute -top-1.5 -right-1.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-              </button>
-              <button className="text-surface text-xs font-semibold border border-surface px-4 py-1.5 rounded hover:bg-surface hover:text-text-main transition-colors">Sign In</button>
-            </div>
-          </div>
-        </div>
+      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
+        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
+          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
 
-        <div className="px-6 h-12 flex items-center justify-between border-t border-outline">
-          <nav className="flex h-full">
+          <div className="hidden md:flex items-center gap-1">
             {[
               { to: '/', label: 'AI Agents' },
               { to: '/templates', label: 'Templates' },
               { to: '/integrations', label: 'Integrations' },
               { to: '/chatbots', label: 'Chatbots' },
               { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools & APIs' },
+              { to: '/ai-tools', label: 'AI Tools' },
             ].map(link => {
-              const isActive = location.pathname.startsWith(link.to) && link.to !== '/' ? true : location.pathname === link.to
+              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
                 <Link key={link.to} to={link.to}
-                  className={`text-xs font-semibold flex items-center px-4 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-surface-variant hover:text-surface transition-colors'}`}>
+                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
+                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
                 </Link>
               )
             })}
-          </nav>
-          <div className="bg-surface-variant text-text-main px-4 py-1.5 rounded-t text-xs font-semibold flex items-center gap-2">
-            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>storefront</span>
-            seller.daftar
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link to="/start-selling" className="text-primary text-xs font-semibold">Start Selling</Link>
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
+              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+            </button>
+            <Link to="/templates" className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">Sign In</Link>
           </div>
         </div>
       </header>
