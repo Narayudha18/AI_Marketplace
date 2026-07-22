@@ -1,3 +1,11 @@
+## v2.1 — 2026-07-22
+
+### Komponen
+- **Hero** — Ubah layout: headline jadi "All-in-one AI agent marketplace", deskripsi "Deploy, integrate & scale intelligent automation", search bar diganti tombol "Explore Now" [file: src/components/Hero.jsx]
+
+### Fitur
+- [Style] Hero home page — text & CTA disederhanakan, search bar dihapus, ganti tombol arrow_forward ke /templates
+
 ## v2.0 — 2026-07-22
 
 ### Komponen
