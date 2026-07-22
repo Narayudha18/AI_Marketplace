@@ -27,6 +27,8 @@ import Analytics from './pages/Analytics'
 import FineTuning from './pages/FineTuning'
 import Monitoring from './pages/Monitoring'
 import Security from './pages/Security'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function Home() {
   return (
@@ -87,6 +89,8 @@ export default function App() {
       <Route path="/monitoring/c/:filter" element={<CategoryListing />} />
       <Route path="/monitoring/:slug" element={<ProductDetail />} />
       <Route path="/security" element={<Security />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/security/c/:filter" element={<CategoryListing />} />
       <Route path="/security/:slug" element={<ProductDetail />} />
     </Routes>
