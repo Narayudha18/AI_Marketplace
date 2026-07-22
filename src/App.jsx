@@ -29,6 +29,7 @@ import Monitoring from './pages/Monitoring'
 import Security from './pages/Security'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Profile from './pages/Profile'
 
 function Home() {
   return (
@@ -91,6 +92,7 @@ export default function App() {
       <Route path="/security" element={<Security />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/security/c/:filter" element={<CategoryListing />} />
       <Route path="/security/:slug" element={<ProductDetail />} />
     </Routes>

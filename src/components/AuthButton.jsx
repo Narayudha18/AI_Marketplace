@@ -26,6 +26,9 @@ export default function AuthButton() {
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-full mt-1 w-40 bg-surface border border-border-light rounded-lg shadow-lg z-20 py-1">
+            <Link to="/profile" onClick={() => setOpen(false)}
+              className="block text-xs text-text-muted hover:text-text-main px-3 py-2 hover:bg-surface-container-low transition-colors">Profile</Link>
+            <hr className="border-border-light mx-2" />
             <button onClick={() => { logout(); setOpen(false) }}
               className="w-full text-left text-xs text-text-muted hover:text-red-500 px-3 py-2 hover:bg-surface-container-low transition-colors">Sign Out</button>
           </div>
