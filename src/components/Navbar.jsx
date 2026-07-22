@@ -31,9 +31,9 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="bg-background text-text-main px-6 py-3 text-center text-xs font-semibold flex justify-center items-center gap-4 border-b border-border-light">
-        <span className="text-text-muted">All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
-        <Link to="/templates" className="bg-primary-container text-on-primary-container px-5 py-1.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">Explore Now</Link>
+      <div className="bg-primary text-on-primary px-6 py-3 text-center text-xs font-semibold flex justify-center items-center gap-4">
+        <span>All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
+        <Link to="/templates" className="bg-text-main text-surface px-5 py-1.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">Explore Now</Link>
       </div>
 
       <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
