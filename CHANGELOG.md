@@ -1,10 +1,27 @@
+## v2.3 — 2026-07-22
+
+### Komponen
+- **Hero** — Balikin search bar, split layout, headline & deskripsi tetap [file: src/components/Hero.jsx]
+- **Navbar** — Top Announcement Bar: warna final `bg-primary-container`, tombol Explore Now `bg-text-main` [file: src/components/Navbar.jsx]
+
+### Fitur
+- [Style] Top Announcement Bar — hapus glassmorphism purple, ganti ke flat blue `bg-primary-container` + dark button
+
+## v2.2 — 2026-07-22
+
+### Komponen
+- **Hero** — Split layout, headline "All-in-one AI agent marketplace", CTA "Explore Now" [file: src/components/Hero.jsx]
+
+### Fitur
+- [Style] Hero — search bar dihapus, ganti tombol Explore Now
+
 ## v2.1 — 2026-07-22
 
 ### Komponen
-- **Hero** — Redesign ke centered layout: pill badge, headline, description, dua CTA rounded-full (Explore Now + Start Selling), image lebar penuh di bawah [file: src/components/Hero.jsx]
+- **Hero** — Centered layout: pill badge, headline, description, dua CTA rounded-full, image full-width [file: src/components/Hero.jsx]
 
 ### Fitur
-- [Style] Hero home page — centered layout dengan tema purple glassmorphism badge, 2 CTA button rounded-full, image full-width
+- [Style] Hero — centered layout purple glassmorphism
 
 ## v2.0 — 2026-07-22
 
