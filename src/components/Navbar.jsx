@@ -8,17 +8,17 @@ function toSlug(str) {
 }
 
 const navSubLinks = {
-  'All Items': '',
-  'GPT Agents': 'chatbots',
-  'Voice AI': 'voice-ai',
-  'Image Gen': 'image-gen',
-  'RAG Pipelines': 'integrations',
-  'Workflow': 'automation',
-  'Analytics': 'analytics',
-  'Fine-tuning': 'fine-tuning',
-  'Deployment': 'templates',
-  'Monitoring': 'monitoring',
-  'Security': 'security',
+  'All Items': { path: '', icon: 'apps' },
+  'GPT Agents': { path: 'chatbots', icon: 'smart_toy' },
+  'Voice AI': { path: 'voice-ai', icon: 'record_voice_over' },
+  'Image Gen': { path: 'image-gen', icon: 'image' },
+  'RAG Pipelines': { path: 'integrations', icon: 'layers' },
+  'Workflow': { path: 'automation', icon: 'sync_alt' },
+  'Analytics': { path: 'analytics', icon: 'analytics' },
+  'Fine-tuning': { path: 'fine-tuning', icon: 'tune' },
+  'Deployment': { path: 'templates', icon: 'cloud' },
+  'Monitoring': { path: 'monitoring', icon: 'monitoring' },
+  'Security': { path: 'security', icon: 'security' },
 }
 
 export default function Navbar() {
@@ -36,7 +36,7 @@ export default function Navbar() {
         <Link to="/templates" className="bg-text-main text-surface px-5 py-1.5 rounded text-xs font-semibold hover:opacity-90 transition-opacity">Explore Now</Link>
       </div>
 
-      <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
+      <header className="bg-text-main flex flex-col w-full">
         <div className="px-6 h-16 flex items-center justify-between">
           <Link to="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</Link>
           <div className="flex items-center gap-6">
@@ -51,37 +51,37 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="px-6 h-12 flex items-center justify-between border-t border-outline">
-          <nav className="flex h-full">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools & APIs' },
-            ].map(link => (
-              <Link key={link.to} to={link.to}
-                className={`text-xs font-semibold flex items-center px-4 ${isActive(link.to) ? 'text-primary border-b-2 border-primary pb-1' : 'text-surface-variant hover:text-surface transition-colors'}`}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="bg-surface-variant text-text-main px-4 py-1.5 rounded-t text-xs font-semibold flex items-center gap-2">
-            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>smart_toy</span>
+        <nav className="flex items-center px-6 h-12 border-t border-outline gap-1 overflow-x-auto">
+          {[
+            { to: '/', label: 'AI Agents', icon: 'smart_toy' },
+            { to: '/templates', label: 'Templates', icon: 'dashboard' },
+            { to: '/integrations', label: 'Integrations', icon: 'api' },
+            { to: '/chatbots', label: 'Chatbots', icon: 'forum' },
+            { to: '/automation', label: 'Automation', icon: 'sync_alt' },
+            { to: '/ai-tools', label: 'AI Tools', icon: 'build' },
+          ].map(link => (
+            <Link key={link.to} to={link.to}
+              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded whitespace-nowrap transition-all ${isActive(link.to) ? 'bg-primary/20 text-primary' : 'text-surface-variant hover:bg-white/10 hover:text-surface'}`}>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{link.icon}</span>
+              {link.label}
+            </Link>
+          ))}
+          <div className="ml-auto bg-surface-variant/20 text-surface-variant px-3 py-1.5 rounded text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap">
+            <span className="material-symbols-outlined" style={{ fontSize: 14 }}>smart_toy</span>
             aiagents.market
           </div>
-        </div>
+        </nav>
       </header>
 
-      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 gap-6 overflow-x-auto">
+      <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-1 overflow-x-auto">
         {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
-          const linkPath = navSubLinks[item]
+          const linkPath = navSubLinks[item].path
           const fullPath = linkPath ? `/${linkPath}` : '/'
           const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
           return (
             <Link key={item} to={fullPath}
-              className={`text-xs font-semibold flex items-center px-4 whitespace-nowrap ${isSubActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary transition-colors'}`}>
+              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded whitespace-nowrap transition-all ${isSubActive ? 'bg-primary/10 text-primary border border-primary/20' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{navSubLinks[item].icon}</span>
               {item}
             </Link>
           )
