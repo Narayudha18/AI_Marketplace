@@ -31,9 +31,9 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="bg-[#6b38d4]/10 text-[#6b38d4] backdrop-blur-md mx-4 my-2 px-6 py-2 rounded-full text-center text-xs font-semibold flex justify-center items-center gap-4 border border-white/20">
+      <div className="bg-text-main text-surface px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-4 border-b border-outline-variant">
         <span>All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
-        <Link to="/templates" className="bg-[#6b38d4] text-white px-5 py-1.5 rounded-full text-[11px] font-bold hover:opacity-90 transition-opacity">Explore Now</Link>
+        <Link to="/templates" className="bg-primary text-on-primary px-5 py-1.5 rounded-full text-[11px] font-bold hover:opacity-90 transition-opacity">Explore Now</Link>
       </div>
 
       <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">

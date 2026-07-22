@@ -1,10 +1,10 @@
 ## v2.1 — 2026-07-22
 
 ### Komponen
-- **Hero** — Ubah layout: headline jadi "All-in-one AI agent marketplace", deskripsi "Deploy, integrate & scale intelligent automation", search bar diganti tombol "Explore Now" [file: src/components/Hero.jsx]
+- **Hero** — Redesign ke centered layout: pill badge, headline, description, dua CTA rounded-full (Explore Now + Start Selling), image lebar penuh di bawah [file: src/components/Hero.jsx]
 
 ### Fitur
-- [Style] Hero home page — text & CTA disederhanakan, search bar dihapus, ganti tombol arrow_forward ke /templates
+- [Style] Hero home page — centered layout dengan tema purple glassmorphism badge, 2 CTA button rounded-full, image full-width
 
 ## v2.0 — 2026-07-22
 
