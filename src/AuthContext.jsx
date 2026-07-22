@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useCallback } from 'react'
 
 const AuthContext = createContext()
 
@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const register = (name, email, password) => {
     const exists = users.find(u => u.email === email)
     if (exists) return { ok: false, error: 'Email already registered' }
-    const newUser = { id: Date.now(), name, email, password }
+    const newUser = { id: Date.now(), name, email, password, picture: null }
     setUsers(prev => [...prev, newUser])
     setCurrentUser(newUser)
     return { ok: true }
@@ -24,8 +24,24 @@ export function AuthProvider({ children }) {
 
   const logout = () => setCurrentUser(null)
 
+  const updatePassword = (currentPassword, newPassword) => {
+    if (!currentUser) return { ok: false, error: 'Not logged in' }
+    if (currentUser.password !== currentPassword) return { ok: false, error: 'Current password is incorrect' }
+    const updated = { ...currentUser, password: newPassword }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+    return { ok: true }
+  }
+
+  const updatePicture = useCallback((dataUrl) => {
+    if (!currentUser) return
+    const updated = { ...currentUser, picture: dataUrl }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }, [currentUser])
+
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture }}>
       {children}
     </AuthContext.Provider>
   )
