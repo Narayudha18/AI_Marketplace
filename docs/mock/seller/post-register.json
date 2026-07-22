@@ -1,0 +1,27 @@
+{
+  "endpoint": "POST /api/seller/register",
+  "request": {
+    "fullName": "string",
+    "email": "string",
+    "phone": "string",
+    "storeName": "string",
+    "storeDescription": "string",
+    "category": "string (templates|integrations|chatbots|automation|aitools)",
+    "identityType": "string (ktp|sim|passport)",
+    "identityNumber": "string",
+    "bankName": "string",
+    "bankAccount": "string",
+    "bankHolder": "string"
+  },
+  "response": {
+    "success": true,
+    "message": "Pendaftaran penjual berhasil. Akun Anda sedang diverifikasi.",
+    "data": {
+      "sellerId": "slr-001",
+      "storeName": "AI Studio",
+      "status": "pending_verification",
+      "estimatedVerification": "1x24 jam",
+      "createdAt": "2026-07-22T10:30:00Z"
+    }
+  }
+}

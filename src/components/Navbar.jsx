@@ -31,16 +31,16 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="bg-primary-container text-on-primary-container py-2 px-6 text-center text-xs font-semibold flex justify-center items-center gap-4">
+      <div className="bg-[#6b38d4]/10 text-[#6b38d4] backdrop-blur-md mx-4 my-2 px-6 py-2 rounded-full text-center text-xs font-semibold flex justify-center items-center gap-4 border border-white/20">
         <span>All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
-        <Link to="/templates" className="bg-text-main text-surface px-4 py-1 rounded text-[11px] font-bold">Explore Now</Link>
+        <Link to="/templates" className="bg-[#6b38d4] text-white px-5 py-1.5 rounded-full text-[11px] font-bold hover:opacity-90 transition-opacity">Explore Now</Link>
       </div>
 
       <header className="bg-text-main flex flex-col w-full border-b border-outline-variant">
         <div className="px-6 h-16 flex items-center justify-between">
           <Link to="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</Link>
           <div className="flex items-center gap-6">
-            <Link to="/templates" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
+            <Link to="/start-selling" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
               <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
                 <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>

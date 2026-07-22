@@ -27,6 +27,7 @@
 | `/ai-tools` | AiTools | AI tools listing |
 | `/ai-tools/c/:filter` | CategoryListing | Filtered tools listing |
 | `/ai-tools/:slug` | ProductDetail | Product detail page |
+| `/start-selling` | StartSelling | Seller registration form |
 
 ## Component Architecture
 
@@ -44,6 +45,7 @@
 - **CartDrawer.jsx** — Slide-in cart panel
 - **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet (DANA, GoPay, ShopeePay, OVO, LinkAja), Bank Transfer, Convenience Store
 - **Footer.jsx** — Site footer
+- **SellerForm.jsx** — Multi-step seller registration form (Akun → Toko → Verifikasi → Selesai)
 
 ### Page Components (`src/pages/`)
 - **Templates.jsx** — Template listing: search, sidebar filters, 3→8 expandable categories, product grid with favorites
@@ -53,6 +55,7 @@
 - **AiTools.jsx** — AI Tools listing: search, sidebar filters, category cards, product grid
 - **CategoryListing.jsx** — Generic filtered listing for all categories (reads URL param `:filter`)
 - **ProductDetail.jsx** — Product detail: tabs (Produk, Review & Rating, Komentar, Support), favorites heart, cart, payment
+- **StartSelling.jsx** — Seller onboarding page: hero, stats, 2/3 form + 1/3 sidebar info
 
 Each listing page has:
 - A top banner with a CTA button that scrolls to the product grid (`scrollIntoView`)

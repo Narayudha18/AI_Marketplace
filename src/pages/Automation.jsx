@@ -61,7 +61,7 @@ export default function Automation() {
         <div className="px-6 h-16 flex items-center justify-between">
           <a href="/" className="text-xl font-bold text-surface tracking-tight">AIAgents</a>
           <div className="flex items-center gap-6">
-            <button className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</button>
+            <Link to="/start-selling" className="text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
             <div className="flex items-center gap-4 pl-4 border-l border-outline">
               <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer">
                 <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>

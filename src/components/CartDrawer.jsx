@@ -83,7 +83,7 @@ export default function CartDrawer({ open, onClose }) {
           </div>
         )}
       </div>
-      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedTotal} cart={cart} onSuccess={() => { cart.forEach(item => markAsPurchased(item.slug, item.category)); clearCart(); onClose() }} />
+      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedTotal} cart={cart} onSuccess={() => { cart.forEach(item => markAsPurchased(item.slug, item.category)); clearCart(); onClose(); setPaymentOpen(false) }} />
     </>
   )
 }

@@ -40,7 +40,16 @@
 | Halaman Listing | **Automation** | `src/pages/Automation.jsx` | — | `searchQuery`, `sidebarSearch`, `selectedCategory`, `selectedPrice`, `applied*`, `cartOpen` | `applyFilters`, `resetFilters`, `toggleFavorite` | `products (SELECT, FILTER)` | `GET /api/products/automation?...` |
 | Halaman Listing | **AiTools** | `src/pages/AiTools.jsx` | — | `searchQuery`, `sidebarSearch`, `selectedCategory`, `selectedPricing`, `applied*`, `cartOpen` | `applyFilters`, `resetFilters`, `toggleFavorite` | `products (SELECT, FILTER)` | `GET /api/products/aitools?...` |
 
-### 1.4. Halaman Detail & Kategori
+### 1.4. Halaman Seller Registration
+
+| Web Page / Section | Komponen | File Path | Props | State (Local) | Event Handlers | DB Table / Query (Future) | API Endpoint (Future) |
+|---|---|---|---|---|---|---|---|
+| Seller Registration | **StartSelling** | `src/pages/StartSelling.jsx` | — | `cartOpen` | `setCartOpen` → cart drawer | `sellers (INSERT)` | `POST /api/seller/register` |
+| Seller Registration | **SellerForm** | `src/components/SellerForm.jsx` | `onSuccess` | `step`, `form{}`, `errors{}`, `submitting` | `next`, `prev`, `validateStep`, `handleSubmit` | `sellers (INSERT)` | `POST /api/seller/register` |
+| Seller Registration (Sidebar) | Benefit Card | inline di StartSelling | — | — | — | — | — |
+| Seller Registration (Sidebar) | Step Guide | inline di StartSelling | — | — | — | — | — |
+
+### 1.5. Halaman Detail & Kategori
 
 | Web Page / Section | Komponen | File Path | Props | State (Local) | Event Handlers | DB Table / Query (Future) | API Endpoint (Future) |
 |---|---|---|---|---|---|---|---|
@@ -219,6 +228,12 @@ App.jsx (Routes)
 ├── AiTools (/ai-tools)
 │   └── (Same pattern as Templates, different JSON/dimensions)
 │
+├── StartSelling (/start-selling)
+│   ├── Banner + Dark header (navbar) + CartDrawer + Footer
+│   ├── Hero section + stats grid
+│   ├── SellerForm (2/3 width)
+│   └── Sidebar info (1/3): benefit card, step guide, FAQ note
+│
 ├── ProductDetail (/:category/:slug)
 │   ├── Tabs: Produk | Review & Rating | Komentar | Support
 │   ├── Review form (hanya jika sudah purchase)
@@ -232,6 +247,14 @@ App.jsx (Routes)
 ---
 
 ## 5. Future API Endpoints (REST)
+
+### 5.0. Seller
+
+| Method | Path | Description | Body |
+|---|---|---|---|
+| `POST` | `/api/seller/register` | Register as seller | `{ fullName, email, phone, storeName, category, identityType, identityNumber, bankName, bankAccount }` |
+
+### 5.1. Products
 
 ### 5.1. Products
 
@@ -319,6 +342,7 @@ App.jsx (Routes)
 | `/ai-tools` | AiTools | Listing AI tools |
 | `/ai-tools/c/:filter` | CategoryListing | Filter AI tools per kategori |
 | `/ai-tools/:slug` | ProductDetail | Detail AI tool |
+| `/start-selling` | StartSelling | Pendaftaran penjual dengan form multi-step |
 
 ---
 

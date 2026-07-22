@@ -124,16 +124,16 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
               </div>
               <div className="overflow-y-auto flex-1 p-6">
                 {method.id === 'qris' && (
-                  <QRISView total={total} seed={qrSeed} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess(); setStep('select'); setSelected(null) }, 1500) }} canvasRef={canvasRef} />
+                  <QRISView total={total} seed={qrSeed} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess() }, 1500) }} canvasRef={canvasRef} />
                 )}
                 {['dana', 'gopay', 'shopeepay', 'ovo', 'linkaja'].includes(method.id) && (
-                  <EwalletView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess(); setStep('select'); setSelected(null) }, 1500) }} />
+                  <EwalletView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess() }, 1500) }} />
                 )}
                 {['bca', 'mandiri', 'bni', 'bri'].includes(method.id) && (
-                  <BankView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess(); setStep('select'); setSelected(null) }, 1500) }} />
+                  <BankView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess() }, 1500) }} />
                 )}
                 {['alfamart', 'indomaret'].includes(method.id) && (
-                  <StoreView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess(); setStep('select'); setSelected(null) }, 1500) }} />
+                  <StoreView method={method} total={total} onSuccess={() => { setStep('success'); setTimeout(() => { onSuccess() }, 1500) }} />
                 )}
               </div>
             </>
