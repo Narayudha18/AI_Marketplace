@@ -18,8 +18,8 @@ export default function AuthButton() {
   return (
     <div className="relative">
       <button onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-md hover:bg-primary/20 transition-colors">
-        <span className="w-5 h-5 rounded-full bg-primary text-surface text-[10px] font-bold flex items-center justify-center">{currentUser.name[0]}</span>
+        className="flex items-center gap-2 bg-primary-container/15 text-primary-container text-xs font-semibold px-3 py-1.5 rounded-md hover:bg-primary-container/25 transition-colors">
+        <span className="w-5 h-5 rounded-full bg-primary-container text-surface text-[10px] font-bold flex items-center justify-center">{currentUser.name[0]}</span>
         {currentUser.name.split(' ')[0]}
       </button>
       {open && (
