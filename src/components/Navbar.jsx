@@ -14,11 +14,11 @@ const navSubLinks = {
   'Image Gen': 'ai-tools/c/image-gen',
   'RAG Pipelines': 'integrations',
   'Workflow': 'automation',
-  'Analytics': 'templates',
+  'Analytics': 'ai-tools',
   'Fine-tuning': 'ai-tools',
   'Deployment': 'templates',
   'Monitoring': 'integrations',
-  'Security': 'templates',
+  'Security': 'integrations',
 }
 
 export default function Navbar() {
