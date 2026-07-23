@@ -3,17 +3,19 @@ import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
+import { useTheme } from '../ThemeContext'
 import SellerForm from '../components/SellerForm'
 
 export default function StartSelling() {
   const { totalItems } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const location = useLocation()
 
   return (
     <>
       <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold">
-        <span>Mulai jual produk AI Anda di marketplace terbesar di Indonesia.</span>
+        <span>Start selling your AI products on the largest AI marketplace.</span>
       </div>
 
       <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
@@ -31,7 +33,7 @@ export default function StartSelling() {
             ].map(link => {
               const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -42,10 +44,11 @@ export default function StartSelling() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="text-primary text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>
@@ -57,26 +60,26 @@ export default function StartSelling() {
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <div className="inline-flex items-center gap-2 bg-primary-container/10 text-primary px-4 py-1.5 rounded-full text-[11px] font-semibold w-fit">
               <span className="material-symbols-outlined" style={{ fontSize: 16 }}>rocket_launch</span>
-              Daftar Penjual Baru
+              New Seller Registration
             </div>
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
-              Jual Produk AI Anda ke Ribuan Pembeli
+              Sell Your AI Products to Thousands of Buyers
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              Bergabunglah dengan ribuan kreator AI. Pasarkan template, chatbot, integrasi, tools, dan solusi otomasi Anda di marketplace terbesar.
+              Join thousands of AI creators. Market your templates, chatbots, integrations, tools, and automation solutions on the largest AI marketplace.
             </p>
             <div className="flex items-center gap-6 mt-2">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">Gratis daftar</span>
+                <span className="text-xs font-medium text-text-muted">Free to register</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">Komisi 10%</span>
+                <span className="text-xs font-medium text-text-muted">10% commission</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">Verifikasi 1x24 jam</span>
+                <span className="text-xs font-medium text-text-muted">Verified within 24 hours</span>
               </div>
             </div>
           </div>
@@ -93,10 +96,10 @@ export default function StartSelling() {
         <section className="px-6 mb-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: '12,430+', label: 'Produk Terdaftar', icon: 'inventory_2' },
-              { value: '89,450+', label: 'Produk Terjual', icon: 'trending_up' },
-              { value: '3,200+', label: 'Penjual Aktif', icon: 'groups' },
-              { value: '4.8/5', label: 'Rating Rata-rata', icon: 'star' },
+              { value: '12,430+', label: 'Products Listed', icon: 'inventory_2' },
+              { value: '89,450+', label: 'Products Sold', icon: 'trending_up' },
+              { value: '3,200+', label: 'Active Sellers', icon: 'groups' },
+              { value: '4.8/5', label: 'Avg. Rating', icon: 'star' },
             ].map(stat => (
               <div key={stat.label} className="bg-surface rounded-xl border border-border-light p-5 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center flex-shrink-0">
@@ -117,8 +120,8 @@ export default function StartSelling() {
             {/* Form — 2/3 */}
             <div className="w-full lg:w-2/3">
               <div className="bg-surface rounded-xl border border-border-light p-6 md:p-8">
-                <h2 className="text-[24px] font-semibold text-text-main mb-1">Form Pendaftaran Penjual</h2>
-                <p className="text-xs text-text-muted mb-8">Isi data diri dan toko Anda untuk mulai berjualan.</p>
+                <h2 className="text-[24px] font-semibold text-text-main mb-1">Seller Registration Form</h2>
+                <p className="text-xs text-text-muted mb-8">Fill in your details and store info to start selling.</p>
                 <SellerForm />
               </div>
             </div>
@@ -130,14 +133,14 @@ export default function StartSelling() {
                 <div className="bg-surface rounded-xl border border-border-light p-6">
                   <h3 className="text-sm font-bold text-text-main mb-4 flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>emoji_events</span>
-                    Keuntungan Menjual
+                    Benefits of Selling
                   </h3>
                   <ul className="space-y-3">
                     {[
-                      { icon: 'public', title: 'Jangkauan Luas', desc: 'Ribuan pembeli potensial setiap hari' },
-                      { icon: 'percent', title: 'Komisi Rendah', desc: 'Hanya 10% per transaksi' },
-                      { icon: 'payments', title: 'Pembayaran Cepat', desc: 'Cair setiap minggu ke rekening Anda' },
-                      { icon: 'support', title: 'Dukungan Penuh', desc: 'Tim kami bantu proses verifikasi & listing' },
+                      { icon: 'public', title: 'Wide Reach', desc: 'Thousands of potential buyers every day' },
+                      { icon: 'percent', title: 'Low Commission', desc: 'Only 10% per transaction' },
+                      { icon: 'payments', title: 'Fast Payouts', desc: 'Weekly payouts to your account' },
+                      { icon: 'support', title: 'Full Support', desc: 'Our team helps with verification & listing' },
                     ].map(item => (
                       <li key={item.title} className="flex items-start gap-3">
                         <span className="material-symbols-outlined text-primary-container flex-shrink-0" style={{ fontSize: 18 }}>{item.icon}</span>
@@ -154,14 +157,14 @@ export default function StartSelling() {
                 <div className="bg-surface rounded-xl border border-border-light p-6">
                   <h3 className="text-sm font-bold text-text-main mb-4 flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>guide</span>
-                    Cara Berjualan
+                    How to Sell
                   </h3>
                   <ol className="space-y-4">
                     {[
-                      { num: 1, title: 'Daftar Akun', desc: 'Isi data diri dan verifikasi identitas' },
-                      { num: 2, title: 'Buat Toko', desc: 'Tentukan nama & kategori produk Anda' },
-                      { num: 3, title: 'Upload Produk', desc: 'Tambahkan produk AI yang ingin dijual' },
-                      { num: 4, title: 'Mulai Jual', desc: 'Produk Anda live & siap dibeli pengguna' },
+                      { num: 1, title: 'Register Account', desc: 'Fill in your details and verify identity' },
+                      { num: 2, title: 'Create Store', desc: 'Set your store name & product categories' },
+                      { num: 3, title: 'Upload Products', desc: 'Add the AI products you want to sell' },
+                      { num: 4, title: 'Start Selling', desc: 'Your products go live and ready for buyers' },
                     ].map(step => (
                       <li key={step.num} className="flex items-start gap-3">
                         <div className="w-6 h-6 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-[11px] font-bold flex-shrink-0 mt-0.5">
@@ -181,9 +184,9 @@ export default function StartSelling() {
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-primary-container flex-shrink-0" style={{ fontSize: 20 }}>help</span>
                     <div>
-                      <p className="text-xs font-semibold text-text-main mb-1">Butuh bantuan?</p>
+                      <p className="text-xs font-semibold text-text-main mb-1">Need help?</p>
                       <p className="text-[11px] text-text-muted leading-relaxed">
-                        Hubungi tim kami di <span className="text-primary font-medium hover:underline cursor-pointer">seller@aiagents.com</span> atau lihat <span className="text-primary font-medium hover:underline cursor-pointer">Panduan Penjual</span>.
+                        Contact our team at <span className="text-primary font-medium hover:underline cursor-pointer">seller@aiagents.com</span> or check the <span className="text-primary font-medium hover:underline cursor-pointer">Seller Guide</span>.
                       </p>
                     </div>
                   </div>

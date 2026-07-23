@@ -3,6 +3,7 @@ import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
+import { useTheme } from '../ThemeContext'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -32,7 +33,7 @@ const categoryConfig = {
     ],
     items: templates,
     nameKey: 'title',
-    getRelated: (item) => templates.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => templates.filter(t => t.title !== item.title).slice(0, 3),
   },
   integrations: {
     label: 'Integrations', navLink: '/integrations', icon: 'api', badge: 'integrations.market',
@@ -46,7 +47,7 @@ const categoryConfig = {
     ],
     items: integrations,
     nameKey: 'name',
-    getRelated: (item) => integrations.filter(t => t.category === item.category && t.name !== item.name).slice(0, 3),
+    getRelated: (item) => integrations.filter(t => t.name !== item.name).slice(0, 3),
   },
   chatbots: {
     label: 'Chatbots', navLink: '/chatbots', icon: 'smart_toy', badge: 'chatbots.market',
@@ -60,7 +61,7 @@ const categoryConfig = {
     ],
     items: chatbots,
     nameKey: 'name',
-    getRelated: (item) => chatbots.filter(t => t.category === item.category && t.name !== item.name).slice(0, 3),
+    getRelated: (item) => chatbots.filter(t => t.name !== item.name).slice(0, 3),
   },
   automation: {
     label: 'Automation', navLink: '/automation', icon: 'sync_alt', badge: 'automation.market',
@@ -74,7 +75,7 @@ const categoryConfig = {
     ],
     items: automations,
     nameKey: 'name',
-    getRelated: (item) => automations.filter(t => t.category === item.category && t.name !== item.name).slice(0, 3),
+    getRelated: (item) => automations.filter(t => t.name !== item.name).slice(0, 3),
   },
   'ai-tools': {
     label: 'AI Tools & APIs', navLink: '/ai-tools', icon: 'api', badge: 'tools.market',
@@ -88,7 +89,7 @@ const categoryConfig = {
     ],
     items: tools,
     nameKey: 'name',
-    getRelated: (item) => tools.filter(t => t.category === item.category && t.name !== item.name).slice(0, 3),
+    getRelated: (item) => tools.filter(t => t.name !== item.name).slice(0, 3),
   },
   'voice-ai': {
     label: 'Voice AI', navLink: '/voice-ai', icon: 'record_voice_over', badge: 'voice.market',
@@ -98,7 +99,7 @@ const categoryConfig = {
     ],
     items: voiceAi,
     nameKey: 'title',
-    getRelated: (item) => voiceAi.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => voiceAi.filter(t => t.title !== item.title).slice(0, 3),
   },
   'image-gen': {
     label: 'Image Gen', navLink: '/image-gen', icon: 'image', badge: 'image.market',
@@ -108,7 +109,7 @@ const categoryConfig = {
     ],
     items: imageGen,
     nameKey: 'title',
-    getRelated: (item) => imageGen.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => imageGen.filter(t => t.title !== item.title).slice(0, 3),
   },
   analytics: {
     label: 'Analytics', navLink: '/analytics', icon: 'analytics', badge: 'analytics.market',
@@ -118,7 +119,7 @@ const categoryConfig = {
     ],
     items: analyticsData,
     nameKey: 'title',
-    getRelated: (item) => analyticsData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => analyticsData.filter(t => t.title !== item.title).slice(0, 3),
   },
   'fine-tuning': {
     label: 'Fine-tuning', navLink: '/fine-tuning', icon: 'tune', badge: 'finetune.market',
@@ -128,7 +129,7 @@ const categoryConfig = {
     ],
     items: fineTuningData,
     nameKey: 'title',
-    getRelated: (item) => fineTuningData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => fineTuningData.filter(t => t.title !== item.title).slice(0, 3),
   },
   monitoring: {
     label: 'Monitoring', navLink: '/monitoring', icon: 'monitoring', badge: 'monitor.market',
@@ -138,7 +139,7 @@ const categoryConfig = {
     ],
     items: monitoringData,
     nameKey: 'title',
-    getRelated: (item) => monitoringData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => monitoringData.filter(t => t.title !== item.title).slice(0, 3),
   },
   security: {
     label: 'Security', navLink: '/security', icon: 'security', badge: 'secure.market',
@@ -148,7 +149,7 @@ const categoryConfig = {
     ],
     items: securityData,
     nameKey: 'title',
-    getRelated: (item) => securityData.filter(t => t.category === item.category && t.title !== item.title).slice(0, 3),
+    getRelated: (item) => securityData.filter(t => t.title !== item.title).slice(0, 3),
   },
 };
 
@@ -169,6 +170,7 @@ export default function ProductDetail() {
 
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const [activeTab, setActiveTab] = useState('product')
   const reviewKey = `reviews_${category}_${slug}`
   const commentKey = `comments_${category}_${slug}`
@@ -214,6 +216,38 @@ export default function ProductDetail() {
     setCommentName(''); setCommentText('')
   }
 
+  const tutorialSteps = [
+    {
+      title: 'Download & Install',
+      desc: 'After checkout, download the product files from your purchase dashboard. Extract the archive and open the project folder in your favorite editor (VS Code, WebStorm, etc.).',
+    },
+    {
+      title: 'Initial Configuration',
+      desc: `Open the main config file and customize ${category === 'templates' ? 'branding, logo, theme colors, and database connection' : category === 'chatbots' ? 'API key, LLM model, and system prompts' : category === 'automation' ? 'triggers, actions, and integration connections' : category === 'integrations' ? 'API credentials, endpoint URL, and access scopes' : category === 'ai-tools' ? 'API key, model parameters, and rate limits' : category === 'voice-ai' ? 'voice model, language, and audio output settings' : category === 'image-gen' || category === 'fine-tuning' ? 'model parameters, training data path, and output format' : category === 'analytics' ? 'data sources, metrics, and dashboard layout' : category === 'monitoring' ? 'alert thresholds, notification channels, and data sources' : category === 'security' ? 'rule sets, whitelist/blacklist, and logging config' : 'default settings to match your needs'}.`,
+    },
+    {
+      title: 'Integration & Testing',
+      desc: `Connect ${category === 'templates' ? 'the template to your framework' : 'the product to your existing stack'} using the included integration guide. Run the built-in test suite to verify all components work correctly before going to production.`,
+    },
+    {
+      title: 'Customization',
+      desc: `Customize ${category === 'templates' ? 'the appearance, layout, and UI components' : category === 'chatbots' ? 'personality, knowledge base, and conversation flow' : category === 'automation' ? 'workflow logic, conditions, and action mappings' : 'functionality and product behavior'} to fit your specific project needs. API documentation and customization guides are available in the /docs folder.`,
+    },
+    {
+      title: 'Deploy to Production',
+      desc: 'Deploy using your hosting platform of choice (Vercel, Netlify, AWS, or private server). Follow the deployment guide in the documentation for environment variable setup and performance optimization.',
+    },
+  ]
+
+  const aboutFeatures = [
+    { icon: 'verified', text: `${name} has passed rigorous curation to ensure quality and security` },
+    { icon: 'update', text: 'Regular updates with latest features and bug fixes every month' },
+    { icon: 'support_agent', text: 'Priority support via email & forum with average response &lt; 6 hours' },
+    { icon: 'api', text: `Comprehensive documentation with code examples for ${category === 'templates' ? 'React, Next.js & Vue' : category === 'chatbots' ? 'REST API, WebSocket & SDK' : category === 'automation' ? 'webhook, REST API & CLI' : 'REST API, SDK & CLI'}` },
+    { icon: 'lock', text: 'Secure licensing, SSL encryption, and copyright protection' },
+    { icon: 'devices', text: `Compatible with ${category === 'templates' ? 'all modern browsers & frameworks' : 'major platforms & cloud environments'}` },
+  ]
+
   const avgRating = reviews.length > 0
     ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)
     : null
@@ -256,7 +290,7 @@ export default function ProductDetail() {
             ].map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -267,10 +301,11 @@ export default function ProductDetail() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {inCart(slug, category) && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>
@@ -289,7 +324,7 @@ export default function ProductDetail() {
           {[
             { key: 'product', label: 'Produk', icon: 'shopping_bag' },
             { key: 'reviews', label: 'Review & Rating', icon: 'star_rate' },
-            { key: 'comments', label: 'Komentar', icon: 'forum' },
+            { key: 'comments', label: 'Comments', icon: 'forum' },
             { key: 'support', label: 'Support', icon: 'headset_mic' },
           ].map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)}
@@ -366,9 +401,13 @@ export default function ProductDetail() {
                 </div>
               )}
               <div className="flex gap-3">
-                <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="flex-1 bg-primary text-surface px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer">
+                <button onClick={() => navigate(`/${category}/${slug}/preview`)} className="flex-1 bg-primary text-surface px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer">
+                  <span className="material-symbols-outlined" style={{ fontSize: 18 }}>visibility</span>
+                  Live Preview
+                </button>
+                <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
-                  Tambah ke Keranjang
+                  Add to Cart
                 </button>
                 <button onClick={() => toggleFavorite(slug, category)} className={`px-4 py-3 border rounded-lg text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${isFavorite(slug, category) ? 'bg-red-50 border-red-200 text-red-500' : 'border-primary text-primary hover:bg-primary hover:text-surface'}`}>
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{isFavorite(slug, category) ? 'favorite' : 'favorite_border'}</span>
@@ -402,7 +441,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 {reviews.length === 0 ? (
-                  <p className="text-sm text-text-muted">Belum ada review. Jadilah yang pertama!</p>
+                  <p className="text-sm text-text-muted">No reviews yet. Be the first!</p>
                 ) : (
                   <div className="space-y-4">
                     {reviews.map((r, idx) => (
@@ -435,7 +474,7 @@ export default function ProductDetail() {
                 )}
                 {hasPurchased(slug, category) ? (
                   <form onSubmit={submitReview} className="bg-surface border border-border-light rounded-xl p-5">
-                    <h3 className="text-sm font-semibold text-text-main mb-4">Tulis Review</h3>
+                    <h3 className="text-sm font-semibold text-text-main mb-4">Write a Review</h3>
                     <div className="mb-4">
                       <label className="text-xs font-medium text-text-muted mb-1.5 block">Rating</label>
                       <div className="flex items-center gap-1">
@@ -449,25 +488,25 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="mb-4">
-                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Nama</label>
-                      <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} placeholder="Nama Anda"
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Name</label>
+                      <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} placeholder="Your name"
                         className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
                     </div>
                     <div className="mb-4">
                       <label className="text-xs font-medium text-text-muted mb-1.5 block">Review</label>
-                      <textarea value={reviewText} onChange={e => setReviewText(e.target.value)} placeholder="Bagikan pengalaman Anda..." rows={3}
+                      <textarea value={reviewText} onChange={e => setReviewText(e.target.value)} placeholder="Share your experience..." rows={3}
                         className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
                     </div>
                     <button type="submit" disabled={!reviewName.trim() || !reviewText.trim() || reviewRating === 0}
                       className="w-full bg-primary text-surface py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity disabled:opacity-40">
-                      Kirim Review
+                      Submit Review
                     </button>
                   </form>
                 ) : (
                   <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                     <span className="material-symbols-outlined text-primary text-4xl mb-3 block">lock</span>
-                    <h3 className="text-sm font-semibold text-text-main mb-2">Anda belum membeli produk ini</h3>
-                    <p className="text-xs text-text-muted mb-4">Hanya pembeli yang dapat memberikan rating & review. Checkout produk ini untuk memberi review.</p>
+                    <h3 className="text-sm font-semibold text-text-main mb-2">You haven't purchased this product yet</h3>
+                    <p className="text-xs text-text-muted mb-4">Only buyers can leave a rating & review. Checkout this product to write a review.</p>
                   </div>
                 )}
               </div>
@@ -480,7 +519,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 {comments.length === 0 ? (
-                  <p className="text-sm text-text-muted">Belum ada komentar. Mulai diskusi!</p>
+                  <p className="text-sm text-text-muted">No comments yet. Start a discussion!</p>
                 ) : (
                   <div className="space-y-4">
                     {comments.map((c, idx) => (
@@ -502,20 +541,20 @@ export default function ProductDetail() {
               </div>
               <div>
                 <form onSubmit={submitComment} className="bg-surface border border-border-light rounded-xl p-5">
-                  <h3 className="text-sm font-semibold text-text-main mb-4">Tulis Komentar</h3>
+                  <h3 className="text-sm font-semibold text-text-main mb-4">Write a Comment</h3>
                   <div className="mb-4">
-                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Nama</label>
-                    <input type="text" value={commentName} onChange={e => setCommentName(e.target.value)} placeholder="Nama Anda"
+                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Name</label>
+                    <input type="text" value={commentName} onChange={e => setCommentName(e.target.value)} placeholder="Your name"
                       className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
                   </div>
                   <div className="mb-4">
                     <label className="text-xs font-medium text-text-muted mb-1.5 block">Komentar</label>
-                    <textarea value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="Tulis komentar..." rows={3}
+                    <textarea value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="Write a comment..." rows={3}
                       className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
                   </div>
                   <button type="submit" disabled={!commentName.trim() || !commentText.trim()}
                     className="w-full bg-primary text-surface py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity disabled:opacity-40">
-                    Kirim Komentar
+                    Submit Comment
                   </button>
                 </form>
               </div>
@@ -530,47 +569,59 @@ export default function ProductDetail() {
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">mail</span>
                 <h4 className="text-sm font-semibold text-text-main mb-1">Email Support</h4>
                 <p className="text-xs text-text-muted">support@aiagents.market</p>
-                <p className="text-[11px] text-text-muted mt-1">Respon dalam 24 jam</p>
+                <p className="text-[11px] text-text-muted mt-1">Response within 24 hours</p>
               </div>
               <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">forum</span>
-                <h4 className="text-sm font-semibold text-text-main mb-1">Forum Diskusi</h4>
-                <p className="text-xs text-text-muted">Tanya jawab dengan komunitas</p>
-                <p className="text-[11px] text-text-muted mt-1">200+ anggota aktif</p>
+                <h4 className="text-sm font-semibold text-text-main mb-1">Discussion Forum</h4>
+                <p className="text-xs text-text-muted">Q&A with the community</p>
+                <p className="text-[11px] text-text-muted mt-1">200+ active members</p>
               </div>
               <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">description</span>
-                <h4 className="text-sm font-semibold text-text-main mb-1">Dokumentasi</h4>
-                <p className="text-xs text-text-muted">Panduan & tutorial lengkap</p>
-                <p className="text-[11px] text-text-muted mt-1">Update mingguan</p>
+                <h4 className="text-sm font-semibold text-text-main mb-1">Documentation</h4>
+                <p className="text-xs text-text-muted">Full guides & tutorials</p>
+                <p className="text-[11px] text-text-muted mt-1">Weekly updates</p>
               </div>
             </div>
           </section>
         )}
 
         <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <h2 className="text-[22px] font-semibold text-text-main mb-6">About this product</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <p className="text-[15px] text-text-muted leading-relaxed mb-4">
-                {name} is a premium {config.label.toLowerCase().slice(0, -1)} available on the AI Agents Marketplace.
-                Built with modern best practices, it's designed to help you achieve more with less effort.
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">About This Product</h2>
+          <p className="text-sm text-text-muted mb-6">Everything you need to know about {name}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="space-y-4">
+              <p className="text-[15px] text-text-muted leading-relaxed">
+                {name} is a premium {config.label.toLowerCase().slice(0, -1)} available exclusively
+                on the AI Agents Marketplace. Designed by <strong className="text-text-main">{item.author || 'AI Agents Team'}</strong>,
+                this product combines cutting-edge technology with an intuitive user experience.
               </p>
               <p className="text-[15px] text-text-muted leading-relaxed">
-                Whether you're a developer, designer, or business owner, this product integrates seamlessly
-                into your workflow and scales with your needs.
+                {category === 'templates' ? 'With ready-made components and responsive design, this template lets you launch applications faster without sacrificing quality. Every element is optimized for maximum performance and accessibility.' :
+                category === 'chatbots' ? 'Powered by advanced AI models, this chatbot handles complex conversations with deep contextual understanding. RAG integration enables access to a knowledge base that updates in real-time.' :
+                category === 'automation' ? 'Smart automation that eliminates repetitive manual tasks. With a visual workflow builder and pre-built connectors to 100+ services, you can build complex pipelines without coding.' :
+                category === 'integrations' ? 'A reliable connection bridge between various AI platforms and your favorite tools. Built with a fault-tolerant architecture to ensure stable connections even under high load.' :
+                category === 'ai-tools' ? 'A powerful API toolkit to integrate AI capabilities into your applications. Supports multiple modalities — text, image, audio, and video — in one unified SDK.' :
+                category === 'voice-ai' ? 'A complete voice AI solution with text-to-speech, speech-to-text, and voice cloning. Supports 100+ languages with near-human naturalness.' :
+                category === 'image-gen' ? 'An AI-powered image generator with high precision control. From text-to-image to image-to-image, the built-in editor makes fine-tuning results easy without external apps.' :
+                category === 'fine-tuning' ? 'A fine-tuning platform that lets you customize AI models with your own dataset, without expensive GPU infrastructure. Automated hyperparameter tuning for optimal results.' :
+                category === 'analytics' ? 'A smart analytics dashboard that turns raw data into actionable insights. With AI-driven anomaly detection and forecasting for better decision making.' :
+                category === 'monitoring' ? 'A real-time monitoring system with intelligent alerting and intuitive visualizations. Automatically detect anomalies before they impact your users.' :
+                category === 'security' ? 'An AI-powered security layer that protects your applications from cyber threats. Real-time intrusion detection, suspicious behavior analysis, and automated response.' :
+                'A versatile product designed to meet your specific needs with high performance and reliability.'}
+              </p>
+              <p className="text-[15px] text-text-muted leading-relaxed">
+                Suitable for developers, product teams, and enterprises looking to adopt AI quickly
+                without infrastructure complexity. With comprehensive documentation and an active community,
+                you'll never feel alone in your implementation journey.
               </p>
             </div>
             <div className="space-y-3">
-              {[
-                { icon: 'check_circle', text: 'Quality assured by our curation team' },
-                { icon: 'check_circle', text: 'Regular updates & improvements' },
-                { icon: 'check_circle', text: 'Community & expert support' },
-                { icon: 'check_circle', text: 'Secure checkout & instant access' },
-              ].map((f) => (
-                <div key={f.icon} className="flex items-center gap-2.5">
-                  <span className="material-symbols-outlined text-primary" style={{ fontSize: 18 }}>{f.icon}</span>
-                  <span className="text-sm font-medium text-text-muted">{f.text}</span>
+              {aboutFeatures.map((f) => (
+                <div key={f.icon} className="flex items-start gap-3 bg-surface p-3 rounded-xl border border-border-light">
+                  <span className="material-symbols-outlined text-primary mt-0.5" style={{ fontSize: 20 }}>{f.icon}</span>
+                  <span className="text-sm text-text-muted leading-relaxed">{f.text}</span>
                 </div>
               ))}
             </div>
@@ -578,12 +629,29 @@ export default function ProductDetail() {
         </section>
 
         <section className="px-6 py-12">
-          <h2 className="text-[22px] font-semibold text-text-main mb-6">Screenshots</h2>
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">How to Use</h2>
+          <p className="text-sm text-text-muted mb-6">Step-by-step guide to get started</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {tutorialSteps.map((step, idx) => (
+              <div key={idx} className="bg-surface border border-border-light rounded-xl p-5 hover:shadow-md transition-shadow relative">
+                <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary text-surface rounded-full flex items-center justify-center text-xs font-bold shadow-md">
+                  {idx + 1}
+                </div>
+                <h4 className="text-sm font-semibold text-text-main mb-2 mt-1">{step.title}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">Screenshots & Demo</h2>
+          <p className="text-sm text-text-muted mb-6">Product interface previews</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="rounded-xl overflow-hidden border border-border-light bg-surface-container-low">
-                <img src={`https://picsum.photos/seed/${item.seed}-ss${i}/600/400`} alt={`${name} screenshot ${i}`}
-                  className="w-full h-52 object-cover hover:scale-105 transition-transform duration-300" />
+            {[1, 2, 3, 4, 5, 6].map(i => (
+              <div key={i} className={`rounded-xl overflow-hidden border border-border-light bg-surface-container-low group ${i === 1 ? 'lg:col-span-2 lg:row-span-2' : ''}`}>
+                <img src={`https://picsum.photos/seed/${item.seed}-ss${i}/${i === 1 ? '800/500' : '600/400'}`} alt={`${name} screenshot ${i}`}
+                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${i === 1 ? 'h-80' : 'h-52'}`} />
               </div>
             ))}
           </div>

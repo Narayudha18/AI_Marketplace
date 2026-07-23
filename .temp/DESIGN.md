@@ -14,7 +14,7 @@
 | Route | Component | Description |
 |-------|-----------|-------------|
 | `/` | Home | Navbar, Hero, Categories, ProductGrid, Featured, FavoriteRecommendations, Footer |
-| `/templates` | Templates | Template listing with search, filters, sidebar, premium navbar |
+| `/templates` | Templates | Template listing with search, filters, sidebar |
 | `/templates/c/:filter` | CategoryListing | Filtered template listing |
 | `/templates/:slug` | ProductDetail | Product detail page |
 | `/integrations` | Integrations | Integrations listing |
@@ -67,20 +67,20 @@
 - **ThemeContext.jsx** — Dark mode toggle, persisted to localStorage, falls back to `prefers-color-scheme`
 
 ### Shared Components (`src/components/`)
-- **Navbar.jsx** — Premium style: gradient announcement bar (`from-primary-container to-blue-600` + "New" badge), sticky header (`sticky top-0 z-40`), pill-tab main nav with bottom active indicator, sub-nav pills, dark mode toggle (Material Symbols: `light_mode`/`dark_mode`), cart button, AuthButton. No hover effects on main nav links. Right-side button order: [Start Selling] [Cart] [Dark Toggle] [AuthButton]
+- **Navbar.jsx** — Premium style: gradient announcement bar ("New" badge), sticky header (`sticky top-0 z-40`), pill-tab main nav with bottom active indicator, sub-nav pills, dark mode toggle (Material Symbols: `light_mode`/`dark_mode`), cart button, AuthButton. No hover effects on main nav links. Right-side order: [Start Selling] [Cart] [Dark Toggle] [AuthButton]
 - **Hero.jsx** — Homepage hero with search bar (navigates to `/templates?search=QUERY`), Ctrl+Enter or button click
-- **Categories.jsx** — Expandable category grid (3 visible → 10 expanded, toggle with "View more categories" / "Show less")
-- **ProductGrid.jsx** — Featured products grid (from all 11 JSON data files tagged with `_cat` + `_name`), on-page filter `<button>` with state filtering + scroll to grid
+- **Categories.jsx** — Expandable category grid (3 visible → 10 expanded)
+- **ProductGrid.jsx** — Featured products grid (from all 11 JSON data files), on-page filter buttons with state filtering + scroll to grid
 - **Featured.jsx** — Featured section with CTA
 - **FavoriteRecommendations.jsx** — Product recommendations based on favorited items (English UI)
 - **CartDrawer.jsx** — Slide-in cart panel, dollar (`$`) price formatting
-- **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet (DANA, GoPay, ShopeePay, OVO, LinkAja), Bank Transfer, Convenience Store
+- **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet, Bank Transfer, Convenience Store
 - **Footer.jsx** — Site footer
 - **SellerForm.jsx** — Multi-step seller registration form (Account → Store → Verification → Done), English UI
 - **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown arrow for Sign Out
 
 ### Page Components (`src/pages/`)
-- **Templates.jsx** — Template listing: premium navbar, banner with CTA, sub-nav pills (auto-scroll to grid), sidebar filters (search + checkboxes + price + sort), product grid with pagination ("Load more", visibleCount 6→6), auto-scroll on sub-nav & filter apply
+- **Templates.jsx** — Template listing with premium navbar, banner, sub-nav pills, sidebar filters, product grid with pagination ("Load more"), auto-scroll on sub-nav click
 - **Integrations.jsx** — Same pattern as Templates
 - **Chatbots.jsx** — Same pattern as Templates
 - **Automation.jsx** — Same pattern as Templates
@@ -91,10 +91,10 @@
 - **FineTuning.jsx** — Same pattern as Templates
 - **Monitoring.jsx** — Same pattern as Templates
 - **Security.jsx** — Same pattern as Templates
-- **CategoryListing.jsx** — Generic filtered listing for all categories (reads URL param `:filter`), premium navbar, sidebar search, auto-scroll. Fixed empty `filterMap` bug.
-- **ProductDetail.jsx** — Premium navbar. 3 rich sections: About This Product (category-specific description + 6 feature cards), How to Use (5 step cards), Screenshots & Demo (6 images, first is hero). English UI. "Live Preview" button navigates to `/preview` gallery. Reviews & Comments tabs with localStorage persistence.
-- **ProductGallery.jsx** — 30 screenshots (3-column grid, hero full-width on top) + 4 auto-playing demo videos with controls fallback. Route: `/:category/:slug/preview`
-- **StartSelling.jsx** — Seller onboarding with premium navbar, hero, stats, 2/3 form + 1/3 sidebar info. English UI.
+- **CategoryListing.jsx** — Generic filtered listing (reads URL param `:filter`), premium navbar, sidebar search, auto-scroll on sub-nav click
+- **ProductDetail.jsx** — Premium navbar, 3 rich sections: About This Product (category-specific + 6 feature cards), How to Use (5 step cards), Screenshots & Demo (6-image grid). English UI. "Live Preview" button navigates to `/preview` gallery. Reviews & Comments tabs.
+- **ProductGallery.jsx** — 30 screenshots (3-column grid, hero spans full width on top) + 4 auto-playing demo videos with controls fallback. Route: `/:category/:slug/preview`
+- **StartSelling.jsx** — Seller onboarding with premium navbar, hero, stats, form + sidebar. English UI.
 - **Terms.jsx** — Terms of Service content page
 - **Licenses.jsx** — License options with 3 pricing cards
 - **ApiDocs.jsx** — REST API endpoint documentation
@@ -104,14 +104,7 @@
 - **Sitemap.jsx** — Site index with link grid
 - **Login.jsx** — Standalone login (no navbar/footer). Email/password form. Redirects to `/` on success.
 - **Register.jsx** — Standalone register (no navbar/footer). Email/password form. Redirects to `/` on success.
-- **Profile.jsx** — User dashboard: avatar (initial), name, email, change password form.
-
-Each listing page has:
-- Premium navbar with gradient announcement bar, sticky header, dark toggle, cart, AuthButton
-- A sub-navbar of category filter pills (auto-scroll to product grid)
-- A categories section with page-specific category cards
-- A sidebar (search input + category checkboxes + price range) + product card grid
-- "Load more" pagination (starts at 6, adds 6 per click)
+- **Profile.jsx** — User dashboard with avatar, name, email, change password form.
 
 ## Key Features
 
@@ -129,21 +122,20 @@ Each listing page has:
 - Dollar (`$`) price formatting
 
 ### Reviews & Comments
-- Review form gated by `hasPurchased()` — only users who bought the item can review
+- Review form gated by `hasPurchased()`
 - Star rating + text review
 - Comment section available to all users
-- Persisted to localStorage per product slug
 
 ### Favorites
 - Heart toggle on product detail and all listing cards
 - `isFavorite()` / `toggleFavorite()` from CartContext
-- FavoriteRecommendations on homepage shows products from same data source as favorited items
+- FavoriteRecommendations on homepage
 
 ### Search & Filter
 - Homepage search bar navigates to `/templates?search=QUERY`
-- Templates page reads `?search=` param on mount and auto-applies filter
 - Each listing page: sidebar search + category checkboxes + price range + sort
-- Category filter pills in sub-navbar
+- Category search input in sidebar for quick filtering
+- Auto-scroll to product grid on sub-nav pill click and filter apply
 
 ### Pagination
 - "Load more" button on all 12 listing pages
@@ -151,32 +143,24 @@ Each listing page has:
 - Button hidden when all items shown
 
 ### Auto-scroll
-- Sub-nav pill clicks → auto-scroll to product grid (`useEffect` on `[location.pathname]` with 150ms delay)
-- Sidebar filter apply → auto-scroll to product grid (`productRef`)
-- Main navbar links → NO auto-scroll (`state={{ skipScroll: true }}`)
+- Sub-nav pill clicks → auto-scroll to product grid
+- Sidebar checkbox toggle → auto-scroll to product grid (productRef)
+- Main navbar links → NO auto-scroll (via `state={{ skipScroll: true }}`)
 - Global scroll-to-top on route change in App.jsx
-- Hero "Get Started" / "Browse All" buttons → scroll to grid
-
-### Product Gallery
-- 30 screenshots (seed-based picsum.photos variety)
-- 4 auto-playing demo videos with HTML5 video fallback
-- Route: `/:category/:slug/preview`
-- Accessed via "Live Preview" / "Preview" buttons on product cards and detail page
-
-### English UI
-- All text translated to English: ProductDetail (About, Tutorial, Screenshots), StartSelling, SellerForm, FavoriteRecommendations
+- Hero "Get Started" button → scroll to grid
+- Sidebar search application → scroll to products
 
 ## Styling
 - Tailwind CSS v4 with `@theme` custom colors in `index.css`
+- Dark header (`bg-text-main`) with light page background (`bg-background`)
 - Premium navbar: gradient announcement bar (`from-primary-container to-blue-600` + "New" badge)
-- Sticky header (`sticky top-0 z-40`)
 - Material Symbols for icons (`material-symbols-outlined`)
 - Product cards: shadow + border + hover effects
 - Sub-nav pills: `hover:bg-surface-container-low hover:text-primary`
 - Main nav links: `text-surface-variant hover:text-surface`
 
 ## Data
-Static JSON in `src/data/` — each file expanded to 30 items (total 330 items):
+Static JSON in `src/data/` — each file expanded to 30 items:
 
 - `templates.json` (30 items)
 - `integrations.json` (30 items)
@@ -191,3 +175,11 @@ Static JSON in `src/data/` — each file expanded to 30 items (total 330 items):
 - `security.json` (30 items)
 
 Each item has: name/title, description, price, sales, rating, category, image (seed-based picsum.photos), author, etc.
+
+## Data Flow
+- Products: Static JSON → imported directly in listing pages → filtered/sorted client-side
+- Cart/Favorites: React Context → localStorage
+- Auth: React Context (in-memory, no persistence)
+- Theme: React Context → localStorage
+- Reviews/Comments: localStorage per product (keyed by slug)
+- Images: picsum.photos with seed parameter

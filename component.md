@@ -16,6 +16,7 @@
 | Semua Halaman | **App** | `src/App.jsx` | — | — | Route rendering | — | — |
 | Semua Halaman | **CartProvider** | `src/CartContext.jsx` | `children` | `cart`, `purchased`, `favorites` (all localStorage) | `addToCart`, `removeFromCart`, `clearCart`, `markAsPurchased`, `inCart`, `hasPurchased`, `toggleFavorite`, `isFavorite`, `getFavoriteCategories` | `carts`, `purchases`, `favorites` | `GET/POST /api/cart`, `POST /api/orders`, `GET/POST /api/favorites` |
 | Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (in-memory only) | `register`, `login`, `logout`, `updatePassword`, `updatePicture` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
+| Semua Halaman | **ThemeProvider** | `src/ThemeContext.jsx` | `children` | `dark` (localStorage + prefers-color-scheme) | `toggle` → toggle dark mode | — | — |
 | Semua Halaman | **Navbar** | `src/components/Navbar.jsx` | — | `cartOpen` | `setCartOpen(true)` → buka CartDrawer | `categories` (static) | `GET /api/categories` |
 | Semua Halaman | **AuthButton** | `src/components/AuthButton.jsx` | — | `open` (dropdown) | Logged out→Link to /login, logged in→Link to /profile + dropdown Sign Out | — | — |
 | Semua Halaman | **CartDrawer** | `src/components/CartDrawer.jsx` | `open`, `onClose` | `paymentOpen` | `removeFromCart`, `clearCart`, `markAsPurchased`; body scroll lock | `carts (SELECT, DELETE)`, `orders (INSERT)` | `GET/POST /api/cart`, `POST /api/orders` |
@@ -71,8 +72,9 @@
 
 | Web Page / Section | Komponen | File Path | Props | State (Local) | Event Handlers | DB Table / Query (Future) | API Endpoint (Future) |
 |---|---|---|---|---|---|---|---|
-| Detail Produk | **ProductDetail** | `src/pages/ProductDetail.jsx` | — | `cartOpen`, `activeTab`, `reviews[]`, `comments[]` (both localStorage), `reviewName`, `reviewText`, `reviewRating`, `hoverRating`, `commentName`, `commentText` | `addToCart`, `toggleFavorite`, `submitReview`, `submitComment`; tab switching | `products (SELECT)`, `reviews (SELECT, INSERT)`, `comments (SELECT, INSERT)` | `GET /api/products/:category/:slug`, `GET/POST /api/reviews`, `GET/POST /api/comments` |
-| Listing per Kategori | **CategoryListing** | `src/pages/CategoryListing.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite`; URL-driven filter from `:filter` param | `products (SELECT, FILTER BY CATEGORY)` | `GET /api/products/:category?filter=` |
+| Detail Produk | **ProductDetail** | `src/pages/ProductDetail.jsx` | — | `cartOpen`, `activeTab`, `reviews[]`, `comments[]` (both localStorage), `reviewName`, `reviewText`, `reviewRating`, `hoverRating`, `commentName`, `commentText` | `addToCart`, `toggleFavorite`, `submitReview`, `submitComment`; tab switching; "Live Preview" → navigate to `/preview` | `products (SELECT)`, `reviews (SELECT, INSERT)`, `comments (SELECT, INSERT)` | `GET /api/products/:category/:slug`, `GET/POST /api/reviews`, `GET/POST /api/comments` |
+| Listing per Kategori | **CategoryListing** | `src/pages/CategoryListing.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite`; URL-driven filter from `:filter` param; auto-scroll to productRef | `products (SELECT, FILTER BY CATEGORY)` | `GET /api/products/:category?filter=` |
+| Gallery Produk | **ProductGallery** | `src/pages/ProductGallery.jsx` | — | — | None (static display) | `products (SELECT)` (for images/videos metadata) | `GET /api/products/:category/:slug/media` |
 
 ---
 
@@ -109,17 +111,17 @@
 
 | File | Records | Key Fields | Future DB Table | Used By |
 |---|---|---|---|---|
-| `src/data/templates.json` | 17 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='template') | Templates, ProductDetail, CategoryListing, FavoriteRecommendations |
-| `src/data/integrations.json` | 13 | `name`, `desc`, `icon`, `category`, `type`, `rating`, `users` | `products` (type='integration') | Integrations, ProductDetail, CategoryListing, FavoriteRecommendations |
-| `src/data/chatbots.json` | 8 | `name`, `desc`, `price`, `sales`, `rating`, `platform`, `seed` | `products` (type='chatbot') | Chatbots, ProductDetail, CategoryListing, FavoriteRecommendations |
-| `src/data/automation.json` | 8 | `name`, `desc`, `price`, `sales`, `rating`, `category`, `seed` | `products` (type='automation') | Automation, ProductDetail, CategoryListing, FavoriteRecommendations |
-| `src/data/aitools.json` | 13 | `name`, `desc`, `price`, `badge`, `category`, `seed` | `products` (type='aitool') | AiTools, ProductDetail, CategoryListing, FavoriteRecommendations |
-| `src/data/voice-ai.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='voice-ai') | VoiceAI, ProductDetail, CategoryListing |
-| `src/data/image-gen.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='image-gen') | ImageGen, ProductDetail, CategoryListing |
-| `src/data/analytics.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='analytics') | Analytics, ProductDetail, CategoryListing |
-| `src/data/fine-tuning.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='fine-tuning') | FineTuning, ProductDetail, CategoryListing |
-| `src/data/monitoring.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='monitoring') | Monitoring, ProductDetail, CategoryListing |
-| `src/data/security.json` | 8 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='security') | Security, ProductDetail, CategoryListing |
+| `src/data/templates.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='template') | Templates, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/integrations.json` | 30 | `name`, `desc`, `icon`, `category`, `type`, `rating`, `users` | `products` (type='integration') | Integrations, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/chatbots.json` | 30 | `name`, `desc`, `price`, `sales`, `rating`, `platform`, `seed` | `products` (type='chatbot') | Chatbots, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/automation.json` | 30 | `name`, `desc`, `price`, `sales`, `rating`, `category`, `seed` | `products` (type='automation') | Automation, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/aitools.json` | 30 | `name`, `desc`, `price`, `badge`, `category`, `seed` | `products` (type='aitool') | AiTools, ProductDetail, CategoryListing, FavoriteRecommendations |
+| `src/data/voice-ai.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='voice-ai') | VoiceAI, ProductDetail, CategoryListing |
+| `src/data/image-gen.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='image-gen') | ImageGen, ProductDetail, CategoryListing |
+| `src/data/analytics.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='analytics') | Analytics, ProductDetail, CategoryListing |
+| `src/data/fine-tuning.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='fine-tuning') | FineTuning, ProductDetail, CategoryListing |
+| `src/data/monitoring.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='monitoring') | Monitoring, ProductDetail, CategoryListing |
+| `src/data/security.json` | 30 | `title`, `author`, `category`, `price`, `sales`, `seed` | `products` (type='security') | Security, ProductDetail, CategoryListing |
 
 ### 3.2. Future Database Schema (PostgreSQL)
 
@@ -287,13 +289,29 @@ App.jsx (Routes)
 │   └── Navbar + Footer
 │
 ├── ProductDetail (/:category/:slug)
-│   ├── Tabs: Produk | Review & Rating | Komentar | Support
+│   ├── About This Product (category-specific + 6 feature cards)
+│   ├── How to Use (5 step cards)
+│   ├── Screenshots & Demo (6 image grid)
+│   ├── "Live Preview" → navigate to /:category/:slug/preview
+│   ├── Tabs: About | Reviews | Comments | Support
 │   ├── Review form (hanya jika sudah purchase)
 │   ├── Comment form (semua user)
 │   └── Related products
 │
-└── CategoryListing (/:category/c/:filter)
-    └── Filtered grid + sidebar search
+├── ProductGallery (/:category/:slug/preview)
+│   ├── Hero screenshot (full width)
+│   ├── 29 screenshots (3-column grid)
+│   └── 4 auto-playing demo videos
+│
+├── CategoryListing (/:category/c/:filter)
+│   ├── Premium navbar (inline)
+│   ├── Sub-nav pills (auto-scroll)
+│   ├── Sidebar search + checkboxes
+│   ├── Product grid with "Load more"
+│   └── Auto-scroll on filter apply (productRef)
+│
+└── ThemeProvider (wraps entire app in main.jsx)
+    └── Toggle button in all navbars
 ```
 
 ---
@@ -402,6 +420,7 @@ App.jsx (Routes)
 | `/help` | HelpCenter | Pusat bantuan & FAQ |
 | `/authors` | Authors | Panduan penulis |
 | `/sitemap` | Sitemap | Indeks seluruh halaman |
+| `/:category/:slug/preview` | ProductGallery | Gallery: 30 screenshots + 4 demo videos |
 | `/login` | Login | Login (standalone, tanpa navbar/footer) |
 | `/register` | Register | Register (standalone, tanpa navbar/footer) |
 | `/profile` | Profile | Dashboard user (harus login) |
@@ -412,21 +431,23 @@ App.jsx (Routes)
 
 ### Prioritas API yang Paling Dibutuhkan
 
-1. **Auth** (register/login + JWT) — menggantikan tombol "Sign In" statis
-2. **Products API** — menggantikan 5 file JSON
+1. **Auth** (register/login + JWT) — menggantikan in-memory AuthContext
+2. **Products API** — menggantikan 11 file JSON (330 items)
 3. **Cart API** — menggantikan localStorage cart
 4. **Orders/Payments API** — menggantikan simulasi QRIS + barcode canvas
 5. **Favorites API** — menggantikan localStorage favorites
 6. **Reviews & Comments API** — menggantikan localStorage review/comment
 7. **Search API** — full-text search
+8. **Media API** — screenshots + demo videos untuk ProductGallery
 
 ### Urutan Migrasi Data
 
 1. Tambah backend + database
-2. Migrasi 5 JSON ke tabel `products` + `categories`
+2. Migrasi 11 JSON ke tabel `products` + `categories`
 3. Ganti `CartContext` dengan panggilan API (state React → server state)
 4. Ganti localStorage reviews/comments dengan API
 5. Integrasi payment gateway riil (Midtrans/Xendit)
+6. Migrasi gambar dari picsum.photos ke self-hosted/CDN
 
 ---
 

@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { useLocation, Link, useNavigate } from 'react-router-dom'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -14,6 +14,7 @@ import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
+import { useTheme } from '../ThemeContext'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -232,17 +233,29 @@ const categoryConfig = {
 export default function CategoryListing() {
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const location = useLocation()
+  const navigate = useNavigate()
   const parts = location.pathname.split('/')
   const category = parts[1]
   const filterSlug = parts[3] || ''
   const config = categoryConfig[category]
   if (!config) return null
+  const gridRef = useRef(null)
+  const productRef = useRef(null)
+  useEffect(() => {
+    if (location.state?.skipScroll) return
+    setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
+  }, [location.pathname])
 
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [appliedSidebar, setAppliedSidebar] = useState('')
+  const [visibleCount, setVisibleCount] = useState(6)
 
-  const applyFilters = () => setAppliedSidebar(sidebarSearch)
+  const applyFilters = () => {
+    setAppliedSidebar(sidebarSearch)
+    productRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   const filterName = config.filterCategories.find(c => c !== config.allLabel && toSlug(c) === filterSlug) || config.allLabel
   const isAll = filterName === config.allLabel
@@ -250,7 +263,10 @@ export default function CategoryListing() {
 
   const subFiltered = isAll
     ? config.items
-    : config.items.filter(item => item[config.dataFilterKey] === filterValue)
+    : config.items.filter(item => {
+        if (filterValue !== undefined) return item[config.dataFilterKey] === filterValue
+        return item[config.dataFilterKey] && toSlug(item[config.dataFilterKey]) === filterSlug
+      })
 
   const filteredItems = subFiltered.filter(item => {
     const q = appliedSidebar.toLowerCase()
@@ -285,7 +301,7 @@ export default function CategoryListing() {
             ].map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -296,10 +312,11 @@ export default function CategoryListing() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>
@@ -357,7 +374,7 @@ export default function CategoryListing() {
           </div>
         </section>
 
-        <section className="px-6 py-16">
+        <section ref={gridRef} className="px-6 py-16">
           <div className="flex flex-col lg:flex-row gap-8">
             <aside className="w-full lg:w-72 flex-shrink-0">
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
@@ -394,7 +411,7 @@ export default function CategoryListing() {
               </div>
             </aside>
 
-            <div className="flex-1">
+            <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-medium text-text-muted">{filteredItems.length} {config.singular}s found</span>
                 <div className="flex gap-2">
@@ -408,7 +425,7 @@ export default function CategoryListing() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredItems.map(item => {
+                {filteredItems.slice(0, visibleCount).map(item => {
                   const itemName = item.title || item.name
                   const slug = toSlug(itemName)
                   const detailPath = `${basePath}/${slug}`
@@ -459,7 +476,7 @@ export default function CategoryListing() {
                               <span>{item.users} users</span>
                             </div>
                           )}
-                          <button className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
+                          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${category}/${toSlug(item.title || item.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                             {'type' in item ? 'Connect' : 'badge' in item ? 'Access' : 'Preview'}
                           </button>
                         </div>
@@ -480,10 +497,11 @@ export default function CategoryListing() {
               )}
 
               <div className="mt-8 flex justify-center">
-                <Link to={basePath}
-                  className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-                  Load more {config.singular}s
-                </Link>
+                {visibleCount < filteredItems.length && (
+                  <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
+                    Load more {config.singular}s
+                  </button>
+                )}
               </div>
             </div>
           </div>

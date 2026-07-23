@@ -1,30 +1,55 @@
-import { Link } from 'react-router-dom'
+import { useState, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import templates from '../data/templates.json'
+import integrations from '../data/integrations.json'
+import chatbots from '../data/chatbots.json'
+import automations from '../data/automation.json'
+import aitools from '../data/aitools.json'
+import voiceAi from '../data/voice-ai.json'
+import imageGen from '../data/image-gen.json'
+import analyticsData from '../data/analytics.json'
+import fineTuningData from '../data/fine-tuning.json'
+import monitoringData from '../data/monitoring.json'
+import securityData from '../data/security.json'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
-const filters = [
-  { label: 'All categories', to: '/templates' },
-  { label: 'ChatGPT Agents', to: '/chatbots' },
-  { label: 'Voice AI', to: '/ai-tools/c/audio-speech' },
-  { label: 'Automation', to: '/automation' },
-  { label: 'RAG', to: '/integrations' },
-  { label: 'Vision', to: '/ai-tools' },
+const allProducts = [
+  ...templates.map(p => ({ ...p, _cat: 'templates', _name: p.title })),
+  ...integrations.map(p => ({ ...p, _cat: 'integrations', _name: p.name })),
+  ...chatbots.map(p => ({ ...p, _cat: 'chatbots', _name: p.name })),
+  ...automations.map(p => ({ ...p, _cat: 'automation', _name: p.name })),
+  ...aitools.map(p => ({ ...p, _cat: 'ai-tools', _name: p.name })),
+  ...voiceAi.map(p => ({ ...p, _cat: 'voice-ai', _name: p.title })),
+  ...imageGen.map(p => ({ ...p, _cat: 'image-gen', _name: p.title })),
+  ...analyticsData.map(p => ({ ...p, _cat: 'analytics', _name: p.title })),
+  ...fineTuningData.map(p => ({ ...p, _cat: 'fine-tuning', _name: p.title })),
+  ...monitoringData.map(p => ({ ...p, _cat: 'monitoring', _name: p.title })),
+  ...securityData.map(p => ({ ...p, _cat: 'security', _name: p.title })),
 ]
 
-const products = [
-  { title: 'AgentForge | Multi-LLM Orchestrator', author: 'saaadelab', category: 'Frameworks', price: '$79', sales: '234 Sales', seed: 'agentforge' },
-  { title: 'VoiceFlow Pro | Voice Assistant SDK', author: 'morningstar', category: 'Voice AI', price: '$59', sales: '189 Sales', seed: 'voiceflow' },
-  { title: 'VisionCortex | Real-time Object Detector', author: 'ticempresarial', category: 'Computer Vision', price: '$99', sales: '312 Sales', seed: 'visioncortex' },
-  { title: 'ChatCraft | Custom GPT Builder', author: 'Rado-Labs', category: 'Chatbots', price: '$49', sales: '567 Sales', seed: 'chatcraft' },
-  { title: 'DataPulse | Analytics Agent', author: 'neuralforge', category: 'Analytics', price: '$69', sales: '98 Sales', seed: 'datapulse' },
-  { title: 'SecureGate | AI Guardrails', author: 'cybermind', category: 'Security', price: '$89', sales: '76 Sales', seed: 'securegate' },
-  { title: 'RAGStack | Knowledge Base Agent', author: 'deeplearn', category: 'RAG Pipelines', price: '$109', sales: '145 Sales', seed: 'ragstack' },
-  { title: 'AutoWorkflow | Process Automation', author: 'flowlabs', category: 'Automation', price: '$39', sales: '423 Sales', seed: 'autoworkflow' },
-];
+const filters = [
+  { label: 'All categories', to: '/templates', match: () => true },
+  { label: 'ChatGPT Agents', to: '/chatbots', match: (p) => (p.category || '').toLowerCase() === 'chatbots' || p._name?.toLowerCase().includes('chat') || p._name?.toLowerCase().includes('gpt') || p._name?.toLowerCase().includes('bot') },
+  { label: 'Voice AI', to: '/voice-ai', match: (p) => p._cat === 'voice-ai' || (p.category || '').toLowerCase() === 'voice ai' || p._name?.toLowerCase().includes('voice') },
+  { label: 'Automation', to: '/automation', match: (p) => p._cat === 'automation' || (p.category || '').toLowerCase() === 'automation' || p._name?.toLowerCase().includes('workflow') || p._name?.toLowerCase().includes('auto') },
+  { label: 'RAG', to: '/integrations', match: (p) => (p.category || '').toLowerCase().includes('rag') || p._name?.toLowerCase().includes('rag') || p._name?.toLowerCase().includes('knowledge') || p._name?.toLowerCase().includes('vector') },
+  { label: 'Vision', to: '/ai-tools', match: (p) => (p.category || '').toLowerCase() === 'computer vision' || p._name?.toLowerCase().includes('vision') || p._name?.toLowerCase().includes('cortex') || p._name?.toLowerCase().includes('image') },
+]
 
 export default function ProductGrid() {
+  const navigate = useNavigate()
+  const gridRef = useRef(null)
+  const [activeFilter, setActiveFilter] = useState('All categories')
+  const filtered = allProducts.filter(p => filters.find(f => f.label === activeFilter).match(p))
+
+  const handleFilterClick = (label) => {
+    setActiveFilter(label)
+    setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50)
+  }
+
   return (
     <section className="px-6 py-16">
       <div className="text-center mb-10">
@@ -38,39 +63,54 @@ export default function ProductGrid() {
 
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {filters.map((f) => (
-          <Link key={f.label} to={f.to}
-            className={`px-6 py-2 rounded-full text-xs font-semibold shadow-sm transition-colors ${
-              f.label === 'All categories'
+          <button key={f.label} onClick={() => handleFilterClick(f.label)}
+            className={`px-6 py-2 rounded-full text-xs font-semibold shadow-sm transition-colors cursor-pointer ${
+              activeFilter === f.label
                 ? 'bg-surface border-2 border-primary text-primary'
                 : 'bg-surface border border-border-light text-text-muted hover:border-outline-variant hover:text-text-main'
             }`}>
             {f.label}
-          </Link>
+          </button>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map((p) => (
-          <Link key={p.title} to={`/templates/${toSlug(p.title)}`}
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filtered.slice(0, 8).map((p) => (
+          <Link key={p._name} to={`/${p._cat}/${toSlug(p._name)}`}
             className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
             <div className="relative h-40 overflow-hidden bg-surface-container-low">
-              <img src={`https://picsum.photos/seed/${p.seed}/400/200`} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img src={`https://picsum.photos/seed/${p.seed || p._name}/400/200`} alt={p._name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div className="p-4 flex flex-col flex-1">
-              <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p.title}</h4>
+              <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p._name}</h4>
               <p className="text-[11px] font-medium text-text-muted mb-3">
-                by <span className="text-primary cursor-pointer hover:underline">{p.author}</span> in {p.category}
+                by <span className="text-primary cursor-pointer hover:underline">{p.author || 'AI Agents Team'}</span>
+                {'category' in p && <span> in {p.category}</span>}
               </p>
               <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                 <div>
-                  <span className="text-[24px] font-semibold text-text-main block">{p.price}</span>
-                  <span className="text-[11px] font-medium text-text-muted">{p.sales}</span>
+                  {'price' in p ? (
+                    <>
+                      <span className="text-[24px] font-semibold text-text-main block">{p.price}</span>
+                      {'sales' in p && <span className="text-[11px] font-medium text-text-muted">{p.sales}</span>}
+                    </>
+                  ) : (
+                    <>
+                      {'rating' in p && (
+                        <div className="flex items-center gap-1">
+                          <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 14 }}>star</span>
+                          <span className="text-xs font-semibold text-text-main">{p.rating}</span>
+                        </div>
+                      )}
+                      {'users' in p && <span className="text-[11px] font-medium text-text-muted">{p.users} users</span>}
+                    </>
+                  )}
                 </div>
                 <div className="flex gap-2">
                   <button className="p-2 border border-border-light rounded hover:bg-surface-container-low text-text-muted transition-colors">
                     <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                   </button>
-                  <button className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
+                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${p._cat}/${toSlug(p._name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                     Live Preview
                   </button>
                 </div>
@@ -81,7 +121,7 @@ export default function ProductGrid() {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <Link to="/templates"
+        <Link to={filters.find(f => f.label === activeFilter).to}
           className="inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
           View more new items
         </Link>

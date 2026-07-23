@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import tools from '../data/aitools.json'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
+import { useTheme } from '../ThemeContext'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -12,17 +13,25 @@ function toSlug(str) {
 export default function AiTools() {
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedPricing, setSelectedPricing] = useState('All')
   const location = useLocation()
+  const navigate = useNavigate()
   const gridRef = useRef(null)
+  const productRef = useRef(null)
+  useEffect(() => {
+    if (location.state?.skipScroll) return
+    setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
+  }, [location.pathname])
 
   const [appliedSearch, setAppliedSearch] = useState('')
   const [appliedSidebar, setAppliedSidebar] = useState('')
   const [appliedCategory, setAppliedCategory] = useState('All')
   const [appliedPricing, setAppliedPricing] = useState('All')
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const categoryMap = { 'LLM APIs': 'LLM', 'Image Gen': 'Image', 'Audio/Speech': 'Audio', 'Vector DB': 'Infra', 'Compute': 'Compute', 'Frameworks': 'Framework', 'Monitoring': 'LLM' }
 
@@ -31,6 +40,7 @@ export default function AiTools() {
     setAppliedSidebar(sidebarSearch)
     setAppliedCategory(selectedCategory)
     setAppliedPricing(selectedPricing)
+    productRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const resetFilters = () => {
@@ -55,6 +65,7 @@ export default function AiTools() {
     }
     return true
   })
+
   return (
     <>
       <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
@@ -81,7 +92,7 @@ export default function AiTools() {
             ].map(link => {
               const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -92,10 +103,11 @@ export default function AiTools() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>
@@ -206,7 +218,7 @@ export default function AiTools() {
               </div>
             </aside>
 
-            <div className="flex-1">
+            <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-medium text-text-muted">{filteredTools.length} tools found</span>
                 <div className="flex gap-2">
@@ -220,7 +232,7 @@ export default function AiTools() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredTools.map((t) => (
+                {filteredTools.slice(0, visibleCount).map((t) => (
                   <Link key={t.name} to={`/ai-tools/${toSlug(t.name)}`}
                     className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
                     <div className="relative h-40 overflow-hidden bg-surface-container-low">
@@ -250,7 +262,7 @@ export default function AiTools() {
                       <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded self-start mb-3">{t.category}</span>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <span className="text-xs font-semibold text-text-main">{t.price}</span>
-                        <button className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
+                        <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/ai-tools/${toSlug(t.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                           Access
                         </button>
                       </div>
@@ -260,9 +272,11 @@ export default function AiTools() {
               </div>
 
               <div className="mt-8 flex justify-center">
-                <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-                  Browse all tools
-                </button>
+                {visibleCount < filteredTools.length && (
+                  <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
+                    Load more tools
+                  </button>
+                )}
               </div>
             </div>
           </div>

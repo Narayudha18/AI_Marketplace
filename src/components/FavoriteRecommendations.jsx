@@ -48,8 +48,8 @@ export default function FavoriteRecommendations() {
 
   return (
     <section className="px-6 mt-12">
-      <h2 className="text-[22px] font-semibold text-text-main mb-1">Karena Anda menyukai...</h2>
-      <p className="text-xs text-text-muted mb-6">Rekomendasi produk berdasarkan favorit Anda</p>
+      <h2 className="text-[22px] font-semibold text-text-main mb-1">Because you liked...</h2>
+      <p className="text-xs text-text-muted mb-6">Product recommendations based on your favorites</p>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {recommendations.map(item => {
           const itemName = item.title || item.name

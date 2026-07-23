@@ -1,3 +1,47 @@
+## v6.0 — 2026-07-23
+
+### Komponen
+- **ThemeContext** — Dark mode provider baru: toggle, localStorage persistence, fallback prefers-color-scheme [file: src/ThemeContext.jsx]
+- **ProductGallery** — Halaman gallery baru: 30 screenshots + 4 demo videos [file: src/pages/ProductGallery.jsx]
+
+### Ubah
+- **Navbar (16 files)** — Premium style sync di semua halaman: gradient announcement bar (`from-primary-container to-blue-600` + "New" badge), sticky header `z-40`, pill tabs dengan bottom indicator, dark mode toggle (light_mode/dark_mode icons), AuthButton. Right-side order: [Start Selling] [Cart] [Dark Toggle] [AuthButton]. Hover effects removed from main nav links.
+- **ProductDetail** — 3 rich sections (About This Product, How to Use, Screenshots & Demo). English UI. "Live Preview" button navigates ke `/preview`. [file: src/pages/ProductDetail.jsx]
+- **StartSelling** — UI translated to English [file: src/pages/StartSelling.jsx]
+- **SellerForm** — Multi-step form translated to English (Account → Store → Verification → Done) [file: src/components/SellerForm.jsx]
+- **FavoriteRecommendations** — UI translated to English [file: src/components/FavoriteRecommendations.jsx]
+- **CartDrawer** — Price format changed from `Rp` to `$` [file: src/components/CartDrawer.jsx]
+- **ProductGrid** — Filter buttons changed from `<Link>` to on-page `<button>` with state filtering + scroll to grid. Imports all 11 JSON data files (104+ items tagged with `_cat` + `_name`). [file: src/components/ProductGrid.jsx]
+- **CategoryListing** — Fixed empty `filterMap` bug for sub-category filters. Added auto-scroll on filter apply. [file: src/pages/CategoryListing.jsx]
+
+### Fitur
+- [Feat] Dark mode — ThemeContext + CSS variables + flash-prevention inline script
+- [Feat] Pagination — "Load more" buttons on all 12 listing pages (initial 6, increments by 6)
+- [Feat] Product Gallery — `/:category/:slug/preview` route with 30 screenshots + 4 auto-play videos
+- [Feat] Auto-scroll — Sub-nav pills & sidebar filter → scroll to product grid (`productRef`). Navbar links → skip scroll (`state={{ skipScroll: true }}`). Global scroll-to-top on route change.
+- [Style] All 11 JSON data files expanded from 8-17 items to 30 items each (total 330 items)
+- [Style] Premium navbar uniform style across all 16 files
+
+### Routing
+- Tambah route `/:category/:slug/preview` → ProductGallery
+
+### Data
+- templates.json: 17→30 items
+- integrations.json: 13→30 items
+- chatbots.json: 8→30 items
+- automation.json: 8→30 items
+- aitools.json: 13→30 items
+- voice-ai.json: 8→30 items
+- image-gen.json: 8→30 items
+- analytics.json: 8→30 items
+- fine-tuning.json: 8→30 items
+- monitoring.json: 8→30 items
+- security.json: 8→30 items
+
+### Catatan
+- Google OAuth code removed completely (package uninstalled, buttons removed)
+- Profile page crashes on navigation (root cause unknown, minimal version deployed)
+
 ## v5.0 — 2026-07-22
 
 ### Auth

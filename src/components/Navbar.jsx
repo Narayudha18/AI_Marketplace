@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from './CartDrawer'
 import AuthButton from './AuthButton'
+import { useTheme } from '../ThemeContext'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -25,6 +26,7 @@ const navSubLinks = {
 export default function Navbar() {
   const { totalItems } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const location = useLocation()
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/'
@@ -53,7 +55,7 @@ export default function Navbar() {
             ].map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -64,10 +66,11 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function CartDrawer({ open, onClose }) {
     const price = parseFloat(item.price?.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0
     return sum + price
   }, 0)
-  const formattedTotal = `Rp${totalPrice.toLocaleString('id-ID')}`
+  const formattedTotal = `$${totalPrice.toLocaleString('en-US')}`
 
   return (
     <>

@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import integrations from '../data/integrations.json'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
+import { useTheme } from '../ThemeContext'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -12,19 +13,27 @@ function toSlug(str) {
 export default function Integrations() {
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
+  const { dark, toggle } = useTheme()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategories, setSelectedCategories] = useState(['All'])
   const [selectedType, setSelectedType] = useState('All')
   const [selectedRating, setSelectedRating] = useState('Any Rating')
   const location = useLocation()
+  const navigate = useNavigate()
   const gridRef = useRef(null)
+  const productRef = useRef(null)
+  useEffect(() => {
+    if (location.state?.skipScroll) return
+    setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
+  }, [location.pathname])
 
   const [appliedSearch, setAppliedSearch] = useState('')
   const [appliedSidebar, setAppliedSidebar] = useState('')
   const [appliedCategories, setAppliedCategories] = useState(['All'])
   const [appliedType, setAppliedType] = useState('All')
   const [appliedRating, setAppliedRating] = useState('Any Rating')
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const toggleCategory = (cat) => {
     if (cat === 'All') { setSelectedCategories(['All']); return }
@@ -39,6 +48,7 @@ export default function Integrations() {
     setAppliedCategories(selectedCategories)
     setAppliedType(selectedType)
     setAppliedRating(selectedRating)
+    productRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const resetFilters = () => {
@@ -60,6 +70,7 @@ export default function Integrations() {
     }
     return true
   })
+
   return (
     <>
       <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
@@ -86,7 +97,7 @@ export default function Integrations() {
             ].map(link => {
               const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to}
+                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
                   className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
                   {link.label}
                   {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
@@ -97,10 +108,11 @@ export default function Integrations() {
 
           <div className="flex items-center gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
             </button>
+            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
             <AuthButton />
           </div>
         </div>
@@ -185,7 +197,7 @@ export default function Integrations() {
                   <div className="space-y-2.5">
                     {['All', 'LLM Providers', 'Vector DB', 'Voice AI', 'Image Gen', 'Frameworks', 'Model Hosting', 'Compute'].map((cat) => (
                       <label key={cat} className="flex items-center gap-2.5 cursor-pointer group">
-                        <input type="checkbox" checked={selectedCategories.includes(cat)} onChange={() => toggleCategory(cat)}
+                        <input type="checkbox" checked={selectedCategories.includes(cat)} onChange={() => { toggleCategory(cat); setTimeout(applyFilters, 50) }}
                           className="w-4 h-4 rounded border-border-light text-primary focus:ring-primary" />
                         <span className="text-xs font-medium text-text-muted group-hover:text-text-main transition-colors">{cat}</span>
                       </label>
@@ -230,7 +242,7 @@ export default function Integrations() {
               </div>
             </aside>
 
-            <div className="flex-1">
+            <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-medium text-text-muted">{filteredIntegrations.length} integrations found</span>
                 <div className="flex gap-2">
@@ -244,7 +256,7 @@ export default function Integrations() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredIntegrations.map((item) => (
+                {filteredIntegrations.slice(0, visibleCount).map((item) => (
                   <Link key={item.name} to={`/integrations/${toSlug(item.name)}`}
                     className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col relative">
                     <button
@@ -275,7 +287,7 @@ export default function Integrations() {
                         <span className="text-text-muted">·</span>
                         <span>{item.users} users</span>
                       </div>
-                      <button className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
+                      <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/integrations/${toSlug(item.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                         Connect
                       </button>
                     </div>
@@ -284,9 +296,11 @@ export default function Integrations() {
               </div>
 
               <div className="mt-8 flex justify-center">
-                <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-                  Load more integrations
-                </button>
+                {visibleCount < filteredIntegrations.length && (
+                  <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
+                    Load more integrations
+                  </button>
+                )}
               </div>
             </div>
           </div>

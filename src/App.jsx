@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
@@ -13,6 +14,7 @@ import Automation from './pages/Automation'
 import AiTools from './pages/AiTools'
 import ProductDetail from './pages/ProductDetail'
 import CategoryListing from './pages/CategoryListing'
+import ProductGallery from './pages/ProductGallery'
 import StartSelling from './pages/StartSelling'
 import Terms from './pages/Terms'
 import Licenses from './pages/Licenses'
@@ -48,6 +50,8 @@ function Home() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -90,6 +94,7 @@ export default function App() {
       <Route path="/monitoring/c/:filter" element={<CategoryListing />} />
       <Route path="/monitoring/:slug" element={<ProductDetail />} />
       <Route path="/security" element={<Security />} />
+      <Route path="/:category/:slug/preview" element={<ProductGallery />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />

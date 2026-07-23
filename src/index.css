@@ -58,6 +58,64 @@
   --font-weight-bold: 700;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-background: #0f1117;
+  --color-on-background: #e8eaed;
+  --color-surface: #1a1d23;
+  --color-on-surface: #e3e5e8;
+  --color-surface-dim: #1a1d23;
+  --color-surface-bright: #2a2d33;
+  --color-surface-container-lowest: #111318;
+  --color-surface-container-low: #1e2025;
+  --color-surface-container: #25282d;
+  --color-surface-container-high: #2d3035;
+  --color-surface-container-highest: #35383d;
+  --color-surface-variant: #35383d;
+  --color-on-surface-variant: #c4c7bd;
+  --color-inverse-surface: #e3e5e8;
+  --color-inverse-on-surface: #2e3132;
+  --color-text-main: #e5e7eb;
+  --color-text-muted: #9ca3af;
+  --color-border-light: #374151;
+  --color-outline: #939b87;
+  --color-outline-variant: #434a3d;
+  --color-primary: #60A5FA;
+  --color-primary-container: #1D4ED8;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a5f;
+  --color-primary-fixed: #1e3a5f;
+  --color-primary-fixed-dim: #162D6D;
+  --color-inverse-primary: #2563EB;
+  --color-secondary: #a09e9e;
+  --color-on-secondary: #1c1c1c;
+  --color-secondary-container: #3a3939;
+  --color-on-secondary-container: #c6c5c5;
+  --color-secondary-fixed: #3a3939;
+  --color-secondary-fixed-dim: #5f5e5e;
+  --color-on-secondary-fixed: #e5e2e1;
+  --color-on-secondary-fixed-variant: #c8c6c5;
+  --color-tertiary: #fb75cc;
+  --color-on-tertiary: #3b002c;
+  --color-tertiary-container: #860967;
+  --color-on-tertiary-container: #ffd8eb;
+  --color-tertiary-fixed: #860967;
+  --color-tertiary-fixed-dim: #a42b81;
+  --color-on-tertiary-fixed: #ffd8eb;
+  --color-on-tertiary-fixed-variant: #ffaedc;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-surface-tint: #60A5FA;
+}
+
+.dark .bg-text-main {
+  --color-surface: #ffffff;
+  background-color: #111318;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-background);
