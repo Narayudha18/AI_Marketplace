@@ -1,5 +1,10 @@
 import { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import aiSkills from '../data/ai-skills.json'
+import aiWorkflows from '../data/ai-workflows.json'
+import aiAgents from '../data/ai-agents.json'
+import aiPrompts from '../data/ai-prompts.json'
+import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -17,6 +22,11 @@ function toSlug(str) {
 }
 
 const allProducts = [
+  ...aiSkills.map(p => ({ ...p, _cat: 'ai-skills', _name: p.name })),
+  ...aiWorkflows.map(p => ({ ...p, _cat: 'ai-workflows', _name: p.name })),
+  ...aiAgents.map(p => ({ ...p, _cat: 'ai-agents', _name: p.name })),
+  ...aiPrompts.map(p => ({ ...p, _cat: 'ai-prompts', _name: p.name })),
+  ...aiTokens.map(p => ({ ...p, _cat: 'ai-tokens', _name: p.name })),
   ...templates.map(p => ({ ...p, _cat: 'templates', _name: p.title })),
   ...integrations.map(p => ({ ...p, _cat: 'integrations', _name: p.name })),
   ...chatbots.map(p => ({ ...p, _cat: 'chatbots', _name: p.name })),

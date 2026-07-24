@@ -16,6 +16,11 @@ import ProductDetail from './pages/ProductDetail'
 import CategoryListing from './pages/CategoryListing'
 import ProductGallery from './pages/ProductGallery'
 import StartSelling from './pages/StartSelling'
+import SkillsPage from './pages/SkillsPage'
+import WorkflowsPage from './pages/WorkflowsPage'
+import AgentsPage from './pages/AgentsPage'
+import PromptsPage from './pages/PromptsPage'
+import TokensPage from './pages/TokensPage'
 import Terms from './pages/Terms'
 import Licenses from './pages/Licenses'
 import ApiDocs from './pages/ApiDocs'
@@ -94,6 +99,21 @@ export default function App() {
       <Route path="/monitoring/c/:filter" element={<CategoryListing />} />
       <Route path="/monitoring/:slug" element={<ProductDetail />} />
       <Route path="/security" element={<Security />} />
+      <Route path="/ai-skills" element={<SkillsPage />} />
+      <Route path="/ai-skills/c/:filter" element={<CategoryListing />} />
+      <Route path="/ai-skills/:slug" element={<ProductDetail />} />
+      <Route path="/ai-workflows" element={<WorkflowsPage />} />
+      <Route path="/ai-workflows/c/:filter" element={<CategoryListing />} />
+      <Route path="/ai-workflows/:slug" element={<ProductDetail />} />
+      <Route path="/ai-agents" element={<AgentsPage />} />
+      <Route path="/ai-agents/c/:filter" element={<CategoryListing />} />
+      <Route path="/ai-agents/:slug" element={<ProductDetail />} />
+      <Route path="/ai-prompts" element={<PromptsPage />} />
+      <Route path="/ai-prompts/c/:filter" element={<CategoryListing />} />
+      <Route path="/ai-prompts/:slug" element={<ProductDetail />} />
+      <Route path="/ai-tokens" element={<TokensPage />} />
+      <Route path="/ai-tokens/c/:filter" element={<CategoryListing />} />
+      <Route path="/ai-tokens/:slug" element={<ProductDetail />} />
       <Route path="/:category/:slug/preview" element={<ProductGallery />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

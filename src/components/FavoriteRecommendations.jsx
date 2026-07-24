@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import aiSkills from '../data/ai-skills.json'
+import aiWorkflows from '../data/ai-workflows.json'
+import aiAgents from '../data/ai-agents.json'
+import aiPrompts from '../data/ai-prompts.json'
+import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -7,6 +12,11 @@ import automation from '../data/automation.json'
 import aitools from '../data/aitools.json'
 
 const dataMap = {
+  'ai-skills': { items: aiSkills, nameKey: 'name', nav: '/ai-skills' },
+  'ai-workflows': { items: aiWorkflows, nameKey: 'name', nav: '/ai-workflows' },
+  'ai-agents': { items: aiAgents, nameKey: 'name', nav: '/ai-agents' },
+  'ai-prompts': { items: aiPrompts, nameKey: 'name', nav: '/ai-prompts' },
+  'ai-tokens': { items: aiTokens, nameKey: 'name', nav: '/ai-tokens' },
   templates: { items: templates, nameKey: 'title', nav: '/templates' },
   integrations: { items: integrations, nameKey: 'name', nav: '/integrations' },
   chatbots: { items: chatbots, nameKey: 'name', nav: '/chatbots' },

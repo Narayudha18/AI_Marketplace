@@ -4,6 +4,11 @@ import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
+import aiSkills from '../data/ai-skills.json'
+import aiWorkflows from '../data/ai-workflows.json'
+import aiAgents from '../data/ai-agents.json'
+import aiPrompts from '../data/ai-prompts.json'
+import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -140,6 +145,56 @@ const categoryConfig = {
     items: monitoringData,
     nameKey: 'title',
     getRelated: (item) => monitoringData.filter(t => t.title !== item.title).slice(0, 3),
+  },
+  'ai-skills': {
+    label: 'AI Skills', navLink: '/ai-skills', icon: 'psychology', badge: 'skills.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-skills', label: 'AI Skills', active: true },
+    ],
+    items: aiSkills,
+    nameKey: 'name',
+    getRelated: (item) => aiSkills.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-workflows': {
+    label: 'AI Workflows', navLink: '/ai-workflows', icon: 'account_tree', badge: 'workflows.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-workflows', label: 'AI Workflows', active: true },
+    ],
+    items: aiWorkflows,
+    nameKey: 'name',
+    getRelated: (item) => aiWorkflows.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-agents': {
+    label: 'AI Agents', navLink: '/ai-agents', icon: 'smart_toy', badge: 'agents.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-agents', label: 'AI Agents', active: true },
+    ],
+    items: aiAgents,
+    nameKey: 'name',
+    getRelated: (item) => aiAgents.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-prompts': {
+    label: 'AI Prompts', navLink: '/ai-prompts', icon: 'prompt', badge: 'prompts.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-prompts', label: 'AI Prompts', active: true },
+    ],
+    items: aiPrompts,
+    nameKey: 'name',
+    getRelated: (item) => aiPrompts.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-tokens': {
+    label: 'AI Tokens', navLink: '/ai-tokens', icon: 'token', badge: 'tokens.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-tokens', label: 'AI Tokens', active: true },
+    ],
+    items: aiTokens,
+    nameKey: 'name',
+    getRelated: (item) => aiTokens.filter(t => t.name !== item.name).slice(0, 3),
   },
   security: {
     label: 'Security', navLink: '/security', icon: 'security', badge: 'secure.market',

@@ -1,5 +1,10 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useTheme } from '../ThemeContext'
+import aiSkills from '../data/ai-skills.json'
+import aiWorkflows from '../data/ai-workflows.json'
+import aiAgents from '../data/ai-agents.json'
+import aiPrompts from '../data/ai-prompts.json'
+import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -27,6 +32,11 @@ const dataMap = {
   analytics: { items: analyticsData, nameKey: 'title' },
   'fine-tuning': { items: fineTuningData, nameKey: 'title' },
   monitoring: { items: monitoringData, nameKey: 'title' },
+  'ai-skills': { items: aiSkills, nameKey: 'name' },
+  'ai-workflows': { items: aiWorkflows, nameKey: 'name' },
+  'ai-agents': { items: aiAgents, nameKey: 'name' },
+  'ai-prompts': { items: aiPrompts, nameKey: 'name' },
+  'ai-tokens': { items: aiTokens, nameKey: 'name' },
   security: { items: securityData, nameKey: 'title' },
 }
 
@@ -35,6 +45,8 @@ const categoryLabels = {
   automation: 'Automation', 'ai-tools': 'AI Tools & APIs', 'voice-ai': 'Voice AI',
   'image-gen': 'Image Gen', analytics: 'Analytics', 'fine-tuning': 'Fine-tuning',
   monitoring: 'Monitoring', security: 'Security',
+  'ai-skills': 'AI Skills', 'ai-workflows': 'AI Workflows',
+  'ai-agents': 'AI Agents', 'ai-prompts': 'AI Prompts', 'ai-tokens': 'AI Tokens',
 }
 
 const categoryNavLinks = {
@@ -42,6 +54,8 @@ const categoryNavLinks = {
   automation: '/automation', 'ai-tools': '/ai-tools', 'voice-ai': '/voice-ai',
   'image-gen': '/image-gen', analytics: '/analytics', 'fine-tuning': '/fine-tuning',
   monitoring: '/monitoring', security: '/security',
+  'ai-skills': '/ai-skills', 'ai-workflows': '/ai-workflows',
+  'ai-agents': '/ai-agents', 'ai-prompts': '/ai-prompts', 'ai-tokens': '/ai-tokens',
 }
 
 const sampleVideos = [

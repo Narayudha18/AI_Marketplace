@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
+import aiSkills from '../data/ai-skills.json'
+import aiWorkflows from '../data/ai-workflows.json'
+import aiAgents from '../data/ai-agents.json'
+import aiPrompts from '../data/ai-prompts.json'
+import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -209,6 +214,91 @@ const categoryConfig = {
     navLinks: [
       { href: '/', label: 'AI Agents' },
       { href: '/monitoring', label: 'Monitoring', active: true },
+    ],
+  },
+  'ai-skills': {
+    label: 'AI Skills', icon: 'psychology', badge: 'skills.market', singular: 'skill',
+    banner: 'Master AI with premium skill files. Learn, build, and deploy smarter.',
+    heroTitle: 'AI Skills & Training Modules',
+    heroDesc: 'Upskill your team with curated AI skill files — from prompt engineering to model deployment.',
+    heroImg: 'ai-skills-hero',
+    searchPlaceholder: 'e.g. Python, NLP, data analysis',
+    allLabel: 'All Skills',
+    items: aiSkills, nameKey: 'name',
+    dataFilterKey: 'difficulty',
+    filterCategories: ['All Skills', 'Beginner', 'Intermediate', 'Advanced'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-skills', label: 'Skills', active: true },
+    ],
+  },
+  'ai-workflows': {
+    label: 'AI Workflows', icon: 'account_tree', badge: 'workflows.market', singular: 'workflow',
+    banner: 'Automate with AI-powered workflows. Save time, reduce errors.',
+    heroTitle: 'AI Workflow Automation',
+    heroDesc: 'Pre-built AI workflows for data pipelines, CI/CD, content moderation, and more.',
+    heroImg: 'ai-workflows-hero',
+    searchPlaceholder: 'e.g. Data pipeline, CI/CD, onboarding',
+    allLabel: 'All Workflows',
+    items: aiWorkflows, nameKey: 'name',
+    dataFilterKey: 'difficulty',
+    filterCategories: ['All Workflows', 'Beginner', 'Intermediate', 'Advanced'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-workflows', label: 'Workflows', active: true },
+    ],
+  },
+  'ai-agents': {
+    label: 'AI Agents', icon: 'smart_toy', badge: 'agents.market', singular: 'agent',
+    banner: 'Deploy intelligent AI agents for any business function.',
+    heroTitle: 'AI Agents & Assistants',
+    heroDesc: 'Autonomous AI agents for support, analytics, DevOps, marketing, and more.',
+    heroImg: 'ai-agents-hero',
+    searchPlaceholder: 'e.g. Code review, support, analytics',
+    allLabel: 'All Agents',
+    items: aiAgents, nameKey: 'name',
+    dataFilterKey: 'platform',
+    filterCategories: ['All Agents', 'VS Code', 'Web', 'API', 'Slack', 'Mobile'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-agents', label: 'Agents', active: true },
+    ],
+  },
+  'ai-prompts': {
+    label: 'AI Prompts', icon: 'prompt', badge: 'prompts.market', singular: 'prompt',
+    banner: 'Craft better prompts. Get better results from any AI model.',
+    heroTitle: 'AI Prompt Engineering Library',
+    heroDesc: 'Expert-crafted prompts for reasoning, coding, marketing, and creative writing.',
+    heroImg: 'ai-prompts-hero',
+    searchPlaceholder: 'e.g. Chain-of-thought, SEO, story',
+    allLabel: 'All Prompts',
+    items: aiPrompts, nameKey: 'name',
+    dataFilterKey: 'useCase',
+    filterCategories: ['All Prompts', 'Logical reasoning', 'Fiction writing', 'Code documentation', 'Interview preparation', 'SEO optimization', 'API design', 'E-commerce copywriting', 'Software testing', 'Data extraction', 'Email correspondence', 'Query optimization', 'Marketing strategy'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-prompts', label: 'Prompts', active: true },
+    ],
+  },
+  'ai-tokens': {
+    label: 'AI Tokens', icon: 'token', badge: 'tokens.market', singular: 'token',
+    banner: 'Buy AI tokens & credits for the top LLM and generative AI platforms.',
+    heroTitle: 'AI Tokens & Credits Marketplace',
+    heroDesc: 'Pre-paid tokens for GPT-4, Claude, Gemini, DALL-E, Midjourney, and more.',
+    heroImg: 'ai-tokens-hero',
+    searchPlaceholder: 'e.g. GPT-4, Claude, DALL-E',
+    allLabel: 'All Tokens',
+    items: aiTokens, nameKey: 'name',
+    dataFilterKey: 'category',
+    filterCategories: ['All Tokens', 'LLM Tokens', 'Image Generation', 'Audio', 'Search'],
+    filterMap: {},
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-tokens', label: 'Tokens', active: true },
     ],
   },
   security: {
