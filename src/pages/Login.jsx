@@ -53,7 +53,7 @@ export default function Login() {
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-medium text-text-muted">{t('auth.password')}</label>
-                <Link to="/" className="text-xs text-primary font-medium hover:underline">{t('auth.forgot')}</Link>
+                <Link to="/" className="text-xs text-primary font-medium hover:underline">Forgot?</Link>
               </div>
               <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder={t('auth.passwordPlaceholder')}
                 className="w-full px-3 py-2 text-sm bg-surface-container-low border border-border-light rounded-lg text-text-main placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors" />

@@ -97,7 +97,7 @@ export default function AiTools() {
 
           </div>
           <div className="w-full lg:w-1/2 relative h-[400px]">
-            <img src="https://picsum.photos/seed/aitools-hero/600/400" alt={t('listingPages._common.card.alt')}
+            <img src="https://picsum.photos/seed/aitools-hero/600/400" alt="AI Tools & APIs"
               className="w-full h-full object-cover rounded-2xl border border-border-light" />
           </div>
         </section>
@@ -108,12 +108,12 @@ export default function AiTools() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder={t('categoryListing.searchPlaceholder')} value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder="{t('categoryListing.searchPlaceholder')}" value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">{t('listingPages.aiTools.sidebarCategory')}</h4>
+                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">Category</h4>
                   <div className="space-y-2.5">
                     {['All', 'LLM', 'Image', 'Audio', 'Infra', 'Compute', 'Framework'].map((cat) => (
                       <label key={cat} className="flex items-center gap-2.5 cursor-pointer group">
@@ -125,9 +125,9 @@ export default function AiTools() {
                   </div>
                 </div>
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">{t('listingPages.aiTools.sidebarPricing')}</h4>
+                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">Pricing</h4>
                   <div className="space-y-2.5">
-                    {t('listingPages.aiTools.types').map((p) => (
+                    {['All', 'Free', 'Pay-as-you-go', 'Subscription', 'Usage-based'].map((p) => (
                       <label key={p} className="flex items-center gap-2.5 cursor-pointer group">
                         <input type="radio" name="pricing" checked={selectedPricing === p} onChange={() => setSelectedPricing(p)}
                           className="w-4 h-4 border-border-light text-primary focus:ring-primary" />
@@ -149,7 +149,7 @@ export default function AiTools() {
 
             <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-medium text-text-muted">{filteredTools.length} {t('listingPages.aiTools.results')}</span>
+                <span className="text-xs font-medium text-text-muted">{filteredTools.length} tools found</span>
                 <div className="flex gap-2">
                   <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low">
                     <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>grid_view</span>
@@ -196,11 +196,11 @@ export default function AiTools() {
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                             <span className="font-medium">{t.rating}</span>
                             <span>·</span>
-                            <span>{t.reviews.length} {t('listingPages._common.card.reviews')}</span>
+                            <span>{t.reviews.length} reviews</span>
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/ai-tools/${toSlug(t.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
-                          {t('listingPages.aiTools.button')}
+                          Access
                         </button>
                       </div>
                     </div>
@@ -222,16 +222,16 @@ export default function AiTools() {
         <section className="px-6 py-16 my-6 bg-surface-container-lowest border-y border-border-light">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="w-full lg:w-1/3 flex flex-col justify-center border border-border-light border-dashed rounded-xl p-8 bg-surface">
-              <h2 className="text-[24px] font-semibold text-text-main mb-4">{t('listingPages.aiTools.featuredTitle')}</h2>
+              <h2 className="text-[24px] font-semibold text-text-main mb-4">Featured Tool</h2>
               <p className="text-[15px] text-text-muted leading-relaxed mb-8">
-                {t('listingPages.aiTools.featuredDesc')}
+                GPT-4o API leads with multimodal power — text, images, and audio in one unified API.
               </p>
               <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold self-start hover:opacity-90 transition-opacity">
-                {t('listingPages._common.featured.view')}
+                View featured
               </button>
             </div>
             <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <img src="https://picsum.photos/seed/featured-aitool/800/200" alt={t('listingPages.aiTools.featuredTitle')}
+              <img src="https://picsum.photos/seed/featured-aitool/800/200" alt="Featured Tool"
                 className="col-span-1 sm:col-span-2 h-48 object-cover rounded-xl border border-border-light" />
             </div>
           </div>
@@ -240,30 +240,30 @@ export default function AiTools() {
 
       <footer className="bg-text-main text-surface w-full py-10 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-outline">
         <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
-          <span className="text-xl font-bold text-surface tracking-tight">{t('listingPages._common.footer.brand')}</span>
-          <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">{t('listingPages.aiTools.copyright')}</p>
+          <span className="text-xl font-bold text-surface tracking-tight">AIAgents</span>
+          <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">&copy; 2026 AI Agents Marketplace. 1,000+ tools & APIs.</p>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('listingPages._common.footer.marketplace')}</h4>
-          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.terms')}</Link>
-          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.licenses')}</Link>
-          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.api')}</Link>
-          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.privacy')}</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Marketplace</h4>
+          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Terms</Link>
+          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Licenses</Link>
+          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">API</Link>
+          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Privacy</Link>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('listingPages._common.footer.help')}</h4>
-          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.helpCenter')}</Link>
-          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.authors')}</Link>
-          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.sitemap')}</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Help</h4>
+          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Help Center</Link>
+          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Authors</Link>
+          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Sitemap</Link>
         </div>
         <div className="col-span-2 md:col-span-1 flex flex-col gap-6 justify-end items-start md:items-end mt-8 md:mt-0">
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">1,024</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('listingPages.aiTools.stats')[0]}</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Tools Available</div>
           </div>
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">45.2k</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('listingPages.aiTools.stats')[1]}</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">API Calls/Day</div>
           </div>
         </div>
       </footer>

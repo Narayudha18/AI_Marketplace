@@ -5,7 +5,36 @@ import { useLanguage } from '../i18n/context'
 
 export default function Sitemap() {
   const { t } = useLanguage()
-  const sections = t('pages.sitemap.sections')
+  const sections = [
+    {
+      title: 'Marketplace',
+      links: [
+        { to: '/', label: 'AI Agents (Home)' },
+        { to: '/templates', label: 'Templates' },
+        { to: '/integrations', label: 'Integrations' },
+        { to: '/chatbots', label: 'Chatbots' },
+        { to: '/automation', label: 'Automation' },
+        { to: '/ai-tools', label: 'AI Tools & APIs' },
+        { to: '/start-selling', label: 'Start Selling' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { to: '/terms', label: 'Terms of Service' },
+        { to: '/licenses', label: 'Licenses' },
+        { to: '/privacy', label: 'Privacy Policy' },
+        { to: '/api', label: 'API Documentation' },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { to: '/help', label: 'Help Center' },
+        { to: '/authors', label: 'Authors' },
+      ],
+    },
+  ]
   return (
     <>
       <Navbar />

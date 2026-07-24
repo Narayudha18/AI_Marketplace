@@ -45,11 +45,11 @@ const categoryNavLinks = {
   monitoring: '/monitoring', security: '/security',
 }
 
-const videoSrcs = [
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+const sampleVideos = [
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', label: 'Product Overview' },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4', label: 'Feature Demo' },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', label: 'Tutorial Walkthrough' },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', label: 'Integration Showcase' },
 ]
 
 export default function ProductGallery() {
@@ -67,8 +67,6 @@ export default function ProductGallery() {
   const { t } = useLanguage()
 
   const totalImages = 30
-  const videoLabels = t('gallery.videoLabels')
-  const sampleVideos = videoSrcs.map((src, i) => ({ src, label: videoLabels[i] || '' }))
 
   return (
     <>
@@ -91,7 +89,7 @@ export default function ProductGallery() {
       <main className="w-full max-w-[1440px] mx-auto pb-16">
         <section className="px-6 py-8">
           <div className="flex items-center gap-2 text-xs text-text-muted mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">{t('gallery.breadcrumbHome')}</Link>
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
             <Link to={categoryNavLinks[category] || '/'} className="hover:text-primary transition-colors">{categoryLabels[category] || category}</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
@@ -103,12 +101,12 @@ export default function ProductGallery() {
           <div className="mb-8 flex items-center justify-between">
             <div>
               <h1 className="text-[28px] font-bold text-text-main">{name}</h1>
-              <p className="text-sm text-text-muted mt-1">{totalImages} {t('gallery.screenshotsLabel')} {t('gallery.and')} {sampleVideos.length} {t('gallery.demo')}</p>
+              <p className="text-sm text-text-muted mt-1">{totalImages} screenshots & {sampleVideos.length} demo videos</p>
             </div>
             <Link to={`/${category}/${slug}`}
               className="px-5 py-2.5 bg-primary text-surface rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
               <span className="material-symbols-outlined" style={{ fontSize: 16 }}>info</span>
-              {t('gallery.viewDetails')}
+              View Details
             </Link>
           </div>
 
