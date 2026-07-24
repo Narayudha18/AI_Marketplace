@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '../i18n/context'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import security from '../data/security.json'
 import { useCart } from '../CartContext'
@@ -18,6 +19,7 @@ function parseSales(sales) {
 }
 
 export default function Security() {
+  const { t } = useLanguage()
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
@@ -116,10 +118,10 @@ export default function Security() {
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
-              AI Security & Compliance
+              {t('listingPages.security.heroTitle')}
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools. Prevent prompt injection, detect PII leaks, enforce content policies, and maintain SOC 2 compliance across your entire AI pipeline.
+              {t('listingPages.security.heroDesc')}
             </p>
 
           </div>
@@ -142,7 +144,7 @@ export default function Security() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder="Search security..." value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder="{t('categoryListing.searchPlaceholder')}" value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
@@ -186,11 +188,11 @@ export default function Security() {
 
                 <button onClick={applyFilters}
                   className="w-full mt-6 bg-primary-container text-on-primary-container py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
-                  Apply Filters
+                  {t('categoryListing.apply')}
                 </button>
                 <button onClick={resetFilters}
                   className="w-full mt-2 bg-surface border border-border-light text-text-muted py-2.5 rounded-lg text-xs font-semibold hover:bg-surface-container-low transition-opacity">
-                  Reset
+                  {t('categoryListing.reset')}
                 </button>
               </div>
             </aside>
@@ -252,7 +254,7 @@ export default function Security() {
               <div className="mt-8 flex justify-center">
                 {visibleCount < filteredTemplates.length && (
                   <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-                    Load more security tools
+                    {t('categoryListing.loadMore')}
                   </button>
                 )}
               </div>

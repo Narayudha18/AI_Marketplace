@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { useLanguage } from '../i18n/context'
 import PaymentModal from './PaymentModal'
 
 function toSlug(str) {
@@ -8,6 +9,7 @@ function toSlug(str) {
 }
 
 export default function CartDrawer({ open, onClose }) {
+  const { t } = useLanguage()
   const { cart, removeFromCart, clearCart, markAsPurchased } = useCart()
   const [paymentOpen, setPaymentOpen] = useState(false)
 
@@ -31,7 +33,7 @@ export default function CartDrawer({ open, onClose }) {
       {open && <div className="fixed inset-0 bg-black/40 z-40" onClick={onClose} />}
       <div className={`fixed top-0 right-0 h-full w-full max-w-sm bg-surface z-50 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-border-light">
-          <h2 className="text-sm font-semibold text-text-main">Keranjang ({cart.length})</h2>
+          <h2 className="text-sm font-semibold text-text-main">{t('cart.title')} ({cart.length})</h2>
           <button onClick={onClose} className="p-1 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
             <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 20 }}>close</span>
           </button>
@@ -41,7 +43,7 @@ export default function CartDrawer({ open, onClose }) {
           {cart.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-text-muted text-5xl mb-4 block">shopping_cart</span>
-              <p className="text-sm text-text-muted">Keranjang kosong</p>
+              <p className="text-sm text-text-muted">{t('cart.empty')}</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -73,12 +75,12 @@ export default function CartDrawer({ open, onClose }) {
         {cart.length > 0 && (
           <div className="absolute bottom-0 left-0 right-0 border-t border-border-light p-6 bg-surface">
             <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-xs text-text-muted">Total</span>
+              <span className="text-xs text-text-muted">{t('cart.total')}</span>
               <span className="text-sm font-bold text-text-main">{formattedTotal}</span>
             </div>
             <button onClick={() => setPaymentOpen(true)}
               className="w-full bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-              Checkout ({cart.length})
+              {t('cart.checkout')} ({cart.length})
             </button>
           </div>
         )}

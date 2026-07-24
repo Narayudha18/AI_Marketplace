@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
+import { useLanguage } from '../i18n/context'
 
 export default function AuthButton() {
+  const { t } = useLanguage()
   const { currentUser, logout } = useAuth()
   const [open, setOpen] = useState(false)
 
@@ -10,7 +12,7 @@ export default function AuthButton() {
     return (
       <Link to="/login"
         className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">
-        Sign In
+        {t('nav.signIn')}
       </Link>
     )
   }
@@ -35,7 +37,7 @@ export default function AuthButton() {
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-full mt-1 w-32 bg-surface border border-border-light rounded-lg shadow-lg z-20 py-1">
             <button onClick={() => { logout(); setOpen(false) }}
-              className="w-full text-left text-xs text-text-muted hover:text-red-500 px-3 py-2 hover:bg-surface-container-low transition-colors">Sign Out</button>
+              className="w-full text-left text-xs text-text-muted hover:text-red-500 px-3 py-2 hover:bg-surface-container-low transition-colors">{t('nav.signOut')}</button>
           </div>
         </>
       )}

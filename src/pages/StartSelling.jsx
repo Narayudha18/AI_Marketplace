@@ -5,8 +5,10 @@ import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
 import SellerForm from '../components/SellerForm'
+import { useLanguage } from '../i18n/context'
 
 export default function StartSelling() {
+  const { t } = useLanguage()
   const { totalItems } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
   const { dark, toggle } = useTheme()
@@ -15,7 +17,7 @@ export default function StartSelling() {
   return (
     <>
       <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold">
-        <span>Start selling your AI products on the largest AI marketplace.</span>
+        <span>{t('seller.announcement')}</span>
       </div>
 
       <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
@@ -60,26 +62,26 @@ export default function StartSelling() {
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <div className="inline-flex items-center gap-2 bg-primary-container/10 text-primary px-4 py-1.5 rounded-full text-[11px] font-semibold w-fit">
               <span className="material-symbols-outlined" style={{ fontSize: 16 }}>rocket_launch</span>
-              New Seller Registration
+              {t('seller.newSeller')}
             </div>
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
-              Sell Your AI Products to Thousands of Buyers
+              {t('seller.heroTitle')}
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              Join thousands of AI creators. Market your templates, chatbots, integrations, tools, and automation solutions on the largest AI marketplace.
+              {t('seller.heroDesc')}
             </p>
             <div className="flex items-center gap-6 mt-2">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">Free to register</span>
+                <span className="text-xs font-medium text-text-muted">{t('seller.freeToRegister')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">10% commission</span>
+                <span className="text-xs font-medium text-text-muted">{t('seller.commission')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>check_circle</span>
-                <span className="text-xs font-medium text-text-muted">Verified within 24 hours</span>
+                <span className="text-xs font-medium text-text-muted">{t('seller.verified')}</span>
               </div>
             </div>
           </div>
@@ -100,14 +102,14 @@ export default function StartSelling() {
               { value: '89,450+', label: 'Products Sold', icon: 'trending_up' },
               { value: '3,200+', label: 'Active Sellers', icon: 'groups' },
               { value: '4.8/5', label: 'Avg. Rating', icon: 'star' },
-            ].map(stat => (
+            ].map((stat, i) => (
               <div key={stat.label} className="bg-surface rounded-xl border border-border-light p-5 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 22 }}>{stat.icon}</span>
                 </div>
                 <div>
                   <p className="text-[20px] font-bold text-text-main">{stat.value}</p>
-                  <p className="text-[11px] font-medium text-text-muted">{stat.label}</p>
+                  <p className="text-[11px] font-medium text-text-muted">{t('seller.stats.' + i + '.label')}</p>
                 </div>
               </div>
             ))}
@@ -120,8 +122,8 @@ export default function StartSelling() {
             {/* Form — 2/3 */}
             <div className="w-full lg:w-2/3">
               <div className="bg-surface rounded-xl border border-border-light p-6 md:p-8">
-                <h2 className="text-[24px] font-semibold text-text-main mb-1">Seller Registration Form</h2>
-                <p className="text-xs text-text-muted mb-8">Fill in your details and store info to start selling.</p>
+                <h2 className="text-[24px] font-semibold text-text-main mb-1">{t('seller.formTitle')}</h2>
+                <p className="text-xs text-text-muted mb-8">{t('seller.formDesc')}</p>
                 <SellerForm />
               </div>
             </div>
@@ -133,7 +135,7 @@ export default function StartSelling() {
                 <div className="bg-surface rounded-xl border border-border-light p-6">
                   <h3 className="text-sm font-bold text-text-main mb-4 flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>emoji_events</span>
-                    Benefits of Selling
+                    {t('seller.benefitsTitle')}
                   </h3>
                   <ul className="space-y-3">
                     {[
@@ -141,12 +143,12 @@ export default function StartSelling() {
                       { icon: 'percent', title: 'Low Commission', desc: 'Only 10% per transaction' },
                       { icon: 'payments', title: 'Fast Payouts', desc: 'Weekly payouts to your account' },
                       { icon: 'support', title: 'Full Support', desc: 'Our team helps with verification & listing' },
-                    ].map(item => (
+                    ].map((item, i) => (
                       <li key={item.title} className="flex items-start gap-3">
                         <span className="material-symbols-outlined text-primary-container flex-shrink-0" style={{ fontSize: 18 }}>{item.icon}</span>
                         <div>
-                          <p className="text-xs font-semibold text-text-main">{item.title}</p>
-                          <p className="text-[11px] text-text-muted">{item.desc}</p>
+                          <p className="text-xs font-semibold text-text-main">{t('seller.benefits.' + i + '.title')}</p>
+                          <p className="text-[11px] text-text-muted">{t('seller.benefits.' + i + '.desc')}</p>
                         </div>
                       </li>
                     ))}
@@ -157,7 +159,7 @@ export default function StartSelling() {
                 <div className="bg-surface rounded-xl border border-border-light p-6">
                   <h3 className="text-sm font-bold text-text-main mb-4 flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>menu_book</span>
-                    How to Sell
+                    {t('seller.guideTitle')}
                   </h3>
                   <ol className="space-y-4">
                     {[
@@ -165,14 +167,14 @@ export default function StartSelling() {
                       { num: 2, title: 'Create Store', desc: 'Set your store name & product categories' },
                       { num: 3, title: 'Upload Products', desc: 'Add the AI products you want to sell' },
                       { num: 4, title: 'Start Selling', desc: 'Your products go live and ready for buyers' },
-                    ].map(step => (
+                    ].map((step, i) => (
                       <li key={step.num} className="flex items-start gap-3">
                         <div className="w-6 h-6 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-[11px] font-bold flex-shrink-0 mt-0.5">
                           {step.num}
                         </div>
                         <div>
-                          <p className="text-xs font-semibold text-text-main">{step.title}</p>
-                          <p className="text-[11px] text-text-muted">{step.desc}</p>
+                          <p className="text-xs font-semibold text-text-main">{t('seller.guide.' + i + '.title')}</p>
+                          <p className="text-[11px] text-text-muted">{t('seller.guide.' + i + '.desc')}</p>
                         </div>
                       </li>
                     ))}
@@ -184,9 +186,9 @@ export default function StartSelling() {
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-primary-container flex-shrink-0" style={{ fontSize: 20 }}>help</span>
                     <div>
-                      <p className="text-xs font-semibold text-text-main mb-1">Need help?</p>
+                      <p className="text-xs font-semibold text-text-main mb-1">{t('seller.needHelp')}</p>
                       <p className="text-[11px] text-text-muted leading-relaxed">
-                        Contact our team at <span className="text-primary font-medium hover:underline cursor-pointer">seller@aiagents.com</span> or check the <span className="text-primary font-medium hover:underline cursor-pointer">Seller Guide</span>.
+                        {t('seller.contactHelp')} <span className="text-primary font-medium hover:underline cursor-pointer">seller@aiagents.com</span> or check the <span className="text-primary font-medium hover:underline cursor-pointer">{t('seller.sellerGuide')}</span>.
                       </p>
                     </div>
                   </div>

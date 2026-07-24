@@ -11,6 +11,7 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
+import { useLanguage } from '../i18n/context'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -43,6 +44,7 @@ export default function ProductGrid() {
   const navigate = useNavigate()
   const gridRef = useRef(null)
   const [activeFilter, setActiveFilter] = useState('All categories')
+  const { t } = useLanguage()
   const filtered = allProducts.filter(p => filters.find(f => f.label === activeFilter).match(p))
 
   const handleFilterClick = (label) => {
@@ -53,10 +55,10 @@ export default function ProductGrid() {
     <section className="px-6 py-16">
       <div className="text-center mb-10">
         <h2 className="text-[24px] font-semibold text-text-main mb-4">
-          Check out our newest AI agents & tools
+          {t('productGrid.heading')}
         </h2>
         <p className="text-[15px] text-text-muted max-w-3xl mx-auto leading-relaxed">
-          We carefully review new entries from our community to make sure they meet high-quality standards for production AI deployment.
+          {t('productGrid.desc')}
         </p>
       </div>
 
@@ -83,17 +85,17 @@ export default function ProductGrid() {
             <div className="p-4 flex flex-col flex-1">
               <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p._name}</h4>
               <p className="text-[11px] font-medium text-text-muted mb-3">
-                by <span className="text-primary cursor-pointer hover:underline">{p.author || 'AI Agents Team'}</span>
-                {'category' in p && <span> in {p.category}</span>}
+                {t('productGrid.by')} <span className="text-primary cursor-pointer hover:underline">{p.author || t('productGrid.team')}</span>
+                {'category' in p && <span> {t('productGrid.in')} {p.category}</span>}
               </p>
               <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                 <div>
-                  <span className="text-[24px] font-semibold text-text-main block">{p.price || 'Free'}</span>
+                  <span className="text-[24px] font-semibold text-text-main block">{p.price || t('productGrid.free')}</span>
                   <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                     <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                     <span className="font-medium">{p.rating}</span>
                     <span>·</span>
-                    <span>{p.reviews.length} reviews</span>
+                    <span>{p.reviews.length} {t('productGrid.reviews')}</span>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -101,7 +103,7 @@ export default function ProductGrid() {
                     <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                   </button>
                   <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${p._cat}/${toSlug(p._name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
-                    Live Preview
+                    {t('productGrid.livePreview')}
                   </button>
                 </div>
               </div>
@@ -113,7 +115,7 @@ export default function ProductGrid() {
       <div className="mt-8 flex justify-center">
         <Link to={filters.find(f => f.label === activeFilter).to}
           className="inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-          View more new items
+          {t('productGrid.viewMore')}
         </Link>
       </div>
     </section>
