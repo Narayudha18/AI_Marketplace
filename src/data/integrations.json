@@ -1,32 +1,1340 @@
 [
-  { "name": "OpenAI", "desc": "GPT-4, GPT-4o, DALL-E, Whisper APIs", "icon": "psychiatry", "category": "LLM Providers", "type": "API", "rating": 4.9, "users": "12.4k" },
-  { "name": "Anthropic", "desc": "Claude 3 Opus, Sonnet, Haiku models", "icon": "flutter_dash", "category": "LLM Providers", "type": "API", "rating": 4.8, "users": "8.7k" },
-  { "name": "Google AI", "desc": "Gemini, Vertex AI, Cloud Vision", "icon": "cloud", "category": "Cloud AI", "type": "SDK", "rating": 4.7, "users": "9.2k" },
-  { "name": "Hugging Face", "desc": "100k+ open-source models & pipelines", "icon": "favorite", "category": "Model Hub", "type": "API", "rating": 4.8, "users": "15.1k" },
-  { "name": "Stability AI", "desc": "Stable Diffusion, SDXL, Video", "icon": "filter_vintage", "category": "Image Gen", "type": "API", "rating": 4.6, "users": "6.8k" },
-  { "name": "LangChain", "desc": "LLM orchestration & RAG framework", "icon": "link", "category": "Frameworks", "type": "SDK", "rating": 4.9, "users": "18.3k" },
-  { "name": "Pinecone", "desc": "Vector database for semantic search", "icon": "storage", "category": "Vector DB", "type": "API", "rating": 4.7, "users": "7.5k" },
-  { "name": "Weaviate", "desc": "AI-native vector database", "icon": "database", "category": "Vector DB", "type": "API", "rating": 4.5, "users": "3.2k" },
-  { "name": "ElevenLabs", "desc": "Voice synthesis & cloning API", "icon": "record_voice_over", "category": "Voice AI", "type": "API", "rating": 4.8, "users": "5.6k" },
-  { "name": "Replicate", "desc": "Run ML models in the cloud", "icon": "cloud_queue", "category": "Model Hosting", "type": "API", "rating": 4.6, "users": "4.9k" },
-  { "name": "Cohere", "desc": "Embeddings, rerank, classify APIs", "icon": "token", "category": "LLM Providers", "type": "API", "rating": 4.5, "users": "3.8k" },
-  { "name": "Modal", "desc": "Serverless GPU compute platform", "icon": "developer_board", "category": "Compute", "type": "SDK", "rating": 4.7, "users": "2.1k" },
-  { "name": "Mistral AI", "desc": "Open-weight LLMs & embedding models", "icon": "flare", "category": "LLM Providers", "type": "API", "rating": 4.6, "users": "4.3k" },
-  { "name": "Fireworks AI", "desc": "Fast inference for open-source models", "icon": "local_fire_department", "category": "Model Hosting", "type": "API", "rating": 4.5, "users": "2.7k" },
-  { "name": "Together AI", "desc": "Distributed cloud inference platform", "icon": "groups", "category": "Compute", "type": "API", "rating": 4.4, "users": "1.9k" },
-  { "name": "Chroma", "desc": "Lightweight embedding database", "icon": "palette", "category": "Vector DB", "type": "SDK", "rating": 4.6, "users": "3.5k" },
-  { "name": "Qdrant", "desc": "High-performance vector search engine", "icon": "speed", "category": "Vector DB", "type": "API", "rating": 4.5, "users": "2.8k" },
-  { "name": "LlamaIndex", "desc": "Data framework for LLM applications", "icon": "book", "category": "Frameworks", "type": "SDK", "rating": 4.8, "users": "6.2k" },
-  { "name": "Haystack", "desc": "Open-source NLP pipeline framework", "icon": "stacked_bar_chart", "category": "Frameworks", "type": "SDK", "rating": 4.4, "users": "2.4k" },
-  { "name": "AssemblyAI", "desc": "Speech recognition & summarization API", "icon": "hearing", "category": "Voice AI", "type": "API", "rating": 4.7, "users": "4.1k" },
-  { "name": "Deepgram", "desc": "Real-time voice transcription API", "icon": "mic", "category": "Voice AI", "type": "API", "rating": 4.6, "users": "3.3k" },
-  { "name": "RunwayML", "desc": "Generative video & image editing", "icon": "movie", "category": "Image Gen", "type": "API", "rating": 4.7, "users": "5.8k" },
-  { "name": "Midjourney", "desc": "Text-to-image generation platform", "icon": "brush", "category": "Image Gen", "type": "API", "rating": 4.9, "users": "11.2k" },
-  { "name": "Groq", "desc": "Ultra-fast LLM inference hardware", "icon": "bolt", "category": "Compute", "type": "API", "rating": 4.8, "users": "3.9k" },
-  { "name": "Perplexity", "desc": "AI-powered search & knowledge API", "icon": "search", "category": "LLM Providers", "type": "API", "rating": 4.7, "users": "4.6k" },
-  { "name": "Vercel AI SDK", "desc": "Edge-ready AI streaming framework", "icon": "triangle", "category": "Frameworks", "type": "SDK", "rating": 4.8, "users": "7.3k" },
-  { "name": "Hume AI", "desc": "Emotional intelligence voice API", "icon": "mood", "category": "Voice AI", "type": "API", "rating": 4.5, "users": "1.4k" },
-  { "name": "OctoML", "desc": "Model optimization & deployment", "icon": "rocket_launch", "category": "Compute", "type": "SDK", "rating": 4.3, "users": "1.1k" },
-  { "name": "NVIDIA AI", "desc": "CUDA-accelerated ML & inference", "icon": "memory", "category": "Compute", "type": "SDK", "rating": 4.8, "users": "9.8k" },
-  { "name": "MindsDB", "desc": "ML models inside databases", "icon": "table_chart", "category": "Frameworks", "type": "SDK", "rating": 4.4, "users": "1.8k" }
+    {
+        "name":  "OpenAI",
+        "desc":  "GPT-4, GPT-4o, DALL-E, Whisper APIs",
+        "icon":  "psychiatry",
+        "category":  "LLM Providers",
+        "type":  "API",
+        "users":  "12.4k",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Anthropic",
+        "desc":  "Claude 3 Opus, Sonnet, Haiku models",
+        "icon":  "flutter_dash",
+        "category":  "LLM Providers",
+        "type":  "API",
+        "users":  "8.7k",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Google AI",
+        "desc":  "Gemini, Vertex AI, Cloud Vision",
+        "icon":  "cloud",
+        "category":  "Cloud AI",
+        "type":  "SDK",
+        "users":  "9.2k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Hugging Face",
+        "desc":  "100k+ open-source models \u0026 pipelines",
+        "icon":  "favorite",
+        "category":  "Model Hub",
+        "type":  "API",
+        "users":  "15.1k",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Stability AI",
+        "desc":  "Stable Diffusion, SDXL, Video",
+        "icon":  "filter_vintage",
+        "category":  "Image Gen",
+        "type":  "API",
+        "users":  "6.8k",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "LangChain",
+        "desc":  "LLM orchestration \u0026 RAG framework",
+        "icon":  "link",
+        "category":  "Frameworks",
+        "type":  "SDK",
+        "users":  "18.3k",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Pinecone",
+        "desc":  "Vector database for semantic search",
+        "icon":  "storage",
+        "category":  "Vector DB",
+        "type":  "API",
+        "users":  "7.5k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Weaviate",
+        "desc":  "AI-native vector database",
+        "icon":  "database",
+        "category":  "Vector DB",
+        "type":  "API",
+        "users":  "3.2k",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "ElevenLabs",
+        "desc":  "Voice synthesis \u0026 cloning API",
+        "icon":  "record_voice_over",
+        "category":  "Voice AI",
+        "type":  "API",
+        "users":  "5.6k",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Replicate",
+        "desc":  "Run ML models in the cloud",
+        "icon":  "cloud_queue",
+        "category":  "Model Hosting",
+        "type":  "API",
+        "users":  "4.9k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Cohere",
+        "desc":  "Embeddings, rerank, classify APIs",
+        "icon":  "token",
+        "category":  "LLM Providers",
+        "type":  "API",
+        "users":  "3.8k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Modal",
+        "desc":  "Serverless GPU compute platform",
+        "icon":  "developer_board",
+        "category":  "Compute",
+        "type":  "SDK",
+        "users":  "2.1k",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Mistral AI",
+        "desc":  "Open-weight LLMs \u0026 embedding models",
+        "icon":  "flare",
+        "category":  "LLM Providers",
+        "type":  "API",
+        "users":  "4.3k",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Fireworks AI",
+        "desc":  "Fast inference for open-source models",
+        "icon":  "local_fire_department",
+        "category":  "Model Hosting",
+        "type":  "API",
+        "users":  "2.7k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Together AI",
+        "desc":  "Distributed cloud inference platform",
+        "icon":  "groups",
+        "category":  "Compute",
+        "type":  "API",
+        "users":  "1.9k",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Chroma",
+        "desc":  "Lightweight embedding database",
+        "icon":  "palette",
+        "category":  "Vector DB",
+        "type":  "SDK",
+        "users":  "3.5k",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Qdrant",
+        "desc":  "High-performance vector search engine",
+        "icon":  "speed",
+        "category":  "Vector DB",
+        "type":  "API",
+        "users":  "2.8k",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "LlamaIndex",
+        "desc":  "Data framework for LLM applications",
+        "icon":  "book",
+        "category":  "Frameworks",
+        "type":  "SDK",
+        "users":  "6.2k",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Haystack",
+        "desc":  "Open-source NLP pipeline framework",
+        "icon":  "stacked_bar_chart",
+        "category":  "Frameworks",
+        "type":  "SDK",
+        "users":  "2.4k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "AssemblyAI",
+        "desc":  "Speech recognition \u0026 summarization API",
+        "icon":  "hearing",
+        "category":  "Voice AI",
+        "type":  "API",
+        "users":  "4.1k",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Deepgram",
+        "desc":  "Real-time voice transcription API",
+        "icon":  "mic",
+        "category":  "Voice AI",
+        "type":  "API",
+        "users":  "3.3k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "RunwayML",
+        "desc":  "Generative video \u0026 image editing",
+        "icon":  "movie",
+        "category":  "Image Gen",
+        "type":  "API",
+        "users":  "5.8k",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Midjourney",
+        "desc":  "Text-to-image generation platform",
+        "icon":  "brush",
+        "category":  "Image Gen",
+        "type":  "API",
+        "users":  "11.2k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Groq",
+        "desc":  "Ultra-fast LLM inference hardware",
+        "icon":  "bolt",
+        "category":  "Compute",
+        "type":  "API",
+        "users":  "3.9k",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Perplexity",
+        "desc":  "AI-powered search \u0026 knowledge API",
+        "icon":  "search",
+        "category":  "LLM Providers",
+        "type":  "API",
+        "users":  "4.6k",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Vercel AI SDK",
+        "desc":  "Edge-ready AI streaming framework",
+        "icon":  "triangle",
+        "category":  "Frameworks",
+        "type":  "SDK",
+        "users":  "7.3k",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Hume AI",
+        "desc":  "Emotional intelligence voice API",
+        "icon":  "mood",
+        "category":  "Voice AI",
+        "type":  "API",
+        "users":  "1.4k",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "OctoML",
+        "desc":  "Model optimization \u0026 deployment",
+        "icon":  "rocket_launch",
+        "category":  "Compute",
+        "type":  "SDK",
+        "users":  "1.1k",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "NVIDIA AI",
+        "desc":  "CUDA-accelerated ML \u0026 inference",
+        "icon":  "memory",
+        "category":  "Compute",
+        "type":  "SDK",
+        "users":  "9.8k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "MindsDB",
+        "desc":  "ML models inside databases",
+        "icon":  "table_chart",
+        "category":  "Frameworks",
+        "type":  "SDK",
+        "users":  "1.8k",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "LlamaIndex RAG",
+        "desc":  "RAG framework for production pipelines",
+        "icon":  "account_tree",
+        "category":  "RAG Pipelines",
+        "type":  "SDK",
+        "users":  "4.2k",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Unstructured",
+        "desc":  "Document preprocessing for RAG pipelines",
+        "icon":  "description",
+        "category":  "RAG Pipelines",
+        "type":  "API",
+        "users":  "2.1k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Phoenix Arize",
+        "desc":  "LLM observability \u0026 monitoring platform",
+        "icon":  "monitoring",
+        "category":  "Monitoring",
+        "type":  "SDK",
+        "users":  "1.8k",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "LangSmith",
+        "desc":  "LLM tracing, evaluation \u0026 monitoring",
+        "icon":  "track_changes",
+        "category":  "Monitoring",
+        "type":  "SDK",
+        "users":  "5.6k",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    }
 ]

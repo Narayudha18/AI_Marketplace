@@ -1,32 +1,1202 @@
 [
-  { "name": "WorkFlow Pro", "desc": "Visual drag-drop automation builder", "price": "$49/mo", "sales": "4.1k", "rating": 4.8, "category": "Workflow", "seed": "workflowpro" },
-  { "name": "DataSync AI", "desc": "Automated ETL & data pipeline orchestration", "price": "$79/mo", "sales": "2.3k", "rating": 4.7, "category": "Data", "seed": "datasync" },
-  { "name": "EmailCraft", "desc": "AI email sequences & campaign automation", "price": "$29/mo", "sales": "6.8k", "rating": 4.6, "category": "Marketing", "seed": "emailcraft" },
-  { "name": "SocialPulse", "desc": "Cross-platform social media scheduler", "price": "$34/mo", "sales": "3.5k", "rating": 4.5, "category": "Social", "seed": "socialpulse" },
-  { "name": "InvoiceBot", "desc": "Auto invoicing & payment collection", "price": "$39/mo", "sales": "1.9k", "rating": 4.7, "category": "Finance", "seed": "invoicebot" },
-  { "name": "LeadGenius", "desc": "Automated lead capture & enrichment", "price": "$59/mo", "sales": "5.2k", "rating": 4.8, "category": "Sales", "seed": "leadgenius" },
-  { "name": "DeployBot", "desc": "CI/CD pipeline automation & monitoring", "price": "$69/mo", "sales": "2.8k", "rating": 4.6, "category": "DevOps", "seed": "deploybot" },
-  { "name": "HR Flow", "desc": "Employee onboarding & offboarding automation", "price": "$44/mo", "sales": "1.2k", "rating": 4.5, "category": "HR", "seed": "hrflow" },
-  { "name": "ContentPilot", "desc": "AI blog writing & content calendar manager", "price": "$49/mo", "sales": "3.2k", "rating": 4.6, "category": "Marketing", "seed": "contentpilot" },
-  { "name": "ZapFlow", "desc": "No-code workflow connector with 500+ apps", "price": "$29/mo", "sales": "7.4k", "rating": 4.7, "category": "Workflow", "seed": "zapflow" },
-  { "name": "DocGenius", "desc": "Automated document generation & template engine", "price": "$34/mo", "sales": "2.1k", "rating": 4.4, "category": "Data", "seed": "docgenius" },
-  { "name": "ReviewBot", "desc": "Auto collect & manage customer reviews", "price": "$24/mo", "sales": "4.6k", "rating": 4.3, "category": "Marketing", "seed": "reviewbot" },
-  { "name": "BudgetBot", "desc": "Automated budget tracking & forecast alerts", "price": "$44/mo", "sales": "1.5k", "rating": 4.5, "category": "Finance", "seed": "budgetbot" },
-  { "name": "OnboardFlow", "desc": "New hire onboarding task automation", "price": "$39/mo", "sales": "987", "rating": 4.6, "category": "HR", "seed": "onboardflow" },
-  { "name": "SurveyCraft", "desc": "AI survey builder & response analysis", "price": "$19/mo", "sales": "5.1k", "rating": 4.4, "category": "Marketing", "seed": "surveycraft" },
-  { "name": "PipelineAI", "desc": "Sales pipeline automation & deal scoring", "price": "$69/mo", "sales": "1.8k", "rating": 4.7, "category": "Sales", "seed": "pipelineai" },
-  { "name": "LogShip", "desc": "Centralised log aggregation & archive", "price": "$54/mo", "sales": "1.3k", "rating": 4.5, "category": "DevOps", "seed": "logship" },
-  { "name": "FormBot", "desc": "Smart form builder with auto-fill & routing", "price": "$24/mo", "sales": "3.9k", "rating": 4.3, "category": "Workflow", "seed": "formbot" },
-  { "name": "ExpenseFlow", "desc": "Receipt scanning & expense report automation", "price": "$34/mo", "sales": "2.5k", "rating": 4.6, "category": "Finance", "seed": "expenseflow" },
-  { "name": "TweetCraft", "desc": "AI tweet scheduling & thread generator", "price": "$19/mo", "sales": "6.2k", "rating": 4.2, "category": "Social", "seed": "tweetcraft" },
-  { "name": "InfraBot", "desc": "Cloud infrastructure auto-remediation", "price": "$89/mo", "sales": "678", "rating": 4.8, "category": "DevOps", "seed": "infrabot" },
-  { "name": "ChecklistPro", "desc": "Recurring task checklist automation", "price": "$14/mo", "sales": "4.3k", "rating": 4.1, "category": "Workflow", "seed": "checklistpro" },
-  { "name": "ContractFlow", "desc": "Contract lifecycle & signature automation", "price": "$59/mo", "sales": "1.1k", "rating": 4.5, "category": "Legal", "seed": "contractflow" },
-  { "name": "SocialListen", "desc": "Brand mention monitoring & sentiment analysis", "price": "$49/mo", "sales": "1.6k", "rating": 4.6, "category": "Social", "seed": "sociallisten" },
-  { "name": "AlertsPro", "desc": "Custom alert rules across all integrations", "price": "$29/mo", "sales": "2.9k", "rating": 4.4, "category": "DevOps", "seed": "alertspro" },
-  { "name": "TaxBot", "desc": "Automated tax calculation & filing prep", "price": "$74/mo", "sales": "789", "rating": 4.5, "category": "Finance", "seed": "taxbot" },
-  { "name": "LeadScore", "desc": "AI lead scoring & prioritization engine", "price": "$64/mo", "sales": "1.4k", "rating": 4.7, "category": "Sales", "seed": "leadscore" },
-  { "name": "WebScraper AI", "desc": "Visual web scraping & data extraction", "price": "$39/mo", "sales": "3.3k", "rating": 4.5, "category": "Data", "seed": "webscraper" },
-  { "name": "ChatAutomate", "desc": "Chatbot conversation flow builder", "price": "$44/mo", "sales": "2.2k", "rating": 4.4, "category": "Workflow", "seed": "chatautomate" },
-  { "name": "PayRun", "desc": "Automated payroll processing & compliance", "price": "$79/mo", "sales": "534", "rating": 4.6, "category": "Finance", "seed": "payrun" }
+    {
+        "name":  "WorkFlow Pro",
+        "desc":  "Visual drag-drop automation builder",
+        "price":  "$49/mo",
+        "sales":  "4.1k",
+        "category":  "Workflow",
+        "seed":  "workflowpro",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "DataSync AI",
+        "desc":  "Automated ETL \u0026 data pipeline orchestration",
+        "price":  "$79/mo",
+        "sales":  "2.3k",
+        "category":  "Data",
+        "seed":  "datasync",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "EmailCraft",
+        "desc":  "AI email sequences \u0026 campaign automation",
+        "price":  "$29/mo",
+        "sales":  "6.8k",
+        "category":  "Marketing",
+        "seed":  "emailcraft",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "SocialPulse",
+        "desc":  "Cross-platform social media scheduler",
+        "price":  "$34/mo",
+        "sales":  "3.5k",
+        "category":  "Social",
+        "seed":  "socialpulse",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "InvoiceBot",
+        "desc":  "Auto invoicing \u0026 payment collection",
+        "price":  "$39/mo",
+        "sales":  "1.9k",
+        "category":  "Finance",
+        "seed":  "invoicebot",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "LeadGenius",
+        "desc":  "Automated lead capture \u0026 enrichment",
+        "price":  "$59/mo",
+        "sales":  "5.2k",
+        "category":  "Sales",
+        "seed":  "leadgenius",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "DeployBot",
+        "desc":  "CI/CD pipeline automation \u0026 monitoring",
+        "price":  "$69/mo",
+        "sales":  "2.8k",
+        "category":  "DevOps",
+        "seed":  "deploybot",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "HR Flow",
+        "desc":  "Employee onboarding \u0026 offboarding automation",
+        "price":  "$44/mo",
+        "sales":  "1.2k",
+        "category":  "HR",
+        "seed":  "hrflow",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "ContentPilot",
+        "desc":  "AI blog writing \u0026 content calendar manager",
+        "price":  "$49/mo",
+        "sales":  "3.2k",
+        "category":  "Marketing",
+        "seed":  "contentpilot",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ZapFlow",
+        "desc":  "No-code workflow connector with 500+ apps",
+        "price":  "$29/mo",
+        "sales":  "7.4k",
+        "category":  "Workflow",
+        "seed":  "zapflow",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "DocGenius",
+        "desc":  "Automated document generation \u0026 template engine",
+        "price":  "$34/mo",
+        "sales":  "2.1k",
+        "category":  "Data",
+        "seed":  "docgenius",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ReviewBot",
+        "desc":  "Auto collect \u0026 manage customer reviews",
+        "price":  "$24/mo",
+        "sales":  "4.6k",
+        "category":  "Marketing",
+        "seed":  "reviewbot",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "BudgetBot",
+        "desc":  "Automated budget tracking \u0026 forecast alerts",
+        "price":  "$44/mo",
+        "sales":  "1.5k",
+        "category":  "Finance",
+        "seed":  "budgetbot",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "OnboardFlow",
+        "desc":  "New hire onboarding task automation",
+        "price":  "$39/mo",
+        "sales":  "987",
+        "category":  "HR",
+        "seed":  "onboardflow",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "SurveyCraft",
+        "desc":  "AI survey builder \u0026 response analysis",
+        "price":  "$19/mo",
+        "sales":  "5.1k",
+        "category":  "Marketing",
+        "seed":  "surveycraft",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "PipelineAI",
+        "desc":  "Sales pipeline automation \u0026 deal scoring",
+        "price":  "$69/mo",
+        "sales":  "1.8k",
+        "category":  "Sales",
+        "seed":  "pipelineai",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "LogShip",
+        "desc":  "Centralised log aggregation \u0026 archive",
+        "price":  "$54/mo",
+        "sales":  "1.3k",
+        "category":  "DevOps",
+        "seed":  "logship",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "FormBot",
+        "desc":  "Smart form builder with auto-fill \u0026 routing",
+        "price":  "$24/mo",
+        "sales":  "3.9k",
+        "category":  "Workflow",
+        "seed":  "formbot",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ExpenseFlow",
+        "desc":  "Receipt scanning \u0026 expense report automation",
+        "price":  "$34/mo",
+        "sales":  "2.5k",
+        "category":  "Finance",
+        "seed":  "expenseflow",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "TweetCraft",
+        "desc":  "AI tweet scheduling \u0026 thread generator",
+        "price":  "$19/mo",
+        "sales":  "6.2k",
+        "category":  "Social",
+        "seed":  "tweetcraft",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "InfraBot",
+        "desc":  "Cloud infrastructure auto-remediation",
+        "price":  "$89/mo",
+        "sales":  "678",
+        "category":  "DevOps",
+        "seed":  "infrabot",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ChecklistPro",
+        "desc":  "Recurring task checklist automation",
+        "price":  "$14/mo",
+        "sales":  "4.3k",
+        "category":  "Workflow",
+        "seed":  "checklistpro",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ContractFlow",
+        "desc":  "Contract lifecycle \u0026 signature automation",
+        "price":  "$59/mo",
+        "sales":  "1.1k",
+        "category":  "Legal",
+        "seed":  "contractflow",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "SocialListen",
+        "desc":  "Brand mention monitoring \u0026 sentiment analysis",
+        "price":  "$49/mo",
+        "sales":  "1.6k",
+        "category":  "Social",
+        "seed":  "sociallisten",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "AlertsPro",
+        "desc":  "Custom alert rules across all integrations",
+        "price":  "$29/mo",
+        "sales":  "2.9k",
+        "category":  "DevOps",
+        "seed":  "alertspro",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "TaxBot",
+        "desc":  "Automated tax calculation \u0026 filing prep",
+        "price":  "$74/mo",
+        "sales":  "789",
+        "category":  "Finance",
+        "seed":  "taxbot",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "LeadScore",
+        "desc":  "AI lead scoring \u0026 prioritization engine",
+        "price":  "$64/mo",
+        "sales":  "1.4k",
+        "category":  "Sales",
+        "seed":  "leadscore",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "WebScraper AI",
+        "desc":  "Visual web scraping \u0026 data extraction",
+        "price":  "$39/mo",
+        "sales":  "3.3k",
+        "category":  "Data",
+        "seed":  "webscraper",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "ChatAutomate",
+        "desc":  "Chatbot conversation flow builder",
+        "price":  "$44/mo",
+        "sales":  "2.2k",
+        "category":  "Workflow",
+        "seed":  "chatautomate",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "PayRun",
+        "desc":  "Automated payroll processing \u0026 compliance",
+        "price":  "$79/mo",
+        "sales":  "534",
+        "category":  "Finance",
+        "seed":  "payrun",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    }
 ]

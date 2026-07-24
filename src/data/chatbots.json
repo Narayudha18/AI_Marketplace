@@ -1,32 +1,1178 @@
 [
-  { "name": "CustomerGPT", "desc": "24/7 customer support agent with RAG", "price": "$29/mo", "sales": "3.2k", "rating": 4.8, "platform": "Web", "seed": "customergpt" },
-  { "name": "SalesFunnel AI", "desc": "Lead qualification & appointment setter", "price": "$49/mo", "sales": "2.1k", "rating": 4.7, "platform": "Web + API", "seed": "salesfunnel" },
-  { "name": "DocuBot", "desc": "Document Q&A with multi-format RAG", "price": "$39/mo", "sales": "1.8k", "rating": 4.9, "platform": "Web", "seed": "docubot" },
-  { "name": "HR Assistant Pro", "desc": "Employee onboarding & HR query agent", "price": "$34/mo", "sales": "956", "rating": 4.6, "platform": "Slack + Web", "seed": "hrassistant" },
-  { "name": "CodeReview AI", "desc": "Automated PR review & code analysis", "price": "$59/mo", "sales": "4.5k", "rating": 4.8, "platform": "GitHub", "seed": "codereview" },
-  { "name": "EduTutor", "desc": "Personalised tutoring & quiz generator", "price": "$19/mo", "sales": "6.7k", "rating": 4.5, "platform": "Web + Mobile", "seed": "edututor" },
-  { "name": "HealthMate", "desc": "Medical triage & appointment scheduling", "price": "$69/mo", "sales": "743", "rating": 4.7, "platform": "Web", "seed": "healthmate" },
-  { "name": "FinanceBot", "desc": "Expense tracking & financial insights", "price": "$44/mo", "sales": "2.3k", "rating": 4.6, "platform": "API", "seed": "financebot" },
-  { "name": "TravelBuddy", "desc": "Trip planning & itinerary assistant", "price": "$24/mo", "sales": "4.1k", "rating": 4.5, "platform": "Web + Mobile", "seed": "travelbuddy" },
-  { "name": "LegalAssist", "desc": "Contract analysis & legal document Q&A", "price": "$79/mo", "sales": "678", "rating": 4.8, "platform": "Web", "seed": "legalassist" },
-  { "name": "SupportFlow", "desc": "Multi-channel ticket resolution bot", "price": "$39/mo", "sales": "1.5k", "rating": 4.6, "platform": "Slack + Web", "seed": "supportflow" },
-  { "name": "OnboardBot", "desc": "Employee self-service onboarding agent", "price": "$29/mo", "sales": "2.8k", "rating": 4.4, "platform": "Slack + Web", "seed": "onboardbot" },
-  { "name": "DataQuery AI", "desc": "Natural language to SQL query agent", "price": "$54/mo", "sales": "1.2k", "rating": 4.7, "platform": "Web", "seed": "dataquery" },
-  { "name": "FitCoach", "desc": "Personalised workout & nutrition bot", "price": "$14/mo", "sales": "8.9k", "rating": 4.3, "platform": "Web + Mobile", "seed": "fitcoach" },
-  { "name": "RecruitAI", "desc": "Resume screening & interview scheduler", "price": "$59/mo", "sales": "1.9k", "rating": 4.6, "platform": "Web", "seed": "recruitai" },
-  { "name": "DevHelper", "desc": "Technical documentation Q&A bot", "price": "$19/mo", "sales": "3.4k", "rating": 4.7, "platform": "Web", "seed": "devhelper" },
-  { "name": "CSBot", "desc": "Automated customer satisfaction surveys", "price": "$24/mo", "sales": "2.6k", "rating": 4.4, "platform": "API", "seed": "csbot" },
-  { "name": "MedRef", "desc": "Drug reference & interaction checker", "price": "$89/mo", "sales": "412", "rating": 4.9, "platform": "Web", "seed": "medref" },
-  { "name": "WarrantyBot", "desc": "Product warranty & returns assistant", "price": "$34/mo", "sales": "1.1k", "rating": 4.3, "platform": "Web", "seed": "warrantybot" },
-  { "name": "GithubIssueBot", "desc": "Auto-triage GitHub issues & PRs", "price": "$49/mo", "sales": "3.7k", "rating": 4.5, "platform": "GitHub", "seed": "githubissuebot" },
-  { "name": "SlackGPT", "desc": "Workspace Q&A & meeting summarizer", "price": "$44/mo", "sales": "2.2k", "rating": 4.6, "platform": "Slack + Web", "seed": "slackgpt" },
-  { "name": "EmailBot", "desc": "Smart email triage & auto-reply agent", "price": "$19/mo", "sales": "4.5k", "rating": 4.4, "platform": "API", "seed": "emailbot" },
-  { "name": "ComplianceBot", "desc": "Regulatory compliance Q&A assistant", "price": "$99/mo", "sales": "345", "rating": 4.7, "platform": "Web", "seed": "compliancebot" },
-  { "name": "WikiBot", "desc": "Internal knowledge base search agent", "price": "$29/mo", "sales": "1.6k", "rating": 4.5, "platform": "Slack + Web", "seed": "wikibot" },
-  { "name": "MoodBot", "desc": "Mental health check-in & wellness tips", "price": "$12/mo", "sales": "7.2k", "rating": 4.2, "platform": "Web + Mobile", "seed": "moodbot" },
-  { "name": "AgentRouter", "desc": "Multi-agent orchestration & dispatch", "price": "$79/mo", "sales": "567", "rating": 4.8, "platform": "API", "seed": "agentrouter" },
-  { "name": "TestBot", "desc": "Automated QA test generation agent", "price": "$64/mo", "sales": "1.3k", "rating": 4.6, "platform": "GitHub", "seed": "testbot" },
-  { "name": "TransBot", "desc": "Real-time multilingual translation agent", "price": "$34/mo", "sales": "2.9k", "rating": 4.5, "platform": "Web + Mobile", "seed": "transbot" },
-  { "name": "AlarmBot", "desc": "Intelligent incident alerting & response", "price": "$49/mo", "sales": "834", "rating": 4.7, "platform": "API", "seed": "alarmbot" },
-  { "name": "ProductGPT", "desc": "Product recommendation & discovery bot", "price": "$39/mo", "sales": "1.8k", "rating": 4.4, "platform": "Web", "seed": "productgpt" }
+    {
+        "name":  "CustomerGPT",
+        "desc":  "24/7 customer support agent with RAG",
+        "price":  "$29/mo",
+        "sales":  "3.2k",
+        "platform":  "Web",
+        "seed":  "customergpt",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "SalesFunnel AI",
+        "desc":  "Lead qualification \u0026 appointment setter",
+        "price":  "$49/mo",
+        "sales":  "2.1k",
+        "platform":  "Web + API",
+        "seed":  "salesfunnel",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "DocuBot",
+        "desc":  "Document Q\u0026A with multi-format RAG",
+        "price":  "$39/mo",
+        "sales":  "1.8k",
+        "platform":  "Web",
+        "seed":  "docubot",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "HR Assistant Pro",
+        "desc":  "Employee onboarding \u0026 HR query agent",
+        "price":  "$34/mo",
+        "sales":  "956",
+        "platform":  "Slack + Web",
+        "seed":  "hrassistant",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "CodeReview AI",
+        "desc":  "Automated PR review \u0026 code analysis",
+        "price":  "$59/mo",
+        "sales":  "4.5k",
+        "platform":  "GitHub",
+        "seed":  "codereview",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "EduTutor",
+        "desc":  "Personalised tutoring \u0026 quiz generator",
+        "price":  "$19/mo",
+        "sales":  "6.7k",
+        "platform":  "Web + Mobile",
+        "seed":  "edututor",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "HealthMate",
+        "desc":  "Medical triage \u0026 appointment scheduling",
+        "price":  "$69/mo",
+        "sales":  "743",
+        "platform":  "Web",
+        "seed":  "healthmate",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "FinanceBot",
+        "desc":  "Expense tracking \u0026 financial insights",
+        "price":  "$44/mo",
+        "sales":  "2.3k",
+        "platform":  "API",
+        "seed":  "financebot",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "TravelBuddy",
+        "desc":  "Trip planning \u0026 itinerary assistant",
+        "price":  "$24/mo",
+        "sales":  "4.1k",
+        "platform":  "Web + Mobile",
+        "seed":  "travelbuddy",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "LegalAssist",
+        "desc":  "Contract analysis \u0026 legal document Q\u0026A",
+        "price":  "$79/mo",
+        "sales":  "678",
+        "platform":  "Web",
+        "seed":  "legalassist",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "SupportFlow",
+        "desc":  "Multi-channel ticket resolution bot",
+        "price":  "$39/mo",
+        "sales":  "1.5k",
+        "platform":  "Slack + Web",
+        "seed":  "supportflow",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "OnboardBot",
+        "desc":  "Employee self-service onboarding agent",
+        "price":  "$29/mo",
+        "sales":  "2.8k",
+        "platform":  "Slack + Web",
+        "seed":  "onboardbot",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "DataQuery AI",
+        "desc":  "Natural language to SQL query agent",
+        "price":  "$54/mo",
+        "sales":  "1.2k",
+        "platform":  "Web",
+        "seed":  "dataquery",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "FitCoach",
+        "desc":  "Personalised workout \u0026 nutrition bot",
+        "price":  "$14/mo",
+        "sales":  "8.9k",
+        "platform":  "Web + Mobile",
+        "seed":  "fitcoach",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "RecruitAI",
+        "desc":  "Resume screening \u0026 interview scheduler",
+        "price":  "$59/mo",
+        "sales":  "1.9k",
+        "platform":  "Web",
+        "seed":  "recruitai",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "DevHelper",
+        "desc":  "Technical documentation Q\u0026A bot",
+        "price":  "$19/mo",
+        "sales":  "3.4k",
+        "platform":  "Web",
+        "seed":  "devhelper",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "CSBot",
+        "desc":  "Automated customer satisfaction surveys",
+        "price":  "$24/mo",
+        "sales":  "2.6k",
+        "platform":  "API",
+        "seed":  "csbot",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "MedRef",
+        "desc":  "Drug reference \u0026 interaction checker",
+        "price":  "$89/mo",
+        "sales":  "412",
+        "platform":  "Web",
+        "seed":  "medref",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "WarrantyBot",
+        "desc":  "Product warranty \u0026 returns assistant",
+        "price":  "$34/mo",
+        "sales":  "1.1k",
+        "platform":  "Web",
+        "seed":  "warrantybot",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "GithubIssueBot",
+        "desc":  "Auto-triage GitHub issues \u0026 PRs",
+        "price":  "$49/mo",
+        "sales":  "3.7k",
+        "platform":  "GitHub",
+        "seed":  "githubissuebot",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "SlackGPT",
+        "desc":  "Workspace Q\u0026A \u0026 meeting summarizer",
+        "price":  "$44/mo",
+        "sales":  "2.2k",
+        "platform":  "Slack + Web",
+        "seed":  "slackgpt",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "EmailBot",
+        "desc":  "Smart email triage \u0026 auto-reply agent",
+        "price":  "$19/mo",
+        "sales":  "4.5k",
+        "platform":  "API",
+        "seed":  "emailbot",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "ComplianceBot",
+        "desc":  "Regulatory compliance Q\u0026A assistant",
+        "price":  "$99/mo",
+        "sales":  "345",
+        "platform":  "Web",
+        "seed":  "compliancebot",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "WikiBot",
+        "desc":  "Internal knowledge base search agent",
+        "price":  "$29/mo",
+        "sales":  "1.6k",
+        "platform":  "Slack + Web",
+        "seed":  "wikibot",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "MoodBot",
+        "desc":  "Mental health check-in \u0026 wellness tips",
+        "price":  "$12/mo",
+        "sales":  "7.2k",
+        "platform":  "Web + Mobile",
+        "seed":  "moodbot",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "AgentRouter",
+        "desc":  "Multi-agent orchestration \u0026 dispatch",
+        "price":  "$79/mo",
+        "sales":  "567",
+        "platform":  "API",
+        "seed":  "agentrouter",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "TestBot",
+        "desc":  "Automated QA test generation agent",
+        "price":  "$64/mo",
+        "sales":  "1.3k",
+        "platform":  "GitHub",
+        "seed":  "testbot",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "TransBot",
+        "desc":  "Real-time multilingual translation agent",
+        "price":  "$34/mo",
+        "sales":  "2.9k",
+        "platform":  "Web + Mobile",
+        "seed":  "transbot",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "AlarmBot",
+        "desc":  "Intelligent incident alerting \u0026 response",
+        "price":  "$49/mo",
+        "sales":  "834",
+        "platform":  "API",
+        "seed":  "alarmbot",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "ProductGPT",
+        "desc":  "Product recommendation \u0026 discovery bot",
+        "price":  "$39/mo",
+        "sales":  "1.8k",
+        "platform":  "Web",
+        "seed":  "productgpt",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  3
+    }
 ]

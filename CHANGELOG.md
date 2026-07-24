@@ -1,3 +1,8 @@
+## v6.1 — 2026-07-24
+
+### Fix
+- [Fix] StartSelling — icon `guide` tidak valid di Material Symbols, ganti `menu_book` [file: src/pages/StartSelling.jsx]
+
 ## v6.0 — 2026-07-23
 
 ### Komponen

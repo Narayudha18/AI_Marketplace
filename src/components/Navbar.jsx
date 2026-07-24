@@ -12,15 +12,15 @@ function toSlug(str) {
 const navSubLinks = {
   'All Items': '',
   'GPT Agents': 'chatbots',
-  'Voice AI': 'voice-ai',
-  'Image Gen': 'image-gen',
+  'Voice AI': 'integrations',
+  'Image Gen': 'integrations',
   'RAG Pipelines': 'integrations',
   'Workflow': 'automation',
-  'Analytics': 'analytics',
-  'Fine-tuning': 'fine-tuning',
+  'Analytics': 'ai-tools',
+  'Fine-tuning': 'ai-tools',
   'Deployment': 'templates',
-  'Monitoring': 'monitoring',
-  'Security': 'security',
+  'Monitoring': 'integrations',
+  'Security': 'ai-tools',
 }
 
 export default function Navbar() {
@@ -76,21 +76,23 @@ export default function Navbar() {
         </div>
       </header>
 
-      <div className="bg-surface border-b border-border-light">
-        <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
-          {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
-            const linkPath = navSubLinks[item]
-            const fullPath = linkPath ? `/${linkPath}` : '/'
-            const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
-            return (
-              <Link key={item} to={fullPath}
-                className={`text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
-                {item}
-              </Link>
-            )
-          })}
+      {location.pathname === '/' && (
+        <div className="bg-surface border-b border-border-light">
+          <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
+            {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
+              const linkPath = navSubLinks[item]
+              const fullPath = linkPath ? `/${linkPath}` : '/'
+              const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
+              return (
+                <Link key={item} to={fullPath}
+                  className={`text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
+                  {item}
+                </Link>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      )}
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );

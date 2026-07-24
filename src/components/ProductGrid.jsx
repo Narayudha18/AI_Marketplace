@@ -47,7 +47,6 @@ export default function ProductGrid() {
 
   const handleFilterClick = (label) => {
     setActiveFilter(label)
-    setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50)
   }
 
   return (
@@ -89,22 +88,13 @@ export default function ProductGrid() {
               </p>
               <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                 <div>
-                  {'price' in p ? (
-                    <>
-                      <span className="text-[24px] font-semibold text-text-main block">{p.price}</span>
-                      {'sales' in p && <span className="text-[11px] font-medium text-text-muted">{p.sales}</span>}
-                    </>
-                  ) : (
-                    <>
-                      {'rating' in p && (
-                        <div className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 14 }}>star</span>
-                          <span className="text-xs font-semibold text-text-main">{p.rating}</span>
-                        </div>
-                      )}
-                      {'users' in p && <span className="text-[11px] font-medium text-text-muted">{p.users} users</span>}
-                    </>
-                  )}
+                  <span className="text-[24px] font-semibold text-text-main block">{p.price || 'Free'}</span>
+                  <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
+                    <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
+                    <span className="font-medium">{p.rating}</span>
+                    <span>·</span>
+                    <span>{p.reviews.length} reviews</span>
+                  </div>
                 </div>
                 <div className="flex gap-2">
                   <button className="p-2 border border-border-light rounded hover:bg-surface-container-low text-text-muted transition-colors">

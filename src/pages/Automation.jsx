@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import automations from '../data/automation.json'
 import { useCart } from '../CartContext'
-import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import Navbar from '../components/Navbar'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -16,8 +14,7 @@ function parsePrice(price) {
 
 export default function Automation() {
   const { totalItems, toggleFavorite, isFavorite } = useCart()
-  const [cartOpen, setCartOpen] = useState(false)
-  const { dark, toggle } = useTheme()
+
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -64,55 +61,12 @@ export default function Automation() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span>Automate repetitive tasks with AI-powered workflows. Save 20+ hours/week.</span>
-        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap">
-          Get Started
-        </button>
-      </div>
-
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
-            ].map(link => {
-              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-            </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <div className="bg-surface border-b border-border-light">
         <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
-          {['All Automation', 'Workflow', 'Marketing', 'Sales', 'Data', 'Finance', 'DevOps', 'HR', 'Social Media'].map(item => {
-            const slug = item === 'All Automation' ? '' : toSlug(item)
+          {['All Automations', 'Workflow', 'Marketing', 'Sales', 'Data', 'Finance', 'DevOps', 'HR', 'Social Media'].map(item => {
+            const slug = item === 'All Automations' ? '' : toSlug(item)
             const target = slug ? `/automation/c/${slug}` : '/automation'
             const isSubActive = location.pathname === target
             return (
@@ -132,40 +86,13 @@ export default function Automation() {
               Automate your workflow with AI precision
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              From marketing sequences to DevOps pipelines — build, deploy, and monitor automation that works while you sleep.
+              From marketing sequences to DevOps pipelines — build, deploy, and monitor automation that works while you sleep. Trigger actions, sync data between apps, and orchestrate complex multi-step workflows without writing a single line of code.
             </p>
-            <div className="flex w-full max-w-lg bg-surface rounded-lg shadow-sm border border-border-light p-1">
-              <input type="text" placeholder="e.g. Email automation workflow" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && applyFilters()}
-                className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none" />
-              <button onClick={applyFilters}
-                className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>search</span>
-                Search
-              </button>
-            </div>
+
           </div>
           <div className="w-full lg:w-1/2 relative h-[400px]">
             <img src="https://picsum.photos/seed/automation-hero/600/400" alt="Automation"
               className="w-full h-full object-cover rounded-2xl border border-border-light" />
-          </div>
-        </section>
-
-        <section className="px-6 py-10 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: 'account_tree', title: 'Workflows', count: '156 automations' },
-              { icon: 'campaign', title: 'Marketing', count: '112 automations' },
-              { icon: 'trending_up', title: 'Sales', count: '89 automations' },
-              { icon: 'devices', title: 'DevOps', count: '67 automations' },
-            ].map((cat) => (
-              <div key={cat.title}
-                className="bg-surface rounded-xl shadow-sm border border-border-light p-6 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                <span className="material-symbols-outlined text-primary text-4xl mb-3">{cat.icon}</span>
-                <h3 className="text-lg font-semibold text-text-main">{cat.title}</h3>
-                <p className="text-xs font-medium text-text-muted mt-1">{cat.count}</p>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -254,7 +181,7 @@ export default function Automation() {
                           <span className="text-lg font-semibold text-text-main">{a.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            {a.rating} · {a.sales} users
+                            {a.rating} · {a.reviews.length} reviews
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/automation/${toSlug(a.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
@@ -325,7 +252,6 @@ export default function Automation() {
           </div>
         </div>
       </footer>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

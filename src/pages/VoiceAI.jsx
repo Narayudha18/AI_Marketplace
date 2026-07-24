@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import voiceAI from '../data/voice-ai.json'
 import { useCart } from '../CartContext'
-import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import Navbar from '../components/Navbar'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -21,8 +19,6 @@ function parseSales(sales) {
 
 export default function VoiceAI() {
   const { totalItems, toggleFavorite, isFavorite } = useCart()
-  const [cartOpen, setCartOpen] = useState(false)
-  const { dark, toggle } = useTheme()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategories, setSelectedCategories] = useState(['All Voice AI'])
@@ -35,7 +31,6 @@ export default function VoiceAI() {
     if (location.state?.skipScroll) return
     setTimeout(() => gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
   }, [location.pathname])
-  const [categoriesExpanded, setCategoriesExpanded] = useState(false)
   const navigate = useNavigate()
 
   const [appliedSearch, setAppliedSearch] = useState('')
@@ -101,51 +96,7 @@ export default function VoiceAI() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span>Premium voice AI APIs & SDKs for speech-enabled applications.</span>
-        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap">
-          Browse All
-        </button>
-      </div>
-
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
-            ].map(link => {
-              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-            </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
       <div className="bg-surface border-b border-border-light">
         <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
           {['All Voice AI', 'Speech Recognition', 'Text-to-Speech', 'Voice Cloning', 'Audio Processing'].map(item => {
@@ -161,26 +112,16 @@ export default function VoiceAI() {
           })}
         </div>
       </div>
-
-      <main className="w-full max-w-[1440px] mx-auto pb-16">
+<main className="w-full max-w-[1440px] mx-auto pb-16">
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
               Voice AI APIs & SDKs
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              Build speech-enabled applications with cutting-edge voice recognition, text-to-speech, and voice cloning APIs.
+              Build speech-enabled applications with cutting-edge voice recognition, text-to-speech, and voice cloning APIs. Support 100+ languages, real-time streaming, emotion control, and custom voice creation for any use case — from IVR to audiobooks.
             </p>
-            <div className="flex w-full max-w-lg bg-surface rounded-lg shadow-sm border border-border-light p-1">
-              <input type="text" placeholder="e.g. Speech recognition" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && applyFilters()}
-                className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none" />
-              <button onClick={applyFilters}
-                className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>search</span>
-                Search
-              </button>
-            </div>
+
           </div>
           <div className="w-full lg:w-1/2 relative h-[400px]">
             <img
@@ -188,40 +129,6 @@ export default function VoiceAI() {
               alt="Voice AI Marketplace"
               className="w-full h-full object-cover rounded-2xl border border-border-light"
             />
-          </div>
-        </section>
-
-        <section className="px-6 py-10 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: 'mic', title: 'Speech Recognition', desc: 'Convert speech to text with high accuracy', tags: ['Newest', 'Bestsellers', 'Real-time', 'Batch', 'Multi-language'] },
-              { icon: 'record_voice_over', title: 'Text-to-Speech', desc: 'Natural-sounding voice synthesis APIs', tags: ['Newest', 'Bestsellers', 'Neural', 'SSML', 'Custom'] },
-              { icon: 'voice_chat', title: 'Voice Cloning', desc: 'Clone any voice with AI precision', tags: ['Newest', 'Bestsellers', 'Real-time', 'Studio', 'Identity'] },
-              { icon: 'tune', title: 'Audio Processing', desc: 'Clean, filter, and enhance audio', tags: ['Newest', 'Bestsellers', 'Noise', 'Filter', 'Pipeline'] },
-            ].slice(0, categoriesExpanded ? 4 : 3).map((cat) => (
-              <div key={cat.title}
-                className="bg-surface rounded-xl shadow-sm border border-border-light p-6 flex flex-col items-center text-center hover:shadow-md transition-shadow relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                <span className="material-symbols-outlined text-primary text-4xl mb-4">{cat.icon}</span>
-                <h3 className="text-[24px] font-semibold text-text-main mb-2">{cat.title}</h3>
-                <p className="text-xs font-semibold text-text-muted mb-4">{cat.desc}</p>
-                <div className="flex gap-4 text-[11px] font-medium text-primary flex-wrap justify-center">
-                  {cat.tags.map((tag) => (
-                    <a key={tag} href="#" className="hover:underline">{tag}</a>
-                  ))}
-                </div>
-                <img
-                  src={`https://picsum.photos/seed/voice-${cat.icon}/400/120`}
-                  alt={cat.title}
-                  className="mt-6 w-full h-32 object-cover rounded-lg border border-border-light"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 flex justify-center">
-            <button onClick={() => setCategoriesExpanded(!categoriesExpanded)} className="bg-surface border border-border-light text-text-main px-8 py-2.5 rounded text-xs font-semibold shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer">
-              {categoriesExpanded ? 'Show less' : 'View more categories'}
-            </button>
           </div>
         </section>
 
@@ -321,7 +228,12 @@ export default function VoiceAI() {
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <div>
                           <span className="text-[24px] font-semibold text-text-main block">{t.price}</span>
-                          <span className="text-[11px] font-medium text-text-muted">{t.sales}</span>
+                          <div className="flex items-center gap-1 text-[11px] text-text-muted">
+                            <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
+                            <span className="font-medium">{t.rating}</span>
+                            <span>·</span>
+                            <span>{t.reviews.length} reviews</span>
+                          </div>
                         </div>
                         <div className="flex gap-2">
                           <button className="p-2 border border-border-light rounded hover:bg-surface-container-low text-text-muted transition-colors">
@@ -401,7 +313,6 @@ export default function VoiceAI() {
           </div>
         </div>
       </footer>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

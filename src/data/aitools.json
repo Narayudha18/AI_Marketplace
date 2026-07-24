@@ -1,32 +1,1406 @@
 [
-  { "name": "GPT-4o API", "desc": "Multimodal LLM — text, image, audio", "price": "Pay-as-you-go", "badge": "Popular", "category": "LLM", "seed": "gpt4o" },
-  { "name": "DALL-E 3 API", "desc": "Text-to-image generation API", "price": "From $0.04/image", "badge": "New", "category": "Image", "seed": "dalle3" },
-  { "name": "Whisper API", "desc": "Speech-to-text with 100+ languages", "price": "From $0.006/min", "badge": "", "category": "Audio", "seed": "whisper" },
-  { "name": "Claude 3 API", "desc": "Anthropic Claude 3 Opus & Sonnet", "price": "From $0.015/1k", "badge": "Popular", "category": "LLM", "seed": "claude3" },
-  { "name": "Stable Diffusion XL", "desc": "Open-source image generation", "price": "From $0.009/img", "badge": "", "category": "Image", "seed": "sdxl" },
-  { "name": "ElevenLabs TTS", "desc": "Voice synthesis with emotion control", "price": "From $5/mo", "badge": "Trending", "category": "Audio", "seed": "elevenlabs" },
-  { "name": "Pinecone Vector DB", "desc": "Serverless vector database", "price": "From $70/mo", "badge": "", "category": "Infra", "seed": "pinecone" },
-  { "name": "LangChain SDK", "desc": "LLM orchestration framework", "price": "Free (Open Source)", "badge": "", "category": "Framework", "seed": "langchain" },
-  { "name": "Weaviate Cloud", "desc": "AI-native vector database", "price": "From $25/mo", "badge": "New", "category": "Infra", "seed": "weaviate" },
-  { "name": "Replicate API", "desc": "Run 50k+ ML models in cloud", "price": "Pay-as-you-go", "badge": "", "category": "Compute", "seed": "replicate" },
-  { "name": "Cohere API", "desc": "Embeddings, rerank & classify", "price": "From $0.001/1k", "badge": "", "category": "LLM", "seed": "cohere" },
-  { "name": "Modal Serverless", "desc": "GPU compute for AI workloads", "price": "From $0.10/hr", "badge": "", "category": "Compute", "seed": "modal" },
-  { "name": "Mistral API", "desc": "Open-weight LLMs with EU hosting", "price": "From $0.002/1k", "badge": "New", "category": "LLM", "seed": "mistral" },
-  { "name": "Llama 3 API", "desc": "Meta Llama 3 open-source LLM", "price": "From $0.001/1k", "badge": "Popular", "category": "LLM", "seed": "llama3" },
-  { "name": "Gemini API", "desc": "Google Gemini 1.5 Pro & Flash", "price": "From $0.003/1k", "badge": "", "category": "LLM", "seed": "gemini" },
-  { "name": "Runway Gen-3", "desc": "Text-to-video generation model", "price": "From $0.10/sec", "badge": "Trending", "category": "Video", "seed": "runway" },
-  { "name": "Midjourney API", "desc": "High-quality image generation", "price": "From $0.05/img", "badge": "Popular", "category": "Image", "seed": "midjourney" },
-  { "name": "Adobe Firefly", "desc": "Commercial-safe image generation", "price": "From $0.03/img", "badge": "New", "category": "Image", "seed": "firefly" },
-  { "name": "Groq Cloud", "desc": "LPU inference for fast LLM responses", "price": "Free tier avail.", "badge": "Trending", "category": "Compute", "seed": "groq" },
-  { "name": "Perplexity API", "desc": "AI-powered web search & Q&A", "price": "From $0.01/search", "badge": "", "category": "LLM", "seed": "perplexity" },
-  { "name": "Chroma DB", "desc": "Open-source embedding database", "price": "Free (Open Source)", "badge": "", "category": "Infra", "seed": "chroma" },
-  { "name": "Qdrant Cloud", "desc": "Managed vector search service", "price": "From $25/mo", "badge": "", "category": "Infra", "seed": "qdrant" },
-  { "name": "LlamaIndex", "desc": "Data ingestion & indexing for LLMs", "price": "Free (Open Source)", "badge": "", "category": "Framework", "seed": "llamaindex" },
-  { "name": "Deepgram API", "desc": "Real-time speech recognition", "price": "From $0.004/min", "badge": "", "category": "Audio", "seed": "deepgram" },
-  { "name": "AssemblyAI", "desc": "Speech-to-text with summarization", "price": "From $0.005/min", "badge": "New", "category": "Audio", "seed": "assemblyai" },
-  { "name": "Vercel AI SDK", "desc": "AI streaming SDK for edge runtimes", "price": "Free (Open Source)", "badge": "Trending", "category": "Framework", "seed": "vercel-ai" },
-  { "name": "Hugging Face Infer", "desc": "Serverless model inference endpoint", "price": "From $0.06/hr", "badge": "", "category": "Compute", "seed": "huggingface-infer" },
-  { "name": "Togetherai API", "desc": "Open-source model inference cloud", "price": "From $0.0008/1k", "badge": "", "category": "Compute", "seed": "togetherai" },
-  { "name": "Fireworks AI API", "desc": "Fast open-source model serving", "price": "From $0.001/1k", "badge": "", "category": "Compute", "seed": "fireworks" },
-  { "name": "Ideogram API", "desc": "AI image generation with typography", "price": "From $0.02/img", "badge": "New", "category": "Image", "seed": "ideogram" }
+    {
+        "name":  "GPT-4o API",
+        "desc":  "Multimodal LLM — text, image, audio",
+        "price":  "Pay-as-you-go",
+        "badge":  "Popular",
+        "category":  "LLM",
+        "seed":  "gpt4o",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "DALL-E 3 API",
+        "desc":  "Text-to-image generation API",
+        "price":  "From $0.04/image",
+        "badge":  "New",
+        "category":  "Image",
+        "seed":  "dalle3",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Whisper API",
+        "desc":  "Speech-to-text with 100+ languages",
+        "price":  "From $0.006/min",
+        "badge":  "",
+        "category":  "Audio",
+        "seed":  "whisper",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Claude 3 API",
+        "desc":  "Anthropic Claude 3 Opus \u0026 Sonnet",
+        "price":  "From $0.015/1k",
+        "badge":  "Popular",
+        "category":  "LLM",
+        "seed":  "claude3",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Stable Diffusion XL",
+        "desc":  "Open-source image generation",
+        "price":  "From $0.009/img",
+        "badge":  "",
+        "category":  "Image",
+        "seed":  "sdxl",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "ElevenLabs TTS",
+        "desc":  "Voice synthesis with emotion control",
+        "price":  "From $5/mo",
+        "badge":  "Trending",
+        "category":  "Audio",
+        "seed":  "elevenlabs",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Pinecone Vector DB",
+        "desc":  "Serverless vector database",
+        "price":  "From $70/mo",
+        "badge":  "",
+        "category":  "Infra",
+        "seed":  "pinecone",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "LangChain SDK",
+        "desc":  "LLM orchestration framework",
+        "price":  "Free (Open Source)",
+        "badge":  "",
+        "category":  "Framework",
+        "seed":  "langchain",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Weaviate Cloud",
+        "desc":  "AI-native vector database",
+        "price":  "From $25/mo",
+        "badge":  "New",
+        "category":  "Infra",
+        "seed":  "weaviate",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Replicate API",
+        "desc":  "Run 50k+ ML models in cloud",
+        "price":  "Pay-as-you-go",
+        "badge":  "",
+        "category":  "Compute",
+        "seed":  "replicate",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Cohere API",
+        "desc":  "Embeddings, rerank \u0026 classify",
+        "price":  "From $0.001/1k",
+        "badge":  "",
+        "category":  "LLM",
+        "seed":  "cohere",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Modal Serverless",
+        "desc":  "GPU compute for AI workloads",
+        "price":  "From $0.10/hr",
+        "badge":  "",
+        "category":  "Compute",
+        "seed":  "modal",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Mistral API",
+        "desc":  "Open-weight LLMs with EU hosting",
+        "price":  "From $0.002/1k",
+        "badge":  "New",
+        "category":  "LLM",
+        "seed":  "mistral",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Llama 3 API",
+        "desc":  "Meta Llama 3 open-source LLM",
+        "price":  "From $0.001/1k",
+        "badge":  "Popular",
+        "category":  "LLM",
+        "seed":  "llama3",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Gemini API",
+        "desc":  "Google Gemini 1.5 Pro \u0026 Flash",
+        "price":  "From $0.003/1k",
+        "badge":  "",
+        "category":  "LLM",
+        "seed":  "gemini",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Runway Gen-3",
+        "desc":  "Text-to-video generation model",
+        "price":  "From $0.10/sec",
+        "badge":  "Trending",
+        "category":  "Video",
+        "seed":  "runway",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Midjourney API",
+        "desc":  "High-quality image generation",
+        "price":  "From $0.05/img",
+        "badge":  "Popular",
+        "category":  "Image",
+        "seed":  "midjourney",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Adobe Firefly",
+        "desc":  "Commercial-safe image generation",
+        "price":  "From $0.03/img",
+        "badge":  "New",
+        "category":  "Image",
+        "seed":  "firefly",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Groq Cloud",
+        "desc":  "LPU inference for fast LLM responses",
+        "price":  "Free tier avail.",
+        "badge":  "Trending",
+        "category":  "Compute",
+        "seed":  "groq",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Perplexity API",
+        "desc":  "AI-powered web search \u0026 Q\u0026A",
+        "price":  "From $0.01/search",
+        "badge":  "",
+        "category":  "LLM",
+        "seed":  "perplexity",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Chroma DB",
+        "desc":  "Open-source embedding database",
+        "price":  "Free (Open Source)",
+        "badge":  "",
+        "category":  "Infra",
+        "seed":  "chroma",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Qdrant Cloud",
+        "desc":  "Managed vector search service",
+        "price":  "From $25/mo",
+        "badge":  "",
+        "category":  "Infra",
+        "seed":  "qdrant",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "LlamaIndex",
+        "desc":  "Data ingestion \u0026 indexing for LLMs",
+        "price":  "Free (Open Source)",
+        "badge":  "",
+        "category":  "Framework",
+        "seed":  "llamaindex",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Deepgram API",
+        "desc":  "Real-time speech recognition",
+        "price":  "From $0.004/min",
+        "badge":  "",
+        "category":  "Audio",
+        "seed":  "deepgram",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "AssemblyAI",
+        "desc":  "Speech-to-text with summarization",
+        "price":  "From $0.005/min",
+        "badge":  "New",
+        "category":  "Audio",
+        "seed":  "assemblyai",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Vercel AI SDK",
+        "desc":  "AI streaming SDK for edge runtimes",
+        "price":  "Free (Open Source)",
+        "badge":  "Trending",
+        "category":  "Framework",
+        "seed":  "vercel-ai",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Hugging Face Infer",
+        "desc":  "Serverless model inference endpoint",
+        "price":  "From $0.06/hr",
+        "badge":  "",
+        "category":  "Compute",
+        "seed":  "huggingface-infer",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Togetherai API",
+        "desc":  "Open-source model inference cloud",
+        "price":  "From $0.0008/1k",
+        "badge":  "",
+        "category":  "Compute",
+        "seed":  "togetherai",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "name":  "Fireworks AI API",
+        "desc":  "Fast open-source model serving",
+        "price":  "From $0.001/1k",
+        "badge":  "",
+        "category":  "Compute",
+        "seed":  "fireworks",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Ideogram API",
+        "desc":  "AI image generation with typography",
+        "price":  "From $0.02/img",
+        "badge":  "New",
+        "category":  "Image",
+        "seed":  "ideogram",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "LangFuse",
+        "desc":  "Open-source LLM observability \u0026 analytics",
+        "price":  "Free tier avail.",
+        "badge":  "Trending",
+        "category":  "Analytics",
+        "seed":  "langfuse",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Arize Phoenix",
+        "desc":  "LLM tracing \u0026 evaluation analytics",
+        "price":  "Free (Open Source)",
+        "badge":  "",
+        "category":  "Analytics",
+        "seed":  "arize",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Axolotl",
+        "desc":  "Fine-tuning framework for LLMs",
+        "price":  "Free (Open Source)",
+        "badge":  "",
+        "category":  "Fine-tuning",
+        "seed":  "axolotl",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "name":  "Unsloth",
+        "desc":  "2x faster LLM fine-tuning with less memory",
+        "price":  "Free (Open Source)",
+        "badge":  "Trending",
+        "category":  "Fine-tuning",
+        "seed":  "unsloth",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "name":  "Guardrails AI",
+        "desc":  "LLM output guardrails \u0026 validation",
+        "price":  "Free tier avail.",
+        "badge":  "",
+        "category":  "Security",
+        "seed":  "guardrails",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "name":  "Lakera Guard",
+        "desc":  "AI security \u0026 prompt injection detection",
+        "price":  "From $0.01/req",
+        "badge":  "New",
+        "category":  "Security",
+        "seed":  "lakera",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    }
 ]

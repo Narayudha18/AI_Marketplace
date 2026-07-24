@@ -175,7 +175,11 @@ export default function ProductDetail() {
   const reviewKey = `reviews_${category}_${slug}`
   const commentKey = `comments_${category}_${slug}`
   const [reviews, setReviews] = useState(() => {
-    try { return JSON.parse(localStorage.getItem(reviewKey)) || [] } catch { return [] }
+    try {
+      const local = JSON.parse(localStorage.getItem(reviewKey)) || []
+      const jsonReviews = item.reviews || []
+      return [...jsonReviews, ...local]
+    } catch { return item.reviews || [] }
   })
   const [comments, setComments] = useState(() => {
     try { return JSON.parse(localStorage.getItem(commentKey)) || [] } catch { return [] }

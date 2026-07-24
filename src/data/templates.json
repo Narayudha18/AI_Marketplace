@@ -1,32 +1,1412 @@
 [
-  { "title": "AdminPro | Dashboard Template", "author": "uiwizard", "category": "Dashboards", "price": "$49", "sales": "1.2k Sales", "seed": "adminpro" },
-  { "title": "SaaSKit | Landing Page Bundle", "author": "pixelkraft", "category": "Landing Pages", "price": "$39", "sales": "890 Sales", "seed": "saaskit" },
-  { "title": "ShopVue | E-commerce UI Kit", "author": "cartmasters", "category": "E-commerce", "price": "$59", "sales": "2.1k Sales", "seed": "shopvue" },
-  { "title": "PortfolioX | Creative Portfolio", "author": "artisan dev", "category": "Portfolios", "price": "$29", "sales": "654 Sales", "seed": "portfoliox" },
-  { "title": "BlogFlow | Editorial Template", "author": "contentlab", "category": "Blogs", "price": "$34", "sales": "445 Sales", "seed": "blogflow" },
-  { "title": "CRMView | Customer Dashboard", "author": "enterprisex", "category": "Dashboards", "price": "$69", "sales": "312 Sales", "seed": "crmview" },
-  { "title": "Analytix | Data Dashboard", "author": "chartify", "category": "Dashboards", "price": "$54", "sales": "978 Sales", "seed": "analytix" },
-  { "title": "ChatUI | Messaging Template", "author": "convo dev", "category": "Apps", "price": "$44", "sales": "567 Sales", "seed": "chatui" },
-  { "title": "AgentForge | Multi-LLM Orchestrator", "author": "saaadelab", "category": "Frameworks", "price": "$79", "sales": "234 Sales", "seed": "agentforge" },
-  { "title": "VoiceFlow Pro | Voice Assistant SDK", "author": "morningstar", "category": "Voice AI", "price": "$59", "sales": "189 Sales", "seed": "voiceflow" },
-  { "title": "VisionCortex | Real-time Object Detector", "author": "ticempresarial", "category": "Computer Vision", "price": "$99", "sales": "312 Sales", "seed": "visioncortex" },
-  { "title": "ChatCraft | Custom GPT Builder", "author": "Rado-Labs", "category": "Chatbots", "price": "$49", "sales": "567 Sales", "seed": "chatcraft" },
-  { "title": "DataPulse | Analytics Agent", "author": "neuralforge", "category": "Analytics", "price": "$69", "sales": "98 Sales", "seed": "datapulse" },
-  { "title": "SecureGate | AI Guardrails", "author": "cybermind", "category": "Security", "price": "$89", "sales": "76 Sales", "seed": "securegate" },
-  { "title": "RAGStack | Knowledge Base Agent", "author": "deeplearn", "category": "RAG Pipelines", "price": "$109", "sales": "145 Sales", "seed": "ragstack" },
-  { "title": "AutoWorkflow | Process Automation", "author": "flowlabs", "category": "Automation", "price": "$39", "sales": "423 Sales", "seed": "autoworkflow" },
-  { "title": "StartupKit | SaaS Boilerplate", "author": "launchpad", "category": "Landing Pages", "price": "$59", "sales": "1.5k Sales", "seed": "startupkit" },
-  { "title": "HealthDash | Medical Dashboard", "author": "vitalcode", "category": "Dashboards", "price": "$74", "sales": "287 Sales", "seed": "healthdash" },
-  { "title": "FashionStore | E-commerce Theme", "author": "stylecraft", "category": "E-commerce", "price": "$64", "sales": "876 Sales", "seed": "fashionstore" },
-  { "title": "DevBlog | Developer Portfolio", "author": "coderbase", "category": "Portfolios", "price": "$24", "sales": "723 Sales", "seed": "devblog" },
-  { "title": "NewsFlow | Magazine Template", "author": "publishlab", "category": "Blogs", "price": "$44", "sales": "334 Sales", "seed": "newsflow" },
-  { "title": "FinDash | Financial Dashboard", "author": "moneylabs", "category": "Dashboards", "price": "$84", "sales": "456 Sales", "seed": "findash" },
-  { "title": "HelpDesk | Support Ticket UI", "author": "solveware", "category": "Apps", "price": "$54", "sales": "678 Sales", "seed": "helpdesk" },
-  { "title": "NextStack | Full-Stack Starter", "author": "jetpackdev", "category": "Frameworks", "price": "$69", "sales": "1.1k Sales", "seed": "nextstack" },
-  { "title": "PodcastPro | Audio Platform UI", "author": "soundbend", "category": "Apps", "price": "$39", "sales": "445 Sales", "seed": "podcastpro" },
-  { "title": "LearnHub | Online Course Template", "author": "edulabs", "category": "Apps", "price": "$49", "sales": "523 Sales", "seed": "learnhub" },
-  { "title": "RealtyView | Real Estate Listings", "author": "propcore", "category": "Portfolios", "price": "$59", "sales": "312 Sales", "seed": "realtyview" },
-  { "title": "EventPro | Conference & Event UI", "author": "gatherlab", "category": "Landing Pages", "price": "$34", "sales": "567 Sales", "seed": "eventpro" },
-  { "title": "KanbanFlow | Project Management UI", "author": "taskmasters", "category": "Apps", "price": "$44", "sales": "789 Sales", "seed": "kanbanflow" },
-  { "title": "RestoView | Restaurant Menu & Booking", "author": "dinecraft", "category": "E-commerce", "price": "$29", "sales": "423 Sales", "seed": "restoview" }
+    {
+        "title":  "AdminPro | Dashboard Template",
+        "author":  "uiwizard",
+        "category":  "Dashboards",
+        "price":  "$49",
+        "sales":  "1.2k Sales",
+        "seed":  "adminpro",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "SaaSKit | Landing Page Bundle",
+        "author":  "pixelkraft",
+        "category":  "Landing Pages",
+        "price":  "$39",
+        "sales":  "890 Sales",
+        "seed":  "saaskit",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ShopVue | E-commerce UI Kit",
+        "author":  "cartmasters",
+        "category":  "E-commerce",
+        "price":  "$59",
+        "sales":  "2.1k Sales",
+        "seed":  "shopvue",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "PortfolioX | Creative Portfolio",
+        "author":  "artisan dev",
+        "category":  "Portfolios",
+        "price":  "$29",
+        "sales":  "654 Sales",
+        "seed":  "portfoliox",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "BlogFlow | Editorial Template",
+        "author":  "contentlab",
+        "category":  "Blogs",
+        "price":  "$34",
+        "sales":  "445 Sales",
+        "seed":  "blogflow",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "CRMView | Customer Dashboard",
+        "author":  "enterprisex",
+        "category":  "Dashboards",
+        "price":  "$69",
+        "sales":  "312 Sales",
+        "seed":  "crmview",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "Analytix | Data Dashboard",
+        "author":  "chartify",
+        "category":  "Dashboards",
+        "price":  "$54",
+        "sales":  "978 Sales",
+        "seed":  "analytix",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ChatUI | Messaging Template",
+        "author":  "convo dev",
+        "category":  "Apps",
+        "price":  "$44",
+        "sales":  "567 Sales",
+        "seed":  "chatui",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "AgentForge | Multi-LLM Orchestrator",
+        "author":  "saaadelab",
+        "category":  "Frameworks",
+        "price":  "$79",
+        "sales":  "234 Sales",
+        "seed":  "agentforge",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "VoiceFlow Pro | Voice Assistant SDK",
+        "author":  "morningstar",
+        "category":  "Voice AI",
+        "price":  "$59",
+        "sales":  "189 Sales",
+        "seed":  "voiceflow",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "VisionCortex | Real-time Object Detector",
+        "author":  "ticempresarial",
+        "category":  "Computer Vision",
+        "price":  "$99",
+        "sales":  "312 Sales",
+        "seed":  "visioncortex",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "ChatCraft | Custom GPT Builder",
+        "author":  "Rado-Labs",
+        "category":  "Chatbots",
+        "price":  "$49",
+        "sales":  "567 Sales",
+        "seed":  "chatcraft",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "DataPulse | Analytics Agent",
+        "author":  "neuralforge",
+        "category":  "Analytics",
+        "price":  "$69",
+        "sales":  "98 Sales",
+        "seed":  "datapulse",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "SecureGate | AI Guardrails",
+        "author":  "cybermind",
+        "category":  "Security",
+        "price":  "$89",
+        "sales":  "76 Sales",
+        "seed":  "securegate",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "RAGStack | Knowledge Base Agent",
+        "author":  "deeplearn",
+        "category":  "RAG Pipelines",
+        "price":  "$109",
+        "sales":  "145 Sales",
+        "seed":  "ragstack",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "AutoWorkflow | Process Automation",
+        "author":  "flowlabs",
+        "category":  "Automation",
+        "price":  "$39",
+        "sales":  "423 Sales",
+        "seed":  "autoworkflow",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "StartupKit | SaaS Boilerplate",
+        "author":  "launchpad",
+        "category":  "Landing Pages",
+        "price":  "$59",
+        "sales":  "1.5k Sales",
+        "seed":  "startupkit",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "HealthDash | Medical Dashboard",
+        "author":  "vitalcode",
+        "category":  "Dashboards",
+        "price":  "$74",
+        "sales":  "287 Sales",
+        "seed":  "healthdash",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "FashionStore | E-commerce Theme",
+        "author":  "stylecraft",
+        "category":  "E-commerce",
+        "price":  "$64",
+        "sales":  "876 Sales",
+        "seed":  "fashionstore",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "DevBlog | Developer Portfolio",
+        "author":  "coderbase",
+        "category":  "Portfolios",
+        "price":  "$24",
+        "sales":  "723 Sales",
+        "seed":  "devblog",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "NewsFlow | Magazine Template",
+        "author":  "publishlab",
+        "category":  "Blogs",
+        "price":  "$44",
+        "sales":  "334 Sales",
+        "seed":  "newsflow",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "FinDash | Financial Dashboard",
+        "author":  "moneylabs",
+        "category":  "Dashboards",
+        "price":  "$84",
+        "sales":  "456 Sales",
+        "seed":  "findash",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "HelpDesk | Support Ticket UI",
+        "author":  "solveware",
+        "category":  "Apps",
+        "price":  "$54",
+        "sales":  "678 Sales",
+        "seed":  "helpdesk",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "NextStack | Full-Stack Starter",
+        "author":  "jetpackdev",
+        "category":  "Frameworks",
+        "price":  "$69",
+        "sales":  "1.1k Sales",
+        "seed":  "nextstack",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PodcastPro | Audio Platform UI",
+        "author":  "soundbend",
+        "category":  "Apps",
+        "price":  "$39",
+        "sales":  "445 Sales",
+        "seed":  "podcastpro",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "LearnHub | Online Course Template",
+        "author":  "edulabs",
+        "category":  "Apps",
+        "price":  "$49",
+        "sales":  "523 Sales",
+        "seed":  "learnhub",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "RealtyView | Real Estate Listings",
+        "author":  "propcore",
+        "category":  "Portfolios",
+        "price":  "$59",
+        "sales":  "312 Sales",
+        "seed":  "realtyview",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "EventPro | Conference \u0026 Event UI",
+        "author":  "gatherlab",
+        "category":  "Landing Pages",
+        "price":  "$34",
+        "sales":  "567 Sales",
+        "seed":  "eventpro",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "KanbanFlow | Project Management UI",
+        "author":  "taskmasters",
+        "category":  "Apps",
+        "price":  "$44",
+        "sales":  "789 Sales",
+        "seed":  "kanbanflow",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "RestoView | Restaurant Menu \u0026 Booking",
+        "author":  "dinecraft",
+        "category":  "E-commerce",
+        "price":  "$29",
+        "sales":  "423 Sales",
+        "seed":  "restoview",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "AppFlow | Mobile App Template",
+        "author":  "mobiledev",
+        "category":  "Mobile Apps",
+        "price":  "$39",
+        "sales":  "234 Sales",
+        "seed":  "appflow",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "StoreApp | E-commerce Mobile UI",
+        "author":  "appcraft",
+        "category":  "Mobile Apps",
+        "price":  "$49",
+        "sales":  "189 Sales",
+        "seed":  "storeapp",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "DashKit | UI Component Library",
+        "author":  "designtoast",
+        "category":  "UI Kits",
+        "price":  "$29",
+        "sales":  "1.3k Sales",
+        "seed":  "dashkit",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "MaterialPro | Premium UI Kit",
+        "author":  "themeforest",
+        "category":  "UI Kits",
+        "price":  "$45",
+        "sales":  "2.1k Sales",
+        "seed":  "materialpro",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AdminLTE | Admin Panel Template",
+        "author":  "admincraft",
+        "category":  "Admin Panels",
+        "price":  "$59",
+        "sales":  "3.4k Sales",
+        "seed":  "adminlte",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "PanelPro | Analytics Admin Dashboard",
+        "author":  "datavisually",
+        "category":  "Admin Panels",
+        "price":  "$69",
+        "sales":  "876 Sales",
+        "seed":  "panelpro",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "DeployBot | One-Click Deployment Template",
+        "author":  "opslabs",
+        "category":  "Deployment",
+        "price":  "$79",
+        "sales":  "345 Sales",
+        "seed":  "deploybot",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "DockerStack | Containerized App Starter",
+        "author":  "infradev",
+        "category":  "Deployment",
+        "price":  "$89",
+        "sales":  "567 Sales",
+        "seed":  "dockerstack",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  3
+    }
 ]

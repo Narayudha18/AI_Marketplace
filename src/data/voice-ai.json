@@ -1,32 +1,1178 @@
 [
-  { "title": "DeepListen | Speech Recognition API", "author": "audiolabs", "category": "Speech Recognition", "price": "$49", "sales": "2.3k Sales", "seed": "deeplisten" },
-  { "title": "VoxScript | Real-time Transcription", "author": "wavemind", "category": "Speech Recognition", "price": "$39", "sales": "1.8k Sales", "seed": "voxscript" },
-  { "title": "SpeakSync | Text-to-Speech Engine", "author": "voicraft", "category": "Text-to-Speech", "price": "$59", "sales": "3.1k Sales", "seed": "speaksync" },
-  { "title": "Narraly | AI Voice Narrator", "author": "soundforge", "category": "Text-to-Speech", "price": "$29", "sales": "894 Sales", "seed": "narraly" },
-  { "title": "CloneVoice | Voice Cloning Studio", "author": "resonancelab", "category": "Voice Cloning", "price": "$149", "sales": "567 Sales", "seed": "clonevoice" },
-  { "title": "VoiceMask | Identity Protection", "author": "privacycore", "category": "Voice Cloning", "price": "$79", "sales": "312 Sales", "seed": "voicemask" },
-  { "title": "Audiflow | Audio Processing Pipeline", "author": "soundwave", "category": "Audio Processing", "price": "$69", "sales": "1.1k Sales", "seed": "audiflow" },
-  { "title": "NoiseGate | Clean Audio Filter", "author": "clearsignal", "category": "Audio Processing", "price": "$34", "sales": "2.7k Sales", "seed": "noisegate" },
-  { "title": "CallSense | Call Center Analytics", "author": "telecomlabs", "category": "Speech Recognition", "price": "$89", "sales": "678 Sales", "seed": "callsense" },
-  { "title": "VoiceAnalytics | Speaker Diarization", "author": "speechlens", "category": "Speech Recognition", "price": "$59", "sales": "456 Sales", "seed": "voiceanalytics" },
-  { "title": "TTS Pro | Multilingual Voice Generator", "author": "lingualab", "category": "Text-to-Speech", "price": "$44", "sales": "1.4k Sales", "seed": "ttspro" },
-  { "title": "StoryVoice | Audiobook Narrator AI", "author": "novelwave", "category": "Text-to-Speech", "price": "$34", "sales": "2.1k Sales", "seed": "storyvoice" },
-  { "title": "VoiceSwap | Real-time Voice Changer", "author": "funlab", "category": "Voice Cloning", "price": "$24", "sales": "3.5k Sales", "seed": "voiceswap" },
-  { "title": "EmoVoice | Emotion-Aware TTS", "author": "affectsound", "category": "Text-to-Speech", "price": "$69", "sales": "789 Sales", "seed": "emovoice" },
-  { "title": "VoiceAuth | Speaker Verification", "author": "biometrix", "category": "Speech Recognition", "price": "$99", "sales": "234 Sales", "seed": "voiceauth" },
-  { "title": "MixMaster | Audio Mixing Console AI", "author": "studioforge", "category": "Audio Processing", "price": "$79", "sales": "456 Sales", "seed": "mixmaster" },
-  { "title": "EchoCancel | Acoustic Echo Suppression", "author": "clearsignal", "category": "Audio Processing", "price": "$49", "sales": "1.8k Sales", "seed": "echocancel" },
-  { "title": "LiveCaption | Real-time Subtitling", "author": "captionlab", "category": "Speech Recognition", "price": "$54", "sales": "1.2k Sales", "seed": "livecaption" },
-  { "title": "PodcastAI | Show Transcription & Notes", "author": "wavestudio", "category": "Audio Processing", "price": "$29", "sales": "2.3k Sales", "seed": "podcastai" },
-  { "title": "VoiceDirector | AI Voice Casting", "author": "directorlab", "category": "Voice Cloning", "price": "$119", "sales": "189 Sales", "seed": "voicedirector" },
-  { "title": "AccentFlow | Accent Conversion Tool", "author": "dialectlabs", "category": "Voice Cloning", "price": "$44", "sales": "567 Sales", "seed": "accentflow" },
-  { "title": "SongCraft | AI Music Vocal Generator", "author": "melodymind", "category": "Audio Processing", "price": "$64", "sales": "934 Sales", "seed": "songcraft" },
-  { "title": "VoiceMetrics | Speech Quality Analyzer", "author": "qualilabs", "category": "Speech Recognition", "price": "$39", "sales": "678 Sales", "seed": "voicemetrics" },
-  { "title": "TranscribeMe | Multi-source Subtitling", "author": "textwave", "category": "Speech Recognition", "price": "$19", "sales": "4.1k Sales", "seed": "transcribeme" },
-  { "title": "VoiceBrand | Custom Brand Voice Kit", "author": "brandsound", "category": "Text-to-Speech", "price": "$149", "sales": "145 Sales", "seed": "voicebrand" },
-  { "title": "AudioTag | AI Audio Classification", "author": "classifysound", "category": "Audio Processing", "price": "$59", "sales": "345 Sales", "seed": "audiotag" },
-  { "title": "SpeechTherapy | Pronunciation Coach", "author": "learnvoice", "category": "Speech Recognition", "price": "$24", "sales": "2.8k Sales", "seed": "speechtherapy" },
-  { "title": "VocalRemover | Stem Separation AI", "author": "stemlab", "category": "Audio Processing", "price": "$34", "sales": "1.9k Sales", "seed": "vocalremover" },
-  { "title": "PolyglotVoice | 50+ Language TTS", "author": "globalwave", "category": "Text-to-Speech", "price": "$79", "sales": "1.1k Sales", "seed": "polyglotvoice" },
-  { "title": "VoiceToText Pro | Dictation & Notes", "author": "dictatelabs", "category": "Speech Recognition", "price": "$19", "sales": "5.6k Sales", "seed": "voicetotext" }
+    {
+        "title":  "DeepListen | Speech Recognition API",
+        "author":  "audiolabs",
+        "category":  "Speech Recognition",
+        "price":  "$49",
+        "sales":  "2.3k Sales",
+        "seed":  "deeplisten",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VoxScript | Real-time Transcription",
+        "author":  "wavemind",
+        "category":  "Speech Recognition",
+        "price":  "$39",
+        "sales":  "1.8k Sales",
+        "seed":  "voxscript",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "SpeakSync | Text-to-Speech Engine",
+        "author":  "voicraft",
+        "category":  "Text-to-Speech",
+        "price":  "$59",
+        "sales":  "3.1k Sales",
+        "seed":  "speaksync",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "Narraly | AI Voice Narrator",
+        "author":  "soundforge",
+        "category":  "Text-to-Speech",
+        "price":  "$29",
+        "sales":  "894 Sales",
+        "seed":  "narraly",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "CloneVoice | Voice Cloning Studio",
+        "author":  "resonancelab",
+        "category":  "Voice Cloning",
+        "price":  "$149",
+        "sales":  "567 Sales",
+        "seed":  "clonevoice",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "VoiceMask | Identity Protection",
+        "author":  "privacycore",
+        "category":  "Voice Cloning",
+        "price":  "$79",
+        "sales":  "312 Sales",
+        "seed":  "voicemask",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "Audiflow | Audio Processing Pipeline",
+        "author":  "soundwave",
+        "category":  "Audio Processing",
+        "price":  "$69",
+        "sales":  "1.1k Sales",
+        "seed":  "audiflow",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "NoiseGate | Clean Audio Filter",
+        "author":  "clearsignal",
+        "category":  "Audio Processing",
+        "price":  "$34",
+        "sales":  "2.7k Sales",
+        "seed":  "noisegate",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "CallSense | Call Center Analytics",
+        "author":  "telecomlabs",
+        "category":  "Speech Recognition",
+        "price":  "$89",
+        "sales":  "678 Sales",
+        "seed":  "callsense",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "VoiceAnalytics | Speaker Diarization",
+        "author":  "speechlens",
+        "category":  "Speech Recognition",
+        "price":  "$59",
+        "sales":  "456 Sales",
+        "seed":  "voiceanalytics",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "TTS Pro | Multilingual Voice Generator",
+        "author":  "lingualab",
+        "category":  "Text-to-Speech",
+        "price":  "$44",
+        "sales":  "1.4k Sales",
+        "seed":  "ttspro",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "StoryVoice | Audiobook Narrator AI",
+        "author":  "novelwave",
+        "category":  "Text-to-Speech",
+        "price":  "$34",
+        "sales":  "2.1k Sales",
+        "seed":  "storyvoice",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "VoiceSwap | Real-time Voice Changer",
+        "author":  "funlab",
+        "category":  "Voice Cloning",
+        "price":  "$24",
+        "sales":  "3.5k Sales",
+        "seed":  "voiceswap",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "EmoVoice | Emotion-Aware TTS",
+        "author":  "affectsound",
+        "category":  "Text-to-Speech",
+        "price":  "$69",
+        "sales":  "789 Sales",
+        "seed":  "emovoice",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VoiceAuth | Speaker Verification",
+        "author":  "biometrix",
+        "category":  "Speech Recognition",
+        "price":  "$99",
+        "sales":  "234 Sales",
+        "seed":  "voiceauth",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "MixMaster | Audio Mixing Console AI",
+        "author":  "studioforge",
+        "category":  "Audio Processing",
+        "price":  "$79",
+        "sales":  "456 Sales",
+        "seed":  "mixmaster",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "EchoCancel | Acoustic Echo Suppression",
+        "author":  "clearsignal",
+        "category":  "Audio Processing",
+        "price":  "$49",
+        "sales":  "1.8k Sales",
+        "seed":  "echocancel",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "LiveCaption | Real-time Subtitling",
+        "author":  "captionlab",
+        "category":  "Speech Recognition",
+        "price":  "$54",
+        "sales":  "1.2k Sales",
+        "seed":  "livecaption",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "PodcastAI | Show Transcription \u0026 Notes",
+        "author":  "wavestudio",
+        "category":  "Audio Processing",
+        "price":  "$29",
+        "sales":  "2.3k Sales",
+        "seed":  "podcastai",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "VoiceDirector | AI Voice Casting",
+        "author":  "directorlab",
+        "category":  "Voice Cloning",
+        "price":  "$119",
+        "sales":  "189 Sales",
+        "seed":  "voicedirector",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AccentFlow | Accent Conversion Tool",
+        "author":  "dialectlabs",
+        "category":  "Voice Cloning",
+        "price":  "$44",
+        "sales":  "567 Sales",
+        "seed":  "accentflow",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "SongCraft | AI Music Vocal Generator",
+        "author":  "melodymind",
+        "category":  "Audio Processing",
+        "price":  "$64",
+        "sales":  "934 Sales",
+        "seed":  "songcraft",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VoiceMetrics | Speech Quality Analyzer",
+        "author":  "qualilabs",
+        "category":  "Speech Recognition",
+        "price":  "$39",
+        "sales":  "678 Sales",
+        "seed":  "voicemetrics",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "TranscribeMe | Multi-source Subtitling",
+        "author":  "textwave",
+        "category":  "Speech Recognition",
+        "price":  "$19",
+        "sales":  "4.1k Sales",
+        "seed":  "transcribeme",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "VoiceBrand | Custom Brand Voice Kit",
+        "author":  "brandsound",
+        "category":  "Text-to-Speech",
+        "price":  "$149",
+        "sales":  "145 Sales",
+        "seed":  "voicebrand",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "AudioTag | AI Audio Classification",
+        "author":  "classifysound",
+        "category":  "Audio Processing",
+        "price":  "$59",
+        "sales":  "345 Sales",
+        "seed":  "audiotag",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "SpeechTherapy | Pronunciation Coach",
+        "author":  "learnvoice",
+        "category":  "Speech Recognition",
+        "price":  "$24",
+        "sales":  "2.8k Sales",
+        "seed":  "speechtherapy",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VocalRemover | Stem Separation AI",
+        "author":  "stemlab",
+        "category":  "Audio Processing",
+        "price":  "$34",
+        "sales":  "1.9k Sales",
+        "seed":  "vocalremover",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PolyglotVoice | 50+ Language TTS",
+        "author":  "globalwave",
+        "category":  "Text-to-Speech",
+        "price":  "$79",
+        "sales":  "1.1k Sales",
+        "seed":  "polyglotvoice",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "VoiceToText Pro | Dictation \u0026 Notes",
+        "author":  "dictatelabs",
+        "category":  "Speech Recognition",
+        "price":  "$19",
+        "sales":  "5.6k Sales",
+        "seed":  "voicetotext",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    }
 ]
