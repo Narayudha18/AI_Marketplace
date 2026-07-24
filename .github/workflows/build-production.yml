@@ -53,6 +53,10 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Install rsync on remote
+        if: steps.check-dist.outputs.dist_ready == 'true'
+        run: ssh ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }} "sudo apt-get update -qq && sudo apt-get install -y -qq rsync"
+
       - name: Deploy to production
         if: steps.check-dist.outputs.dist_ready == 'true'
         run: rsync -avz --delete dist/ ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/var/www/AI_MARKETPLACE/
