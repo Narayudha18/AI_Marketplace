@@ -207,26 +207,26 @@ export default function StartSelling() {
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Marketplace</h4>
-          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Terms</Link>
-          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Licenses</Link>
-          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">API</Link>
-          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Privacy</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('footer.marketplace')}</h4>
+          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('footer.terms')}</Link>
+          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('footer.licenses')}</Link>
+          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('footer.api')}</Link>
+          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('footer.privacy')}</Link>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Sell</h4>
-          <Link to="/start-selling" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Start Selling</Link>
-          <a className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors" href="#">Seller Guide</a>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('nav.startSelling')}</h4>
+          <Link to="/start-selling" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('nav.startSelling')}</Link>
+          <a className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors" href="#">{t('seller.sellerGuide')}</a>
           <a className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors" href="#">Pricing</a>
         </div>
         <div className="col-span-2 md:col-span-1 flex flex-col gap-6 justify-end items-start md:items-end mt-8 md:mt-0">
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">3,200+</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Active Sellers</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('seller.stats.' + 2 + '.label')}</div>
           </div>
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">89,450</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Products Sold</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('seller.stats.' + 1 + '.label')}</div>
           </div>
         </div>
       </footer>

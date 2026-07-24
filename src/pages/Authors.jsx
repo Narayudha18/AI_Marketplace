@@ -4,12 +4,7 @@ import { useLanguage } from '../i18n/context'
 
 export default function Authors() {
   const { t } = useLanguage()
-  const steps = [
-    { icon: 'person_add', title: 'Create Account', desc: 'Sign up as a seller with your email and profile details.' },
-    { icon: 'inventory_2', title: 'List Your Product', desc: 'Upload your AI agent, template, or tool with description, pricing, and screenshots.' },
-    { icon: 'verified', title: 'Get Approved', desc: 'Our team reviews your listing for quality and compliance within 48 hours.' },
-    { icon: 'payments', title: 'Start Earning', desc: 'Once approved, your product is live and you earn up to 85% revenue share.' },
-  ]
+  const steps = t('pages.authors.steps')
   return (
     <>
       <Navbar />
@@ -28,12 +23,11 @@ export default function Authors() {
           ))}
         </div>
         <div className="p-6 bg-primary-container/10 rounded-xl border border-primary-container/20 max-w-3xl">
-          <h2 className="text-[18px] font-semibold text-text-main mb-2">Author Benefits</h2>
+          <h2 className="text-[18px] font-semibold text-text-main mb-2">{t('pages.authors.benefitsTitle')}</h2>
           <ul className="text-[14px] text-text-muted leading-relaxed flex flex-col gap-2 mt-3">
-            <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary-container text-[18px]">check_circle</span> Up to 85% revenue share on every sale</li>
-            <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary-container text-[18px]">check_circle</span> Fast payouts with multiple withdrawal options</li>
-            <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary-container text-[18px]">check_circle</span> Detailed sales analytics and customer insights</li>
-            <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary-container text-[18px]">check_circle</span> Priority support and promotional opportunities</li>
+            {t('pages.authors.benefits').map((b, i) => (
+              <li key={i} className="flex items-center gap-2"><span className="material-symbols-outlined text-primary-container text-[18px]">check_circle</span> {b}</li>
+            ))}
           </ul>
         </div>
       </main>

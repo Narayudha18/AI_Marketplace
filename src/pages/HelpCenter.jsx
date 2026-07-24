@@ -4,13 +4,7 @@ import { useLanguage } from '../i18n/context'
 
 export default function HelpCenter() {
   const { t } = useLanguage()
-  const faqs = [
-    { q: 'How do I purchase a product?', a: 'Browse the marketplace, click on a product to view details, then click "Add to Cart". Proceed to checkout and complete payment.' },
-    { q: 'How do I become a seller?', a: 'Click "Start Selling" in the navigation bar, fill out the registration form, and submit your application.' },
-    { q: 'What payment methods are accepted?', a: 'We accept QRIS, DANA, GoPay, ShopeePay, OVO, LinkAja, and bank transfer (BCA, Mandiri, BNI, BRI).' },
-    { q: 'How do I get a refund?', a: 'Refunds are handled on a case-by-case basis. Contact our support team within 14 days of purchase.' },
-    { q: 'How are disputes resolved?', a: 'If you have an issue with a purchase, please contact our support team and we will mediate between you and the seller.' },
-  ]
+  const faqs = t('pages.help.faqs')
   return (
     <>
       <Navbar />

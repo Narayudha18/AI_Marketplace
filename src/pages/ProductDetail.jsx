@@ -276,9 +276,9 @@ export default function ProductDetail() {
   return (
     <>
       <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span>Discover premium {config.label.toLowerCase()} on AI Agents Marketplace.</span>
-        <button onClick={() => navigate(config.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">Browse All</button>
+        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">{t('productDetail.new')}</span>
+        <span>{t('productDetail.discoverBanner')} {config.label.toLowerCase()} {t('productDetail.onMarketplace')}</span>
+        <button onClick={() => navigate(config.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">{t('productDetail.browseAll')}</button>
       </div>
 
       <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
@@ -287,12 +287,12 @@ export default function ProductDetail() {
 
           <div className="hidden md:flex items-center gap-1">
             {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
+              { to: '/', label: t('nav.home') },
+              { to: '/templates', label: t('nav.templates') },
+              { to: '/integrations', label: t('nav.integrations') },
+              { to: '/chatbots', label: t('nav.chatbots') },
+              { to: '/automation', label: t('nav.automation') },
+              { to: '/ai-tools', label: t('nav.aiTools') },
             ].map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
@@ -306,7 +306,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
+            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">{t('productDetail.startSelling')}</Link>
             <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {inCart(slug, category) && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
@@ -318,7 +318,7 @@ export default function ProductDetail() {
       </header>
 
       <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-2 text-xs">
-        <a href="/" className="text-text-muted hover:text-primary transition-colors">Home</a>
+        <a href="/" className="text-text-muted hover:text-primary transition-colors">{t('productDetail.home')}</a>
         <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 14 }}>chevron_right</span>
         <a href={config.navLink} className="text-text-muted hover:text-primary transition-colors">{breadcrumbCat}</a>
         <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 14 }}>chevron_right</span>
@@ -395,7 +395,7 @@ export default function ProductDetail() {
 
             {'author' in item && (
               <p className="text-xs font-medium text-text-muted">
-                by <span className="text-primary cursor-pointer hover:underline">{item.author}</span>
+                {t('productDetail.by')} <span className="text-primary cursor-pointer hover:underline">{item.author}</span>
               </p>
             )}
 
@@ -427,15 +427,15 @@ export default function ProductDetail() {
             <div className="flex items-center gap-6 text-xs text-text-muted border-t border-border-light pt-4 mt-2">
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined" style={{ fontSize: 16 }}>verified</span>
-                Verified Product
+                {t('productDetail.verified')}
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined" style={{ fontSize: 16 }}>update</span>
-                Updated 2 days ago
+                {t('productDetail.updated')}
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined" style={{ fontSize: 16 }}>headset_mic</span>
-                24/7 Support
+                {t('productDetail.support247')}
               </div>
             </div>
           </div>
@@ -475,7 +475,7 @@ export default function ProductDetail() {
                   <div className="bg-surface border border-border-light rounded-xl p-5 mb-6 text-center">
                     <div className="text-[36px] font-bold text-text-main">{avgRating}</div>
                     {renderStars(Math.round(parseFloat(avgRating)), 18)}
-                    <p className="text-xs text-text-muted mt-2">{reviews.length} review{reviews.length > 1 ? 's' : ''}</p>
+                    <p className="text-xs text-text-muted mt-2">{reviews.length} {t('productDetail.reviews')}</p>
                   </div>
                 )}
                 {hasPurchased(slug, category) ? (
@@ -573,29 +573,29 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">mail</span>
-                <h4 className="text-sm font-semibold text-text-main mb-1">Email Support</h4>
-                <p className="text-xs text-text-muted">support@aiagents.market</p>
-                <p className="text-[11px] text-text-muted mt-1">Response within 24 hours</p>
+                <h4 className="text-sm font-semibold text-text-main mb-1">{t('productDetail.emailSupport')}</h4>
+                <p className="text-xs text-text-muted">{t('productDetail.supportEmail')}</p>
+                <p className="text-[11px] text-text-muted mt-1">{t('productDetail.responseTime')}</p>
               </div>
               <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">forum</span>
-                <h4 className="text-sm font-semibold text-text-main mb-1">Discussion Forum</h4>
-                <p className="text-xs text-text-muted">Q&A with the community</p>
-                <p className="text-[11px] text-text-muted mt-1">200+ active members</p>
+                <h4 className="text-sm font-semibold text-text-main mb-1">{t('productDetail.discussionForum')}</h4>
+                <p className="text-xs text-text-muted">{t('productDetail.qaCommunity')}</p>
+                <p className="text-[11px] text-text-muted mt-1">{t('productDetail.activeMembers')}</p>
               </div>
               <div className="bg-surface border border-border-light rounded-xl p-6 text-center">
                 <span className="material-symbols-outlined text-primary text-4xl mb-3 block">description</span>
-                <h4 className="text-sm font-semibold text-text-main mb-1">Documentation</h4>
-                <p className="text-xs text-text-muted">Full guides & tutorials</p>
-                <p className="text-[11px] text-text-muted mt-1">Weekly updates</p>
+                <h4 className="text-sm font-semibold text-text-main mb-1">{t('productDetail.documentation')}</h4>
+                <p className="text-xs text-text-muted">{t('productDetail.guidesTutorials')}</p>
+                <p className="text-[11px] text-text-muted mt-1">{t('productDetail.weeklyUpdates')}</p>
               </div>
             </div>
           </section>
         )}
 
         <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <h2 className="text-[22px] font-semibold text-text-main mb-2">About This Product</h2>
-          <p className="text-sm text-text-muted mb-6">Everything you need to know about {name}</p>
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">{t('productDetail.about')}</h2>
+          <p className="text-sm text-text-muted mb-6">{t('productDetail.aboutDesc')} {name}</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="space-y-4">
               <p className="text-[15px] text-text-muted leading-relaxed">
@@ -635,7 +635,7 @@ export default function ProductDetail() {
         </section>
 
         <section className="px-6 py-12">
-          <h2 className="text-[22px] font-semibold text-text-main mb-2">How to Use</h2>
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">{t('productDetail.howToUse')}</h2>
           <p className="text-sm text-text-muted mb-6">Step-by-step guide to get started</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {tutorialSteps.map((step, idx) => (
@@ -651,7 +651,7 @@ export default function ProductDetail() {
         </section>
 
         <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <h2 className="text-[22px] font-semibold text-text-main mb-2">Screenshots & Demo</h2>
+          <h2 className="text-[22px] font-semibold text-text-main mb-2">{t('productDetail.screenshots')}</h2>
           <p className="text-sm text-text-muted mb-6">Product interface previews</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1, 2, 3, 4, 5, 6].map(i => (
@@ -665,7 +665,7 @@ export default function ProductDetail() {
 
         {relatedItems.length > 0 && (
           <section className="px-6 py-12 bg-surface-container-low rounded-3xl mx-6 my-6">
-            <h2 className="text-[22px] font-semibold text-text-main mb-6">Related {config.label}</h2>
+            <h2 className="text-[22px] font-semibold text-text-main mb-6">{t('productDetail.related')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {relatedItems.map(r => {
                 const rName = r.title || r.name
@@ -700,17 +700,17 @@ export default function ProductDetail() {
           <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">&copy; 2026 AI Agents Marketplace. All rights reserved.</p>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Marketplace</h4>
-          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Terms</Link>
-          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Licenses</Link>
-          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">API</Link>
-          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Privacy</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('productDetail.marketplace')}</h4>
+          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.terms')}</Link>
+          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.licenses')}</Link>
+          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.api')}</Link>
+          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.privacy')}</Link>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Help</h4>
-          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Help Center</Link>
-          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Authors</Link>
-          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Sitemap</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('productDetail.help')}</h4>
+          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.helpCenter')}</Link>
+          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.authors')}</Link>
+          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('productDetail.sitemap')}</Link>
         </div>
 
       </footer>

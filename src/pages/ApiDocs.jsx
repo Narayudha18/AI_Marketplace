@@ -4,14 +4,7 @@ import { useLanguage } from '../i18n/context'
 
 export default function ApiDocs() {
   const { t } = useLanguage()
-  const endpoints = [
-    { method: 'GET', path: '/api/products', desc: 'List all products with pagination and filters' },
-    { method: 'GET', path: '/api/products/:slug', desc: 'Get a single product by slug' },
-    { method: 'POST', path: '/api/cart', desc: 'Add item to cart' },
-    { method: 'DELETE', path: '/api/cart/:id', desc: 'Remove item from cart' },
-    { method: 'POST', path: '/api/checkout', desc: 'Process payment and create order' },
-    { method: 'POST', path: '/api/seller/register', desc: 'Register as a seller' },
-  ]
+  const endpoints = t('pages.api.endpoints')
   return (
     <>
       <Navbar />

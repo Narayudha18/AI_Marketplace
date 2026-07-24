@@ -330,7 +330,7 @@ export default function CategoryListing() {
               {filterName === config.allLabel ? config.heroTitle : `${filterName} ${config.label}`}
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              {filterName === config.allLabel ? config.heroDesc : `Browse our curated collection of ${filterName.toLowerCase()} ${config.singular}s.`}
+              {filterName === config.allLabel ? config.heroDesc : `${t('categoryListing.browseAll')} ${filterName.toLowerCase()} ${config.singular}s`}
             </p>
 
           </div>

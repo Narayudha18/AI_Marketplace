@@ -5,9 +5,9 @@ import { useLanguage } from '../i18n/context'
 export default function Licenses() {
   const { t } = useLanguage()
   const licenses = [
-    { name: t('pages.licenses.regular'), price: 'Included', desc: t('pages.licenses.regularDesc'), icon: 'person' },
-    { name: t('pages.licenses.extended'), price: 'From $49.99', desc: t('pages.licenses.extendedDesc'), icon: 'business' },
-    { name: t('pages.licenses.enterprise'), price: 'Custom', desc: t('pages.licenses.enterpriseDesc'), icon: 'enterprise' },
+    { name: t('pages.licenses.regular'), price: t('pages.licenses.included'), desc: t('pages.licenses.regularDesc'), icon: 'person' },
+    { name: t('pages.licenses.extended'), price: t('pages.licenses.fromPrice'), desc: t('pages.licenses.extendedDesc'), icon: 'business' },
+    { name: t('pages.licenses.enterprise'), price: t('pages.licenses.custom'), desc: t('pages.licenses.enterpriseDesc'), icon: 'enterprise' },
   ]
   return (
     <>

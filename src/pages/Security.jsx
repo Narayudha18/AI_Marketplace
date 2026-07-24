@@ -20,6 +20,8 @@ function parseSales(sales) {
 
 export default function Security() {
   const { t } = useLanguage()
+  const sortOptions = t('listingPages._common.sort')
+  const priceOptions = t('listingPages._common.price')
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
@@ -128,7 +130,7 @@ export default function Security() {
           <div className="w-full lg:w-1/2 relative h-[400px]">
             <img
               src="https://picsum.photos/seed/security-hero/600/400"
-              alt="Security Marketplace"
+              alt={t('listingPages._common.card.alt')}
               className="w-full h-full object-cover rounded-2xl border border-border-light"
             />
           </div>
@@ -136,7 +138,7 @@ export default function Security() {
 
         <section ref={gridRef} className="px-6 py-16">
           <h2 className="text-[24px] font-semibold text-text-main mb-8">
-            Security & compliance tools
+            {t('listingPages.security.bannerSection')}
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-8">
@@ -144,13 +146,13 @@ export default function Security() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder="{t('categoryListing.searchPlaceholder')}" value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder={t('categoryListing.searchPlaceholder')} value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">Category</h4>
+                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">{t('listingPages.security.sidebarCategory')}</h4>
                   <div className="space-y-2.5">
                     {['All Security', 'Guardrails', 'Red Teaming', 'Compliance', 'Data Privacy'].map((cat) => (
                       <label key={cat} className="flex items-center gap-2.5 cursor-pointer group">
@@ -163,9 +165,9 @@ export default function Security() {
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">Price Range</h4>
+                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">{t('listingPages.security.sidebarPrice')}</h4>
                   <div className="space-y-2.5">
-                    {['All Prices', 'Under $20', '$20 - $50', '$50 - $100', 'Over $100'].map((range) => (
+                    {priceOptions.map((range) => (
                       <label key={range} className="flex items-center gap-2.5 cursor-pointer group">
                         <input type="radio" name="price" checked={priceRange === range} onChange={() => setPriceRange(range)}
                           className="w-4 h-4 border-border-light text-primary focus:ring-primary" />
@@ -176,13 +178,9 @@ export default function Security() {
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">Sort By</h4>
+                  <h4 className="text-xs font-semibold text-text-main mb-3 uppercase tracking-wider">{t('listingPages.security.sidebarSort')}</h4>
                   <select value={sortBy} onChange={e => setSortBy(e.target.value)} className="w-full text-xs font-medium bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary text-text-muted">
-                    <option>Newest</option>
-                    <option>Best Sellers</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Most Popular</option>
+                    {sortOptions.map(opt => <option key={opt}>{opt}</option>)}
                   </select>
                 </div>
 
@@ -199,7 +197,7 @@ export default function Security() {
 
             <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-medium text-text-muted">{filteredTemplates.length} security tools found</span>
+                <span className="text-xs font-medium text-text-muted">{filteredTemplates.length} {t('listingPages.security.results')}</span>
                 <div className="flex gap-2">
                   <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low transition-colors">
                     <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>grid_view</span>
@@ -225,7 +223,7 @@ export default function Security() {
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{t.title}</h4>
                       <p className="text-[11px] font-medium text-text-muted mb-3">
-                        by <span className="text-primary cursor-pointer hover:underline">{t.author}</span> in {t.category}
+                        {t('listingPages._common.card.by')} <span className="text-primary cursor-pointer hover:underline">{t.author}</span> {t('listingPages._common.card.in')} {t.category}
                       </p>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <div>
@@ -234,7 +232,7 @@ export default function Security() {
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                             <span className="font-medium">{t.rating}</span>
                             <span>·</span>
-                            <span>{t.reviews.length} reviews</span>
+                            <span>{t.reviews.length} {t('listingPages._common.card.reviews')}</span>
                           </div>
                         </div>
                         <div className="flex gap-2">
@@ -242,7 +240,7 @@ export default function Security() {
                             <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                           </button>
                           <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/security/${toSlug(t.title)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
-                            Preview
+                            {t('listingPages.security.button')}
                           </button>
                         </div>
                       </div>
@@ -265,18 +263,18 @@ export default function Security() {
         <section className="px-6 py-16 my-6 bg-surface-container-lowest border-y border-border-light">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="w-full lg:w-1/3 flex flex-col justify-center border border-border-light border-dashed rounded-xl p-8 bg-surface">
-              <h2 className="text-[24px] font-semibold text-text-main mb-4">Featured Security</h2>
+              <h2 className="text-[24px] font-semibold text-text-main mb-4">{t('listingPages.security.featuredTitle')}</h2>
               <p className="text-[15px] text-text-muted leading-relaxed mb-8">
-                Every month, our curators pick the best new security tools — from guardrails to compliance frameworks.
+                {t('listingPages.security.featuredDesc')}
               </p>
               <button className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold self-start hover:opacity-90 transition-opacity">
-                View featured
+                {t('listingPages._common.featured.view')}
               </button>
             </div>
             <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <img
                 src="https://picsum.photos/seed/featured-security/800/200"
-                alt="Featured Security"
+                alt={t('listingPages.security.featuredTitle')}
                 className="col-span-1 sm:col-span-2 h-48 object-cover rounded-xl border border-border-light"
               />
             </div>
@@ -286,32 +284,32 @@ export default function Security() {
 
       <footer className="bg-text-main text-surface w-full py-10 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-outline">
         <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
-          <span className="text-xl font-bold text-surface tracking-tight">AIAgents</span>
+          <span className="text-xl font-bold text-surface tracking-tight">{t('listingPages._common.footer.brand')}</span>
           <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">
-            &copy; 2026 AI Agents Marketplace. All rights reserved. 8 security tools available.
+            {t('listingPages.security.copyright')}
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Marketplace</h4>
-          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Terms</Link>
-          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Licenses</Link>
-          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">API</Link>
-          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Privacy</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('listingPages._common.footer.marketplace')}</h4>
+          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.terms')}</Link>
+          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.licenses')}</Link>
+          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.api')}</Link>
+          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.privacy')}</Link>
         </div>
         <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Help</h4>
-          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Help Center</Link>
-          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Authors</Link>
-          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Sitemap</Link>
+          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">{t('listingPages._common.footer.help')}</h4>
+          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.helpCenter')}</Link>
+          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.authors')}</Link>
+          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">{t('listingPages._common.footer.sitemap')}</Link>
         </div>
         <div className="col-span-2 md:col-span-1 flex flex-col gap-6 justify-end items-start md:items-end mt-8 md:mt-0">
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">2,668</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Threats Blocked</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('listingPages.security.stats')[0]}</div>
           </div>
           <div className="text-left md:text-right">
             <div className="text-[24px] font-semibold text-surface mb-1">1,890</div>
-            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Compliance Checks</div>
+            <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">{t('listingPages.security.stats')[1]}</div>
           </div>
         </div>
       </footer>
