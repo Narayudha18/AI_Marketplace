@@ -9,7 +9,7 @@ import { ThemeProvider } from './ThemeContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/AI_MARKETPLACE">
       <ThemeProvider>
         <AuthProvider>
           <CartProvider>
