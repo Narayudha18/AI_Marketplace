@@ -59,7 +59,7 @@ jobs:
 
       - name: Deploy to production
         if: steps.check-dist.outputs.dist_ready == 'true'
-        run: rsync -avz --delete dist/ ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/var/www/AI_MARKETPLACE/
+        run: rsync -avz --delete --rsync-path="sudo rsync" dist/ ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/var/www/AI_MARKETPLACE/
 
 # ─── Required GitHub Setup ───────────────────────────────────────────────
 # Repo → Settings → Secrets and variables → Actions → New repository secret:
