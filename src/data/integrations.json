@@ -1,0 +1,10 @@
+[
+  { "name": "OpenAI GPT-4o", "desc": "Multimodal LLM API for text, image, and audio.", "category": "LLM Providers", "rating": 4.9, "users": "18.3k", "type": "REST API", "icon": "psychiatry", "seed": "integ-openai" },
+  { "name": "LangChain Framework", "desc": "Orchestrate LLM calls, RAG pipelines, and agent chains.", "category": "Frameworks", "rating": 4.8, "users": "15.7k", "type": "SDK", "icon": "link", "seed": "integ-langchain" },
+  { "name": "Pinecone Vector DB", "desc": "Managed vector database for semantic search at scale.", "category": "Vector DB", "rating": 4.7, "users": "12.4k", "type": "REST API", "icon": "database", "seed": "integ-pinecone" },
+  { "name": "Stability AI SDK", "desc": "Generate images with Stable Diffusion XL and more.", "category": "Image Gen", "rating": 4.6, "users": "9.8k", "type": "SDK", "icon": "filter_vintage", "seed": "integ-stability" },
+  { "name": "ElevenLabs Voice API", "desc": "Text-to-speech with 100+ natural voices.", "category": "Voice AI", "rating": 4.7, "users": "8.2k", "type": "REST API", "icon": "record_voice_over", "seed": "integ-elevenlabs" },
+  { "name": "Hugging Face Inference", "desc": "Access 150k+ models via serverless inference API.", "category": "Model Hosting", "rating": 4.5, "users": "11.6k", "type": "REST API", "icon": "cloud", "seed": "integ-huggingface" },
+  { "name": "Anthropic Claude API", "desc": "Advanced AI assistant with extended context window.", "category": "LLM Providers", "rating": 4.8, "users": "7.9k", "type": "REST API", "icon": "psychiatry", "seed": "integ-claude" },
+  { "name": "Weights & Biases", "desc": "ML experiment tracking and model monitoring.", "category": "Monitoring", "rating": 4.6, "users": "6.4k", "type": "SDK", "icon": "monitoring", "seed": "integ-wandb" }
+]

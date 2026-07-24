@@ -1,0 +1,10 @@
+[
+  { "name": "GPT-4o API", "desc": "OpenAI's multimodal flagship model.", "category": "LLM", "price": "Pay-as-you-go", "badge": "Popular", "seed": "tool-gpt4o" },
+  { "name": "DALL-E 3 API", "desc": "Image generation from text descriptions.", "category": "Image", "price": "Pay-as-you-go", "badge": "Popular", "seed": "tool-dalle3" },
+  { "name": "Whisper API", "desc": "Speech-to-text in 99+ languages.", "category": "Audio", "price": "Pay-as-you-go", "seed": "tool-whisper" },
+  { "name": "Stable Diffusion XL", "desc": "Open-source image generation model.", "category": "Image", "price": "Pay-as-you-go", "seed": "tool-sdxl" },
+  { "name": "Claude Sonnet", "desc": "Balanced performance and speed LLM.", "category": "LLM", "price": "Pay-as-you-go", "badge": "New", "seed": "tool-claude" },
+  { "name": "Gemini 1.5 Pro", "desc": "Google's multimodal model with 1M context.", "category": "LLM", "price": "Pay-as-you-go", "seed": "tool-gemini" },
+  { "name": "Mistral Large", "desc": "Efficient open-weight LLM API.", "category": "LLM", "price": "Pay-as-you-go", "seed": "tool-mistral" },
+  { "name": "Midjourney API", "desc": "High-quality AI image generation.", "category": "Image", "price": "Subscription", "badge": "Popular", "seed": "tool-midjourney" }
+]

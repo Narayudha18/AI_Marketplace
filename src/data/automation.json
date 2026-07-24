@@ -1,0 +1,10 @@
+[
+  { "name": "WorkFlow Pro", "desc": "Visual automation builder with drag-and-drop interface.", "category": "Workflow", "price": "$79", "rating": 4.7, "sales": "4.1k", "seed": "auto-workflow" },
+  { "name": "MailSync", "desc": "Automated email marketing sequences and follow-ups.", "category": "Marketing", "price": "$49", "rating": 4.5, "sales": "3.2k", "seed": "auto-mailsync" },
+  { "name": "LeadFlow", "desc": "Automated lead capture, scoring, and CRM sync.", "category": "Sales", "price": "$69", "rating": 4.6, "sales": "2.8k", "seed": "auto-leadflow" },
+  { "name": "DataBridge", "desc": "Automated ETL pipelines between data sources.", "category": "Data", "price": "$99", "rating": 4.8, "sales": "1.5k", "seed": "auto-databridge" },
+  { "name": "InvoicePilot", "desc": "Automated invoice processing and payment reminders.", "category": "Finance", "price": "$39", "rating": 4.4, "sales": "3.6k", "seed": "auto-invoice" },
+  { "name": "DeployBot", "desc": "Automated CI/CD pipeline with rollback support.", "category": "DevOps", "price": "$129", "rating": 4.9, "sales": "1.2k", "seed": "auto-deploybot" },
+  { "name": "OnboardFlow", "desc": "Automated employee onboarding sequence.", "category": "HR", "price": "$44", "rating": 4.3, "sales": "1.9k", "seed": "auto-onboard" },
+  { "name": "SocialScheduler", "desc": "Automated social media posting with AI content.", "category": "Social", "price": "$34", "rating": 4.2, "sales": "5.4k", "seed": "auto-social" }
+]

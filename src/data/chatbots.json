@@ -1,0 +1,10 @@
+[
+  { "name": "CustomerGPT", "desc": "24/7 AI customer support chatbot with RAG.", "platform": "Web", "price": "$79", "rating": 4.8, "sales": "3.2k", "seed": "bot-customergpt" },
+  { "name": "SalesAssist Pro", "desc": "AI sales chatbot for lead qualification and nurturing.", "platform": "Web + API", "price": "$99", "rating": 4.6, "sales": "1.8k", "seed": "bot-salesassist" },
+  { "name": "HR Buddy", "desc": "Employee onboarding and HR query resolution bot.", "platform": "Slack + Web", "price": "$49", "rating": 4.5, "sales": "2.4k", "seed": "bot-hrbuddy" },
+  { "name": "EduBot", "desc": "Personalized tutoring chatbot for students.", "platform": "Web + Mobile", "price": "$34", "rating": 4.4, "sales": "4.1k", "seed": "bot-edubot" },
+  { "name": "HealthChat", "desc": "HIPAA-compliant health information assistant.", "platform": "Web", "price": "$129", "rating": 4.7, "sales": "890", "seed": "bot-healthchat" },
+  { "name": "FinanceBot", "desc": "Personal finance advisor and budgeting assistant.", "platform": "API", "price": "$24", "rating": 4.2, "sales": "5.6k", "seed": "bot-financebot" },
+  { "name": "CodeReviewBot", "desc": "Automated code review chatbot for GitHub PRs.", "platform": "GitHub", "price": "$59", "rating": 4.6, "sales": "1.5k", "seed": "bot-codereview" },
+  { "name": "TaskMate", "desc": "Personal productivity assistant for task management.", "platform": "Web", "price": "$19", "rating": 4.3, "sales": "7.8k", "seed": "bot-taskmate" }
+]

@@ -1,0 +1,11 @@
+[
+  { "title": "AdminPro | Dashboard Template", "author": "uiwizard", "category": "Dashboards", "price": "$49", "sales": "1.2k Sales", "seed": "adminpro" },
+  { "title": "SaaSKit | Landing Page Bundle", "author": "pixelkraft", "category": "Landing Pages", "price": "$39", "sales": "890 Sales", "seed": "saaskit" },
+  { "title": "ShopVue | E-commerce UI Kit", "author": "cartmasters", "category": "E-commerce", "price": "$59", "sales": "2.1k Sales", "seed": "shopvue" },
+  { "title": "PortfolioX | Creative Portfolio", "author": "artisan dev", "category": "Portfolios", "price": "$29", "sales": "654 Sales", "seed": "portfoliox" },
+  { "title": "BlogFlow | Editorial Template", "author": "contentlab", "category": "Blogs", "price": "$34", "sales": "445 Sales", "seed": "blogflow" },
+  { "title": "CRMView | Customer Dashboard", "author": "enterprisex", "category": "Dashboards", "price": "$69", "sales": "312 Sales", "seed": "crmview" },
+  { "title": "Analytix | Data Dashboard", "author": "chartify", "category": "Dashboards", "price": "$54", "sales": "978 Sales", "seed": "analytix" },
+  { "title": "ChatUI | Messaging Template", "author": "convo dev", "category": "Apps", "price": "$44", "sales": "567 Sales", "seed": "chatui" },
+  { "title": "StartupKit | SaaS Boilerplate", "author": "launchpad", "category": "Landing Pages", "price": "$59", "sales": "1.5k Sales", "seed": "startupkit" }
+]
