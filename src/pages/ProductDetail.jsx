@@ -346,7 +346,7 @@ export default function ProductDetail() {
           <div className="w-full lg:w-3/5">
             <div className="relative rounded-2xl overflow-hidden border border-border-light bg-surface-container-low">
               <img src={`https://picsum.photos/seed/${item.seed}-detail/800/500`} alt={name}
-                className="w-full h-[400px] object-cover" />
+                className="w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover" />
             </div>
           </div>
           <div className="w-full lg:w-2/5 flex flex-col gap-5">
@@ -655,7 +655,7 @@ export default function ProductDetail() {
             {[1, 2, 3, 4, 5, 6].map(i => (
               <div key={i} className={`rounded-xl overflow-hidden border border-border-light bg-surface-container-low group ${i === 1 ? 'lg:col-span-2 lg:row-span-2' : ''}`}>
                 <img src={`https://picsum.photos/seed/${item.seed}-ss${i}/${i === 1 ? '800/500' : '600/400'}`} alt={`${name} screenshot ${i}`}
-                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${i === 1 ? 'h-80' : 'h-52'}`} />
+                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${i === 1 ? 'h-48 sm:h-64 md:h-80' : 'h-36 sm:h-44 md:h-52'}`} />
               </div>
             ))}
           </div>

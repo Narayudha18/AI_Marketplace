@@ -31,6 +31,7 @@ export default function Integrations() {
   const [appliedType, setAppliedType] = useState('All')
   const [appliedRating, setAppliedRating] = useState('Any Rating')
   const [visibleCount, setVisibleCount] = useState(6)
+  const [showFilters, setShowFilters] = useState(false)
 
   const toggleCategory = (cat) => {
     if (cat === 'All') { setSelectedCategories(['All']); return }
@@ -99,7 +100,7 @@ export default function Integrations() {
             </p>
 
           </div>
-          <div className="w-full lg:w-1/2 relative h-[400px]">
+          <div className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[400px]">
             <img
               src="https://picsum.photos/seed/integrations-hero/600/400"
               alt="Integrations"
@@ -110,8 +111,12 @@ export default function Integrations() {
 
         <section className="px-6 py-16">
           <div className="flex flex-col lg:flex-row gap-8">
-            <aside className="w-full lg:w-72 flex-shrink-0">
-              <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
+            <button onClick={() => setShowFilters(!showFilters)} className="lg:hidden flex items-center justify-between w-full bg-surface border border-border-light rounded-xl px-4 py-3 text-xs font-semibold text-text-main hover:bg-surface-container-low transition-colors">
+              <span className="flex items-center gap-2"><span className="material-symbols-outlined text-primary" style={{ fontSize: 18 }}>filter_list</span> Filters</span>
+              <span className="material-symbols-outlined text-text-muted transition-transform" style={{ fontSize: 18 }}>{showFilters ? 'expand_less' : 'expand_more'}</span>
+            </button>
+            <aside className={`${showFilters ? 'block' : 'hidden'} lg:block w-full lg:w-72 flex-shrink-0`}>
+              <div className="bg-surface rounded-xl border border-border-light p-5 lg:sticky lg:top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
                   <input type="text" placeholder="Search integrations..." value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}

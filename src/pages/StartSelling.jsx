@@ -83,7 +83,7 @@ export default function StartSelling() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 relative h-[320px]">
+          <div className="w-full lg:w-1/2 relative h-[220px] sm:h-[280px] md:h-[320px]">
             <img
               src="https://picsum.photos/seed/start-selling-hero/600/320"
               alt="Start Selling"

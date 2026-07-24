@@ -120,7 +120,7 @@ export default function ProductGallery() {
                 className={`rounded-xl overflow-hidden border border-border-light bg-surface-container-low group ${i === 1 ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
                 <img src={`https://picsum.photos/seed/${seed}/${i === 1 ? '1400/650' : '800/500'}`}
                   alt={`${name} screenshot ${i}`}
-                  className={`w-full object-cover group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer ${i === 1 ? 'h-[500px]' : 'h-64'}`}
+                  className={`w-full object-cover group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer ${i === 1 ? 'h-[250px] sm:h-[350px] md:h-[500px]' : 'h-40 sm:h-52 md:h-64'}`}
                   onClick={() => window.open(`https://picsum.photos/seed/${seed}/1920/1080`, '_blank')} />
               </div>
             )})}
@@ -136,7 +136,7 @@ export default function ProductGallery() {
                 <div className="relative">
                   <video
                     src={v.src}
-                    className="w-full h-72 object-cover"
+                    className="w-full h-48 sm:h-64 md:h-72 object-cover"
                     autoPlay muted loop playsInline controls
                     preload="auto"
                     poster={`https://picsum.photos/seed/${item.seed}-vid${idx}/800/450`}
