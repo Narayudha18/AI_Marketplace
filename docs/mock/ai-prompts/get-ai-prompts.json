@@ -1,0 +1,26 @@
+{
+  "endpoint": "/api/v1/ai-prompts",
+  "method": "GET",
+  "response": {
+    "data": [
+      { "id": "pr-001", "name": "Chain-of-Thought Reasoning", "description": "Step-by-step reasoning prompt for complex problem solving.", "price": 9, "sales": 8900, "rating": 4.7, "category": "Reasoning", "author": "promptlab", "image": "https://picsum.photos/seed/pr-cot/400/200", "promptLength": "Short", "useCase": "Logical reasoning", "seed": "pr-cot" },
+      { "id": "pr-002", "name": "Creative Story Generator", "description": "Generate compelling fiction and creative narratives with rich characters.", "price": 14, "sales": 5400, "rating": 4.5, "category": "Creative Writing", "author": "storyforge", "image": "https://picsum.photos/seed/pr-story/400/200", "promptLength": "Medium", "useCase": "Fiction writing", "seed": "pr-story" },
+      { "id": "pr-003", "name": "Code Documentation Generator", "description": "Generate comprehensive documentation from code with examples.", "price": 12, "sales": 4300, "rating": 4.6, "category": "Developer Tools", "author": "docprompt", "image": "https://picsum.photos/seed/pr-codedoc/400/200", "promptLength": "Medium", "useCase": "Code documentation", "seed": "pr-codedoc" },
+      { "id": "pr-004", "name": "Interview Question Builder", "description": "Generate tailored interview questions for any role and seniority level.", "price": 7, "sales": 6700, "rating": 4.3, "category": "HR", "author": "hqprompts", "image": "https://picsum.photos/seed/pr-interview/400/200", "promptLength": "Short", "useCase": "Interview preparation", "seed": "pr-interview" },
+      { "id": "pr-005", "name": "SEO Meta Description Writer", "description": "Craft click-optimized meta descriptions for higher CTR.", "price": 5, "sales": 12300, "rating": 4.2, "category": "Marketing", "author": "seowriter", "image": "https://picsum.photos/seed/pr-seo/400/200", "promptLength": "Short", "useCase": "SEO optimization", "seed": "pr-seo" },
+      { "id": "pr-006", "name": "API Endpoint Designer", "description": "Design RESTful and GraphQL API endpoints with request/response schemas.", "price": 19, "sales": 2100, "rating": 4.8, "category": "API Development", "author": "apidesign", "image": "https://picsum.photos/seed/pr-api/400/200", "promptLength": "Long", "useCase": "API design", "seed": "pr-api" },
+      { "id": "pr-007", "name": "Product Description Generator", "description": "Write persuasive product descriptions that drive conversions.", "price": 8, "sales": 7800, "rating": 4.4, "category": "E-commerce", "author": "sellprompt", "image": "https://picsum.photos/seed/pr-product/400/200", "promptLength": "Short", "useCase": "E-commerce copywriting", "seed": "pr-product" },
+      { "id": "pr-008", "name": "Test Case Generator", "description": "Generate comprehensive test cases from user stories and requirements.", "price": 16, "sales": 3400, "rating": 4.5, "category": "Developer Tools", "author": "testprompt", "image": "https://picsum.photos/seed/pr-testcase/400/200", "promptLength": "Medium", "useCase": "Software testing", "seed": "pr-testcase" },
+      { "id": "pr-009", "name": "Data Extraction Template", "description": "Extract structured data from unstructured text with precision.", "price": 11, "sales": 4500, "rating": 4.6, "category": "Data Science", "author": "extractprompt", "image": "https://picsum.photos/seed/pr-extract/400/200", "promptLength": "Medium", "useCase": "Data extraction", "seed": "pr-extract" },
+      { "id": "pr-010", "name": "Email Response Composer", "description": "Craft professional email responses for various business scenarios.", "price": 6, "sales": 9200, "rating": 4.1, "category": "Communication", "author": "emailprompt", "image": "https://picsum.photos/seed/pr-email/400/200", "promptLength": "Short", "useCase": "Email correspondence", "seed": "pr-email" },
+      { "id": "pr-011", "name": "SQL Query Optimizer", "description": "Optimize slow SQL queries with indexing and rewrite suggestions.", "price": 22, "sales": 1900, "rating": 4.7, "category": "Databases", "author": "sqlprompt", "image": "https://picsum.photos/seed/pr-sqlopt/400/200", "promptLength": "Medium", "useCase": "Query optimization", "seed": "pr-sqlopt" },
+      { "id": "pr-012", "name": "Customer Persona Builder", "description": "Create detailed customer personas from market research data.", "price": 13, "sales": 2700, "rating": 4.3, "category": "Marketing", "author": "personaprompt", "image": "https://picsum.photos/seed/pr-persona/400/200", "promptLength": "Long", "useCase": "Marketing strategy", "seed": "pr-persona" }
+    ],
+    "pagination": {
+      "page": 1,
+      "perPage": 20,
+      "total": 12,
+      "totalPages": 1
+    }
+  }
+}

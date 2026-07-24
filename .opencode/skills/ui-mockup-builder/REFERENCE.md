@@ -1,0 +1,5 @@
+# UI Mockup Builder — Cycle Reference
+
+| Cycle | Date | Branch | Files Created | Files Modified | Status | Blockers | Next Steps |
+|---|---|---|---|---|---|---|---|
+| 1 | 2026-07-24 | skeleton-build | src/data/ai-skills.json, src/data/ai-workflows.json, src/data/ai-agents.json, src/data/ai-prompts.json, src/data/ai-tokens.json, docs/mock/ai-skills/get-ai-skills.json, docs/mock/ai-workflows/get-ai-workflows.json, docs/mock/ai-agents/get-ai-agents.json, docs/mock/ai-prompts/get-ai-prompts.json, docs/mock/ai-tokens/get-ai-tokens.json, docs/mock/products/get-product-detail.json, docs/mock/cart/post-cart.json, docs/mock/orders/post-orders.json, docs/mock/favorites/get-favorites.json, docs/mock/search/get-search.json | .github/workflows/build-production.yml (paths) | ✅ Done | none | Update frontend components (ProductGrid, CategoryListing, routes) to use new mock data files |

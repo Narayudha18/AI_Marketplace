@@ -1,0 +1,39 @@
+{
+  "endpoint": "/api/v1/orders",
+  "method": "POST",
+  "request": {
+    "cartId": "cart-abc123",
+    "paymentMethod": "stripe",
+    "billingAddress": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "street": "123 Main St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94105",
+      "country": "US"
+    }
+  },
+  "response": {
+    "success": true,
+    "data": {
+      "orderId": "ord-xyz789",
+      "status": "confirmed",
+      "items": [
+        {
+          "productId": "sk-001",
+          "name": "Python Data Analysis Skill",
+          "price": 29,
+          "quantity": 1
+        }
+      ],
+      "subtotal": 29,
+      "tax": 2.9,
+      "total": 31.9,
+      "currency": "USD",
+      "createdAt": "2026-07-24T12:00:00Z",
+      "estimatedDelivery": "instant",
+      "downloadLink": "https://api.marketplace.ai/download/ord-xyz789"
+    }
+  }
+}

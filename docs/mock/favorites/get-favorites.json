@@ -1,0 +1,50 @@
+{
+  "endpoint": "/api/v1/favorites",
+  "method": "GET",
+  "response": {
+    "data": [
+      {
+        "id": "fav-001",
+        "productId": "sk-003",
+        "name": "Natural Language Processing",
+        "description": "Build NLP pipelines for text classification, NER, sentiment analysis and more.",
+        "price": 49,
+        "rating": 4.9,
+        "category": "Machine Learning",
+        "author": "nlp wizard",
+        "image": "https://picsum.photos/seed/sk-nlp/400/200",
+        "addedAt": "2026-07-20T14:30:00Z"
+      },
+      {
+        "id": "fav-002",
+        "productId": "ag-004",
+        "name": "Data Analyst Agent",
+        "description": "Connect to databases and answer business questions with natural language.",
+        "price": 99,
+        "rating": 4.9,
+        "category": "Data Science",
+        "author": "analyticsagent",
+        "image": "https://picsum.photos/seed/ag-datanalyst/400/200",
+        "addedAt": "2026-07-22T09:15:00Z"
+      },
+      {
+        "id": "fav-003",
+        "productId": "wf-003",
+        "name": "CI/CD Deployment Pipeline",
+        "description": "Automated build, test, and deploy pipeline for microservices.",
+        "price": 99,
+        "rating": 4.9,
+        "category": "DevOps",
+        "author": "deploymaster",
+        "image": "https://picsum.photos/seed/wf-cicd/400/200",
+        "addedAt": "2026-07-23T16:45:00Z"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "perPage": 20,
+      "total": 3,
+      "totalPages": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "endpoint": "/api/v1/ai-workflows",
+  "method": "GET",
+  "response": {
+    "data": [
+      { "id": "wf-001", "name": "Data Pipeline Orchestrator", "description": "Extract, transform, load data from multiple sources into warehouse.", "price": 79, "sales": 567, "rating": 4.7, "category": "Data Engineering", "author": "pipelinepro", "image": "https://picsum.photos/seed/wf-pipeline/400/200", "steps": 12, "tools": ["Airflow", "dbt", "Snowflake"], "difficulty": "Advanced", "seed": "wf-pipeline" },
+      { "id": "wf-002", "name": "Customer Onboarding Flow", "description": "Automated onboarding with email sequences, doc verification, and welcome kit.", "price": 49, "sales": 1200, "rating": 4.5, "category": "Customer Success", "author": "onboardlab", "image": "https://picsum.photos/seed/wf-onboard/400/200", "steps": 8, "tools": ["Zapier", "SendGrid", "HubSpot"], "difficulty": "Beginner", "seed": "wf-onboard" },
+      { "id": "wf-003", "name": "CI/CD Deployment Pipeline", "description": "Automated build, test, and deploy pipeline for microservices.", "price": 99, "sales": 890, "rating": 4.9, "category": "DevOps", "author": "deploymaster", "image": "https://picsum.photos/seed/wf-cicd/400/200", "steps": 10, "tools": ["GitHub Actions", "Docker", "Kubernetes"], "difficulty": "Advanced", "seed": "wf-cicd" },
+      { "id": "wf-004", "name": "Content Moderation Workflow", "description": "AI-powered content moderation for user-generated content platforms.", "price": 59, "sales": 345, "rating": 4.6, "category": "Content Safety", "author": "moderatelabs", "image": "https://picsum.photos/seed/wf-moderation/400/200", "steps": 6, "tools": ["OpenAI", "Perspective API", "Custom ML"], "difficulty": "Intermediate", "seed": "wf-moderation" },
+      { "id": "wf-005", "name": "Invoice Processing Automation", "description": "Extract, validate, and route invoices through approval chain.", "price": 39, "sales": 2100, "rating": 4.4, "category": "Finance", "author": "finflow", "image": "https://picsum.photos/seed/wf-invoice/400/200", "steps": 7, "tools": ["DocParser", "QuickBooks", "Slack"], "difficulty": "Beginner", "seed": "wf-invoice" },
+      { "id": "wf-006", "name": "Social Media Content Calendar", "description": "Plan, generate, schedule, and analyze social media posts.", "price": 34, "sales": 1800, "rating": 4.3, "category": "Marketing", "author": "socialflow", "image": "https://picsum.photos/seed/wf-social/400/200", "steps": 5, "tools": ["Buffer", "Canva API", "ChatGPT"], "difficulty": "Beginner", "seed": "wf-social" },
+      { "id": "wf-007", "name": "ML Model Retraining Pipeline", "description": "Automated data collection, retraining, evaluation, and deployment of ML models.", "price": 129, "sales": 234, "rating": 4.8, "category": "Machine Learning", "author": "mlopspro", "image": "https://picsum.photos/seed/wf-mlretrain/400/200", "steps": 9, "tools": ["MLflow", "Kubeflow", "SageMaker"], "difficulty": "Advanced", "seed": "wf-mlretrain" },
+      { "id": "wf-008", "name": "Lead Scoring & Nurturing", "description": "Score leads by behavior, segment, and trigger personalized nurture sequences.", "price": 54, "sales": 678, "rating": 4.5, "category": "Sales", "author": "salesflow", "image": "https://picsum.photos/seed/wf-lead/400/200", "steps": 6, "tools": ["Salesforce", "Marketo", "Slack"], "difficulty": "Intermediate", "seed": "wf-lead" },
+      { "id": "wf-009", "name": "Incident Response Runbook", "description": "Automated detection, triage, escalation, and remediation of incidents.", "price": 89, "sales": 456, "rating": 4.7, "category": "DevOps", "author": "sreteam", "image": "https://picsum.photos/seed/wf-incident/400/200", "steps": 11, "tools": ["PagerDuty", "Datadog", "Terraform"], "difficulty": "Advanced", "seed": "wf-incident" },
+      { "id": "wf-010", "name": "Document Approval Workflow", "description": "Route documents through multi-level approval chain with audit trail.", "price": 29, "sales": 3200, "rating": 4.2, "category": "Operations", "author": "docflow", "image": "https://picsum.photos/seed/wf-docapprove/400/200", "steps": 5, "tools": ["DocuSign", "SharePoint", "Teams"], "difficulty": "Beginner", "seed": "wf-docapprove" },
+      { "id": "wf-011", "name": "E-commerce Order Fulfillment", "description": "End-to-end order processing from checkout to delivery tracking.", "price": 69, "sales": 1500, "rating": 4.6, "category": "E-commerce", "author": "shopflow", "image": "https://picsum.photos/seed/wf-fulfillment/400/200", "steps": 8, "tools": ["Shopify", "ShipStation", "Stripe"], "difficulty": "Intermediate", "seed": "wf-fulfillment" },
+      { "id": "wf-012", "name": "Employee Onboarding Automation", "description": "Automate HR paperwork, IT provisioning, and team introductions.", "price": 44, "sales": 987, "rating": 4.4, "category": "HR", "author": "hrflow", "image": "https://picsum.photos/seed/wf-hronboard/400/200", "steps": 7, "tools": ["BambooHR", "Okta", "Slack"], "difficulty": "Beginner", "seed": "wf-hronboard" }
+    ],
+    "pagination": {
+      "page": 1,
+      "perPage": 20,
+      "total": 12,
+      "totalPages": 1
+    }
+  }
+}

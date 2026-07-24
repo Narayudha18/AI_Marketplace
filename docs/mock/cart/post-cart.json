@@ -1,0 +1,27 @@
+{
+  "endpoint": "/api/v1/cart",
+  "method": "POST",
+  "request": {
+    "productId": "sk-001",
+    "quantity": 1
+  },
+  "response": {
+    "success": true,
+    "data": {
+      "cartId": "cart-abc123",
+      "items": [
+        {
+          "productId": "sk-001",
+          "name": "Python Data Analysis Skill",
+          "price": 29,
+          "quantity": 1,
+          "image": "https://picsum.photos/seed/sk-python/400/200"
+        }
+      ],
+      "subtotal": 29,
+      "tax": 2.9,
+      "total": 31.9,
+      "currency": "USD"
+    }
+  }
+}

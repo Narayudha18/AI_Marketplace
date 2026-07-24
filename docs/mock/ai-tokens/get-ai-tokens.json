@@ -1,0 +1,26 @@
+{
+  "endpoint": "/api/v1/ai-tokens",
+  "method": "GET",
+  "response": {
+    "data": [
+      { "id": "tk-001", "name": "GPT-4 Turbo Tokens", "description": "High-speed inference tokens for GPT-4 Turbo with priority queue.", "price": 49, "sales": 5400, "rating": 4.8, "category": "LLM Tokens", "author": "OpenAI", "image": "https://picsum.photos/seed/tk-gpt4turbo/400/200", "tokenCount": "1M tokens", "pricePerToken": "$0.000049", "seed": "tk-gpt4turbo" },
+      { "id": "tk-002", "name": "Claude Opus Tokens", "description": "Premium Claude Opus tokens with extended context window.", "price": 59, "sales": 3200, "rating": 4.9, "category": "LLM Tokens", "author": "Anthropic", "image": "https://picsum.photos/seed/tk-claude/400/200", "tokenCount": "500K tokens", "pricePerToken": "$0.000118", "seed": "tk-claude" },
+      { "id": "tk-003", "name": "Gemini Ultra Tokens", "description": "Google Gemini Ultra tokens for multimodal reasoning tasks.", "price": 39, "sales": 2100, "rating": 4.6, "category": "LLM Tokens", "author": "Google", "image": "https://picsum.photos/seed/tk-gemini/400/200", "tokenCount": "1M tokens", "pricePerToken": "$0.000039", "seed": "tk-gemini" },
+      { "id": "tk-004", "name": "DALL-E 3 Generation Credits", "description": "Image generation credits for DALL-E 3 with HD quality.", "price": 29, "sales": 8700, "rating": 4.5, "category": "Image Generation", "author": "OpenAI", "image": "https://picsum.photos/seed/tk-dalle/400/200", "tokenCount": "1000 images", "pricePerToken": "$0.029 per image", "seed": "tk-dalle" },
+      { "id": "tk-005", "name": "Whisper Transcription Minutes", "description": "Audio transcription tokens supporting 99+ languages.", "price": 14, "sales": 6300, "rating": 4.4, "category": "Audio", "author": "OpenAI", "image": "https://picsum.photos/seed/tk-whisper/400/200", "tokenCount": "1000 min", "pricePerToken": "$0.014 per min", "seed": "tk-whisper" },
+      { "id": "tk-006", "name": "Stable Diffusion XL Credits", "description": "High-quality image generation with Stable Diffusion XL.", "price": 19, "sales": 4500, "rating": 4.3, "category": "Image Generation", "author": "Stability AI", "image": "https://picsum.photos/seed/tk-sdxl/400/200", "tokenCount": "500 images", "pricePerToken": "$0.038 per image", "seed": "tk-sdxl" },
+      { "id": "tk-007", "name": "Mistral Large Tokens", "description": "Efficient Mistral Large tokens for cost-effective inference.", "price": 24, "sales": 3900, "rating": 4.5, "category": "LLM Tokens", "author": "Mistral AI", "image": "https://picsum.photos/seed/tk-mistral/400/200", "tokenCount": "2M tokens", "pricePerToken": "$0.000012", "seed": "tk-mistral" },
+      { "id": "tk-008", "name": "Llama 3 Tokens", "description": "Open-source Llama 3 tokens with self-hostable option.", "price": 9, "sales": 12100, "rating": 4.2, "category": "LLM Tokens", "author": "Meta", "image": "https://picsum.photos/seed/tk-llama/400/200", "tokenCount": "5M tokens", "pricePerToken": "$0.000002", "seed": "tk-llama" },
+      { "id": "tk-009", "name": "Midjourney Fast Hours", "description": "Fast GPU hours for Midjourney image generation.", "price": 39, "sales": 7600, "rating": 4.7, "category": "Image Generation", "author": "Midjourney", "image": "https://picsum.photos/seed/tk-midjourney/400/200", "tokenCount": "10 hours", "pricePerToken": "$3.90 per hour", "seed": "tk-midjourney" },
+      { "id": "tk-010", "name": "TTS Voice Synthesis Credits", "description": "Text-to-speech tokens with 100+ natural voices.", "price": 12, "sales": 5200, "rating": 4.3, "category": "Audio", "author": "Eleven Labs", "image": "https://picsum.photos/seed/tk-tts/400/200", "tokenCount": "500K chars", "pricePerToken": "$0.000024 per char", "seed": "tk-tts" },
+      { "id": "tk-011", "name": "Embedding Model Tokens", "description": "Text embedding tokens for vector search and RAG pipelines.", "price": 4, "sales": 15300, "rating": 4.1, "category": "LLM Tokens", "author": "OpenAI", "image": "https://picsum.photos/seed/tk-embed/400/200", "tokenCount": "10M tokens", "pricePerToken": "$0.0000004", "seed": "tk-embed" },
+      { "id": "tk-012", "name": "Perplexity Pro Queries", "description": "Premium search queries with Perplexity Pro with citations.", "price": 19, "sales": 3400, "rating": 4.4, "category": "Search", "author": "Perplexity", "image": "https://picsum.photos/seed/tk-perplexity/400/200", "tokenCount": "500 queries", "pricePerToken": "$0.038 per query", "seed": "tk-perplexity" }
+    ],
+    "pagination": {
+      "page": 1,
+      "perPage": 20,
+      "total": 12,
+      "totalPages": 1
+    }
+  }
+}

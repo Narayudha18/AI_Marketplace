@@ -1,0 +1,50 @@
+{
+  "endpoint": "/api/v1/search",
+  "method": "GET",
+  "parameters": {
+    "q": "search query",
+    "type": "ai-skills|ai-workflows|ai-agents|ai-prompts|ai-tokens",
+    "category": "filter by category",
+    "sort": "relevance|price|rating|sales",
+    "page": 1,
+    "perPage": 20
+  },
+  "response": {
+    "data": [
+      {
+        "id": "sk-001",
+        "name": "Python Data Analysis Skill",
+        "description": "Master data analysis with pandas, numpy, and matplotlib.",
+        "type": "ai-skills",
+        "price": 29,
+        "rating": 4.8,
+        "sales": 1200,
+        "author": "datamaster",
+        "image": "https://picsum.photos/seed/sk-python/400/200",
+        "seed": "sk-python"
+      },
+      {
+        "id": "ag-004",
+        "name": "Data Analyst Agent",
+        "description": "Connect to databases and answer business questions with natural language.",
+        "type": "ai-agents",
+        "price": 99,
+        "rating": 4.9,
+        "sales": 876,
+        "author": "analyticsagent",
+        "image": "https://picsum.photos/seed/ag-datanalyst/400/200",
+        "seed": "ag-datanalyst"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "perPage": 20,
+      "total": 2,
+      "totalPages": 1
+    },
+    "meta": {
+      "query": "data analysis",
+      "suggested": ["data science", "analytics", "python"]
+    }
+  }
+}

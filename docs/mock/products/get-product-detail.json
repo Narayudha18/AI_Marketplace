@@ -1,0 +1,36 @@
+{
+  "endpoint": "/api/v1/products/:id",
+  "method": "GET",
+  "response": {
+    "data": {
+      "id": "sk-001",
+      "name": "Python Data Analysis Skill",
+      "description": "Master data analysis with pandas, numpy, and matplotlib. This comprehensive skill covers data cleaning, transformation, visualization, and statistical analysis using Python's most popular data science libraries.",
+      "longDescription": "Dive deep into data analysis with hands-on exercises, real-world datasets, and best practices used by top data scientists. Learn to manipulate DataFrames, create stunning visualizations, and extract actionable insights from raw data.",
+      "price": 29,
+      "sales": 1200,
+      "rating": 4.8,
+      "reviewCount": 342,
+      "category": "Data Science",
+      "author": {
+        "name": "datamaster",
+        "avatar": "https://picsum.photos/seed/datamaster/100/100",
+        "bio": "Senior data scientist with 10+ years experience in analytics and machine learning.",
+        "products": 24
+      },
+      "image": "https://picsum.photos/seed/sk-python/800/400",
+      "gallery": [
+        "https://picsum.photos/seed/sk-python-1/800/400",
+        "https://picsum.photos/seed/sk-python-2/800/400",
+        "https://picsum.photos/seed/sk-python-3/800/400"
+      ],
+      "fileFormat": ".skill.md",
+      "fileSize": "2.4 MB",
+      "compatibility": ["Claude", "OpenAI", "Gemini"],
+      "difficulty": "Intermediate",
+      "updatedAt": "2026-07-15T10:30:00Z",
+      "createdAt": "2026-01-10T08:00:00Z",
+      "tags": ["python", "data-science", "analytics", "pandas", "numpy"]
+    }
+  }
+}
