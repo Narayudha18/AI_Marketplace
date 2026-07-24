@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
-import { useLanguage } from '../i18n/context'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -20,7 +19,6 @@ function toSlug(str) {
 }
 
 export default function FavoriteRecommendations() {
-  const { t } = useLanguage()
   const { favorites } = useCart()
 
   if (favorites.length === 0) return null
@@ -50,8 +48,8 @@ export default function FavoriteRecommendations() {
 
   return (
     <section className="px-6 mt-12">
-      <h2 className="text-[22px] font-semibold text-text-main mb-1">{t('favorites.title')}</h2>
-      <p className="text-xs text-text-muted mb-6">{t('favorites.desc')}</p>
+      <h2 className="text-[22px] font-semibold text-text-main mb-1">Because you liked...</h2>
+      <p className="text-xs text-text-muted mb-6">Product recommendations based on your favorites</p>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {recommendations.map(item => {
           const itemName = item.title || item.name

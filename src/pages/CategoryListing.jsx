@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLanguage } from '../i18n/context'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
@@ -260,7 +259,6 @@ const categoryConfig = {
 }
 
 export default function CategoryListing() {
-  const { t } = useLanguage()
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const location = useLocation()
   const navigate = useNavigate()
@@ -347,7 +345,7 @@ export default function CategoryListing() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder={t('categoryListing.searchPlaceholder')} value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder={`Search ${config.singular}s...`} value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
@@ -369,11 +367,11 @@ export default function CategoryListing() {
 
                 <button onClick={applyFilters}
                   className="w-full mt-6 bg-primary-container text-on-primary-container py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
-                  {t('categoryListing.search')}
+                  Search
                 </button>
                 <button onClick={() => { setSidebarSearch(''); setAppliedSidebar('') }}
                   className="w-full mt-2 bg-surface border border-border-light text-text-muted py-2.5 rounded-lg text-xs font-semibold hover:bg-surface-container-low transition-opacity">
-                  {t('categoryListing.reset')}
+                  Clear
                 </button>
               </div>
             </aside>
@@ -448,7 +446,7 @@ export default function CategoryListing() {
               {filteredItems.length === 0 && (
                 <div className="text-center py-16">
                   <span className="material-symbols-outlined text-text-muted text-5xl mb-4 block">search_off</span>
-                  <p className="text-text-muted text-sm">{t('categoryListing.noResults')}</p>
+                  <p className="text-text-muted text-sm">No {config.singular}s found in this category.</p>
                   <Link to={basePath} className="mt-4 inline-block bg-primary-container text-on-primary-container px-6 py-2.5 rounded text-xs font-semibold">
                     View all {config.singular}s
                   </Link>
@@ -458,7 +456,7 @@ export default function CategoryListing() {
               <div className="mt-8 flex justify-center">
                 {visibleCount < filteredItems.length && (
                   <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-                    {t('categoryListing.loadMore')}
+                    Load more {config.singular}s
                   </button>
                 )}
               </div>

@@ -6,7 +6,6 @@ import App from './App.jsx'
 import { CartProvider } from './CartContext'
 import { AuthProvider } from './AuthContext'
 import { ThemeProvider } from './ThemeContext'
-import { LanguageProvider } from './i18n/context'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,9 +13,7 @@ createRoot(document.getElementById('root')).render(
       <ThemeProvider>
         <AuthProvider>
           <CartProvider>
-            <LanguageProvider>
-              <App />
-            </LanguageProvider>
+            <App />
           </CartProvider>
         </AuthProvider>
       </ThemeProvider>

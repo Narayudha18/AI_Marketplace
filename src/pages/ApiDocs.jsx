@@ -1,9 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { useLanguage } from '../i18n/context'
 
 export default function ApiDocs() {
-  const { t } = useLanguage()
   const endpoints = [
     { method: 'GET', path: '/api/products', desc: 'List all products with pagination and filters' },
     { method: 'GET', path: '/api/products/:slug', desc: 'Get a single product by slug' },
@@ -16,8 +14,8 @@ export default function ApiDocs() {
     <>
       <Navbar />
       <main className="w-full max-w-[1440px] mx-auto px-6 py-16">
-        <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main mb-4">{t('pages.api.title')}</h1>
-        <p className="text-[15px] text-text-muted leading-relaxed max-w-xl mb-12">{t('pages.api.desc')}</p>
+        <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main mb-4">API Documentation</h1>
+        <p className="text-[15px] text-text-muted leading-relaxed max-w-xl mb-12">Build integrations and automate workflows using our REST API. All endpoints return JSON responses.</p>
         <div className="flex flex-col gap-4 max-w-3xl">
           {endpoints.map(ep => (
             <div key={ep.path} className="bg-surface rounded-lg border border-border-light p-4 flex flex-col sm:flex-row sm:items-center gap-3">

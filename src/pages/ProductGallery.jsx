@@ -1,6 +1,5 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useTheme } from '../ThemeContext'
-import { useLanguage } from '../i18n/context'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -64,7 +63,6 @@ export default function ProductGallery() {
 
   const name = item.title || item.name
   const { dark, toggle } = useTheme()
-  const { t } = useLanguage()
 
   const totalImages = 30
 
@@ -75,7 +73,7 @@ export default function ProductGallery() {
           <button onClick={() => navigate(-1)}
             className="flex items-center gap-2 text-surface hover:text-primary transition-colors cursor-pointer">
             <span className="material-symbols-outlined" style={{ fontSize: 20 }}>arrow_back</span>
-            <span className="text-xs font-semibold">{t('gallery.back')}</span>
+            <span className="text-xs font-semibold">Back</span>
           </button>
           <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
           <div className="flex items-center gap-3">
@@ -95,7 +93,7 @@ export default function ProductGallery() {
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
             <Link to={`/${category}/${slug}`} className="hover:text-primary transition-colors">{name}</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
-            <span className="text-text-main font-semibold">{t('gallery.title')}</span>
+            <span className="text-text-main font-semibold">Preview</span>
           </div>
 
           <div className="mb-8 flex items-center justify-between">
@@ -112,7 +110,7 @@ export default function ProductGallery() {
 
           <h2 className="text-lg font-semibold text-text-main mb-4 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>photo_library</span>
-            {t('gallery.screenshots')}
+            Screenshots
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {Array.from({ length: totalImages }, (_, i) => i + 1).map(i => {
@@ -130,7 +128,7 @@ export default function ProductGallery() {
 
           <h2 className="text-lg font-semibold text-text-main mt-12 mb-4 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>play_circle</span>
-            {t('gallery.demoVideos')}
+            Video Demos
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {sampleVideos.map((v, idx) => (

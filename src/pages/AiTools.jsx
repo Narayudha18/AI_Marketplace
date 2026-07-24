@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLanguage } from '../i18n/context'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import tools from '../data/aitools.json'
 import { useCart } from '../CartContext'
@@ -10,7 +9,6 @@ function toSlug(str) {
 }
 
 export default function AiTools() {
-  const { t } = useLanguage()
   const { totalItems, toggleFavorite, isFavorite } = useCart()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -89,10 +87,10 @@ export default function AiTools() {
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
-              {t('listingPages.aiTools.heroTitle')}
+              The largest catalog of AI tools & APIs
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              {t('listingPages.aiTools.heroDesc')}
+              From GPT-4o to Stable Diffusion — find, compare, and connect to 1,000+ AI APIs and SDKs in one place. Compare pricing, latency, features, and rate limits across LLMs, image generation, audio, vector databases, and compute providers side by side.
             </p>
 
           </div>
@@ -108,7 +106,7 @@ export default function AiTools() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder="{t('categoryListing.searchPlaceholder')}" value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder="Search tools..." value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
@@ -138,11 +136,11 @@ export default function AiTools() {
                 </div>
                 <button onClick={applyFilters}
                   className="w-full mt-6 bg-primary-container text-on-primary-container py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
-                  {t('categoryListing.apply')}
+                  Apply Filters
                 </button>
                 <button onClick={resetFilters}
                   className="w-full mt-2 bg-surface border border-border-light text-text-muted py-2.5 rounded-lg text-xs font-semibold hover:bg-surface-container-low transition-opacity">
-                  {t('categoryListing.reset')}
+                  Reset
                 </button>
               </div>
             </aside>
@@ -211,7 +209,7 @@ export default function AiTools() {
               <div className="mt-8 flex justify-center">
                 {visibleCount < filteredTools.length && (
                   <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-                    {t('categoryListing.loadMore')}
+                    Load more tools
                   </button>
                 )}
               </div>

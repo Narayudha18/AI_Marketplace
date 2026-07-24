@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../i18n/context'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -120,7 +119,6 @@ const catLinks = {
 const INITIAL_COUNT = 6
 
 export default function Categories() {
-  const { t } = useLanguage()
   const [expanded, setExpanded] = useState(false)
   const visible = expanded ? allCategories : allCategories.slice(0, INITIAL_COUNT)
 
@@ -150,7 +148,7 @@ export default function Categories() {
       <div className="mt-8 flex justify-center">
         <button onClick={() => { const y = window.scrollY; setExpanded(e => !e); setTimeout(() => window.scrollTo(0, y), 0) }}
           className="inline-block bg-surface border border-border-light text-text-main px-8 py-2.5 rounded text-xs font-semibold shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer">
-          {expanded ? t('categories.showLess') : t('categories.showMore')}
+          {expanded ? 'Show less' : 'View more categories'}
         </button>
       </div>
     </section>

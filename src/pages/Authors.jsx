@@ -1,9 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { useLanguage } from '../i18n/context'
 
 export default function Authors() {
-  const { t } = useLanguage()
   const steps = [
     { icon: 'person_add', title: 'Create Account', desc: 'Sign up as a seller with your email and profile details.' },
     { icon: 'inventory_2', title: 'List Your Product', desc: 'Upload your AI agent, template, or tool with description, pricing, and screenshots.' },
@@ -14,8 +12,8 @@ export default function Authors() {
     <>
       <Navbar />
       <main className="w-full max-w-[1440px] mx-auto px-6 py-16">
-        <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main mb-4">{t('pages.authors.title')}</h1>
-        <p className="text-[15px] text-text-muted leading-relaxed max-w-xl mb-12">{t('pages.authors.desc')}</p>
+        <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main mb-4">Authors</h1>
+        <p className="text-[15px] text-text-muted leading-relaxed max-w-xl mb-12">Join thousands of developers and designers selling AI agents, templates, and tools on our marketplace.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mb-12">
           {steps.map(s => (
             <div key={s.title} className="bg-surface rounded-xl border border-border-light p-6 flex gap-4 shadow-sm">

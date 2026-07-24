@@ -1,21 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
-import { useLanguage } from '../i18n/context'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export default function Profile() {
   const { currentUser } = useAuth()
-  const { t } = useLanguage()
 
   if (!currentUser) {
     return (
       <>
         <Navbar />
         <main className="w-full max-w-[1440px] mx-auto px-6 py-16 text-center">
-          <h1 className="text-2xl font-bold text-text-main mb-4">{t('auth.loginTitle')}</h1>
-          <p className="text-text-muted mb-6">{t('auth.loginDesc')}</p>
-          <Link to="/login" className="bg-primary text-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:opacity-90 transition-opacity">{t('auth.login')}</Link>
+          <h1 className="text-2xl font-bold text-text-main mb-4">Sign in required</h1>
+          <p className="text-text-muted mb-6">Please sign in to view your profile.</p>
+          <Link to="/login" className="bg-primary text-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:opacity-90 transition-opacity">Sign In</Link>
         </main>
         <Footer />
       </>

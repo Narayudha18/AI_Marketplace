@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLanguage } from '../i18n/context'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import fineTuning from '../data/fine-tuning.json'
 import { useCart } from '../CartContext'
@@ -19,7 +18,6 @@ function parseSales(sales) {
 }
 
 export default function FineTuning() {
-  const { t } = useLanguage()
   const { totalItems, toggleFavorite, isFavorite } = useCart()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
@@ -118,10 +116,10 @@ export default function FineTuning() {
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
-              {t('listingPages.fineTuning.heroTitle')}
+              Model Fine-Tuning Platforms
             </h1>
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
-              {t('listingPages.fineTuning.heroDesc')}
+              Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case. Fine-tune models like Llama, GPT, and Mistral on your own datasets with managed infrastructure and one-click deployment.
             </p>
 
           </div>
@@ -144,7 +142,7 @@ export default function FineTuning() {
               <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
-                  <input type="text" placeholder="{t('categoryListing.searchPlaceholder')}" value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
+                  <input type="text" placeholder="Search fine-tuning..." value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && applyFilters()}
                     className="flex-1 border-none bg-transparent text-xs font-medium outline-none placeholder:text-text-muted" />
                 </div>
@@ -188,11 +186,11 @@ export default function FineTuning() {
 
                 <button onClick={applyFilters}
                   className="w-full mt-6 bg-primary-container text-on-primary-container py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
-                  {t('categoryListing.apply')}
+                  Apply Filters
                 </button>
                 <button onClick={resetFilters}
                   className="w-full mt-2 bg-surface border border-border-light text-text-muted py-2.5 rounded-lg text-xs font-semibold hover:bg-surface-container-low transition-opacity">
-                  {t('categoryListing.reset')}
+                  Reset
                 </button>
               </div>
             </aside>
@@ -254,7 +252,7 @@ export default function FineTuning() {
               <div className="mt-8 flex justify-center">
                 {visibleCount < filteredItems.length && (
                   <button onClick={() => setVisibleCount(prev => prev + 6)} className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-                    {t('categoryListing.loadMore')}
+                    Load more fine-tuning tools
                   </button>
                 )}
               </div>

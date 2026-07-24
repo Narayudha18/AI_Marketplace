@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { useLanguage } from '../i18n/context'
 
 const methods = [
   { id: 'qris', label: 'QRIS', icon: 'qr_code', desc: 'Scan QRIS via DANA, GoPay, OVO, dll' },
@@ -38,7 +37,6 @@ function generateQRPattern(seed) {
 }
 
 export default function PaymentModal({ open, onClose, total, onSuccess }) {
-  const { t } = useLanguage()
   const [step, setStep] = useState('select')
   const [selected, setSelected] = useState(null)
   const canvasRef = useRef(null)
@@ -65,15 +63,15 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
           {step === 'select' && (
             <>
               <div className="flex items-center justify-between px-6 py-4 border-b border-border-light">
-                <h2 className="text-sm font-semibold text-text-main">{t('payment.title')}</h2>
+                <h2 className="text-sm font-semibold text-text-main">Pilih Metode Pembayaran</h2>
                 <button onClick={() => { setSelected(null); onClose() }} className="p-1 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 20 }}>close</span>
                 </button>
               </div>
               <div className="overflow-y-auto flex-1">
                 <div className="px-6 pb-2 pt-4">
-                  <p className="text-lg font-bold text-text-main mb-3">{t('payment.total')}: {total}</p>
-                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2">{t('payment.eWallet')}</p>
+                  <p className="text-lg font-bold text-text-main mb-3">Total: {total}</p>
+                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2">E-Wallet</p>
                 </div>
                 <div className="px-6 pb-6 space-y-2">
                   {methods.filter(m => m.icon === 'qr_code' || m.icon === 'account_balance_wallet').map(m => (
@@ -87,7 +85,7 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
                       <span className="material-symbols-outlined text-text-muted ml-auto" style={{ fontSize: 18 }}>chevron_right</span>
                     </button>
                   ))}
-                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2 mt-4">{t('payment.bankTransfer')}</p>
+                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2 mt-4">Bank Transfer</p>
                   {methods.filter(m => m.icon === 'account_balance').map(m => (
                     <button key={m.id} onClick={() => { setSelected(m.id); setStep('pay') }}
                       className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer border-border-light hover:border-primary hover:bg-surface-container-low`}>
@@ -99,7 +97,7 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
                       <span className="material-symbols-outlined text-text-muted ml-auto" style={{ fontSize: 18 }}>chevron_right</span>
                     </button>
                   ))}
-                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2 mt-4">{t('payment.convenienceStore')}</p>
+                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2 mt-4">Convenience Store</p>
                   {methods.filter(m => m.icon === 'store').map(m => (
                     <button key={m.id} onClick={() => { setSelected(m.id); setStep('pay') }}
                       className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer border-border-light hover:border-primary hover:bg-surface-container-low`}>
@@ -144,8 +142,8 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
           {step === 'success' && (
             <div className="p-10 text-center">
               <span className="material-symbols-outlined text-green-500 text-6xl mb-4 block">check_circle</span>
-              <h2 className="text-lg font-bold text-text-main mb-2">{t('payment.success')}</h2>
-              <p className="text-xs text-text-muted">{t('payment.successMsg')}</p>
+              <h2 className="text-lg font-bold text-text-main mb-2">Pembayaran Berhasil!</h2>
+              <p className="text-xs text-text-muted">Terima kasih, pesanan Anda sedang diproses.</p>
             </div>
           )}
         </div>
@@ -155,7 +153,6 @@ export default function PaymentModal({ open, onClose, total, onSuccess }) {
 }
 
 function QRISView({ total, seed, onSuccess, canvasRef }) {
-  const { t } = useLanguage()
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -214,21 +211,21 @@ function QRISView({ total, seed, onSuccess, canvasRef }) {
 
   return (
     <div className="text-center">
-      <p className="text-xs text-text-muted mb-4">{t('payment.qrisDetail')}</p>
+      <p className="text-xs text-text-muted mb-4">Scan atau download kode QR di bawah untuk membayar via DANA, GoPay, OVO, atau LinkAja</p>
       <div className="inline-flex items-center justify-center w-60 h-60 bg-white rounded-2xl border-2 border-dashed border-border-light mb-4">
         <canvas ref={canvasRef} className="w-56 h-56" />
       </div>
-      <p className="text-xs font-semibold text-text-main mb-1">{t('payment.paymentTotal')}</p>
+      <p className="text-xs font-semibold text-text-main mb-1">Total Pembayaran</p>
       <p className="text-xl font-bold text-text-main mb-5">{total}</p>
       <div className="flex gap-3">
         <button onClick={downloadQR}
           className="flex-1 flex items-center justify-center gap-2 border-2 border-primary text-primary py-3 rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all cursor-pointer">
           <span className="material-symbols-outlined" style={{ fontSize: 16 }}>download</span>
-          {t('payment.downloadQR')}
+          Download QR
         </button>
         <button onClick={onSuccess}
           className="flex-1 bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-          {t('payment.paid')}
+          Saya Sudah Bayar
         </button>
       </div>
     </div>
@@ -236,63 +233,60 @@ function QRISView({ total, seed, onSuccess, canvasRef }) {
 }
 
 function EwalletView({ method, total, onSuccess }) {
-  const { t } = useLanguage()
   const appUrl = appUrls[method.id]
   return (
     <div className="text-center">
       <span className="material-symbols-outlined text-primary text-6xl mb-4 block">account_balance_wallet</span>
-      <p className="text-xs text-text-muted mb-2">{t('payment.payVia')} {method.label}</p>
-      <p className="text-xs font-semibold text-text-main mb-1">{t('payment.paymentTotal')}</p>
+      <p className="text-xs text-text-muted mb-2">Bayar langsung melalui aplikasi {method.label}</p>
+      <p className="text-xs font-semibold text-text-main mb-1">Total Pembayaran</p>
       <p className="text-xl font-bold text-text-main mb-6">{total}</p>
       <a href={appUrl} target="_blank" rel="noopener noreferrer"
         className="w-full flex items-center justify-center gap-2 bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity mb-3 cursor-pointer">
         <span className="material-symbols-outlined" style={{ fontSize: 16 }}>open_in_new</span>
-        {t('payment.open')} {method.label}
+        Buka {method.label}
       </a>
       <button onClick={onSuccess}
         className="w-full border-2 border-primary text-primary py-3 rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all cursor-pointer">
-        {t('payment.confirmPayment')}
+        Konfirmasi Pembayaran
       </button>
     </div>
   )
 }
 
 function BankView({ method, total, onSuccess }) {
-  const { t } = useLanguage()
   return (
     <div className="text-center">
       <span className="material-symbols-outlined text-primary text-6xl mb-4 block">account_balance</span>
-      <p className="text-xs text-text-muted mb-2">{t('payment.transferTo')}</p>
+      <p className="text-xs text-text-muted mb-2">Transfer ke rekening bank berikut:</p>
       <div className="bg-surface-container-low rounded-xl p-5 mb-6 text-left space-y-3">
         <div className="flex justify-between">
-          <span className="text-xs text-text-muted">{t('payment.bank')}</span>
+          <span className="text-xs text-text-muted">Bank</span>
           <span className="text-xs font-semibold text-text-main">{method.label}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-xs text-text-muted">{t('payment.accountNo')}</span>
+          <span className="text-xs text-text-muted">No. Rekening</span>
           <span className="text-xs font-semibold text-text-main">
             {method.id === 'bca' ? '1234567890' : method.id === 'mandiri' ? '0987654321' : method.id === 'bni' ? '1122334455' : '5544332211'}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="text-xs text-text-muted">{t('payment.accountName')}</span>
-          <span className="text-xs font-semibold text-text-main">{t('payment.companyName')}</span>
+          <span className="text-xs text-text-muted">Atas Nama</span>
+          <span className="text-xs font-semibold text-text-main">PT AI Agents Teknologi</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-xs text-text-muted">{t('payment.total')}</span>
+          <span className="text-xs text-text-muted">Total</span>
           <span className="text-xs font-bold text-text-main">{total}</span>
         </div>
       </div>
       <button onClick={onSuccess}
         className="w-full bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-        {t('payment.confirmPayment')}
+        Konfirmasi Pembayaran
       </button>
     </div>
   )
 }
 
 function StoreView({ method, total, onSuccess }) {
-  const { t } = useLanguage()
   const barcodeRef = useRef(null)
 
   useEffect(() => {
@@ -331,21 +325,21 @@ function StoreView({ method, total, onSuccess }) {
   return (
     <div className="text-center">
       <span className="material-symbols-outlined text-primary text-6xl mb-4 block">store</span>
-      <p className="text-xs text-text-muted mb-4">{t('payment.showBarcode')} {method.label}</p>
+      <p className="text-xs text-text-muted mb-4">Tunjukkan barcode ini ke kasir {method.label} terdekat</p>
       <div className="inline-flex items-center justify-center bg-white rounded-2xl border-2 border-dashed border-border-light p-4 mb-4">
         <canvas ref={barcodeRef} className="w-[280px] h-20" />
       </div>
-      <p className="text-xs font-semibold text-text-main mb-1">{t('payment.paymentTotal')}</p>
+      <p className="text-xs font-semibold text-text-main mb-1">Total Pembayaran</p>
       <p className="text-xl font-bold text-text-main mb-5">{total}</p>
       <div className="flex gap-3">
         <button onClick={downloadBarcode}
           className="flex-1 flex items-center justify-center gap-2 border-2 border-primary text-primary py-3 rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all cursor-pointer">
           <span className="material-symbols-outlined" style={{ fontSize: 16 }}>download</span>
-          {t('payment.downloadBarcode')}
+          Download Barcode
         </button>
         <button onClick={onSuccess}
           className="flex-1 bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-          {t('payment.paid')}
+          Saya Sudah Bayar
         </button>
       </div>
     </div>

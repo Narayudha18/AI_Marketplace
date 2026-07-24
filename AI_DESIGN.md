@@ -1,13 +1,12 @@
-# AI Agents Marketplace — Design Doc v7.0
+# AI Agents Marketplace — Design Doc v6.0
 
 ## Tech Stack
 - React 19 + Vite 8
 - React Router v7 (client-side routing)
 - Tailwind CSS v4 (CSS-based config in `src/index.css`)
-- LocalStorage via React Context (cart, purchased items, favorites, theme, language)
+- LocalStorage via React Context (cart, purchased items, favorites, theme)
 - In-memory auth via React Context (users array, no persistence)
 - Dark mode via CSS variables + localStorage
-- **Multi-language**: English + Indonesian via LanguageContext + `t()` function
 - No backend — all data from static JSON files
 
 ## Routes (App.jsx)
@@ -66,7 +65,6 @@
 - **CartContext.jsx** — Global state: cart items, purchased items, favorites. Persisted to localStorage.
 - **AuthContext.jsx** — Global auth state: users array, currentUser, register/login/logout, updatePassword, updatePicture. In-memory only.
 - **ThemeContext.jsx** — Dark mode toggle, persisted to localStorage, falls back to `prefers-color-scheme`
-- **LanguageContext (src/i18n/context.jsx)** — Multi-language support: English + Indonesian. `useLanguage()` hook returns `{ lang, setLang, t }`. `t(key)` translates dot-notation keys. Persisted to localStorage. Toggle button in Navbar.
 
 ### Shared Components (`src/components/`)
 - **Navbar.jsx** — Premium style: gradient announcement bar (`from-primary-container to-blue-600` + "New" badge), sticky header (`sticky top-0 z-40`), pill-tab main nav with bottom active indicator, sub-nav pills, dark mode toggle (Material Symbols: `light_mode`/`dark_mode`), cart button, AuthButton. No hover effects on main nav links. Right-side button order: [Start Selling] [Cart] [Dark Toggle] [AuthButton]
@@ -168,15 +166,6 @@ Each listing page has:
 ### English UI
 - All text translated to English: ProductDetail (About, Tutorial, Screenshots), StartSelling, SellerForm, FavoriteRecommendations
 
-### Multi-language (v7.0)
-- LanguageContext with `useLanguage()` hook
-- `t(key)` function for dot-notation translation lookup
-- Two languages: English (`en.js`) and Indonesian (`id.js`)
-- Language toggle button in Navbar (EN/ID switch)
-- Persisted to localStorage (`lang` key)
-- Fallback to English if key not found in current language
-- All UI text static, product data remains English
-
 ## Styling
 - Tailwind CSS v4 with `@theme` custom colors in `index.css`
 - Premium navbar: gradient announcement bar (`from-primary-container to-blue-600` + "New" badge)
@@ -200,10 +189,5 @@ Static JSON in `src/data/` — each file expanded to 30 items (total 330 items):
 - `fine-tuning.json` (30 items)
 - `monitoring.json` (30 items)
 - `security.json` (30 items)
-
-Translation files in `src/i18n/`:
-- `en.js` — English translations (source of truth)
-- `id.js` — Indonesian translations
-- `context.jsx` — LanguageContext provider + useLanguage hook
 
 Each item has: name/title, description, price, sales, rating, category, image (seed-based picsum.photos), author, etc.

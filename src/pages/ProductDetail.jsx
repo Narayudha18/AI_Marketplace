@@ -4,7 +4,6 @@ import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
-import { useLanguage } from '../i18n/context'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -172,7 +171,6 @@ export default function ProductDetail() {
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
   const { dark, toggle } = useTheme()
-  const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('product')
   const reviewKey = `reviews_${category}_${slug}`
   const commentKey = `comments_${category}_${slug}`
@@ -328,10 +326,10 @@ export default function ProductDetail() {
       <section className="px-6 py-8 border-b border-border-light">
         <div className="flex gap-0">
           {[
-            { key: 'product', label: t('productDetail.tabs.0'), icon: 'shopping_bag' },
-            { key: 'reviews', label: t('productDetail.tabs.1'), icon: 'star_rate' },
-            { key: 'comments', label: t('productDetail.tabs.2'), icon: 'forum' },
-            { key: 'support', label: t('productDetail.tabs.3'), icon: 'headset_mic' },
+            { key: 'product', label: 'Produk', icon: 'shopping_bag' },
+            { key: 'reviews', label: 'Review & Rating', icon: 'star_rate' },
+            { key: 'comments', label: 'Comments', icon: 'forum' },
+            { key: 'support', label: 'Support', icon: 'headset_mic' },
           ].map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)}
               className={`flex items-center gap-1.5 px-5 py-2.5 text-xs font-semibold border-b-2 transition-colors cursor-pointer ${activeTab === tab.key ? 'border-primary text-primary' : 'border-transparent text-text-muted hover:text-text-main'}`}>
@@ -409,11 +407,11 @@ export default function ProductDetail() {
               <div className="flex gap-3">
                 <button onClick={() => navigate(`/${category}/${slug}/preview`)} className="flex-1 bg-primary text-surface px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>visibility</span>
-                  {t('productDetail.preview')}
+                  Live Preview
                 </button>
                 <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
-                  {t('productDetail.addToCart')}
+                  Add to Cart
                 </button>
                 <button onClick={() => toggleFavorite(slug, category)} className={`px-4 py-3 border rounded-lg text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${isFavorite(slug, category) ? 'bg-red-50 border-red-200 text-red-500' : 'border-primary text-primary hover:bg-primary hover:text-surface'}`}>
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{isFavorite(slug, category) ? 'favorite' : 'favorite_border'}</span>
@@ -447,7 +445,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 {reviews.length === 0 ? (
-                  <p className="text-sm text-text-muted">{t('productDetail.noReviews')}</p>
+                  <p className="text-sm text-text-muted">No reviews yet. Be the first!</p>
                 ) : (
                   <div className="space-y-4">
                     {reviews.map((r, idx) => (
@@ -480,7 +478,7 @@ export default function ProductDetail() {
                 )}
                 {hasPurchased(slug, category) ? (
                   <form onSubmit={submitReview} className="bg-surface border border-border-light rounded-xl p-5">
-                    <h3 className="text-sm font-semibold text-text-main mb-4">{t('productDetail.writeReview')}</h3>
+                    <h3 className="text-sm font-semibold text-text-main mb-4">Write a Review</h3>
                     <div className="mb-4">
                       <label className="text-xs font-medium text-text-muted mb-1.5 block">Rating</label>
                       <div className="flex items-center gap-1">
@@ -494,13 +492,13 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="mb-4">
-                      <label className="text-xs font-medium text-text-muted mb-1.5 block">{t('productDetail.yourName')}</label>
-                      <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} placeholder={t('productDetail.yourNamePlaceholder')}
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Name</label>
+                      <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} placeholder="Your name"
                         className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
                     </div>
                     <div className="mb-4">
-                      <label className="text-xs font-medium text-text-muted mb-1.5 block">{t('productDetail.yourReview')}</label>
-                      <textarea value={reviewText} onChange={e => setReviewText(e.target.value)} placeholder={t('productDetail.reviewPlaceholder')} rows={3}
+                      <label className="text-xs font-medium text-text-muted mb-1.5 block">Review</label>
+                      <textarea value={reviewText} onChange={e => setReviewText(e.target.value)} placeholder="Share your experience..." rows={3}
                         className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
                     </div>
                     <button type="submit" disabled={!reviewName.trim() || !reviewText.trim() || reviewRating === 0}
@@ -525,7 +523,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 {comments.length === 0 ? (
-                  <p className="text-sm text-text-muted">{t('productDetail.noComments')}</p>
+                  <p className="text-sm text-text-muted">No comments yet. Start a discussion!</p>
                 ) : (
                   <div className="space-y-4">
                     {comments.map((c, idx) => (
@@ -547,7 +545,7 @@ export default function ProductDetail() {
               </div>
               <div>
                 <form onSubmit={submitComment} className="bg-surface border border-border-light rounded-xl p-5">
-                  <h3 className="text-sm font-semibold text-text-main mb-4">{t('productDetail.writeComment')}</h3>
+                  <h3 className="text-sm font-semibold text-text-main mb-4">Write a Comment</h3>
                   <div className="mb-4">
                     <label className="text-xs font-medium text-text-muted mb-1.5 block">Name</label>
                     <input type="text" value={commentName} onChange={e => setCommentName(e.target.value)} placeholder="Your name"
