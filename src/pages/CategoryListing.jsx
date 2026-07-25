@@ -523,7 +523,7 @@ export default function CategoryListing() {
                               <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                               <span className="font-medium">{item.rating}</span>
                               <span>·</span>
-                              <span>{item.reviews.length} reviews</span>
+                              <span>{(item.reviews?.length ?? 0)} reviews</span>
                             </div>
                           </div>
                           <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${category}/${toSlug(item.title || item.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">

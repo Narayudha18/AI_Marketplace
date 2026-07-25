@@ -103,7 +103,7 @@ export default function ProductGrid() {
                     <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                     <span className="font-medium">{p.rating}</span>
                     <span>·</span>
-                    <span>{p.reviews.length} reviews</span>
+                    <span>{(p.reviews?.length ?? 0)} reviews</span>
                   </div>
                 </div>
                 <div className="flex gap-2">
