@@ -83,7 +83,7 @@ export default function StartSelling() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 relative h-[320px]">
+          <div className="w-full lg:w-1/2 relative h-[220px] sm:h-[280px] md:h-[320px]">
             <img
               src="https://picsum.photos/seed/start-selling-hero/600/320"
               alt="Start Selling"
@@ -156,7 +156,7 @@ export default function StartSelling() {
                 {/* Step Guide */}
                 <div className="bg-surface rounded-xl border border-border-light p-6">
                   <h3 className="text-sm font-bold text-text-main mb-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>guide</span>
+                    <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>menu_book</span>
                     How to Sell
                   </h3>
                   <ol className="space-y-4">

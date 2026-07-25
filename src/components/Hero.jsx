@@ -31,7 +31,7 @@ export default function Hero() {
           </button>
         </div>
       </div>
-      <div className="w-full lg:w-1/2 relative h-[400px]">
+      <div className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[400px]">
         <img
           src="https://picsum.photos/seed/ai-marketplace-hero/600/400"
           alt="AI Agents Marketplace"

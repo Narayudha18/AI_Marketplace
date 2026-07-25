@@ -16,10 +16,7 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
-import { useCart } from '../CartContext'
-import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import Navbar from '../components/Navbar'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -30,7 +27,7 @@ const categoryConfig = {
     label: 'Templates', icon: 'dashboard', badge: 'templates.market', singular: 'template',
     banner: 'Premium UI templates & starter kits for modern web apps.',
     heroTitle: 'Production-ready templates to ship faster',
-    heroDesc: 'Jumpstart your next project with premium UI templates, dashboard kits, and full-page layouts built by top designers.',
+    heroDesc: 'Jumpstart your next project with premium UI templates, dashboard kits, and full-page layouts built by top designers. Browse hundreds of production-ready designs — from admin panels and landing pages to e-commerce stores and portfolio sites — all crafted with modern frameworks and responsive layouts.',
     heroImg: 'templates-hero',
     searchPlaceholder: 'e.g. Admin dashboard',
     allLabel: 'All Templates',
@@ -51,14 +48,14 @@ const categoryConfig = {
     label: 'Integrations', icon: 'api', badge: 'integrations.market', singular: 'integration',
     banner: 'Connect your stack with 300+ AI integrations & API connectors.',
     heroTitle: 'Connect your AI stack with 300+ integrations',
-    heroDesc: 'Plug in LLMs, vector databases, voice APIs, and productivity tools. One API to connect them all.',
+    heroDesc: 'Plug in LLMs, vector databases, voice APIs, and productivity tools. One API to connect them all. Integrate seamlessly with OpenAI, Anthropic, Pinecone, LangChain, and 300+ AI services through standardized SDKs and REST endpoints — all from a single marketplace.',
     heroImg: 'integrations-hero',
     searchPlaceholder: 'e.g. OpenAI, LangChain, Pinecone',
     allLabel: 'All Integrations',
     items: integrations, nameKey: 'name',
     dataFilterKey: 'category',
-    filterCategories: ['All Integrations', 'LLM Providers', 'Vector DB', 'Voice AI', 'Image Gen', 'Frameworks', 'Model Hosting', 'Compute', 'Monitoring'],
-    filterMap: { 'LLM Providers': 'LLM Providers', 'Vector DB': 'Vector DB', 'Voice AI': 'Voice AI', 'Image Gen': 'Image Gen', 'Frameworks': 'Frameworks', 'Model Hosting': 'Model Hosting', 'Compute': 'Compute', 'Monitoring': 'Monitoring' },
+    filterCategories: ['All Integrations', 'LLM Providers', 'Vector DB', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Frameworks', 'Model Hosting', 'Compute', 'Monitoring'],
+    filterMap: { 'LLM Providers': 'LLM Providers', 'Vector DB': 'Vector DB', 'Voice AI': 'Voice AI', 'Image Gen': 'Image Gen', 'Frameworks': 'Frameworks', 'Model Hosting': 'Model Hosting', 'Compute': 'Compute', 'RAG Pipelines': 'RAG Pipelines', 'Monitoring': 'Monitoring' },
     navLinks: [
       { href: '/', label: 'AI Agents' },
       { href: '/templates', label: 'Templates' },
@@ -72,7 +69,7 @@ const categoryConfig = {
     label: 'Chatbots', icon: 'smart_toy', badge: 'chatbots.market', singular: 'chatbot',
     banner: 'Deploy intelligent chatbots with zero coding. 500+ pre-built agents.',
     heroTitle: 'AI chatbots that actually understand your business',
-    heroDesc: 'Deploy GPT-powered chatbots for support, sales, HR, and more. Trained on your data, live in minutes.',
+    heroDesc: 'Deploy GPT-powered chatbots for support, sales, HR, and more. Trained on your data, live in minutes. Customize personalities, connect to your knowledge base, and deploy across web, Slack, WhatsApp, and API channels with zero coding required.',
     heroImg: 'chatbots-hero',
     searchPlaceholder: 'e.g. Customer support chatbot',
     allLabel: 'All Chatbots',
@@ -93,7 +90,7 @@ const categoryConfig = {
     label: 'Automation', icon: 'sync_alt', badge: 'automation.market', singular: 'automation',
     banner: 'Automate repetitive tasks with AI-powered workflows. Save 20+ hours/week.',
     heroTitle: 'Automate your workflow with AI precision',
-    heroDesc: 'From marketing sequences to DevOps pipelines — build, deploy, and monitor automation that works while you sleep.',
+    heroDesc: 'From marketing sequences to DevOps pipelines — build, deploy, and monitor automation that works while you sleep. Trigger actions, sync data between apps, and orchestrate complex multi-step workflows without writing a single line of code.',
     heroImg: 'automation-hero',
     searchPlaceholder: 'e.g. Email automation workflow',
     allLabel: 'All Automations',
@@ -114,14 +111,14 @@ const categoryConfig = {
     label: 'AI Tools & APIs', icon: 'api', badge: 'tools.market', singular: 'tool',
     banner: 'Access 1,000+ AI tools & APIs. One marketplace, infinite possibilities.',
     heroTitle: 'The largest catalog of AI tools & APIs',
-    heroDesc: 'From GPT-4o to Stable Diffusion — find, compare, and connect to 1,000+ AI APIs and SDKs in one place.',
+    heroDesc: 'From GPT-4o to Stable Diffusion — find, compare, and connect to 1,000+ AI APIs and SDKs in one place. Compare pricing, latency, features, and rate limits across LLMs, image generation, audio, vector databases, and compute providers side by side.',
     heroImg: 'aitools-hero',
     searchPlaceholder: 'e.g. GPT-4o, Stable Diffusion, Whisper',
     allLabel: 'All Tools',
     items: tools, nameKey: 'name',
     dataFilterKey: 'category',
-    filterCategories: ['All Tools', 'LLM APIs', 'Image Gen', 'Audio/Speech', 'Vector DB', 'Compute', 'Frameworks', 'Monitoring'],
-    filterMap: { 'LLM APIs': 'LLM', 'Image Gen': 'Image', 'Audio/Speech': 'Audio', 'Vector DB': 'Infra', 'Compute': 'Compute', 'Frameworks': 'Framework', 'Monitoring': 'LLM' },
+    filterCategories: ['All Tools', 'LLM APIs', 'Image Gen', 'Audio/Speech', 'Vector DB', 'Compute', 'Frameworks', 'Monitoring', 'Analytics', 'Fine-tuning', 'Security'],
+    filterMap: { 'LLM APIs': 'LLM', 'Image Gen': 'Image', 'Audio/Speech': 'Audio', 'Vector DB': 'Infra', 'Compute': 'Compute', 'Frameworks': 'Framework', 'Monitoring': 'LLM', 'Analytics': 'Analytics', 'Fine-tuning': 'Fine-tuning', 'Security': 'Security' },
     navLinks: [
       { href: '/', label: 'AI Agents' },
       { href: '/templates', label: 'Templates' },
@@ -135,7 +132,7 @@ const categoryConfig = {
     label: 'Voice AI', icon: 'record_voice_over', badge: 'voice.market', singular: 'voice ai',
     banner: 'Build speech-enabled applications with cutting-edge voice recognition, TTS, and voice cloning APIs.',
     heroTitle: 'Voice AI APIs & SDKs',
-    heroDesc: 'Build speech-enabled applications with cutting-edge voice recognition, text-to-speech, and voice cloning APIs.',
+    heroDesc: 'Build speech-enabled applications with cutting-edge voice recognition, text-to-speech, and voice cloning APIs. Support 100+ languages, real-time streaming, emotion control, and custom voice creation for any use case — from IVR to audiobooks.',
     heroImg: 'voice-ai-hero',
     searchPlaceholder: 'e.g. Speech recognition, TTS',
     allLabel: 'All Voice AI',
@@ -145,6 +142,11 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/voice-ai', label: 'Voice AI', active: true },
     ],
   },
@@ -152,7 +154,7 @@ const categoryConfig = {
     label: 'Image Gen', icon: 'image', badge: 'image.market', singular: 'image gen',
     banner: 'Generate stunning visuals with text-to-image, image editing, video gen, and 3D model APIs.',
     heroTitle: 'AI Image Generation Tools',
-    heroDesc: 'Generate stunning visuals with text-to-image, image editing, video generation, and 3D model APIs.',
+    heroDesc: 'Generate stunning visuals with text-to-image, image editing, video generation, and 3D model APIs. Create marketing assets, product shots, concept art, and 3D prototypes with just a text prompt — powered by the latest diffusion and transformer models.',
     heroImg: 'image-gen-hero',
     searchPlaceholder: 'e.g. Stable Diffusion, DALL-E',
     allLabel: 'All Image Gen',
@@ -162,6 +164,11 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/image-gen', label: 'Image Gen', active: true },
     ],
   },
@@ -169,7 +176,7 @@ const categoryConfig = {
     label: 'Analytics', icon: 'analytics', badge: 'analytics.market', singular: 'analytics',
     banner: 'Uncover insights with intelligent dashboards, data visualization, BI tools, and automated reporting APIs.',
     heroTitle: 'AI-Powered Analytics Tools',
-    heroDesc: 'Uncover insights with intelligent dashboards, data visualization, BI tools, and automated reporting APIs.',
+    heroDesc: 'Uncover insights with intelligent dashboards, data visualization, BI tools, and automated reporting APIs. Transform raw data into actionable intelligence with AI-powered analytics pipelines and real-time dashboards that everyone on your team can understand.',
     heroImg: 'analytics-hero',
     searchPlaceholder: 'e.g. Dashboard, BI tool',
     allLabel: 'All Analytics',
@@ -179,6 +186,11 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/analytics', label: 'Analytics', active: true },
     ],
   },
@@ -186,7 +198,7 @@ const categoryConfig = {
     label: 'Fine-tuning', icon: 'tune', badge: 'finetune.market', singular: 'fine-tuning',
     banner: 'Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case.',
     heroTitle: 'Model Fine-Tuning Platforms',
-    heroDesc: 'Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case.',
+    heroDesc: 'Customize LLMs, train embeddings, implement RLHF, and distill models for your specific use case. Fine-tune models like Llama, GPT, and Mistral on your own datasets with managed infrastructure and one-click deployment.',
     heroImg: 'finetuning-hero',
     searchPlaceholder: 'e.g. LLM fine-tuning, RLHF',
     allLabel: 'All Fine-tuning',
@@ -196,6 +208,11 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/fine-tuning', label: 'Fine-tuning', active: true },
     ],
   },
@@ -203,7 +220,7 @@ const categoryConfig = {
     label: 'Monitoring', icon: 'monitoring', badge: 'monitor.market', singular: 'monitoring',
     banner: 'Track LLM performance, monitor costs, centralize logging, and set up intelligent alerting.',
     heroTitle: 'AI Monitoring & Observability',
-    heroDesc: 'Track LLM performance, monitor costs, centralize logging, and set up intelligent alerting for your AI stack.',
+    heroDesc: 'Track LLM performance, monitor costs, centralize logging, and set up intelligent alerting for your AI stack. Gain full observability into latency, token usage, error rates, and model behavior across all your providers and applications.',
     heroImg: 'monitoring-hero',
     searchPlaceholder: 'e.g. LLM monitoring, cost tracking',
     allLabel: 'All Monitoring',
@@ -213,6 +230,11 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/monitoring', label: 'Monitoring', active: true },
     ],
   },
@@ -305,7 +327,7 @@ const categoryConfig = {
     label: 'Security', icon: 'security', badge: 'secure.market', singular: 'security',
     banner: 'Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools.',
     heroTitle: 'AI Security & Compliance',
-    heroDesc: 'Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools.',
+    heroDesc: 'Protect your AI applications with guardrails, red teaming, compliance frameworks, and data privacy tools. Prevent prompt injection, detect PII leaks, enforce content policies, and maintain SOC 2 compliance across your entire AI pipeline.',
     heroImg: 'security-hero',
     searchPlaceholder: 'e.g. Guardrails, compliance',
     allLabel: 'All Security',
@@ -315,15 +337,17 @@ const categoryConfig = {
     filterMap: {},
     navLinks: [
       { href: '/', label: 'AI Agents' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/chatbots', label: 'Chatbots' },
+      { href: '/automation', label: 'Automation' },
+      { href: '/ai-tools', label: 'AI Tools & APIs' },
       { href: '/security', label: 'Security', active: true },
     ],
   },
 }
 
 export default function CategoryListing() {
-  const { totalItems, toggleFavorite, isFavorite } = useCart()
-  const [cartOpen, setCartOpen] = useState(false)
-  const { dark, toggle } = useTheme()
   const location = useLocation()
   const navigate = useNavigate()
   const parts = location.pathname.split('/')
@@ -341,6 +365,7 @@ export default function CategoryListing() {
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [appliedSidebar, setAppliedSidebar] = useState('')
   const [visibleCount, setVisibleCount] = useState(6)
+  const [showFilters, setShowFilters] = useState(false)
 
   const applyFilters = () => {
     setAppliedSidebar(sidebarSearch)
@@ -370,48 +395,7 @@ export default function CategoryListing() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span>{config.banner}</span>
-        <Link to={basePath} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">{isAll ? 'Browse All' : 'View All'}</Link>
-      </div>
-
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
-            ].map(link => {
-              const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-            </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
       <div className="bg-surface border-b border-border-light">
         <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
           {config.filterCategories.map(item => {
@@ -436,38 +420,22 @@ export default function CategoryListing() {
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
               {filterName === config.allLabel ? config.heroDesc : `Browse our curated collection of ${filterName.toLowerCase()} ${config.singular}s.`}
             </p>
-            <div className="flex w-full max-w-lg bg-surface rounded-lg shadow-sm border border-border-light p-1">
-              <input type="text" placeholder={config.searchPlaceholder}
-                className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none" />
-              <button className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>search</span>
-                Search
-              </button>
-            </div>
           </div>
-          <div className="w-full lg:w-1/2 relative h-[400px]">
+          <div className="w-full lg:w-1/2 relative h-[250px] sm:h-[350px] md:h-[400px]">
             <img src={`https://picsum.photos/seed/${config.heroImg}-${filterSlug || 'all'}/600/400`}
               alt={config.label}
               className="w-full h-full object-cover rounded-2xl border border-border-light" />
           </div>
         </section>
 
-        <section className="px-6 py-10 bg-surface-container-low rounded-3xl mx-6 my-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {config.filterCategories.filter(c => c !== config.allLabel).slice(0, 4).map(cat => (
-              <Link key={cat} to={`${basePath}/c/${toSlug(cat)}`}
-                className="bg-surface rounded-xl shadow-sm border border-border-light p-6 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                <span className="material-symbols-outlined text-primary text-4xl mb-3">{config.icon}</span>
-                <h3 className="text-lg font-semibold text-text-main">{cat}</h3>
-              </Link>
-            ))}
-          </div>
-        </section>
-
         <section ref={gridRef} className="px-6 py-16">
           <div className="flex flex-col lg:flex-row gap-8">
-            <aside className="w-full lg:w-72 flex-shrink-0">
-              <div className="bg-surface rounded-xl border border-border-light p-5 sticky top-4">
+            <button onClick={() => setShowFilters(!showFilters)} className="lg:hidden flex items-center justify-between w-full bg-surface border border-border-light rounded-xl px-4 py-3 text-xs font-semibold text-text-main hover:bg-surface-container-low transition-colors">
+              <span className="flex items-center gap-2"><span className="material-symbols-outlined text-primary" style={{ fontSize: 18 }}>filter_list</span> Filters</span>
+              <span className="material-symbols-outlined text-text-muted transition-transform" style={{ fontSize: 18 }}>{showFilters ? 'expand_less' : 'expand_more'}</span>
+            </button>
+            <aside className={`${showFilters ? 'block' : 'hidden'} lg:block w-full lg:w-72 flex-shrink-0`}>
+              <div className="bg-surface rounded-xl border border-border-light p-5 lg:sticky lg:top-4">
                 <div className="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-2.5 border border-border-light mb-6">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>search</span>
                   <input type="text" placeholder={`Search ${config.singular}s...`} value={sidebarSearch} onChange={e => setSidebarSearch(e.target.value)}
@@ -525,9 +493,9 @@ export default function CategoryListing() {
                       <div className="relative h-40 overflow-hidden bg-surface-container-low">
                         <img src={`https://picsum.photos/seed/${item.seed}/400/200`} alt={itemName}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        <button onClick={e => { e.preventDefault(); e.stopPropagation(); toggleFavorite(slug, category) }}
+                        <button onClick={e => { e.preventDefault(); e.stopPropagation(); }}
                           className="absolute top-2 right-2 p-1.5 bg-surface/80 backdrop-blur-sm rounded-full hover:bg-surface transition-colors cursor-pointer">
-                          <span className={`material-symbols-outlined ${isFavorite(slug, category) ? 'text-red-500' : 'text-text-muted'}`} style={{ fontSize: 18 }}>{isFavorite(slug, category) ? 'favorite' : 'favorite_border'}</span>
+                          <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>favorite_border</span>
                         </button>
                       </div>
                       <div className="p-4 flex flex-col flex-1">
@@ -547,25 +515,17 @@ export default function CategoryListing() {
                           <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded self-start mb-3">{item.platform}</span>
                         )}
                         <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
-                          {'price' in item && (
-                            <div>
-                              <span className="text-lg font-semibold text-text-main">{item.price}</span>
-                              {'rating' in item && (
-                                <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
-                                  <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                                  {item.rating} · {item.sales || item.users}
-                                </div>
-                              )}
-                            </div>
-                          )}
-                          {'rating' in item && !('price' in item) && (
-                            <div className="flex items-center gap-2 text-[11px] text-text-muted">
-                              <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 14 }}>star</span>
+                          <div>
+                            {'price' in item && (
+                              <span className="text-lg font-semibold text-text-main block">{item.price}</span>
+                            )}
+                            <div className="flex items-center gap-1 text-[11px] text-text-muted">
+                              <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                               <span className="font-medium">{item.rating}</span>
                               <span>·</span>
-                              <span>{item.users} users</span>
+                              <span>{item.reviews.length} reviews</span>
                             </div>
-                          )}
+                          </div>
                           <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${category}/${toSlug(item.title || item.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                             {'type' in item ? 'Connect' : 'badge' in item ? 'Access' : 'Preview'}
                           </button>
@@ -629,7 +589,6 @@ export default function CategoryListing() {
           </Link>
         </div>
       </footer>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

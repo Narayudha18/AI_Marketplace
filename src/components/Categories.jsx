@@ -10,78 +10,113 @@ const allCategories = [
     icon: 'smart_toy',
     title: 'ChatGPT Agents',
     desc: 'GPT-4 powered autonomous agents',
-    tags: ['Newest', 'Bestsellers', 'GPT-4o', 'Fine-tuned', 'Custom'],
+    tags: ['GPT-4o', 'Fine-tuned', 'Custom', 'Support', 'Sales'],
+  },
+  {
+    icon: 'dashboard',
+    title: 'Templates & Dashboards',
+    desc: 'Premium UI, admin panels & landing pages',
+    tags: ['Dashboards', 'Landing Pages', 'E-commerce', 'Blogs', 'Portfolios'],
+  },
+  {
+    icon: 'integration_instructions',
+    title: 'LLM Integrations',
+    desc: 'OpenAI, Anthropic, Mistral & 300+ APIs',
+    tags: ['LLM Providers', 'Vector DB', 'Frameworks', 'Hosting', 'Compute'],
   },
   {
     icon: 'record_voice_over',
     title: 'Voice AI',
-    desc: 'Speech-to-text & voice assistants',
-    tags: ['Newest', 'Bestsellers', 'STT', 'TTS', 'Cloning'],
+    desc: 'Speech-to-text, TTS & voice cloning',
+    tags: ['STT', 'TTS', 'Voice Cloning', 'Audio Processing'],
   },
   {
     icon: 'image',
     title: 'Image Generation',
-    desc: 'Stable Diffusion, DALL-E & more',
-    tags: ['Newest', 'Bestsellers', 'SDXL', 'ControlNet', 'LoRA'],
-  },
-  {
-    icon: 'integration_instructions',
-    title: 'RAG Pipelines',
-    desc: 'Retrieval-augmented generation systems',
-    tags: ['Newest', 'Vector DB', 'Embeddings', 'Chunking', 'Hybrid'],
+    desc: 'Stable Diffusion, Midjourney, DALL-E',
+    tags: ['Text-to-Image', 'Image Editing', 'Video Gen', '3D Models'],
   },
   {
     icon: 'sync_alt',
     title: 'Workflow Automation',
-    desc: 'Automate repetitive tasks with AI',
-    tags: ['Newest', 'Zapier', 'n8n', 'Custom', 'Scheduling'],
+    desc: 'Automate tasks with AI-powered workflows',
+    tags: ['Workflow', 'Marketing', 'Data', 'Finance', 'DevOps'],
+  },
+  {
+    icon: 'chat',
+    title: 'Chatbots & Assistants',
+    desc: 'Deploy AI chatbots for any channel',
+    tags: ['Support', 'Sales', 'HR', 'Education', 'Healthcare'],
   },
   {
     icon: 'analytics',
-    title: 'Analytics',
-    desc: 'AI-powered data analysis & insights',
-    tags: ['Newest', 'Dashboards', 'Reports', 'Real-time', 'Predictive'],
+    title: 'Analytics & BI',
+    desc: 'Dashboards, data viz & reporting APIs',
+    tags: ['Dashboards', 'Data Viz', 'BI Tools', 'Reporting', 'Predictive'],
   },
   {
     icon: 'tune',
-    title: 'Fine-tuning',
-    desc: 'Custom model training & optimization',
-    tags: ['Newest', 'LoRA', 'QLoRA', 'RLHF', 'SFT'],
+    title: 'Fine-tuning & RLHF',
+    desc: 'Custom LLM tuning, embeddings & distillation',
+    tags: ['LLM Tuning', 'LoRA', 'Embeddings', 'RLHF', 'Distillation'],
   },
   {
-    icon: 'cloud_deploy',
-    title: 'Deployment',
-    desc: 'One-click deployment & scaling',
-    tags: ['Newest', 'Docker', 'Serverless', 'Edge', 'K8s'],
+    icon: 'rocket_launch',
+    title: 'Deployment & Hosting',
+    desc: 'GPU compute, serverless & edge hosting',
+    tags: ['Model Hosting', 'Serverless', 'Docker', 'K8s', 'Edge'],
   },
   {
     icon: 'monitoring',
-    title: 'Monitoring',
-    desc: 'Real-time AI observability & logging',
-    tags: ['Newest', 'Latency', 'Tokens', 'Cost', 'Alerts'],
+    title: 'Monitoring & Observability',
+    desc: 'LLM tracing, cost tracking & alerting',
+    tags: ['LLM Monitoring', 'Cost Tracking', 'Logging', 'Alerting'],
   },
   {
     icon: 'security',
-    title: 'Security',
-    desc: 'Guardrails, safety & compliance',
-    tags: ['Newest', 'PII', 'Guardrails', 'Audit', 'RBAC'],
+    title: 'Security & Guardrails',
+    desc: 'Prompt protection, compliance & auditing',
+    tags: ['Guardrails', 'PII Detection', 'Red Teaming', 'Compliance'],
+  },
+  {
+    icon: 'developer_board',
+    title: 'Compute & Infrastructure',
+    desc: 'GPUs, vector DBs & inference engines',
+    tags: ['GPU', 'Vector DB', 'Inference', 'Serverless', 'Cloud'],
+  },
+  {
+    icon: 'code',
+    title: 'Developer Tools & SDKs',
+    desc: 'LangChain, LlamaIndex, Vercel AI SDK',
+    tags: ['LangChain', 'LlamaIndex', 'SDK', 'Frameworks', 'APIs'],
+  },
+  {
+    icon: 'language',
+    title: 'Speech Recognition',
+    desc: '100+ languages, real-time & async',
+    tags: ['Speech-to-Text', 'Real-time', '100+ Languages', 'Summarization'],
   },
 ]
 
 const catLinks = {
   'ChatGPT Agents': '/chatbots',
-  'Voice AI': '/ai-tools/c/audio-speech',
-  'Image Generation': '/ai-tools/c/image-gen',
-  'RAG Pipelines': '/integrations',
+  'Templates & Dashboards': '/templates',
+  'LLM Integrations': '/integrations',
+  'Voice AI': '/voice-ai',
+  'Image Generation': '/image-gen',
   'Workflow Automation': '/automation',
-  'Analytics': '/templates',
-  'Fine-tuning': '/ai-tools',
-  'Deployment': '/templates',
-  'Monitoring': '/integrations',
-  'Security': '/templates',
+  'Chatbots & Assistants': '/chatbots',
+  'Analytics & BI': '/analytics',
+  'Fine-tuning & RLHF': '/fine-tuning',
+  'Deployment & Hosting': '/ai-tools',
+  'Monitoring & Observability': '/monitoring',
+  'Security & Guardrails': '/security',
+  'Compute & Infrastructure': '/integrations',
+  'Developer Tools & SDKs': '/ai-tools',
+  'Speech Recognition': '/voice-ai',
 }
 
-const INITIAL_COUNT = 3
+const INITIAL_COUNT = 6
 
 export default function Categories() {
   const [expanded, setExpanded] = useState(false)
@@ -111,7 +146,7 @@ export default function Categories() {
         ))}
       </div>
       <div className="mt-8 flex justify-center">
-        <button onClick={() => setExpanded(!expanded)}
+        <button onClick={() => { const y = window.scrollY; setExpanded(e => !e); setTimeout(() => window.scrollTo(0, y), 0) }}
           className="inline-block bg-surface border border-border-light text-text-main px-8 py-2.5 rounded text-xs font-semibold shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer">
           {expanded ? 'Show less' : 'View more categories'}
         </button>

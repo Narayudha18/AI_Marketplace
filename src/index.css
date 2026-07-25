@@ -116,6 +116,14 @@
   background-color: #111318;
 }
 
+.dark .bg-text-main .text-surface-variant {
+  color: #ffffff;
+}
+
+.bg-text-main + .bg-surface {
+  border-bottom: 2px solid var(--color-border-light);
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-background);
