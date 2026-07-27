@@ -58,10 +58,6 @@ export default function StartSelling() {
         {/* Hero Section */}
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-2 bg-primary-container/10 text-primary px-4 py-1.5 rounded-full text-[11px] font-semibold w-fit">
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>rocket_launch</span>
-              New Seller Registration
-            </div>
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
               Sell Your AI Products to Thousands of Buyers
             </h1>

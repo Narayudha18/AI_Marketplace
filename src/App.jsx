@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Agentation } from 'agentation'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
@@ -53,7 +54,9 @@ export default function App() {
   const { pathname } = useLocation()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
   return (
-    <Routes>
+    <>
+      {import.meta.env.DEV && <Agentation endpoint="http://localhost:4747" />}
+      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/templates" element={<Templates />} />
       <Route path="/templates/c/:filter" element={<CategoryListing />} />
@@ -99,5 +102,6 @@ export default function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>
+    </>
   );
 }
