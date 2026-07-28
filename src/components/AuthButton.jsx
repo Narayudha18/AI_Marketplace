@@ -17,19 +17,21 @@ export default function AuthButton() {
 
   return (
     <div className="relative flex items-center gap-0">
-      <Link to="/profile"
-        className="flex items-center gap-2 bg-primary-container/15 text-primary-container text-xs font-semibold pl-3 py-1.5 rounded-l-md hover:bg-primary-container/25 transition-colors">
-        <span className="w-5 h-5 rounded-full bg-primary-container text-surface text-[10px] font-bold flex items-center justify-center overflow-hidden">
-          {currentUser.picture
-            ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
-            : currentUser.name[0]}
-        </span>
-        {currentUser.name.split(' ')[0]}
-      </Link>
-      <button onClick={() => setOpen(!open)}
-        className="bg-primary-container/15 text-primary-container text-xs px-1 py-1.5 rounded-r-md hover:bg-primary-container/25 transition-colors flex items-center justify-center min-w-[22px]">
-        <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
-      </button>
+      <div className="flex bg-primary-container/15 rounded-md hover:bg-primary-container/25 transition-colors">
+        <Link to="/profile"
+          className="flex items-center gap-2 text-primary-container text-xs font-semibold pl-2.5 py-1.5">
+          <span className="w-5 h-5 rounded-full bg-primary-container text-surface text-[10px] font-bold flex items-center justify-center overflow-hidden">
+            {currentUser.picture
+              ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
+              : currentUser.name[0]}
+          </span>
+          {currentUser.name.split(' ')[0]}
+        </Link>
+        <button onClick={() => setOpen(!open)}
+          className="text-primary-container px-1.5 py-1.5 flex items-center justify-center cursor-pointer">
+          <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
+        </button>
+      </div>
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
