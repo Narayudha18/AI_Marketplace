@@ -1,0 +1,12 @@
+{
+  "endpoint": "PUT /api/cart",
+  "request": {
+    "slug": "adminpro-dashboard-template",
+    "category": "templates",
+    "qty": 3
+  },
+  "response": {
+    "ok": true,
+    "message": "Quantity updated"
+  }
+}

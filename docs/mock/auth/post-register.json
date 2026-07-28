@@ -1,0 +1,17 @@
+{
+  "endpoint": "POST /api/auth/register",
+  "request": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "secret123"
+  },
+  "response": {
+    "ok": true,
+    "user": {
+      "id": 1712345678901,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "picture": null
+    }
+  }
+}

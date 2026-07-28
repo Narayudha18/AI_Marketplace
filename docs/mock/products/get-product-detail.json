@@ -1,0 +1,24 @@
+{
+  "endpoint": "GET /api/products/:slug",
+  "response": {
+    "data": {
+      "slug": "adminpro-dashboard-template",
+      "title": "AdminPro | Dashboard Template",
+      "author": "CodeCraft",
+      "category": "Admin",
+      "price": "$49",
+      "desc": "A professional admin dashboard template built with React and Tailwind CSS. Features dark mode, charts, and Kanban board.",
+      "seed": "adminpro",
+      "rating": 4.2,
+      "sales": "1.2k Sales",
+      "reviews": [
+        { "name": "Emma Wilson", "text": "Great template! Very clean code.", "rating": 5, "date": "2026-04-11" },
+        { "name": "James Miller", "text": "Good but needs more components.", "rating": 3, "date": "2026-03-22" }
+      ],
+      "type": "React",
+      "platform": "Web",
+      "badge": null,
+      "users": null
+    }
+  }
+}

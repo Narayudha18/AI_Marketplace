@@ -1,0 +1,10 @@
+{
+  "endpoint": "PUT /api/auth/picture",
+  "request": {
+    "picture": "data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+  },
+  "response": {
+    "ok": true,
+    "picture": "data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "endpoint": "POST /api/favorites",
+  "request": {
+    "slug": "adminpro-dashboard-template",
+    "category": "templates"
+  },
+  "response": {
+    "ok": true,
+    "message": "Added to favorites"
+  }
+}

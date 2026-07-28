@@ -1,0 +1,12 @@
+{
+  "endpoint": "GET /api/categories",
+  "response": {
+    "data": [
+      { "icon": "smart_toy", "title": "ChatGPT Agents", "desc": "GPT-4 powered autonomous agents", "tags": ["GPT-4o", "Fine-tuned", "Custom", "Support", "Sales"] },
+      { "icon": "dashboard", "title": "Templates & Dashboards", "desc": "Admin panels, dashboards, and starter templates", "tags": ["Admin", "Dashboard", "Starter", "CRM", "Analytics"] },
+      { "icon": "integration_instructions", "title": "LLM Integrations", "desc": "Seamless API connections to top LLMs", "tags": ["OpenAI", "Claude", "Gemini", "Llama", "Mistral"] },
+      { "icon": "record_voice_over", "title": "Voice AI", "desc": "Speech-to-text, text-to-speech, voice cloning", "tags": ["STT", "TTS", "Voice Clone", "Accent", "Real-time"] }
+    ],
+    "total": 4
+  }
+}

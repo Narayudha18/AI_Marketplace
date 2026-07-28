@@ -1,0 +1,18 @@
+{
+  "endpoint": "POST /api/products/:slug/reviews",
+  "request": {
+    "name": "John Doe",
+    "rating": 4,
+    "text": "Solid product, would recommend."
+  },
+  "response": {
+    "ok": true,
+    "review": {
+      "name": "John Doe",
+      "rating": 4,
+      "text": "Solid product, would recommend.",
+      "date": "2026-07-28"
+    },
+    "stats": { "average_rating": 4.3, "total_reviews": 3 }
+  }
+}

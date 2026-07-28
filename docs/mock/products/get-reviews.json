@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/products/:slug/reviews?page=1",
+  "response": {
+    "data": [
+      { "name": "Emma Wilson", "text": "Great template! Very clean code.", "rating": 5, "date": "2026-04-11" },
+      { "name": "James Miller", "text": "Good but needs more components.", "rating": 3, "date": "2026-03-22" }
+    ],
+    "pagination": { "page": 1, "per_page": 10, "total": 2 },
+    "stats": { "average_rating": 4.2, "total_reviews": 2 }
+  }
+}

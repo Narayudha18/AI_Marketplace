@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/auth/me",
+  "response": {
+    "user": {
+      "id": 1712345678901,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "picture": null
+    }
+  }
+}
