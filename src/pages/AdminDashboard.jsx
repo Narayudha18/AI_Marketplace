@@ -28,53 +28,46 @@ const sidebarItems = [
 export default function AdminDashboard() {
   const { currentUser, logout, becomeAdmin } = useAuth()
   const navigate = useNavigate()
-  const [users, setUsers] = useState([])
-  const [orders, setOrders] = useState([])
-  const [sellerProducts, setSellerProducts] = useState([])
-  const [allReviews, setAllReviews] = useState([])
   const [activeTab, setActiveTab] = useState('overview')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
   const [expandedOrder, setExpandedOrder] = useState(null)
-  const [orderStatuses, setOrderStatuses] = useState({})
+
+  const readUsers = () => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({ ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false })) } catch { return [] } }
+  const readOrders = () => { try { return JSON.parse(localStorage.getItem('orders') || '[]') } catch { return [] } }
+  const readOrderStatuses = () => { try { return JSON.parse(localStorage.getItem('order_statuses') || '{}') } catch { return {} } }
+  const readSellerProducts = () => { try { return JSON.parse(localStorage.getItem('seller_products') || '[]') } catch { return [] } }
+  const readReviews = () => {
+    try {
+      const prefix = 'reviews_'
+      const result = []
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key?.startsWith(prefix)) {
+          const data = JSON.parse(localStorage.getItem(key))
+          if (Array.isArray(data)) data.forEach(r => result.push({ ...r, _key: key, _category: key.replace(prefix, '').split('_')[0], _slug: key.replace(prefix, '').split('_').slice(1).join('_') }))
+        }
+      }
+      return result
+    } catch { return [] }
+  }
+
+  const [users, setUsers] = useState(readUsers)
+  const [orders, setOrders] = useState(readOrders)
+  const [orderStatuses, setOrderStatuses] = useState(readOrderStatuses)
+  const [sellerProducts, setSellerProducts] = useState(readSellerProducts)
+  const [allReviews, setAllReviews] = useState(readReviews)
+
+  const refresh = () => { setUsers(readUsers()); setOrders(readOrders()); setOrderStatuses(readOrderStatuses()); setSellerProducts(readSellerProducts()); setAllReviews(readReviews()) }
 
   useEffect(() => {
     if (currentUser && !currentUser.isAdmin) becomeAdmin()
   }, [])
 
   useEffect(() => {
-    try {
-      const u = JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({
-        ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false,
-      }))
-      setUsers(u)
-    } catch {}
-    try {
-      const o = JSON.parse(localStorage.getItem('orders') || '[]')
-      setOrders(o)
-      const saved = JSON.parse(localStorage.getItem('order_statuses') || '{}')
-      setOrderStatuses(saved)
-    } catch {}
-    try {
-      const sp = JSON.parse(localStorage.getItem('seller_products') || '[]')
-      setSellerProducts(sp)
-    } catch {}
-    try {
-      const prefix = 'reviews_'
-      const reviews = []
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i)
-        if (key?.startsWith(prefix)) {
-          try {
-            const data = JSON.parse(localStorage.getItem(key))
-            if (Array.isArray(data)) {
-              data.forEach(r => reviews.push({ ...r, _key: key, _category: key.replace(prefix, '').split('_')[0], _slug: key.replace(prefix, '').split('_').slice(1).join('_') }))
-            }
-          } catch {}
-        }
-      }
-      setAllReviews(reviews)
-    } catch {}
+    const onFocus = () => refresh()
+    window.addEventListener('focus', onFocus)
+    return () => window.removeEventListener('focus', onFocus)
   }, [])
 
   const approveSeller = (userId) => {
@@ -232,7 +225,13 @@ export default function AdminDashboard() {
         </div>
 
         <div className="p-4 md:p-6 lg:p-8 max-w-[1200px]">
-          <h1 className="text-lg md:text-xl font-bold text-white mb-6 capitalize">{activeTab === 'overview' ? 'Dashboard Overview' : `${activeTab} Management`}</h1>
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-lg md:text-xl font-bold text-white capitalize">{activeTab === 'overview' ? 'Dashboard Overview' : `${activeTab} Management`}</h1>
+            <button onClick={refresh} className="flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-gray-200 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+              <span className="material-symbols-outlined" style={{ fontSize: 14 }}>refresh</span>
+              Refresh
+            </button>
+          </div>
 
           {/* OVERVIEW */}
           {activeTab === 'overview' && (
