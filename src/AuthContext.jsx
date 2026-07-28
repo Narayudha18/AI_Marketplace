@@ -1,15 +1,31 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  const [users, setUsers] = useState([])
-  const [currentUser, setCurrentUser] = useState(null)
+  const [users, setUsers] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('auth_users')) || [] } catch { return [] }
+  })
+  const [currentUser, setCurrentUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('auth_current')) || null } catch { return null }
+  })
+
+  useEffect(() => {
+    localStorage.setItem('auth_users', JSON.stringify(users))
+  }, [users])
+
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.setItem('auth_current', JSON.stringify(currentUser))
+    } else {
+      localStorage.removeItem('auth_current')
+    }
+  }, [currentUser])
 
   const register = (name, email, password) => {
     const exists = users.find(u => u.email === email)
     if (exists) return { ok: false, error: 'Email already registered' }
-    const newUser = { id: Date.now(), name, email, password, picture: null }
+    const newUser = { id: Date.now(), name, email, password, picture: null, isSeller: false }
     setUsers(prev => [...prev, newUser])
     setCurrentUser(newUser)
     return { ok: true }
@@ -40,8 +56,15 @@ export function AuthProvider({ children }) {
     setCurrentUser(updated)
   }
 
+  const becomeSeller = () => {
+    if (!currentUser) return
+    const updated = { ...currentUser, isSeller: true }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }
+
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, becomeSeller }}>
       {children}
     </AuthContext.Provider>
   )

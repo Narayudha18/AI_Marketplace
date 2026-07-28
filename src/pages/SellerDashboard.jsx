@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import Navbar from '../components/Navbar'
@@ -11,7 +11,11 @@ function loadProducts() {
 }
 
 export default function SellerDashboard() {
-  const { currentUser } = useAuth()
+  const { currentUser, becomeSeller } = useAuth()
+
+  useEffect(() => {
+    if (currentUser && !currentUser.isSeller) becomeSeller()
+  }, [])
   const [products, setProducts] = useState(loadProducts)
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', category: 'templates', price: '', desc: '' })
