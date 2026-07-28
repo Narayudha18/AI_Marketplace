@@ -18,7 +18,7 @@ export default function AuthButton() {
   return (
     <div className="relative flex items-center gap-0">
       <Link to="/profile"
-        className="flex items-center gap-2 bg-primary-container/15 text-primary-container text-xs font-semibold pl-3 pr-2 py-1.5 rounded-l-md hover:bg-primary-container/25 transition-colors">
+        className="flex items-center gap-2 bg-primary-container/15 text-primary-container text-xs font-semibold pl-3 py-1.5 rounded-l-md hover:bg-primary-container/25 transition-colors">
         <span className="w-5 h-5 rounded-full bg-primary-container text-surface text-[10px] font-bold flex items-center justify-center overflow-hidden">
           {currentUser.picture
             ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
@@ -27,8 +27,8 @@ export default function AuthButton() {
         {currentUser.name.split(' ')[0]}
       </Link>
       <button onClick={() => setOpen(!open)}
-        className="bg-primary-container/15 text-primary-container text-xs px-1 py-1.5 rounded-r-md hover:bg-primary-container/25 transition-colors">
-        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_drop_down</span>
+        className="bg-primary-container/15 text-primary-container text-xs px-1 py-1.5 rounded-r-md hover:bg-primary-container/25 transition-colors flex items-center justify-center min-w-[22px]">
+        <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
       </button>
       {open && (
         <>
