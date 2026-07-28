@@ -58,7 +58,7 @@ export default function OrderConfirmation() {
               <div className="bg-surface-container-low rounded-xl p-4">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs text-text-muted">Date</span>
-                  <span className="text-xs font-semibold text-text-main">{new Date(order.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                  <span className="text-xs font-semibold text-text-main">{order.date}</span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs text-text-muted">Payment Method</span>

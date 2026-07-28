@@ -27,7 +27,7 @@ export default function CartPage() {
     const orderData = {
       items: [...cart],
       total: formattedSubtotal,
-      date: new Date().toISOString(),
+      date: new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }),
       orderId: 'ORD-' + Date.now().toString(36).toUpperCase(),
     }
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
