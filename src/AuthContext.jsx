@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
-const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@admin.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true }
+const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@aimarketplace.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true }
 
 export function AuthProvider({ children }) {
   const [users, setUsers] = useState(() => {
