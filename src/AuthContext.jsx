@@ -13,11 +13,22 @@ export function AuthProvider({ children }) {
     } catch { return [SEED_ADMIN] }
   })
   const [currentUser, setCurrentUser] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('auth_current')) || null } catch { return null }
+    try {
+      const saved = JSON.parse(localStorage.getItem('auth_current'))
+      if (!saved) return null
+      const latest = users.find(u => u.id === saved.id)
+      return latest || saved
+    } catch { return null }
   })
 
   useEffect(() => {
     localStorage.setItem('auth_users', JSON.stringify(users))
+    if (currentUser) {
+      const fresh = users.find(u => u.id === currentUser.id)
+      if (fresh && JSON.stringify(fresh) !== JSON.stringify(currentUser)) {
+        setCurrentUser(fresh)
+      }
+    }
   }, [users])
 
   useEffect(() => {
