@@ -36,6 +36,12 @@ export default function AuthButton() {
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-full mt-1 w-40 bg-surface border border-border-light rounded-lg shadow-lg z-20 py-1">
+            {currentUser.isAdmin && (
+              <Link to="/admin/dashboard" onClick={() => setOpen(false)}
+                className="block text-xs text-text-muted hover:text-text-main px-3 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                <span className="material-symbols-outlined text-xs" style={{ fontSize: 14 }}>admin_panel_settings</span> Admin Dashboard
+              </Link>
+            )}
             {currentUser.isSeller && (
               <Link to="/seller/dashboard" onClick={() => setOpen(false)}
                 className="block text-xs text-text-muted hover:text-text-main px-3 py-2 hover:bg-surface-container-low transition-colors">Seller Dashboard</Link>

@@ -37,6 +37,7 @@ import CartPage from './pages/CartPage'
 import OrderConfirmation from './pages/OrderConfirmation'
 import Favorites from './pages/Favorites'
 import SellerDashboard from './pages/SellerDashboard'
+import AdminDashboard from './pages/AdminDashboard'
 
 function Home() {
   return (
@@ -109,6 +110,7 @@ export default function App() {
       <Route path="/order-confirmation" element={<OrderConfirmation />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/seller/dashboard" element={<SellerDashboard />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
     </>
   );

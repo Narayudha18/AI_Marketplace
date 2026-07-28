@@ -1,0 +1,27 @@
+{
+  "endpoint": "GET /api/admin/dashboard",
+  "response": {
+    "stats": {
+      "total_users": 12,
+      "total_products": 348,
+      "total_orders": 8,
+      "total_revenue": 2459.72
+    },
+    "users": [
+      { "id": 1712345678901, "name": "John Doe", "email": "john@example.com", "role": "admin", "picture": null },
+      { "id": 1712345678902, "name": "Jane Smith", "email": "jane@example.com", "role": "seller", "picture": null },
+      { "id": 1712345678903, "name": "Bob Wilson", "email": "bob@example.com", "role": "buyer", "picture": null }
+    ],
+    "recent_orders": [
+      { "orderId": "ORD-A2XK9F", "paymentMethod": "dana", "items_count": 3, "date": "2026-07-28 15:30", "total": "$159.97" },
+      { "orderId": "ORD-B3YQ0G", "paymentMethod": "bca", "items_count": 1, "date": "2026-07-27 10:15", "total": "$89.99" }
+    ],
+    "products_by_category": [
+      { "category": "Templates", "count": 38 },
+      { "category": "Integrations", "count": 34 },
+      { "category": "Chatbots", "count": 30 },
+      { "category": "Automation", "count": 30 },
+      { "category": "AI Tools", "count": 36 }
+    ]
+  }
+}

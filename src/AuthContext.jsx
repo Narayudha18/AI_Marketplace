@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
   const register = (name, email, password) => {
     const exists = users.find(u => u.email === email)
     if (exists) return { ok: false, error: 'Email already registered' }
-    const newUser = { id: Date.now(), name, email, password, picture: null, isSeller: false }
+    const newUser = { id: Date.now(), name, email, password, picture: null, isSeller: false, isAdmin: false }
     setUsers(prev => [...prev, newUser])
     setCurrentUser(newUser)
     return { ok: true }
@@ -63,8 +63,15 @@ export function AuthProvider({ children }) {
     setCurrentUser(updated)
   }
 
+  const becomeAdmin = () => {
+    if (!currentUser) return
+    const updated = { ...currentUser, isAdmin: true }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }
+
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, becomeSeller }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, becomeSeller, becomeAdmin }}>
       {children}
     </AuthContext.Provider>
   )

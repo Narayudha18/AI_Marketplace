@@ -61,6 +61,7 @@
 | `/order-confirmation` | OrderConfirmation | Order success confirmation after payment |
 | `/favorites` | Favorites | Wishlist page showing all favorited products |
 | `/seller/dashboard` | SellerDashboard | Seller dashboard: stats, add product, product table |
+| `/admin/dashboard` | AdminDashboard | Admin panel: stats, users table, orders table, products by category |
 
 ## Component Architecture
 

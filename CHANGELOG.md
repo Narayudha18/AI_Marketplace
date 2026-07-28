@@ -1,3 +1,24 @@
+## v7.2 — 2026-07-28
+
+### Komponen (Baru)
+- **AdminDashboard** — Halaman admin panel: stats (users/products/orders/revenue), 3 tab (users table, orders table, products by category) [file: src/pages/AdminDashboard.jsx]
+
+### Ubah
+- **AuthContext** — tambah `isAdmin` field + `becomeAdmin()` function, persist auth ke localStorage [file: src/AuthContext.jsx]
+- **AuthButton** — dropdown Admin Dashboard link (cuma untuk admin), icon admin_panel_settings [file: src/components/AuthButton.jsx]
+- **App.jsx** — tambah route /admin/dashboard [file: src/App.jsx]
+
+### Fitur
+- [Feat] Admin Dashboard — lihat statistik platform, daftar user, order history, produk per kategori
+- [Feat] Role system — user bisa jadi admin (via /admin/dashboard) atau seller (via /seller/dashboard)
+
+### Mock JSON
+- `docs/mock/admin/get-dashboard.json` — endpoint baru GET /api/admin/dashboard
+- `docs/mock/admin/get-users.json` — endpoint baru GET /api/admin/users
+
+### Routing
+- Tambah route /admin/dashboard → AdminDashboard
+
 ## v7.1 — 2026-07-28
 
 ### Ubah
