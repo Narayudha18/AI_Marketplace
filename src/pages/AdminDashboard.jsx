@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 const categoryData = [
   { name: 'Templates', count: 38 },
@@ -67,16 +65,14 @@ export default function AdminDashboard() {
 
   if (!currentUser) {
     return (
-      <>
-        <Navbar />
-        <main className="w-full max-w-[1440px] mx-auto px-6 py-16 text-center">
-          <span className="material-symbols-outlined text-6xl text-text-muted mb-4" style={{ fontSize: 64 }}>admin_panel_settings</span>
+      <div className="min-h-screen bg-surface flex items-center justify-center px-4">
+        <div className="text-center">
+          <span className="material-symbols-outlined text-6xl text-text-muted mb-4 inline-block" style={{ fontSize: 64 }}>admin_panel_settings</span>
           <h1 className="text-2xl font-bold text-text-main mb-2">Sign in required</h1>
           <p className="text-text-muted mb-6">Please sign in to access admin panel.</p>
           <Link to="/login" className="bg-primary text-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:opacity-90 transition-opacity">Sign In</Link>
-        </main>
-        <Footer />
-      </>
+        </div>
+      </div>
     )
   }
 
@@ -89,9 +85,8 @@ export default function AdminDashboard() {
   const totalJSON = categoryData.reduce((s, c) => s + c.count, 0)
 
   return (
-    <>
-      <Navbar />
-      <main className="w-full max-w-[1200px] mx-auto px-4 md:px-6 py-8">
+    <div className="min-h-screen bg-surface">
+      <div className="w-full max-w-[1200px] mx-auto px-4 md:px-6 py-8">
         <div className="flex items-center gap-3 mb-6">
           <span className="material-symbols-outlined text-primary" style={{ fontSize: 28 }}>admin_panel_settings</span>
           <h1 className="text-xl font-bold text-text-main">Admin Dashboard</h1>
@@ -269,8 +264,7 @@ export default function AdminDashboard() {
             )}
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </div>
   )
 }
