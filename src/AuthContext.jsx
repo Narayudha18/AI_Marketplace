@@ -2,9 +2,15 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
+const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@admin.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true }
+
 export function AuthProvider({ children }) {
   const [users, setUsers] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('auth_users')) || [] } catch { return [] }
+    try {
+      const stored = JSON.parse(localStorage.getItem('auth_users')) || []
+      const hasAdmin = stored.some(u => u.email === SEED_ADMIN.email)
+      return hasAdmin ? stored : [SEED_ADMIN, ...stored]
+    } catch { return [SEED_ADMIN] }
   })
   const [currentUser, setCurrentUser] = useState(() => {
     try { return JSON.parse(localStorage.getItem('auth_current')) || null } catch { return null }
@@ -35,7 +41,7 @@ export function AuthProvider({ children }) {
     const user = users.find(u => u.email === email && u.password === password)
     if (!user) return { ok: false, error: 'Invalid email or password' }
     setCurrentUser(user)
-    return { ok: true }
+    return { ok: true, isAdmin: user.isAdmin }
   }
 
   const logout = () => setCurrentUser(null)
