@@ -32,6 +32,8 @@ export default function CartPage() {
       paymentMethod: method,
     }
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
+    const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]')
+    localStorage.setItem('orders', JSON.stringify([orderData, ...existingOrders]))
     clearCart()
     setPaymentOpen(false)
     navigate('/order-confirmation')

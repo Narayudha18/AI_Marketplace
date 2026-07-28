@@ -1,3 +1,16 @@
+## v7.1 — 2026-07-28
+
+### Ubah
+- **Profile** — Redesign ala Shopee: avatar clickable (upload foto), stats cards (orders/items/spent), order history list expandable [file: src/pages/Profile.jsx]
+- **CartPage** — Simpan order ke `orders` array di localStorage (history semua order) [file: src/pages/CartPage.jsx]
+
+### Fitur
+- [Feat] Order history — semua order tersimpan dan bisa dilihat di halaman Profile
+- [Feat] Avatar upload — user bisa ganti foto profil dari halaman Profile
+
+### Mock JSON
+- `docs/mock/profile/get-orders.json` — endpoint baru GET /api/user/orders
+
 ## v7.0 — 2026-07-28
 
 ### Komponen (Baru)

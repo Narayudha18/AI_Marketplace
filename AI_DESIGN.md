@@ -56,7 +56,7 @@
 | `/:category/:slug/preview` | ProductGallery | 30 screenshots + 4 demo videos gallery |
 | `/login` | Login | Standalone login page (email/password) |
 | `/register` | Register | Standalone register page (email/password) |
-| `/profile` | Profile | User dashboard: avatar, account details, change password |
+| `/profile` | Profile | Shopee-style profile: avatar upload, stats cards (orders/items/spent), order history with expandable items |
 | `/cart` | CartPage | Full shopping cart with qty +/- , order summary, checkout |
 | `/order-confirmation` | OrderConfirmation | Order success confirmation after payment |
 | `/favorites` | Favorites | Wishlist page showing all favorited products |
@@ -108,7 +108,7 @@
 - **Sitemap.jsx** — Site index with link grid
 - **Login.jsx** — Standalone login (no navbar/footer). Email/password form. Redirects to `/` on success.
 - **Register.jsx** — Standalone register (no navbar/footer). Email/password form. Redirects to `/` on success.
-- **Profile.jsx** — User dashboard: avatar (initial), name, email, change password form.
+- **Profile.jsx** — Shopee-style profile: clickable avatar (upload photo), name, email, stats cards (total orders/items/spent), order history list expandable per order.
 - **CartPage.jsx** — Full shopping cart page: item list with qty +/- , order summary, proceed to checkout → PaymentModal → OrderConfirmation. Empty state with CTA.
 - **OrderConfirmation.jsx** — Order success page: order ID, date, purchased items list, total paid. Links to profile & home.
 - **Favorites.jsx** — Wishlist page: grid of all favorited products from all 11 categories, unfavorite button (heart), empty state.

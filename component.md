@@ -66,7 +66,7 @@
 | Listing Page | **Security** | `src/pages/Security.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='security')` | `GET /api/products/security` |
 | Auth Page | **Login** | `src/pages/Login.jsx` | — | `email`, `password`, `error` | `handleSubmit` → `login()` from AuthContext, redirect `/` | `users` | `POST /api/auth/login` |
 | Auth Page | **Register** | `src/pages/Register.jsx` | — | `name`, `email`, `password`, `confirm`, `error` | `handleSubmit` → `register()` from AuthContext, redirect `/` | `users` | `POST /api/auth/register` |
-| Auth Page | **Profile** | `src/pages/Profile.jsx` | — | `currentPw`, `newPw`, `confirmPw`, `pwMsg` | `updatePassword`, `updatePicture`, stats from CartContext | `users` | `GET /api/auth/me`, `PUT /api/auth/password`, `PUT /api/auth/picture` |
+| Auth Page | **Profile** | `src/pages/Profile.jsx` | — | `orders[]`, `expandedOrder` | avatar upload, order history expandable; stats dari localStorage orders array | `users`, `orders` | `GET /api/auth/me`, `PUT /api/auth/picture`, `GET /api/user/orders` |
 | Cart Page | **CartPage** | `src/pages/CartPage.jsx` | — | `paymentOpen` | `updateQty`, `removeFromCart`, `clearCart`, `markAsPurchased`; navigate to OrderConfirmation | `carts`, `orders` | `GET/POST /api/cart`, `POST /api/orders` |
 | Order Confirmation | **OrderConfirmation** | `src/pages/OrderConfirmation.jsx` | — | `order` (from localStorage) | — | `orders` | `GET /api/orders/:id` |
 | Wishlist Page | **Favorites** | `src/pages/Favorites.jsx` | — | — | `toggleFavorite`; cross-category lookup from all 11 JSON files | `favorites` | `GET /api/favorites`, `DELETE /api/favorites` |
@@ -452,7 +452,7 @@ App.jsx (Routes)
 | `/:category/:slug/preview` | ProductGallery | Gallery: 30 screenshots + 4 demo videos |
 | `/login` | Login | Login (standalone, tanpa navbar/footer) |
 | `/register` | Register | Register (standalone, tanpa navbar/footer) |
-| `/profile` | Profile | Dashboard user (harus login) |
+| `/profile` | Profile | Shopee-style profile: avatar upload, stats cards, order history (harus login) |
 | `/cart` | CartPage | Full shopping cart dengan qty +/- |
 | `/order-confirmation` | OrderConfirmation | Konfirmasi order sukses |
 | `/favorites` | Favorites | Wishlist / produk favorit |
