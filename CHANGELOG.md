@@ -1,3 +1,33 @@
+## v7.4 — 2026-07-28
+
+### Ubah
+- **SellerDashboard** — Rewrite total jadi standalone: sidebar navigation (Overview, Products, Orders), forced dark mode, account dropdown, hapus Navbar/Footer [file: src/pages/SellerDashboard.jsx]
+- **AdminDashboard** — Data loading pake useState initializers langsung baca localStorage (bukan useEffect), tambah auto-refresh on focus + manual Refresh button [file: src/pages/AdminDashboard.jsx]
+- **StartSelling** — Kirim `onSuccess` ke SellerForm yang panggil `requestSeller()` dari AuthContext. Redirect otomatis ke `/seller/dashboard` jika sudah seller/pending. Tampilkan Sign In prompt jika belum login. [file: src/pages/StartSelling.jsx]
+- **AuthContext** — Cross-reference currentUser dengan users array di init + sync saat users berubah via useEffect [file: src/AuthContext.jsx]
+
+### Fix
+- [Fix] Seller request gak sampai ke admin — SellerForm panggil `onSuccess` yang undefined, sekarang panggil `requestSeller()` dari AuthContext [file: src/pages/StartSelling.jsx]
+- [Fix] SellerDashboard useEffect pake `[]` deps — sekarang `[currentUser, requestSeller]` biar gak race condition [file: src/pages/SellerDashboard.jsx]
+- [Fix] AdminDashboard baca data cuma sekali di useEffect — sekarang state initializer langsung baca localStorage + refresh on focus [file: src/pages/AdminDashboard.jsx]
+
+### Fitur
+- [Feat] Seller Dashboard standalone — sidebar 3 tabs, dark mode, account dropdown, orders tab
+- [Feat] Admin Dashboard Refresh — data auto-refresh saat window focus + manual Refresh button
+
+### Routing
+- Seller Dashboard route tetap `/seller/dashboard` (tidak berubah)
+
+## v7.3 — 2026-07-28
+
+### Ubah
+- **AdminDashboard** — Expand dari 3 tab jadi 6 tab: Overview, Users, Sellers, Products, Orders, Reviews. Sidebar navigation. Seller approval queue, order status management, review moderation. [file: src/pages/AdminDashboard.jsx]
+
+### Fitur
+- [Feat] Seller approval queue — request → admin approve/reject
+- [Feat] Order status management — dropdown (Completed/Processing/Shipped/Cancelled)
+- [Feat] Review moderation — lihat & hapus review dari localStorage
+
 ## v7.2 — 2026-07-28
 
 ### Komponen (Baru)
@@ -5,12 +35,12 @@
 
 ### Ubah
 - **AuthContext** — tambah `isAdmin` field + `becomeAdmin()` function, persist auth ke localStorage [file: src/AuthContext.jsx]
-- **AuthButton** — dropdown Admin Dashboard link (cuma untuk admin), icon admin_panel_settings [file: src/components/AuthButton.jsx]
+- **AuthButton** — dropdown Admin Dashboard link (cuma untuk admin), icon admin_panel_settings, symmetrical layout [file: src/components/AuthButton.jsx]
 - **App.jsx** — tambah route /admin/dashboard [file: src/App.jsx]
 
 ### Fitur
 - [Feat] Admin Dashboard — lihat statistik platform, daftar user, order history, produk per kategori
-- [Feat] Role system — user bisa jadi admin (via /admin/dashboard) atau seller (via /seller/dashboard)
+- [Feat] Role system — user bisa jadi admin (lewat /admin/dashboard) atau seller (request → admin approve)
 
 ### Mock JSON
 - `docs/mock/admin/get-dashboard.json` — endpoint baru GET /api/admin/dashboard

@@ -15,7 +15,7 @@
 |---|---|---|---|---|---|---|---|
 | Semua Halaman | **App** | `src/App.jsx` | — | — | Route rendering | — | — |
 | Semua Halaman | **CartProvider** | `src/CartContext.jsx` | `children` | `cart`, `purchased`, `favorites` (all localStorage) | `addToCart`, `removeFromCart`, `clearCart`, `markAsPurchased`, `inCart`, `hasPurchased`, `toggleFavorite`, `isFavorite`, `getFavoriteCategories` | `carts`, `purchases`, `favorites` | `GET/POST /api/cart`, `POST /api/orders`, `GET/POST /api/favorites` |
-| Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (in-memory only) | `register`, `login`, `logout`, `updatePassword`, `updatePicture` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
+| Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (localStorage `auth_users` + `auth_current`) | `register`, `login`, `logout`, `updatePassword`, `updatePicture`, `requestSeller`, `becomeAdmin` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
 | Semua Halaman | **ThemeProvider** | `src/ThemeContext.jsx` | `children` | `dark` (localStorage + prefers-color-scheme) | `toggle` → toggle dark mode | — | — |
 | Semua Halaman | **Navbar** | `src/components/Navbar.jsx` | — | `cartOpen` | `setCartOpen(true)` → buka CartDrawer | `categories` (static) | `GET /api/categories` |
 | Semua Halaman | **AuthButton** | `src/components/AuthButton.jsx` | — | `open` (dropdown) | Logged out→Link to /login, logged in→Link to /profile + dropdown Sign Out | — | — |
@@ -70,7 +70,8 @@
 | Cart Page | **CartPage** | `src/pages/CartPage.jsx` | — | `paymentOpen` | `updateQty`, `removeFromCart`, `clearCart`, `markAsPurchased`; navigate to OrderConfirmation | `carts`, `orders` | `GET/POST /api/cart`, `POST /api/orders` |
 | Order Confirmation | **OrderConfirmation** | `src/pages/OrderConfirmation.jsx` | — | `order` (from localStorage) | — | `orders` | `GET /api/orders/:id` |
 | Wishlist Page | **Favorites** | `src/pages/Favorites.jsx` | — | — | `toggleFavorite`; cross-category lookup from all 11 JSON files | `favorites` | `GET /api/favorites`, `DELETE /api/favorites` |
-| Seller Dashboard | **SellerDashboard** | `src/pages/SellerDashboard.jsx` | — | `products[]`, `showForm`, `form{}` | `addProduct`, `deleteProduct`; localStorage CRUD | `seller_products` | `GET /api/seller/dashboard`, `POST /api/seller/products`, `DELETE /api/seller/products/:id` |
+| Seller Dashboard | **SellerDashboard** | `src/pages/SellerDashboard.jsx` | — | `products[]`, `showForm`, `form{}`, `activeTab`, `expandedOrder`, `orders[]` | `addProduct`, `deleteProduct`, `requestSeller`; localStorage CRUD | `seller_products`, `orders` | `GET /api/seller/dashboard`, `POST /api/seller/products`, `DELETE /api/seller/products/:id` |
+| Admin Panel | **AdminDashboard** | `src/pages/AdminDashboard.jsx` | — | `users[]`, `orders[]`, `sellerProducts[]`, `allReviews[]`, `activeTab`, `expandedOrder` | `approveSeller`, `rejectSeller`, `deleteUser`, `toggleSellerStatus`, `deleteProduct`, `updateOrderStatus`, `deleteReview` | `auth_users`, `orders`, `seller_products`, `reviews_*` | `GET /api/admin/dashboard`, `GET /api/admin/users`, `GET /api/admin/sellers`, `GET /api/admin/orders`, `GET /api/admin/reviews` |
 
 ### 1.5. Halaman Detail & Kategori
 

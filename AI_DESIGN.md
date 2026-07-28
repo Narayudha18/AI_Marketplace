@@ -1,11 +1,12 @@
-# AI Agents Marketplace — Design Doc v7.0
+# AI Agents Marketplace — Design Doc v8.0
 
 ## Tech Stack
 - React 19 + Vite 8
 - React Router v7 (client-side routing)
 - Tailwind CSS v4 (CSS-based config in `src/index.css`)
 - LocalStorage via React Context (cart, purchased items, favorites, theme)
-- In-memory auth via React Context (users array, no persistence)
+- Auth via React Context (users array, persisted to localStorage `auth_users` + `auth_current`)
+- Seed admin account: admin@gmail.com / admin123
 - Dark mode via CSS variables + localStorage
 - No backend — all data from static JSON files
 
@@ -60,15 +61,17 @@
 | `/cart` | CartPage | Full shopping cart with qty +/- , order summary, checkout |
 | `/order-confirmation` | OrderConfirmation | Order success confirmation after payment |
 | `/favorites` | Favorites | Wishlist page showing all favorited products |
-| `/seller/dashboard` | SellerDashboard | Seller dashboard: stats, add product, product table |
-| `/admin/dashboard` | AdminDashboard | Admin panel: stats, users table, orders table, products by category |
+| `/seller/dashboard` | SellerDashboard | Seller dashboard (standalone): sidebar, dark mode, 3 tabs (Overview, Products, Orders) |
+| `/admin/dashboard` | AdminDashboard | Admin panel (standalone): sidebar, dark mode, 6 tabs (Overview, Users, Sellers, Products, Orders, Reviews) |
 
 ## Component Architecture
 
 ### App-level
 - **App.jsx** — Route definitions, Home wrapper, global scroll-to-top on pathname change
 - **CartContext.jsx** — Global state: cart items, purchased items, favorites. Persisted to localStorage.
-- **AuthContext.jsx** — Global auth state: users array, currentUser, register/login/logout, updatePassword, updatePicture. In-memory only.
+- **AuthContext.jsx** — Global auth state: users array, currentUser, register/login/logout, updatePassword, updatePicture, requestSeller, becomeAdmin. Persisted to localStorage (`auth_users` + `auth_current`). Cross-references currentUser with users array on init + sync on users change.
+- **AdminDashboard.jsx** — Admin panel (standalone, no Navbar/Footer, forced dark mode): sidebar navigation, 6 tabs (Overview, Users, Sellers, Products, Orders, Reviews), account dropdown. Reads all data from localStorage directly.
+- **SellerDashboard.jsx** — Seller dashboard (standalone, no Navbar/Footer, forced dark mode): sidebar navigation, 3 tabs (Overview, Products, Orders), account dropdown. Products CRUD via localStorage.
 - **ThemeContext.jsx** — Dark mode toggle, persisted to localStorage, falls back to `prefers-color-scheme`
 
 ### Shared Components (`src/components/`)
@@ -82,7 +85,7 @@
 - **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet (DANA, GoPay, ShopeePay, OVO, LinkAja), Bank Transfer, Convenience Store
 - **Footer.jsx** — Site footer
 - **SellerForm.jsx** — Multi-step seller registration form (Account → Store → Verification → Done), English UI
-- **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown with Seller Dashboard & Sign Out
+- **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown with Seller Dashboard, Admin Dashboard (for admins), & Sign Out. Symmetrical layout.
 
 ### Page Components (`src/pages/`)
 - **Templates.jsx** — Template listing: premium navbar, banner with CTA, sub-nav pills (auto-scroll to grid), sidebar filters (search + checkboxes + price + sort), product grid with pagination ("Load more", visibleCount 6→6), auto-scroll on sub-nav & filter apply
@@ -113,7 +116,9 @@
 - **CartPage.jsx** — Full shopping cart page: item list with qty +/- , order summary, proceed to checkout → PaymentModal → OrderConfirmation. Empty state with CTA.
 - **OrderConfirmation.jsx** — Order success page: order ID, date, purchased items list, total paid. Links to profile & home.
 - **Favorites.jsx** — Wishlist page: grid of all favorited products from all 11 categories, unfavorite button (heart), empty state.
-- **SellerDashboard.jsx** — Seller dashboard (requires login): 4 stats cards (products, sales, earnings, rating), Add Product form (name, category, price, description), product table with delete.
+- **SellerDashboard.jsx** — Seller dashboard (standalone, forced dark mode): sidebar navigation, 3 tabs (Overview, Products, Orders), account dropdown. Products CRUD via localStorage. Calls requestSeller() on mount if not yet requested.
+- **AdminDashboard.jsx** — Admin panel (standalone, forced dark mode): sidebar navigation, 6 tabs (Overview, Users, Sellers, Products, Orders, Reviews). Pending seller approval queue, user management, order status management, review moderation.
+- **CategoryListing.jsx** — Generic filtered listing for all categories (reads URL param `:filter`), premium navbar, sidebar search, auto-scroll.
 
 Each listing page has:
 - Premium navbar with gradient announcement bar, sticky header, dark toggle, cart, AuthButton
@@ -177,6 +182,19 @@ Each listing page has:
 
 ### English UI
 - All text translated to English: ProductDetail (About, Tutorial, Screenshots), StartSelling, SellerForm, FavoriteRecommendations
+
+### Admin Dashboard
+- Standalone page (no Navbar/Footer), forced dark mode
+- 6 tabs: Overview (stats + pending sellers + recent orders), Users (CRUD), Sellers (approve/reject), Products (JSON + seller products), Orders (status management), Reviews (delete)
+- Seller approval queue: `requestSeller()` sets `sellerRequested: true`, admin approves → `isSeller: true`
+- Order status management: dropdown (Completed/Processing/Shipped/Cancelled)
+- Review moderation: delete individual reviews from localStorage
+
+### Seller Dashboard
+- Standalone page (no Navbar/Footer), forced dark mode
+- 3 tabs: Overview (stats + recent products + recent orders), Products (CRUD), Orders (view only)
+- Account dropdown: Back to Store + Sign Out
+- Products stored in localStorage key `seller_products`
 
 ## Styling
 - Tailwind CSS v4 with `@theme` custom colors in `index.css`
