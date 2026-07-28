@@ -27,7 +27,7 @@ export default function CartPage() {
     const orderData = {
       items: [...cart],
       total: formattedSubtotal,
-      date: new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }),
+      date: (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` })(),
       orderId: 'ORD-' + Date.now().toString(36).toUpperCase(),
     }
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
