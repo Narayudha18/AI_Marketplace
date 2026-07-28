@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
-const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@gmail.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true }
+const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@gmail.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true, sellerRequested: false }
 
 export function AuthProvider({ children }) {
   const [users, setUsers] = useState(() => {
@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
   const register = (name, email, password) => {
     const exists = users.find(u => u.email === email)
     if (exists) return { ok: false, error: 'Email already registered' }
-    const newUser = { id: Date.now(), name, email, password, picture: null, isSeller: false, isAdmin: false }
+    const newUser = { id: Date.now(), name, email, password, picture: null, isSeller: false, isAdmin: false, sellerRequested: false }
     setUsers(prev => [...prev, newUser])
     setCurrentUser(newUser)
     return { ok: true }
@@ -62,9 +62,9 @@ export function AuthProvider({ children }) {
     setCurrentUser(updated)
   }
 
-  const becomeSeller = () => {
+  const requestSeller = () => {
     if (!currentUser) return
-    const updated = { ...currentUser, isSeller: true }
+    const updated = { ...currentUser, sellerRequested: true }
     setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
     setCurrentUser(updated)
   }
@@ -77,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, becomeSeller, becomeAdmin }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, requestSeller, becomeAdmin }}>
       {children}
     </AuthContext.Provider>
   )

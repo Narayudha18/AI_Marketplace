@@ -11,10 +11,10 @@ function loadProducts() {
 }
 
 export default function SellerDashboard() {
-  const { currentUser, becomeSeller } = useAuth()
+  const { currentUser, requestSeller } = useAuth()
 
   useEffect(() => {
-    if (currentUser && !currentUser.isSeller) becomeSeller()
+    if (currentUser && !currentUser.isSeller && !currentUser.sellerRequested) requestSeller()
   }, [])
   const [products, setProducts] = useState(loadProducts)
   const [showForm, setShowForm] = useState(false)
@@ -56,6 +56,20 @@ export default function SellerDashboard() {
           <h1 className="text-2xl font-bold text-text-main mb-4">Sign in required</h1>
           <p className="text-text-muted mb-6">Please sign in to access your seller dashboard.</p>
           <Link to="/login" className="bg-primary text-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:opacity-90 transition-opacity">Sign In</Link>
+        </main>
+        <Footer />
+      </>
+    )
+  }
+
+  if (currentUser && !currentUser.isSeller) {
+    return (
+      <>
+        <Navbar />
+        <main className="w-full max-w-[1200px] mx-auto px-6 py-16 text-center">
+          <span className="material-symbols-outlined text-5xl text-text-muted mb-4 inline-block" style={{ fontSize: 48 }}>hourglass_empty</span>
+          <h1 className="text-2xl font-bold text-text-main mb-2">Approval Pending</h1>
+          <p className="text-text-muted max-w-md mx-auto">Your seller request has been submitted. An admin will review and approve your account shortly.</p>
         </main>
         <Footer />
       </>
