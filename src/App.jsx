@@ -33,6 +33,10 @@ import Security from './pages/Security'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import CartPage from './pages/CartPage'
+import OrderConfirmation from './pages/OrderConfirmation'
+import Favorites from './pages/Favorites'
+import SellerDashboard from './pages/SellerDashboard'
 
 function Home() {
   return (
@@ -101,6 +105,10 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/order-confirmation" element={<OrderConfirmation />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/seller/dashboard" element={<SellerDashboard />} />
     </Routes>
     </>
   );

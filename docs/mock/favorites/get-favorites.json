@@ -1,0 +1,10 @@
+{
+  "endpoint": "GET /api/favorites",
+  "response": {
+    "data": [
+      { "slug": "adminpro-dashboard-template", "category": "templates", "title": "AdminPro | Dashboard Template", "price": "$49", "rating": 4.2, "seed": "adminpro" },
+      { "slug": "chatgpt-integration", "category": "integrations", "name": "ChatGPT Integration", "price": "$29", "rating": 4.5, "seed": "chatgpt-int" }
+    ],
+    "total": 2
+  }
+}

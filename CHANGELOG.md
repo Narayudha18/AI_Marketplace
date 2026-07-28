@@ -1,3 +1,37 @@
+## v7.0 — 2026-07-28
+
+### Komponen (Baru)
+- **CartPage** — Halaman cart penuh: list item dengan qty +/- , order summary, proceed to checkout [file: src/pages/CartPage.jsx]
+- **OrderConfirmation** — Halaman konfirmasi order setelah bayar sukses: order ID, items, total [file: src/pages/OrderConfirmation.jsx]
+- **Favorites** — Halaman wishlist dedicated: grid produk favorit, unfavorite button, empty state [file: src/pages/Favorites.jsx]
+- **SellerDashboard** — Dashboard penjual: stats cards, form add product, product table dengan delete [file: src/pages/SellerDashboard.jsx]
+
+### Ubah
+- **CartContext** — add `updateQty` (qty +/- di cart), `totalItems` sekarang akumulasi qty [file: src/CartContext.jsx]
+- **Navbar** — tambah icon hati link ke /favorites [file: src/components/Navbar.jsx]
+- **CartDrawer** — tambah tombol "View Cart" link ke /cart [file: src/components/CartDrawer.jsx]
+- **AuthButton** — dropdown tambah "Seller Dashboard" link [file: src/components/AuthButton.jsx]
+
+### Fitur
+- [Feat] Checkout flow — CartPage → PaymentModal → OrderConfirmation
+- [Feat] Seller Dashboard — CRUD produk sendiri (localStorage)
+- [Feat] Wishlist page — /favorites menampilkan semua produk favorit dari seluruh kategori
+
+### Routing
+- Tambah route /cart → CartPage
+- Tambah route /order-confirmation → OrderConfirmation
+- Tambah route /favorites → Favorites
+- Tambah route /seller/dashboard → SellerDashboard
+
+### Mock JSON
+- `docs/mock/cart/post-checkout.json` — endpoint baru POST /api/cart/checkout
+- `docs/mock/favorites/get-favorites.json` — endpoint baru GET /api/favorites
+- `docs/mock/seller/get-dashboard.json` — endpoint baru GET /api/seller/dashboard
+
+### Catatan
+- Reviews & Rating sudah ada di ProductDetail sejak v6.0 (tab "Review & Rating")
+- Semua data pakai localStorage, belum ada integrasi backend
+
 ## v6.1 — 2026-07-24
 
 ### Fix

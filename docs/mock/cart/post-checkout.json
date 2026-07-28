@@ -1,0 +1,19 @@
+{
+  "endpoint": "POST /api/cart/checkout",
+  "request": {
+    "items": [
+      { "slug": "adminpro-dashboard-template", "category": "templates", "qty": 1 }
+    ],
+    "payment_method": "qris"
+  },
+  "response": {
+    "success": true,
+    "order_id": "ORD-ABC123",
+    "total": "$49.00",
+    "status": "completed",
+    "date": "2026-07-28T14:00:00Z",
+    "items": [
+      { "slug": "adminpro-dashboard-template", "category": "templates", "title": "AdminPro | Dashboard Template", "price": "$49", "qty": 1 }
+    ]
+  }
+}

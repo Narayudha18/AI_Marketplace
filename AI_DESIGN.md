@@ -1,4 +1,4 @@
-# AI Agents Marketplace — Design Doc v6.0
+# AI Agents Marketplace — Design Doc v7.0
 
 ## Tech Stack
 - React 19 + Vite 8
@@ -57,6 +57,10 @@
 | `/login` | Login | Standalone login page (email/password) |
 | `/register` | Register | Standalone register page (email/password) |
 | `/profile` | Profile | User dashboard: avatar, account details, change password |
+| `/cart` | CartPage | Full shopping cart with qty +/- , order summary, checkout |
+| `/order-confirmation` | OrderConfirmation | Order success confirmation after payment |
+| `/favorites` | Favorites | Wishlist page showing all favorited products |
+| `/seller/dashboard` | SellerDashboard | Seller dashboard: stats, add product, product table |
 
 ## Component Architecture
 
@@ -77,7 +81,7 @@
 - **PaymentModal.jsx** — Payment flow: QRIS, E-Wallet (DANA, GoPay, ShopeePay, OVO, LinkAja), Bank Transfer, Convenience Store
 - **Footer.jsx** — Site footer
 - **SellerForm.jsx** — Multi-step seller registration form (Account → Store → Verification → Done), English UI
-- **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown arrow for Sign Out
+- **AuthButton.jsx** — Conditional auth UI: logged out→"Sign In" link, logged in→avatar+name link to /profile + dropdown with Seller Dashboard & Sign Out
 
 ### Page Components (`src/pages/`)
 - **Templates.jsx** — Template listing: premium navbar, banner with CTA, sub-nav pills (auto-scroll to grid), sidebar filters (search + checkboxes + price + sort), product grid with pagination ("Load more", visibleCount 6→6), auto-scroll on sub-nav & filter apply
@@ -105,6 +109,10 @@
 - **Login.jsx** — Standalone login (no navbar/footer). Email/password form. Redirects to `/` on success.
 - **Register.jsx** — Standalone register (no navbar/footer). Email/password form. Redirects to `/` on success.
 - **Profile.jsx** — User dashboard: avatar (initial), name, email, change password form.
+- **CartPage.jsx** — Full shopping cart page: item list with qty +/- , order summary, proceed to checkout → PaymentModal → OrderConfirmation. Empty state with CTA.
+- **OrderConfirmation.jsx** — Order success page: order ID, date, purchased items list, total paid. Links to profile & home.
+- **Favorites.jsx** — Wishlist page: grid of all favorited products from all 11 categories, unfavorite button (heart), empty state.
+- **SellerDashboard.jsx** — Seller dashboard (requires login): 4 stats cards (products, sales, earnings, rating), Add Product form (name, category, price, description), product table with delete.
 
 Each listing page has:
 - Premium navbar with gradient announcement bar, sticky header, dark toggle, cart, AuthButton
@@ -123,9 +131,11 @@ Each listing page has:
 - Toggle button in all navbars (`light_mode`/`dark_mode` icons)
 
 ### Cart & Checkout
-- Add/remove items, persisted in localStorage
-- CartDrawer slides in from right with item list, total, checkout button
+- Add/remove items with qty +/- , persisted in localStorage
+- CartDrawer slides in from right with item list, total, "View Cart" + "Checkout" buttons
+- CartPage (`/cart`) — full cart with item list, qty controls, order summary, proceed to checkout
 - PaymentModal with multiple payment methods (QRIS, E-Wallet, Bank Transfer, Alfamart/Indomaret)
+- OrderConfirmation (`/order-confirmation`) — success page with order ID, items, total
 - Dollar (`$`) price formatting
 
 ### Reviews & Comments
@@ -138,6 +148,7 @@ Each listing page has:
 - Heart toggle on product detail and all listing cards
 - `isFavorite()` / `toggleFavorite()` from CartContext
 - FavoriteRecommendations on homepage shows products from same data source as favorited items
+- Favorites page (`/favorites`) — dedicated wishlist grid, unfavorite button, empty state with CTA
 
 ### Search & Filter
 - Homepage search bar navigates to `/templates?search=QUERY`

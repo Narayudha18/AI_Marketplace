@@ -76,6 +76,10 @@ export default function CartDrawer({ open, onClose }) {
               <span className="text-xs text-text-muted">Total</span>
               <span className="text-sm font-bold text-text-main">{formattedTotal}</span>
             </div>
+            <Link to="/cart" onClick={onClose}
+              className="w-full block text-center border-2 border-primary text-primary py-3 rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all mb-2">
+              View Cart ({cart.length})
+            </Link>
             <button onClick={() => setPaymentOpen(true)}
               className="w-full bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
               Checkout ({cart.length})
