@@ -15,7 +15,7 @@ export default function SellerDashboard() {
 
   useEffect(() => {
     if (currentUser && !currentUser.isSeller && !currentUser.sellerRequested) requestSeller()
-  }, [])
+  }, [currentUser, requestSeller])
   const [products, setProducts] = useState(loadProducts)
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', category: 'templates', price: '', desc: '' })
