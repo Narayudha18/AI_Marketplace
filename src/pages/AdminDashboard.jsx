@@ -4,25 +4,26 @@ import { useAuth } from '../AuthContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const categoryFiles = [
-  { name: 'Templates', json: 'templates.json' },
-  { name: 'Integrations', json: 'integrations.json' },
-  { name: 'Chatbots', json: 'chatbots.json' },
-  { name: 'Automation', json: 'automation.json' },
-  { name: 'AI Tools', json: 'aitools.json' },
-  { name: 'Voice AI', json: 'voice-ai.json' },
-  { name: 'Image Gen', json: 'image-gen.json' },
-  { name: 'Analytics', json: 'analytics.json' },
-  { name: 'Fine-Tuning', json: 'fine-tuning.json' },
-  { name: 'Monitoring', json: 'monitoring.json' },
-  { name: 'Security', json: 'security.json' },
+const categoryData = [
+  { name: 'Templates', count: 38 },
+  { name: 'Integrations', count: 34 },
+  { name: 'Chatbots', count: 30 },
+  { name: 'Automation', count: 30 },
+  { name: 'AI Tools', count: 36 },
+  { name: 'Voice AI', count: 30 },
+  { name: 'Image Gen', count: 30 },
+  { name: 'Analytics', count: 30 },
+  { name: 'Fine-Tuning', count: 30 },
+  { name: 'Monitoring', count: 30 },
+  { name: 'Security', count: 30 },
 ]
 
 export default function AdminDashboard() {
   const { currentUser, becomeAdmin } = useAuth()
   const [users, setUsers] = useState([])
   const [orders, setOrders] = useState([])
-  const [activeTab, setActiveTab] = useState('users')
+  const [sellerProducts, setSellerProducts] = useState([])
+  const [activeTab, setActiveTab] = useState('sellers')
 
   useEffect(() => {
     if (currentUser && !currentUser.isAdmin) becomeAdmin()
@@ -41,7 +42,28 @@ export default function AdminDashboard() {
       const o = JSON.parse(localStorage.getItem('orders') || '[]')
       setOrders(o)
     } catch {}
+    try {
+      const sp = JSON.parse(localStorage.getItem('seller_products') || '[]')
+      setSellerProducts(sp)
+    } catch {}
   }, [])
+
+  const toggleSellerStatus = (userId) => {
+    const updated = users.map(u => u.id === userId ? { ...u, isSeller: !u.isSeller } : u)
+    setUsers(updated)
+    localStorage.setItem('auth_users', JSON.stringify(updated))
+    const user = updated.find(u => u.id === userId)
+    if (currentUser?.id === userId) {
+      const u = { ...currentUser, isSeller: user.isSeller }
+      localStorage.setItem('auth_current', JSON.stringify(u))
+    }
+  }
+
+  const deleteProduct = (id) => {
+    const updated = sellerProducts.filter(p => p.id !== id)
+    setSellerProducts(updated)
+    localStorage.setItem('seller_products', JSON.stringify(updated))
+  }
 
   if (!currentUser) {
     return (
@@ -58,11 +80,13 @@ export default function AdminDashboard() {
     )
   }
 
-  const totalProducts = 348
+  const sellers = users.filter(u => u.isSeller)
   const totalRevenue = orders.reduce((sum, o) => {
     const num = parseFloat(o.total?.replace(/[^0-9.,]/g, '').replace(/,/g, '')) || 0
     return sum + num
   }, 0)
+
+  const totalJSON = categoryData.reduce((s, c) => s + c.count, 0)
 
   return (
     <>
@@ -76,17 +100,17 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           <div className="bg-surface border border-border-light rounded-xl p-4 md:p-5">
             <div className="flex items-center gap-3 mb-2">
-              <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>people</span>
-              <p className="text-xs text-text-muted">Users</p>
+              <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>storefront</span>
+              <p className="text-xs text-text-muted">Sellers</p>
             </div>
-            <p className="text-2xl md:text-3xl font-bold text-text-main">{users.length}</p>
+            <p className="text-2xl md:text-3xl font-bold text-text-main">{sellers.length}</p>
           </div>
           <div className="bg-surface border border-border-light rounded-xl p-4 md:p-5">
             <div className="flex items-center gap-3 mb-2">
               <span className="material-symbols-outlined text-primary" style={{ fontSize: 20 }}>inventory_2</span>
               <p className="text-xs text-text-muted">Products</p>
             </div>
-            <p className="text-2xl md:text-3xl font-bold text-text-main">{totalProducts}</p>
+            <p className="text-2xl md:text-3xl font-bold text-text-main">{totalJSON + sellerProducts.length}</p>
           </div>
           <div className="bg-surface border border-border-light rounded-xl p-4 md:p-5">
             <div className="flex items-center gap-3 mb-2">
@@ -106,52 +130,110 @@ export default function AdminDashboard() {
 
         <div className="mt-6 bg-surface border border-border-light rounded-xl overflow-hidden">
           <div className="flex border-b border-border-light">
-            {['users', 'orders', 'products'].map(tab => (
-              <button key={tab} onClick={() => setActiveTab(tab)}
-                className={`flex-1 text-xs font-bold py-3.5 transition-colors cursor-pointer capitalize ${activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-text-muted hover:text-text-main'}`}>
-                {tab}
+            {[
+              { key: 'sellers', label: 'Sellers', icon: 'storefront' },
+              { key: 'products', label: 'Products', icon: 'inventory_2' },
+              { key: 'orders', label: 'Orders', icon: 'receipt_long' },
+            ].map(tab => (
+              <button key={tab.key} onClick={() => setActiveTab(tab.key)}
+                className={`flex-1 flex items-center justify-center gap-1.5 text-xs font-bold py-3.5 transition-colors cursor-pointer ${activeTab === tab.key ? 'text-primary border-b-2 border-primary' : 'text-text-muted hover:text-text-main'}`}>
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>{tab.icon}</span>
+                {tab.label}
               </button>
             ))}
           </div>
 
           <div className="p-4 md:p-6">
-            {activeTab === 'users' && (
+            {activeTab === 'sellers' && (
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
                     <tr className="text-text-muted border-b border-border-light">
-                      <th className="text-left py-2 pr-3 font-semibold">Name</th>
+                      <th className="text-left py-2 pr-3 font-semibold">Seller</th>
                       <th className="text-left py-2 pr-3 font-semibold">Email</th>
-                      <th className="text-left py-2 pr-3 font-semibold">Role</th>
+                      <th className="text-left py-2 pr-3 font-semibold">Products Listed</th>
+                      <th className="text-right py-2 font-semibold">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {users.length === 0 ? (
-                      <tr><td colSpan={3} className="py-8 text-center text-text-muted">No registered users</td></tr>
+                    {sellers.length === 0 ? (
+                      <tr><td colSpan={4} className="py-8 text-center text-text-muted">No sellers yet</td></tr>
                     ) : (
-                      users.map((u, i) => (
-                        <tr key={i} className="border-b border-border-light last:border-0">
-                          <td className="py-2.5 pr-3">
-                            <div className="flex items-center gap-2">
-                              <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-[9px] font-bold flex items-center justify-center flex-shrink-0 overflow-hidden">
-                                {u.picture ? <img src={u.picture} alt="" className="w-full h-full object-cover" /> : u.name?.[0]?.toUpperCase() || 'U'}
-                              </span>
-                              <span className="font-semibold text-text-main">{u.name}</span>
-                            </div>
-                          </td>
-                          <td className="py-2.5 pr-3 text-text-muted">{u.email}</td>
-                          <td className="py-2.5">
-                            <div className="flex gap-1">
-                              {u.isAdmin && <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold">Admin</span>}
-                              {u.isSeller && !u.isAdmin && <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">Seller</span>}
-                              {!u.isAdmin && !u.isSeller && <span className="text-[10px] bg-surface-container-high text-text-muted px-2 py-0.5 rounded-full font-bold">Buyer</span>}
-                            </div>
-                          </td>
-                        </tr>
-                      ))
+                      sellers.map((u, i) => {
+                        const productCount = sellerProducts.filter(p => p.sellerId === u.id).length
+                        return (
+                          <tr key={i} className="border-b border-border-light last:border-0">
+                            <td className="py-2.5 pr-3">
+                              <div className="flex items-center gap-2">
+                                <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-[9px] font-bold flex items-center justify-center flex-shrink-0 overflow-hidden">
+                                  {u.picture ? <img src={u.picture} alt="" className="w-full h-full object-cover" /> : u.name?.[0]?.toUpperCase() || 'U'}
+                                </span>
+                                <span className="font-semibold text-text-main">{u.name}</span>
+                              </div>
+                            </td>
+                            <td className="py-2.5 pr-3 text-text-muted">{u.email}</td>
+                            <td className="py-2.5 pr-3">{productCount} product{productCount !== 1 ? 's' : ''}</td>
+                            <td className="py-2.5 text-right">
+                              <button onClick={() => toggleSellerStatus(u.id)}
+                                className="text-[10px] text-red-500 hover:text-red-600 font-bold cursor-pointer">Revoke Seller</button>
+                            </td>
+                          </tr>
+                        )
+                      })
                     )}
                   </tbody>
                 </table>
+              </div>
+            )}
+
+            {activeTab === 'products' && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">JSON Products by Category</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {categoryData.map((cat, i) => (
+                      <div key={i} className="bg-surface-container-low rounded-xl p-3 md:p-4">
+                        <p className="text-xs font-semibold text-text-main truncate">{cat.name}</p>
+                        <p className="text-lg font-bold text-primary mt-1">{cat.count}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xs font-bold text-text-muted uppercase tracking-wider">Seller Products ({sellerProducts.length})</h3>
+                  </div>
+                  {sellerProducts.length === 0 ? (
+                    <p className="text-xs text-text-muted py-4 text-center bg-surface-container-low rounded-xl">No seller products yet</p>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="text-text-muted border-b border-border-light">
+                            <th className="text-left py-2 pr-3 font-semibold">Product</th>
+                            <th className="text-left py-2 pr-3 font-semibold">Category</th>
+                            <th className="text-left py-2 pr-3 font-semibold">Price</th>
+                            <th className="text-right py-2 font-semibold">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {sellerProducts.map((p, i) => (
+                            <tr key={i} className="border-b border-border-light last:border-0">
+                              <td className="py-2.5 pr-3 font-semibold text-text-main">{p.title}</td>
+                              <td className="py-2.5 pr-3 capitalize text-text-muted">{p.category}</td>
+                              <td className="py-2.5 pr-3 text-text-main">{p.price}</td>
+                              <td className="py-2.5 text-right">
+                                <button onClick={() => deleteProduct(p.id)}
+                                  className="text-[10px] text-red-500 hover:text-red-600 font-bold cursor-pointer">Delete</button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 
@@ -183,23 +265,6 @@ export default function AdminDashboard() {
                     )}
                   </tbody>
                 </table>
-              </div>
-            )}
-
-            {activeTab === 'products' && (
-              <div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {categoryFiles.map((cat, i) => (
-                    <div key={i} className="bg-surface-container-low rounded-xl p-3 md:p-4">
-                      <p className="text-xs font-semibold text-text-main truncate">{cat.name}</p>
-                      <p className="text-lg font-bold text-primary mt-1">{cat.json === 'templates.json' ? 38 : cat.json === 'aitools.json' ? 36 : cat.json === 'integrations.json' ? 34 : 30}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 bg-surface-container-low rounded-xl p-4 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-text-main">Total All Categories</span>
-                  <span className="text-lg font-bold text-primary">{totalProducts}</span>
-                </div>
               </div>
             )}
           </div>
