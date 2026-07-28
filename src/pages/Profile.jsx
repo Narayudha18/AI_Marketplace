@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import AvatarCropModal from '../components/AvatarCropModal'
 
 export default function Profile() {
   const { currentUser, updatePicture } = useAuth()
   const fileRef = useRef(null)
   const [orders, setOrders] = useState([])
   const [expandedOrder, setExpandedOrder] = useState(null)
+  const [cropImage, setCropImage] = useState(null)
 
   useEffect(() => {
     try {
@@ -43,8 +45,14 @@ export default function Profile() {
     const file = e.target.files?.[0]
     if (!file) return
     const reader = new FileReader()
-    reader.onload = (ev) => updatePicture(ev.target.result)
+    reader.onload = (ev) => setCropImage(ev.target.result)
     reader.readAsDataURL(file)
+    e.target.value = ''
+  }
+
+  const handleCropSave = (cropped) => {
+    updatePicture(cropped)
+    setCropImage(null)
   }
 
   const toggleOrder = (id) => {
@@ -160,6 +168,9 @@ export default function Profile() {
         </div>
       </main>
       <Footer />
+      {cropImage && (
+        <AvatarCropModal image={cropImage} onCancel={() => setCropImage(null)} onSave={handleCropSave} />
+      )}
     </>
   )
 }
