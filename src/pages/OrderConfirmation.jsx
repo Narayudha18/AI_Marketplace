@@ -65,8 +65,8 @@ export default function OrderConfirmation() {
                   <span className="text-xs font-semibold text-text-main">QRIS</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-text-muted">Email</span>
-                  <span className="text-xs font-semibold text-text-main">buyer@example.com</span>
+                  <span className="text-xs text-text-muted">Payment Method</span>
+                  <span className="text-xs font-semibold text-text-main capitalize">{(order.paymentMethod || 'qris').replace(/-/g, ' ')}</span>
                 </div>
               </div>
             </div>

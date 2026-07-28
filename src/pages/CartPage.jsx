@@ -22,13 +22,14 @@ export default function CartPage() {
   const subtotal = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0)
   const formattedSubtotal = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
-  const handlePaymentSuccess = () => {
+  const handlePaymentSuccess = (method) => {
     cart.forEach(item => markAsPurchased(item.slug, item.category))
     const orderData = {
       items: [...cart],
       total: formattedSubtotal,
       date: (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` })(),
       orderId: 'ORD-' + Date.now().toString(36).toUpperCase(),
+      paymentMethod: method,
     }
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
     clearCart()
