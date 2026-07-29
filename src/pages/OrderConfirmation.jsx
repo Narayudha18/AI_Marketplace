@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../AuthContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export default function OrderConfirmation() {
+  const { currentUser } = useAuth()
   const [order, setOrder] = useState(null)
 
   useEffect(() => {
-    const saved = localStorage.getItem('lastOrder')
+    if (!currentUser) return
+    const saved = localStorage.getItem('lastOrder_' + currentUser.id)
     if (saved) {
       try { setOrder(JSON.parse(saved)) } catch {}
     }
-  }, [])
+  }, [currentUser])
 
   const copyOrderId = () => {
     if (order) {

@@ -34,7 +34,19 @@ export default function AdminDashboard() {
   const [expandedOrder, setExpandedOrder] = useState(null)
 
   const readUsers = () => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({ ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false })) } catch { return [] } }
-  const readOrders = () => { try { return JSON.parse(localStorage.getItem('orders') || '[]') } catch { return [] } }
+  const readOrders = () => {
+    try {
+      const all = []
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key?.startsWith('orders_')) {
+          const data = JSON.parse(localStorage.getItem(key))
+          if (Array.isArray(data)) data.forEach(o => all.push(o))
+        }
+      }
+      return all
+    } catch { return [] }
+  }
   const readOrderStatuses = () => { try { return JSON.parse(localStorage.getItem('order_statuses') || '{}') } catch { return {} } }
   const readSellerProducts = () => { try { return JSON.parse(localStorage.getItem('seller_products') || '[]') } catch { return [] } }
   const readReviews = () => {

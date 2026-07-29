@@ -13,11 +13,12 @@ export default function Profile() {
   const [cropImage, setCropImage] = useState(null)
 
   useEffect(() => {
+    if (!currentUser) return
     try {
-      const saved = JSON.parse(localStorage.getItem('orders') || '[]')
+      const saved = JSON.parse(localStorage.getItem('orders_' + currentUser.id) || '[]')
       setOrders(saved)
     } catch {}
-  }, [])
+  }, [currentUser])
 
   if (!currentUser) {
     return (

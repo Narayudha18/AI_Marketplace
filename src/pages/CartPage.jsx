@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { useAuth } from '../AuthContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PaymentModal from '../components/PaymentModal'
@@ -11,6 +12,7 @@ function toSlug(str) {
 
 export default function CartPage() {
   const { cart, updateQty, removeFromCart, clearCart, markAsPurchased } = useCart()
+  const { currentUser } = useAuth()
   const navigate = useNavigate()
   const [paymentOpen, setPaymentOpen] = useState(false)
 
@@ -23,6 +25,7 @@ export default function CartPage() {
   const formattedSubtotal = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
   const handlePaymentSuccess = (method) => {
+    if (!currentUser) return
     cart.forEach(item => markAsPurchased(item.slug, item.category))
     const orderData = {
       items: [...cart],
@@ -30,10 +33,12 @@ export default function CartPage() {
       date: (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` })(),
       orderId: 'ORD-' + Date.now().toString(36).toUpperCase(),
       paymentMethod: method,
+      userId: currentUser.id,
     }
-    localStorage.setItem('lastOrder', JSON.stringify(orderData))
-    const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]')
-    localStorage.setItem('orders', JSON.stringify([orderData, ...existingOrders]))
+    const uid = currentUser.id
+    localStorage.setItem('lastOrder_' + uid, JSON.stringify(orderData))
+    const existingOrders = JSON.parse(localStorage.getItem('orders_' + uid) || '[]')
+    localStorage.setItem('orders_' + uid, JSON.stringify([orderData, ...existingOrders]))
     clearCart()
     setPaymentOpen(false)
     navigate('/order-confirmation')

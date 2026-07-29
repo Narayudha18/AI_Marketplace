@@ -31,7 +31,17 @@ export default function SellerDashboard() {
   }, [currentUser, requestSeller])
 
   useEffect(() => {
-    try { setOrders(JSON.parse(localStorage.getItem('orders') || '[]')) } catch {}
+    try {
+      const all = []
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key?.startsWith('orders_')) {
+          const data = JSON.parse(localStorage.getItem(key))
+          if (Array.isArray(data)) data.forEach(o => all.push(o))
+        }
+      }
+      setOrders(all)
+    } catch {}
   }, [])
 
   const saveProducts = (updated) => {
