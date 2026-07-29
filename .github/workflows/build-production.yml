@@ -11,6 +11,7 @@ on:
       - 'vite.config.js'
       - 'index.html'
       - '.github/workflows/build-production.yml'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
