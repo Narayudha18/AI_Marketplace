@@ -172,6 +172,7 @@ export default function ProductDetail() {
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const { currentUser } = useAuth()
   const [cartOpen, setCartOpen] = useState(false)
+  const [loginToast, setLoginToast] = useState(false)
   const { dark, toggle } = useTheme()
   const [activeTab, setActiveTab] = useState('product')
   const reviewKey = `reviews_${category}_${slug}`
@@ -412,7 +413,7 @@ export default function ProductDetail() {
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>visibility</span>
                   Live Preview
                 </button>
-                <button onClick={() => { if (!currentUser) { navigate('/login'); return }; addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
+                <button onClick={() => { if (!currentUser) { setLoginToast(true); setTimeout(() => navigate('/login'), 1500); return }; addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                   Add to Cart
                 </button>
@@ -716,6 +717,15 @@ export default function ProductDetail() {
 
       </footer>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      {loginToast && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[999] bg-[#1a1a2e] text-white px-6 py-3.5 rounded-xl shadow-2xl border border-[#2a2a4e] flex items-center gap-3 animate-fade-in">
+          <span className="material-symbols-outlined text-[#f59e0b]" style={{ fontSize: 20 }}>info</span>
+          <span className="text-sm font-medium">Anda belum login, silakan login terlebih dahulu!</span>
+          <button onClick={() => setLoginToast(false)} className="ml-2 text-white/60 hover:text-white cursor-pointer">
+            <span className="material-symbols-outlined" style={{ fontSize: 18 }}>close</span>
+          </button>
+        </div>
+      )}
     </>
   );
 }
