@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
@@ -169,6 +170,7 @@ export default function ProductDetail() {
   const relatedItems = config.getRelated(item)
 
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
+  const { currentUser } = useAuth()
   const [cartOpen, setCartOpen] = useState(false)
   const { dark, toggle } = useTheme()
   const [activeTab, setActiveTab] = useState('product')
@@ -410,7 +412,7 @@ export default function ProductDetail() {
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>visibility</span>
                   Live Preview
                 </button>
-                <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
+                <button onClick={() => { if (!currentUser) { navigate('/login'); return }; addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                   Add to Cart
                 </button>
