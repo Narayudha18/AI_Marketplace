@@ -26,9 +26,14 @@ export function CartProvider({ children }) {
   const addToCart = (item) => {
     setCart(prev => {
       const exists = prev.find(i => i.slug === item.slug && i.category === item.category)
-      if (exists) return prev
-      return [...prev, { ...item, qty: 1 }]
+      if (exists) return prev.map(i => i.slug === item.slug && i.category === item.category ? { ...i, qty: i.qty + (item.qty || 1) } : i)
+      return [...prev, { ...item, qty: item.qty || 1 }]
     })
+  }
+
+  const updateQty = (slug, category, qty) => {
+    if (qty < 1) return removeFromCart(slug, category)
+    setCart(prev => prev.map(i => i.slug === slug && i.category === category ? { ...i, qty } : i))
   }
 
   const removeFromCart = (slug, category) => {
@@ -53,7 +58,7 @@ export function CartProvider({ children }) {
     return purchased.some(p => p.slug === slug && p.category === category)
   }
 
-  const totalItems = cart.length
+  const totalItems = cart.reduce((sum, i) => sum + i.qty, 0)
 
   const toggleFavorite = (slug, category) => {
     setFavorites(prev => {
@@ -73,7 +78,7 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, markAsPurchased, inCart, hasPurchased, totalItems, favorites, toggleFavorite, isFavorite, getFavoriteCategories }}>
+    <CartContext.Provider value={{ cart, addToCart, updateQty, removeFromCart, clearCart, markAsPurchased, inCart, hasPurchased, totalItems, favorites, toggleFavorite, isFavorite, getFavoriteCategories }}>
       {children}
     </CartContext.Provider>
   )

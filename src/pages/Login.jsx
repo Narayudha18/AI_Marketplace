@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault()
     setError('')
     const result = login(email, password)
-    if (result.ok) navigate('/')
+    if (result.ok) navigate(result.isAdmin ? '/admin/dashboard' : '/')
     else setError(result.error)
   }
 

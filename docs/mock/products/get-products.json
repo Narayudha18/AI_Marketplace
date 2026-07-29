@@ -1,0 +1,10 @@
+{
+  "endpoint": "GET /api/products?category=templates&page=1&sort=best-sellers",
+  "response": {
+    "data": [
+      { "slug": "adminpro-dashboard-template", "title": "AdminPro | Dashboard Template", "author": "CodeCraft", "category": "Admin", "price": "$49", "sales": "1.2k Sales", "seed": "adminpro", "rating": 4.2, "reviews": [{ "name": "Emma Wilson", "text": "Great template!", "rating": 5, "date": "2026-04-11" }] },
+      { "slug": "saas-dashboard-pro", "title": "SaaS Dashboard Pro", "author": "DevForge", "category": "Dashboard", "price": "$69", "sales": "856 Sales", "seed": "saaspro", "rating": 4.5, "reviews": [] }
+    ],
+    "pagination": { "page": 1, "per_page": 20, "total": 42 }
+  }
+}

@@ -1,32 +1,1178 @@
 [
-  { "title": "ModelWatch | LLM Performance Monitor", "author": "observeai", "category": "LLM Monitoring", "price": "$79", "sales": "567 Sales", "seed": "modelwatch" },
-  { "title": "TraceMind | Inference Log Analyzer", "author": "logilabs", "category": "LLM Monitoring", "price": "$59", "sales": "423 Sales", "seed": "tracemind" },
-  { "title": "CostVue | AI Spend Tracker", "author": "financelab", "category": "Cost Tracking", "price": "$49", "sales": "1.1k Sales", "seed": "costvue" },
-  { "title": "TokenBudget | Usage & Cost Dashboard", "author": "pricelens", "category": "Cost Tracking", "price": "$34", "sales": "2.3k Sales", "seed": "tokenbudget" },
-  { "title": "LogStream | AI Inference Logger", "author": "streamcore", "category": "Logging", "price": "$44", "sales": "789 Sales", "seed": "logstream" },
-  { "title": "PromptLog | Prompt History Recorder", "author": "audittrail", "category": "Logging", "price": "$29", "sales": "1.5k Sales", "seed": "promptlog" },
-  { "title": "AlertCortex | Anomaly Detection Alert", "author": "pulseguard", "category": "Alerting", "price": "$69", "sales": "345 Sales", "seed": "alertcortex" },
-  { "title": "NotifyAI | Smart Incident Response", "author": "oncallmind", "category": "Alerting", "price": "$89", "sales": "234 Sales", "seed": "notifyai" },
-  { "title": "LatencyWatch | Response Time Analyzer", "author": "speedlabs", "category": "LLM Monitoring", "price": "$54", "sales": "678 Sales", "seed": "latencywatch" },
-  { "title": "ModelHealth | Uptime & Availability Tracker", "author": "reliablabs", "category": "LLM Monitoring", "price": "$69", "sales": "456 Sales", "seed": "modelhealth" },
-  { "title": "CostOptimizer | AI Budget Recommender", "author": "spendwise", "category": "Cost Tracking", "price": "$39", "sales": "1.2k Sales", "seed": "costoptimizer" },
-  { "title": "RateLimitPro | API Rate Monitor", "author": "throttleix", "category": "Cost Tracking", "price": "$29", "sales": "1.8k Sales", "seed": "ratelimitpro" },
-  { "title": "AuditStream | Full Inference Audit Trail", "author": "forensiclab", "category": "Logging", "price": "$79", "sales": "312 Sales", "seed": "auditstream" },
-  { "title": "LogExplorer | Interactive Log Search", "author": "searchlabs", "category": "Logging", "price": "$34", "sales": "987 Sales", "seed": "logexplorer" },
-  { "title": "AlertRouter | Intelligent Alert Routing", "author": "dispatchix", "category": "Alerting", "price": "$59", "sales": "567 Sales", "seed": "alertrouter" },
-  { "title": "PagerAI | On-call Schedule Manager", "author": "squadops", "category": "Alerting", "price": "$44", "sales": "723 Sales", "seed": "pagerai" },
-  { "title": "DataDrift | Input Distribution Monitor", "author": "driflabs", "category": "LLM Monitoring", "price": "$64", "sales": "234 Sales", "seed": "datadrift" },
-  { "title": "BiasMonitor | Model Bias Tracker", "author": "fairwatch", "category": "LLM Monitoring", "price": "$89", "sales": "178 Sales", "seed": "biasmonitor" },
-  { "title": "TokenForecast | Usage Prediction Engine", "author": "predixai", "category": "Cost Tracking", "price": "$49", "sales": "534 Sales", "seed": "tokenforecast" },
-  { "title": "BillSplit | Multi-team Cost Allocation", "author": "costshare", "category": "Cost Tracking", "price": "$24", "sales": "1.3k Sales", "seed": "billsplit" },
-  { "title": "LogRetention | Auto Log Archival Manager", "author": "storagelab", "category": "Logging", "price": "$19", "sales": "1.6k Sales", "seed": "logretention" },
-  { "title": "EventStream | Real-time Event Pipeline", "author": "eventcore", "category": "Logging", "price": "$74", "sales": "345 Sales", "seed": "eventstream" },
-  { "title": "AlertDashboard | Unified Alert Console", "author": "dashalert", "category": "Alerting", "price": "$39", "sales": "867 Sales", "seed": "alertdashboard" },
-  { "title": "SlackAlert | AI Alert to Slack Integration", "author": "notifibot", "category": "Alerting", "price": "$19", "sales": "2.1k Sales", "seed": "slackalert" },
-  { "title": "SemanticMonitor | Output Quality Checker", "author": "qualityai", "category": "LLM Monitoring", "price": "$99", "sales": "123 Sales", "seed": "semanticmonitor" },
-  { "title": "CacheWatch | LLM Cache Hit Ratio Monitor", "author": "cachelabs", "category": "LLM Monitoring", "price": "$34", "sales": "456 Sales", "seed": "cachewatch" },
-  { "title": "BudgetAlert | Spend Threshold Notifier", "author": "capwatch", "category": "Cost Tracking", "price": "$14", "sales": "2.8k Sales", "seed": "budgetalert" },
-  { "title": "LogRotate | Managed Log Lifecycle", "author": "cleanlogs", "category": "Logging", "price": "$24", "sales": "1.1k Sales", "seed": "logrotate" },
-  { "title": "EscalateAI | Auto Escalation Workflow", "author": "raiseix", "category": "Alerting", "price": "$69", "sales": "234 Sales", "seed": "escalateai" },
-  { "title": "PerformanceDash | Real-time Metrics Board", "author": "metrichub", "category": "LLM Monitoring", "price": "$59", "sales": "678 Sales", "seed": "performancedash" }
+    {
+        "title":  "ModelWatch | LLM Performance Monitor",
+        "author":  "observeai",
+        "category":  "LLM Monitoring",
+        "price":  "$79",
+        "sales":  "567 Sales",
+        "seed":  "modelwatch",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "TraceMind | Inference Log Analyzer",
+        "author":  "logilabs",
+        "category":  "LLM Monitoring",
+        "price":  "$59",
+        "sales":  "423 Sales",
+        "seed":  "tracemind",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "CostVue | AI Spend Tracker",
+        "author":  "financelab",
+        "category":  "Cost Tracking",
+        "price":  "$49",
+        "sales":  "1.1k Sales",
+        "seed":  "costvue",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "TokenBudget | Usage \u0026 Cost Dashboard",
+        "author":  "pricelens",
+        "category":  "Cost Tracking",
+        "price":  "$34",
+        "sales":  "2.3k Sales",
+        "seed":  "tokenbudget",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "LogStream | AI Inference Logger",
+        "author":  "streamcore",
+        "category":  "Logging",
+        "price":  "$44",
+        "sales":  "789 Sales",
+        "seed":  "logstream",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "PromptLog | Prompt History Recorder",
+        "author":  "audittrail",
+        "category":  "Logging",
+        "price":  "$29",
+        "sales":  "1.5k Sales",
+        "seed":  "promptlog",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "AlertCortex | Anomaly Detection Alert",
+        "author":  "pulseguard",
+        "category":  "Alerting",
+        "price":  "$69",
+        "sales":  "345 Sales",
+        "seed":  "alertcortex",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "NotifyAI | Smart Incident Response",
+        "author":  "oncallmind",
+        "category":  "Alerting",
+        "price":  "$89",
+        "sales":  "234 Sales",
+        "seed":  "notifyai",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "LatencyWatch | Response Time Analyzer",
+        "author":  "speedlabs",
+        "category":  "LLM Monitoring",
+        "price":  "$54",
+        "sales":  "678 Sales",
+        "seed":  "latencywatch",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "ModelHealth | Uptime \u0026 Availability Tracker",
+        "author":  "reliablabs",
+        "category":  "LLM Monitoring",
+        "price":  "$69",
+        "sales":  "456 Sales",
+        "seed":  "modelhealth",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "CostOptimizer | AI Budget Recommender",
+        "author":  "spendwise",
+        "category":  "Cost Tracking",
+        "price":  "$39",
+        "sales":  "1.2k Sales",
+        "seed":  "costoptimizer",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "RateLimitPro | API Rate Monitor",
+        "author":  "throttleix",
+        "category":  "Cost Tracking",
+        "price":  "$29",
+        "sales":  "1.8k Sales",
+        "seed":  "ratelimitpro",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AuditStream | Full Inference Audit Trail",
+        "author":  "forensiclab",
+        "category":  "Logging",
+        "price":  "$79",
+        "sales":  "312 Sales",
+        "seed":  "auditstream",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "LogExplorer | Interactive Log Search",
+        "author":  "searchlabs",
+        "category":  "Logging",
+        "price":  "$34",
+        "sales":  "987 Sales",
+        "seed":  "logexplorer",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "AlertRouter | Intelligent Alert Routing",
+        "author":  "dispatchix",
+        "category":  "Alerting",
+        "price":  "$59",
+        "sales":  "567 Sales",
+        "seed":  "alertrouter",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PagerAI | On-call Schedule Manager",
+        "author":  "squadops",
+        "category":  "Alerting",
+        "price":  "$44",
+        "sales":  "723 Sales",
+        "seed":  "pagerai",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "DataDrift | Input Distribution Monitor",
+        "author":  "driflabs",
+        "category":  "LLM Monitoring",
+        "price":  "$64",
+        "sales":  "234 Sales",
+        "seed":  "datadrift",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "BiasMonitor | Model Bias Tracker",
+        "author":  "fairwatch",
+        "category":  "LLM Monitoring",
+        "price":  "$89",
+        "sales":  "178 Sales",
+        "seed":  "biasmonitor",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "TokenForecast | Usage Prediction Engine",
+        "author":  "predixai",
+        "category":  "Cost Tracking",
+        "price":  "$49",
+        "sales":  "534 Sales",
+        "seed":  "tokenforecast",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "BillSplit | Multi-team Cost Allocation",
+        "author":  "costshare",
+        "category":  "Cost Tracking",
+        "price":  "$24",
+        "sales":  "1.3k Sales",
+        "seed":  "billsplit",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "LogRetention | Auto Log Archival Manager",
+        "author":  "storagelab",
+        "category":  "Logging",
+        "price":  "$19",
+        "sales":  "1.6k Sales",
+        "seed":  "logretention",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "EventStream | Real-time Event Pipeline",
+        "author":  "eventcore",
+        "category":  "Logging",
+        "price":  "$74",
+        "sales":  "345 Sales",
+        "seed":  "eventstream",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AlertDashboard | Unified Alert Console",
+        "author":  "dashalert",
+        "category":  "Alerting",
+        "price":  "$39",
+        "sales":  "867 Sales",
+        "seed":  "alertdashboard",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "SlackAlert | AI Alert to Slack Integration",
+        "author":  "notifibot",
+        "category":  "Alerting",
+        "price":  "$19",
+        "sales":  "2.1k Sales",
+        "seed":  "slackalert",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "SemanticMonitor | Output Quality Checker",
+        "author":  "qualityai",
+        "category":  "LLM Monitoring",
+        "price":  "$99",
+        "sales":  "123 Sales",
+        "seed":  "semanticmonitor",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "CacheWatch | LLM Cache Hit Ratio Monitor",
+        "author":  "cachelabs",
+        "category":  "LLM Monitoring",
+        "price":  "$34",
+        "sales":  "456 Sales",
+        "seed":  "cachewatch",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "BudgetAlert | Spend Threshold Notifier",
+        "author":  "capwatch",
+        "category":  "Cost Tracking",
+        "price":  "$14",
+        "sales":  "2.8k Sales",
+        "seed":  "budgetalert",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "LogRotate | Managed Log Lifecycle",
+        "author":  "cleanlogs",
+        "category":  "Logging",
+        "price":  "$24",
+        "sales":  "1.1k Sales",
+        "seed":  "logrotate",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "EscalateAI | Auto Escalation Workflow",
+        "author":  "raiseix",
+        "category":  "Alerting",
+        "price":  "$69",
+        "sales":  "234 Sales",
+        "seed":  "escalateai",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "PerformanceDash | Real-time Metrics Board",
+        "author":  "metrichub",
+        "category":  "LLM Monitoring",
+        "price":  "$59",
+        "sales":  "678 Sales",
+        "seed":  "performancedash",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    }
 ]

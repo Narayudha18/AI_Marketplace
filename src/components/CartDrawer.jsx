@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
-import PaymentModal from './PaymentModal'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
 export default function CartDrawer({ open, onClose }) {
-  const { cart, removeFromCart, clearCart, markAsPurchased } = useCart()
-  const [paymentOpen, setPaymentOpen] = useState(false)
+  const { cart, removeFromCart } = useCart()
 
   useEffect(() => {
     if (open) {
@@ -76,14 +74,13 @@ export default function CartDrawer({ open, onClose }) {
               <span className="text-xs text-text-muted">Total</span>
               <span className="text-sm font-bold text-text-main">{formattedTotal}</span>
             </div>
-            <button onClick={() => setPaymentOpen(true)}
-              className="w-full bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer">
-              Checkout ({cart.length})
-            </button>
+            <Link to="/cart" onClick={onClose}
+              className="w-full block text-center bg-primary text-surface py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
+              View Cart ({cart.length})
+            </Link>
           </div>
         )}
       </div>
-      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedTotal} cart={cart} onSuccess={() => { cart.forEach(item => markAsPurchased(item.slug, item.category)); clearCart(); onClose(); setPaymentOpen(false) }} />
     </>
   )
 }

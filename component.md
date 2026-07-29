@@ -15,7 +15,7 @@
 |---|---|---|---|---|---|---|---|
 | Semua Halaman | **App** | `src/App.jsx` | — | — | Route rendering | — | — |
 | Semua Halaman | **CartProvider** | `src/CartContext.jsx` | `children` | `cart`, `purchased`, `favorites` (all localStorage) | `addToCart`, `removeFromCart`, `clearCart`, `markAsPurchased`, `inCart`, `hasPurchased`, `toggleFavorite`, `isFavorite`, `getFavoriteCategories` | `carts`, `purchases`, `favorites` | `GET/POST /api/cart`, `POST /api/orders`, `GET/POST /api/favorites` |
-| Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (in-memory only) | `register`, `login`, `logout`, `updatePassword`, `updatePicture` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
+| Semua Halaman | **AuthProvider** | `src/AuthContext.jsx` | `children` | `users[]`, `currentUser` (localStorage `auth_users` + `auth_current`) | `register`, `login`, `logout`, `updatePassword`, `updatePicture`, `requestSeller`, `becomeAdmin` | `users` | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me` |
 | Semua Halaman | **ThemeProvider** | `src/ThemeContext.jsx` | `children` | `dark` (localStorage + prefers-color-scheme) | `toggle` → toggle dark mode | — | — |
 | Semua Halaman | **Navbar** | `src/components/Navbar.jsx` | — | `cartOpen` | `setCartOpen(true)` → buka CartDrawer | `categories` (static) | `GET /api/categories` |
 | Semua Halaman | **AuthButton** | `src/components/AuthButton.jsx` | — | `open` (dropdown) | Logged out→Link to /login, logged in→Link to /profile + dropdown Sign Out | — | — |
@@ -66,7 +66,12 @@
 | Listing Page | **Security** | `src/pages/Security.jsx` | — | `sidebarSearch`, `appliedSidebar`, `cartOpen` | `applyFilters`, `toggleFavorite` | `products (type='security')` | `GET /api/products/security` |
 | Auth Page | **Login** | `src/pages/Login.jsx` | — | `email`, `password`, `error` | `handleSubmit` → `login()` from AuthContext, redirect `/` | `users` | `POST /api/auth/login` |
 | Auth Page | **Register** | `src/pages/Register.jsx` | — | `name`, `email`, `password`, `confirm`, `error` | `handleSubmit` → `register()` from AuthContext, redirect `/` | `users` | `POST /api/auth/register` |
-| Auth Page | **Profile** | `src/pages/Profile.jsx` | — | `currentPw`, `newPw`, `confirmPw`, `pwMsg` | `updatePassword`, `updatePicture`, stats from CartContext | `users` | `GET /api/auth/me`, `PUT /api/auth/password`, `PUT /api/auth/picture` |
+| Auth Page | **Profile** | `src/pages/Profile.jsx` | — | `orders[]`, `expandedOrder` | avatar upload, order history expandable; stats dari localStorage orders array | `users`, `orders` | `GET /api/auth/me`, `PUT /api/auth/picture`, `GET /api/user/orders` |
+| Cart Page | **CartPage** | `src/pages/CartPage.jsx` | — | `paymentOpen` | `updateQty`, `removeFromCart`, `clearCart`, `markAsPurchased`; navigate to OrderConfirmation | `carts`, `orders` | `GET/POST /api/cart`, `POST /api/orders` |
+| Order Confirmation | **OrderConfirmation** | `src/pages/OrderConfirmation.jsx` | — | `order` (from localStorage) | — | `orders` | `GET /api/orders/:id` |
+| Wishlist Page | **Favorites** | `src/pages/Favorites.jsx` | — | — | `toggleFavorite`; cross-category lookup from all 11 JSON files | `favorites` | `GET /api/favorites`, `DELETE /api/favorites` |
+| Seller Dashboard | **SellerDashboard** | `src/pages/SellerDashboard.jsx` | — | `products[]`, `showForm`, `form{}`, `activeTab`, `expandedOrder`, `orders[]` | `addProduct`, `deleteProduct`, `requestSeller`; localStorage CRUD | `seller_products`, `orders` | `GET /api/seller/dashboard`, `POST /api/seller/products`, `DELETE /api/seller/products/:id` |
+| Admin Panel | **AdminDashboard** | `src/pages/AdminDashboard.jsx` | — | `users[]`, `orders[]`, `sellerProducts[]`, `allReviews[]`, `activeTab`, `expandedOrder` | `approveSeller`, `rejectSeller`, `deleteUser`, `toggleSellerStatus`, `deleteProduct`, `updateOrderStatus`, `deleteReview` | `auth_users`, `orders`, `seller_products`, `reviews_*` | `GET /api/admin/dashboard`, `GET /api/admin/users`, `GET /api/admin/sellers`, `GET /api/admin/orders`, `GET /api/admin/reviews` |
 
 ### 1.5. Halaman Detail & Kategori
 
@@ -92,7 +97,8 @@
 
 | Method | Parameters | Return | Description |
 |---|---|---|---|
-| `addToCart(item)` | `{ slug, category, title?, name?, price?, seed? }` | `void` | Add item (prevents duplicate by slug+category) |
+| `addToCart(item)` | `{ slug, category, title?, name?, price?, seed?, qty? }` | `void` | Add item (if exists, increments qty; if not, adds with qty) |
+| `updateQty(slug, category, qty)` | `string, string, number` | `void` | Update item quantity (removes if < 1) |
 | `removeFromCart(slug, category)` | `string, string` | `void` | Remove item from cart |
 | `clearCart()` | — | `void` | Empty cart |
 | `markAsPurchased(slug, category)` | `string, string` | `void` | Mark item as purchased |
@@ -101,7 +107,7 @@
 | `toggleFavorite(slug, category)` | `string, string` | `void` | Toggle favorite status |
 | `isFavorite(slug, category)` | `string, string` | `boolean` | Check if item is favorited |
 | `getFavoriteCategories()` | — | `string[]` | Get unique categories of favorites |
-| `totalItems` | — | `number` (computed) | Total cart count |
+| `totalItems` | — | `number` (computed) | Total cart count (sum of qty) |
 
 ---
 
@@ -310,6 +316,26 @@ App.jsx (Routes)
 │   ├── Product grid with "Load more"
 │   └── Auto-scroll on filter apply (productRef)
 │
+├── CartPage (/cart)
+│   ├── Cart item list with qty +/- controls
+│   ├── Order summary sidebar
+│   └── PaymentModal → OrderConfirmation
+│
+├── OrderConfirmation (/order-confirmation)
+│   ├── Order ID + date header
+│   ├── Purchased items list
+│   └── Total paid
+│
+├── Favorites (/favorites)
+│   ├── Product grid from all 11 categories
+│   ├── Favorite toggle (heart button)
+│   └── Empty state with CTA
+│
+├── SellerDashboard (/seller/dashboard)
+│   ├── 4 stats cards
+│   ├── Add Product form (toggle)
+│   └── Product table with delete
+│
 └── ThemeProvider (wraps entire app in main.jsx)
     └── Toggle button in all navbars
 ```
@@ -323,6 +349,9 @@ App.jsx (Routes)
 | Method | Path | Description | Body |
 |---|---|---|---|
 | `POST` | `/api/seller/register` | Register as seller | `{ fullName, email, phone, storeName, category, identityType, identityNumber, bankName, bankAccount }` |
+| `GET` | `/api/seller/dashboard` | Seller dashboard stats + products | — |
+| `POST` | `/api/seller/products` | Add seller product | `{ title, category, price, desc }` |
+| `DELETE` | `/api/seller/products/:id` | Delete seller product | — |
 
 ### 5.1. Products
 
@@ -355,6 +384,7 @@ App.jsx (Routes)
 
 | Method | Path | Description | Body |
 |---|---|---|---|
+| `POST` | `/api/cart/checkout` | Checkout cart | `{ items[], payment_method }` |
 | `POST` | `/api/orders` | Create order | `{ items[], payment_method }` |
 | `GET` | `/api/orders/:id` | Order detail | — |
 | `POST` | `/api/payments` | Process payment | `{ order_id, method }` |
@@ -372,9 +402,9 @@ App.jsx (Routes)
 
 | Method | Path | Description |
 |---|---|---|
-| `GET` | `/api/favorites` | Get user favorites |
+| `GET` | `/api/favorites` | Get user favorites (with full product data) |
 | `POST` | `/api/favorites` | Add favorite |
-| `DELETE` | `/api/favorites/:id` | Remove favorite |
+| `DELETE` | `/api/favorites` | Remove favorite (by slug + category) |
 
 ### 5.7. Auth
 
@@ -423,7 +453,11 @@ App.jsx (Routes)
 | `/:category/:slug/preview` | ProductGallery | Gallery: 30 screenshots + 4 demo videos |
 | `/login` | Login | Login (standalone, tanpa navbar/footer) |
 | `/register` | Register | Register (standalone, tanpa navbar/footer) |
-| `/profile` | Profile | Dashboard user (harus login) |
+| `/profile` | Profile | Shopee-style profile: avatar upload, stats cards, order history (harus login) |
+| `/cart` | CartPage | Full shopping cart dengan qty +/- |
+| `/order-confirmation` | OrderConfirmation | Konfirmasi order sukses |
+| `/favorites` | Favorites | Wishlist / produk favorit |
+| `/seller/dashboard` | SellerDashboard | Dashboard penjual (harus login) |
 
 ---
 

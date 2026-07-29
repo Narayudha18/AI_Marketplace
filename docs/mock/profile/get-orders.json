@@ -1,0 +1,31 @@
+{
+  "endpoint": "GET /api/user/orders",
+  "response": {
+    "orders": [
+      {
+        "orderId": "ORD-A2XK9F",
+        "date": "2026-07-28 15:30",
+        "total": "$159.97",
+        "paymentMethod": "dana",
+        "items": [
+          { "title": "AI Chatbot Template", "price": "$49.99", "qty": 2, "seed": "abc", "slug": "ai-chatbot", "category": "templates" },
+          { "title": "GPT Integration", "price": "$59.99", "qty": 1, "seed": "def", "slug": "gpt-integration", "category": "templates" }
+        ]
+      },
+      {
+        "orderId": "ORD-B3YQ0G",
+        "date": "2026-07-27 10:15",
+        "total": "$89.99",
+        "paymentMethod": "bca",
+        "items": [
+          { "title": "Voice Assistant", "price": "$89.99", "qty": 1, "seed": "ghi", "slug": "voice-assistant", "category": "voice-ai" }
+        ]
+      }
+    ],
+    "stats": {
+      "totalOrders": 2,
+      "totalItems": 4,
+      "totalSpent": 249.96
+    }
+  }
+}

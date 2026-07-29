@@ -1,32 +1,1208 @@
 [
-  { "title": "MetricVue | Executive Dashboard", "author": "datavision", "category": "Dashboards", "price": "$69", "sales": "1.9k Sales", "seed": "metricvue" },
-  { "title": "InsightBoard | KPI Tracker", "author": "analytixlab", "category": "Dashboards", "price": "$49", "sales": "2.4k Sales", "seed": "insightboard" },
-  { "title": "ChartFlow | Interactive Data Viz", "author": "visualizeio", "category": "Data Viz", "price": "$59", "sales": "1.7k Sales", "seed": "chartflow" },
-  { "title": "GraphPulse | Real-time Charts", "author": "plotwave", "category": "Data Viz", "price": "$34", "sales": "3.2k Sales", "seed": "graphpulse" },
-  { "title": "DecisiX | BI Decision Platform", "author": "intelldata", "category": "BI Tools", "price": "$99", "sales": "567 Sales", "seed": "decisix" },
-  { "title": "QueryCraft | Natural Language BI", "author": "speakdata", "category": "BI Tools", "price": "$79", "sales": "823 Sales", "seed": "querycraft" },
-  { "title": "ReportGen | Automated Reporting", "author": "papersync", "category": "Reporting", "price": "$44", "sales": "1.4k Sales", "seed": "reportgen" },
-  { "title": "PDFly | Insight Summarizer", "author": "digestlabs", "category": "Reporting", "price": "$29", "sales": "2.1k Sales", "seed": "pdfly" },
-  { "title": "TrendScope | Market Trend Analyzer", "author": "forecastsight", "category": "BI Tools", "price": "$89", "sales": "678 Sales", "seed": "trendscope" },
-  { "title": "CohortFlow | User Behavior Analytics", "author": "userlens", "category": "Dashboards", "price": "$64", "sales": "1.2k Sales", "seed": "cohortflow" },
-  { "title": "HeatMapAI | Visual Click Tracker", "author": "uxsense", "category": "Data Viz", "price": "$39", "sales": "1.8k Sales", "seed": "heatmapai" },
-  { "title": "ForecastPro | Predictive Analytics Suite", "author": "predictlabs", "category": "BI Tools", "price": "$119", "sales": "345 Sales", "seed": "forecastpro" },
-  { "title": "DataClean | Automated Data Wrangler", "author": "cleanlab", "category": "Data Prep", "price": "$49", "sales": "2.5k Sales", "seed": "dataclean" },
-  { "title": "SchemaSync | Data Pipeline Monitor", "author": "pipelabs", "category": "Data Prep", "price": "$59", "sales": "987 Sales", "seed": "schemasync" },
-  { "title": "PivotPro | Cross-tab & Pivot Tables", "author": "crunchnum", "category": "Data Viz", "price": "$34", "sales": "1.3k Sales", "seed": "pivotpro" },
-  { "title": "GeoVue | Location Intelligence", "author": "mapmind", "category": "Data Viz", "price": "$74", "sales": "456 Sales", "seed": "geovue" },
-  { "title": "Sentiscope | Social Sentiment Tracker", "author": "moodmeter", "category": "Dashboards", "price": "$54", "sales": "1.5k Sales", "seed": "sentiscope" },
-  { "title": "MetricsHub | SaaS KPI Monitor", "author": "growthlens", "category": "Dashboards", "price": "$44", "sales": "2.2k Sales", "seed": "metricshub" },
-  { "title": "ExcelSync | AI-Powered Spreadsheet", "author": "sheethub", "category": "Reporting", "price": "$24", "sales": "4.1k Sales", "seed": "excelsync" },
-  { "title": "BoardRoom | Board Reporting Tool", "author": "execview", "category": "Reporting", "price": "$89", "sales": "234 Sales", "seed": "boardroom" },
-  { "title": "AnomalyDetect | Outlier Detection Engine", "author": "statwave", "category": "BI Tools", "price": "$69", "sales": "789 Sales", "seed": "anomalydetect" },
-  { "title": "DataVault | Audit Trail Reporter", "author": "auditcore", "category": "Reporting", "price": "$79", "sales": "345 Sales", "seed": "datavault" },
-  { "title": "FunnelVue | Conversion Funnel Analyzer", "author": "growthpath", "category": "Dashboards", "price": "$49", "sales": "1.6k Sales", "seed": "funnelvue" },
-  { "title": "QueryBot | Natural Language Analytics", "author": "aiquery", "category": "BI Tools", "price": "$59", "sales": "1.1k Sales", "seed": "querybot" },
-  { "title": "DashStack | Multi-source Dashboard Merger", "author": "mergeix", "category": "Dashboards", "price": "$34", "sales": "2.8k Sales", "seed": "dashstack" },
-  { "title": "CorrelateAI | Cross-metric Correlation", "author": "relationlab", "category": "Data Viz", "price": "$44", "sales": "567 Sales", "seed": "correlateai" },
-  { "title": "RollupPro | Executive Summary Generator", "author": "summarix", "category": "Reporting", "price": "$29", "sales": "1.9k Sales", "seed": "rolluppro" },
-  { "title": "ETLFlow | Data Integration Pipeline", "author": "databridge", "category": "Data Prep", "price": "$99", "sales": "678 Sales", "seed": "etlflow" },
-  { "title": "ClickStream | Real-time Event Analytics", "author": "eventlens", "category": "Dashboards", "price": "$74", "sales": "1.3k Sales", "seed": "clickstream" },
-  { "title": "BenchmarkAI | Competitive Analysis Tool", "author": "marketmeter", "category": "BI Tools", "price": "$109", "sales": "234 Sales", "seed": "benchmarkai" }
+    {
+        "title":  "MetricVue | Executive Dashboard",
+        "author":  "datavision",
+        "category":  "Dashboards",
+        "price":  "$69",
+        "sales":  "1.9k Sales",
+        "seed":  "metricvue",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "InsightBoard | KPI Tracker",
+        "author":  "analytixlab",
+        "category":  "Dashboards",
+        "price":  "$49",
+        "sales":  "2.4k Sales",
+        "seed":  "insightboard",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ChartFlow | Interactive Data Viz",
+        "author":  "visualizeio",
+        "category":  "Data Viz",
+        "price":  "$59",
+        "sales":  "1.7k Sales",
+        "seed":  "chartflow",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "GraphPulse | Real-time Charts",
+        "author":  "plotwave",
+        "category":  "Data Viz",
+        "price":  "$34",
+        "sales":  "3.2k Sales",
+        "seed":  "graphpulse",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "DecisiX | BI Decision Platform",
+        "author":  "intelldata",
+        "category":  "BI Tools",
+        "price":  "$99",
+        "sales":  "567 Sales",
+        "seed":  "decisix",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "QueryCraft | Natural Language BI",
+        "author":  "speakdata",
+        "category":  "BI Tools",
+        "price":  "$79",
+        "sales":  "823 Sales",
+        "seed":  "querycraft",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "ReportGen | Automated Reporting",
+        "author":  "papersync",
+        "category":  "Reporting",
+        "price":  "$44",
+        "sales":  "1.4k Sales",
+        "seed":  "reportgen",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "PDFly | Insight Summarizer",
+        "author":  "digestlabs",
+        "category":  "Reporting",
+        "price":  "$29",
+        "sales":  "2.1k Sales",
+        "seed":  "pdfly",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "TrendScope | Market Trend Analyzer",
+        "author":  "forecastsight",
+        "category":  "BI Tools",
+        "price":  "$89",
+        "sales":  "678 Sales",
+        "seed":  "trendscope",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "CohortFlow | User Behavior Analytics",
+        "author":  "userlens",
+        "category":  "Dashboards",
+        "price":  "$64",
+        "sales":  "1.2k Sales",
+        "seed":  "cohortflow",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "HeatMapAI | Visual Click Tracker",
+        "author":  "uxsense",
+        "category":  "Data Viz",
+        "price":  "$39",
+        "sales":  "1.8k Sales",
+        "seed":  "heatmapai",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "ForecastPro | Predictive Analytics Suite",
+        "author":  "predictlabs",
+        "category":  "BI Tools",
+        "price":  "$119",
+        "sales":  "345 Sales",
+        "seed":  "forecastpro",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "DataClean | Automated Data Wrangler",
+        "author":  "cleanlab",
+        "category":  "Data Prep",
+        "price":  "$49",
+        "sales":  "2.5k Sales",
+        "seed":  "dataclean",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "SchemaSync | Data Pipeline Monitor",
+        "author":  "pipelabs",
+        "category":  "Data Prep",
+        "price":  "$59",
+        "sales":  "987 Sales",
+        "seed":  "schemasync",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "PivotPro | Cross-tab \u0026 Pivot Tables",
+        "author":  "crunchnum",
+        "category":  "Data Viz",
+        "price":  "$34",
+        "sales":  "1.3k Sales",
+        "seed":  "pivotpro",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "GeoVue | Location Intelligence",
+        "author":  "mapmind",
+        "category":  "Data Viz",
+        "price":  "$74",
+        "sales":  "456 Sales",
+        "seed":  "geovue",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "Sentiscope | Social Sentiment Tracker",
+        "author":  "moodmeter",
+        "category":  "Dashboards",
+        "price":  "$54",
+        "sales":  "1.5k Sales",
+        "seed":  "sentiscope",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "MetricsHub | SaaS KPI Monitor",
+        "author":  "growthlens",
+        "category":  "Dashboards",
+        "price":  "$44",
+        "sales":  "2.2k Sales",
+        "seed":  "metricshub",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ExcelSync | AI-Powered Spreadsheet",
+        "author":  "sheethub",
+        "category":  "Reporting",
+        "price":  "$24",
+        "sales":  "4.1k Sales",
+        "seed":  "excelsync",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "BoardRoom | Board Reporting Tool",
+        "author":  "execview",
+        "category":  "Reporting",
+        "price":  "$89",
+        "sales":  "234 Sales",
+        "seed":  "boardroom",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "AnomalyDetect | Outlier Detection Engine",
+        "author":  "statwave",
+        "category":  "BI Tools",
+        "price":  "$69",
+        "sales":  "789 Sales",
+        "seed":  "anomalydetect",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "DataVault | Audit Trail Reporter",
+        "author":  "auditcore",
+        "category":  "Reporting",
+        "price":  "$79",
+        "sales":  "345 Sales",
+        "seed":  "datavault",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "FunnelVue | Conversion Funnel Analyzer",
+        "author":  "growthpath",
+        "category":  "Dashboards",
+        "price":  "$49",
+        "sales":  "1.6k Sales",
+        "seed":  "funnelvue",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "QueryBot | Natural Language Analytics",
+        "author":  "aiquery",
+        "category":  "BI Tools",
+        "price":  "$59",
+        "sales":  "1.1k Sales",
+        "seed":  "querybot",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "DashStack | Multi-source Dashboard Merger",
+        "author":  "mergeix",
+        "category":  "Dashboards",
+        "price":  "$34",
+        "sales":  "2.8k Sales",
+        "seed":  "dashstack",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "CorrelateAI | Cross-metric Correlation",
+        "author":  "relationlab",
+        "category":  "Data Viz",
+        "price":  "$44",
+        "sales":  "567 Sales",
+        "seed":  "correlateai",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "RollupPro | Executive Summary Generator",
+        "author":  "summarix",
+        "category":  "Reporting",
+        "price":  "$29",
+        "sales":  "1.9k Sales",
+        "seed":  "rolluppro",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "ETLFlow | Data Integration Pipeline",
+        "author":  "databridge",
+        "category":  "Data Prep",
+        "price":  "$99",
+        "sales":  "678 Sales",
+        "seed":  "etlflow",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "ClickStream | Real-time Event Analytics",
+        "author":  "eventlens",
+        "category":  "Dashboards",
+        "price":  "$74",
+        "sales":  "1.3k Sales",
+        "seed":  "clickstream",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "BenchmarkAI | Competitive Analysis Tool",
+        "author":  "marketmeter",
+        "category":  "BI Tools",
+        "price":  "$109",
+        "sales":  "234 Sales",
+        "seed":  "benchmarkai",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  4
+    }
 ]

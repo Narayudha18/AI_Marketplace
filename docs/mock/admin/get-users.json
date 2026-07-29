@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/admin/users",
+  "response": {
+    "data": [
+      { "id": 1712345678901, "name": "John Doe", "email": "john@example.com", "role": "admin", "picture": null, "registered": "2026-07-01" },
+      { "id": 1712345678902, "name": "Jane Smith", "email": "jane@example.com", "role": "seller", "picture": null, "registered": "2026-07-05" },
+      { "id": 1712345678903, "name": "Bob Wilson", "email": "bob@example.com", "role": "buyer", "picture": null, "registered": "2026-07-10" }
+    ],
+    "total": 12
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/cart",
+  "response": {
+    "items": [
+      { "slug": "adminpro-dashboard-template", "category": "templates", "title": "AdminPro | Dashboard Template", "price": "$49", "qty": 2, "seed": "adminpro" },
+      { "slug": "chatgpt-integration", "category": "integrations", "name": "ChatGPT Integration", "price": "$29", "qty": 1, "seed": "chatgpt-int" }
+    ],
+    "total_items": 3,
+    "total_price": "$127"
+  }
+}

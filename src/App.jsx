@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Agentation } from 'agentation'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
@@ -37,6 +38,11 @@ import Security from './pages/Security'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import CartPage from './pages/CartPage'
+import OrderConfirmation from './pages/OrderConfirmation'
+import Favorites from './pages/Favorites'
+import SellerDashboard from './pages/SellerDashboard'
+import AdminDashboard from './pages/AdminDashboard'
 
 function Home() {
   return (
@@ -58,7 +64,9 @@ export default function App() {
   const { pathname } = useLocation()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
   return (
-    <Routes>
+    <>
+      {import.meta.env.DEV && <Agentation endpoint="http://localhost:4747" />}
+      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/templates" element={<Templates />} />
       <Route path="/templates/c/:filter" element={<CategoryListing />} />
@@ -118,6 +126,12 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/order-confirmation" element={<OrderConfirmation />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/seller/dashboard" element={<SellerDashboard />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
+    </>
   );
 }

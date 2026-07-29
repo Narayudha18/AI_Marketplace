@@ -1,0 +1,18 @@
+{
+  "endpoint": "GET /api/seller/dashboard",
+  "response": {
+    "stats": {
+      "products_listed": 5,
+      "total_sales": 128,
+      "earnings": 6272,
+      "avg_rating": 4.3
+    },
+    "products": [
+      { "id": 1, "title": "AI Chatbot Pro", "category": "chatbots", "price": "$79", "sales": 42, "rating": 4.5, "date": "2026-07-01" },
+      { "id": 2, "title": "Smart Dashboard", "category": "templates", "price": "$49", "sales": 86, "rating": 4.1, "date": "2026-06-15" }
+    ],
+    "recent_orders": [
+      { "order_id": "ORD-001", "product": "AI Chatbot Pro", "buyer": "john@example.com", "amount": "$79", "date": "2026-07-28" }
+    ]
+  }
+}

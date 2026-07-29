@@ -1,32 +1,1178 @@
 [
-  { "title": "TuneMaster | LLM Fine-Tuning Suite", "author": "modelforge", "category": "LLM Tuning", "price": "$149", "sales": "234 Sales", "seed": "tunemaster" },
-  { "title": "LoRAForge | Parameter-Efficient Tuning", "author": "weightlabs", "category": "LLM Tuning", "price": "$89", "sales": "567 Sales", "seed": "loraforge" },
-  { "title": "EmbedCraft | Vector Embedding Pipeline", "author": "semanticai", "category": "Embeddings", "price": "$59", "sales": "1.2k Sales", "seed": "embedcraft" },
-  { "title": "VectorFlow | Embedding Management", "author": "indexlab", "category": "Embeddings", "price": "$69", "sales": "978 Sales", "seed": "vectorflow" },
-  { "title": "PreferencePro | RLHF Training Kit", "author": "alignminds", "category": "RLHF", "price": "$129", "sales": "145 Sales", "seed": "preferencepro" },
-  { "title": "RewardStack | Human Feedback Pipeline", "author": "trainloop", "category": "RLHF", "price": "$99", "sales": "198 Sales", "seed": "rewardstack" },
-  { "title": "DistilML | Model Distillation Tool", "author": "compressai", "category": "Model Distillation", "price": "$109", "sales": "312 Sales", "seed": "distilml" },
-  { "title": "TinyBrain | Compact Model Generator", "author": "edgelabs", "category": "Model Distillation", "price": "$79", "sales": "456 Sales", "seed": "tinybrain" },
-  { "title": "InstructLab | Instruction Dataset Creator", "author": "datagenix", "category": "Dataset Prep", "price": "$49", "sales": "789 Sales", "seed": "instructlab" },
-  { "title": "QLoRATune | Memory-Efficient 4-bit Tuning", "author": "quantlabs", "category": "LLM Tuning", "price": "$99", "sales": "423 Sales", "seed": "qloratune" },
-  { "title": "DPOTrainer | Direct Preference Optimization", "author": "preflabs", "category": "RLHF", "price": "$139", "sales": "167 Sales", "seed": "dpotrainer" },
-  { "title": "AdapterHub | Modular Adapter Manager", "author": "plugforge", "category": "LLM Tuning", "price": "$59", "sales": "678 Sales", "seed": "adapterhub" },
-  { "title": "DatasetPro | Synthetic Data Generator", "author": "synthelabs", "category": "Dataset Prep", "price": "$44", "sales": "1.1k Sales", "seed": "datasetpro" },
-  { "title": "EvalBench | LLM Evaluation Suite", "author": "testforge", "category": "Evaluation", "price": "$69", "sales": "534 Sales", "seed": "evalbench" },
-  { "title": "PromptTune | Prompt Optimization Engine", "author": "promptlab", "category": "LLM Tuning", "price": "$39", "sales": "1.5k Sales", "seed": "prompttune" },
-  { "title": "TokenPrune | Token Reduction for Inference", "author": "efficienlabs", "category": "Optimization", "price": "$74", "sales": "312 Sales", "seed": "tokenprune" },
-  { "title": "MergeKit | Model Merging Toolkit", "author": "fuselabs", "category": "LLM Tuning", "price": "$54", "sales": "867 Sales", "seed": "mergekit" },
-  { "title": "SFTTrainer | Supervised Fine-Tuning CLI", "author": "trainhub", "category": "LLM Tuning", "price": "$84", "sales": "345 Sales", "seed": "sfttrainer" },
-  { "title": "LabelForge | Annotation Workflow Manager", "author": "labelmind", "category": "Dataset Prep", "price": "$34", "sales": "2.3k Sales", "seed": "labelforge" },
-  { "title": "KnowledgeDistill | Cross-model Knowledge Transfer", "author": "transferai", "category": "Model Distillation", "price": "$119", "sales": "189 Sales", "seed": "knowledgedistill" },
-  { "title": "RAGFineTune | Retriever-Augmented Tuning", "author": "retrievix", "category": "LLM Tuning", "price": "$94", "sales": "267 Sales", "seed": "ragfinetune" },
-  { "title": "PruneSage | Structured Weight Pruning", "author": "slimml", "category": "Optimization", "price": "$64", "sales": "423 Sales", "seed": "prunesage" },
-  { "title": "HyperTune | Hyperparameter Optimization", "author": "optilab", "category": "LLM Tuning", "price": "$79", "sales": "345 Sales", "seed": "hypertune" },
-  { "title": "DataAugment | Text Augmentation Pipeline", "author": "augmentix", "category": "Dataset Prep", "price": "$29", "sales": "1.8k Sales", "seed": "dataaugment" },
-  { "title": "BiasDetect | Fairness & Bias Evaluation", "author": "fairlabs", "category": "Evaluation", "price": "$89", "sales": "234 Sales", "seed": "biasdetect" },
-  { "title": "LLMComparer | Model Benchmarking Tool", "author": "comparelabs", "category": "Evaluation", "price": "$49", "sales": "567 Sales", "seed": "llmcomparer" },
-  { "title": "SparseFineTune | Sparse Model Fine-Tuning", "author": "sparselab", "category": "Optimization", "price": "$69", "sales": "198 Sales", "seed": "sparsefinetune" },
-  { "title": "ChatDataset | Conversational Data Builder", "author": "dialogix", "category": "Dataset Prep", "price": "$39", "sales": "1.4k Sales", "seed": "chatdataset" },
-  { "title": "OrpoTrainer | Odds Ratio Preference Tuning", "author": "advancelab", "category": "RLHF", "price": "$109", "sales": "145 Sales", "seed": "orpotrainer" },
-  { "title": "ModelSlim | Quantization & Compression", "author": "packlabs", "category": "Model Distillation", "price": "$99", "sales": "278 Sales", "seed": "modelslim" }
+    {
+        "title":  "TuneMaster | LLM Fine-Tuning Suite",
+        "author":  "modelforge",
+        "category":  "LLM Tuning",
+        "price":  "$149",
+        "sales":  "234 Sales",
+        "seed":  "tunemaster",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "LoRAForge | Parameter-Efficient Tuning",
+        "author":  "weightlabs",
+        "category":  "LLM Tuning",
+        "price":  "$89",
+        "sales":  "567 Sales",
+        "seed":  "loraforge",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "EmbedCraft | Vector Embedding Pipeline",
+        "author":  "semanticai",
+        "category":  "Embeddings",
+        "price":  "$59",
+        "sales":  "1.2k Sales",
+        "seed":  "embedcraft",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VectorFlow | Embedding Management",
+        "author":  "indexlab",
+        "category":  "Embeddings",
+        "price":  "$69",
+        "sales":  "978 Sales",
+        "seed":  "vectorflow",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PreferencePro | RLHF Training Kit",
+        "author":  "alignminds",
+        "category":  "RLHF",
+        "price":  "$129",
+        "sales":  "145 Sales",
+        "seed":  "preferencepro",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "RewardStack | Human Feedback Pipeline",
+        "author":  "trainloop",
+        "category":  "RLHF",
+        "price":  "$99",
+        "sales":  "198 Sales",
+        "seed":  "rewardstack",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "DistilML | Model Distillation Tool",
+        "author":  "compressai",
+        "category":  "Model Distillation",
+        "price":  "$109",
+        "sales":  "312 Sales",
+        "seed":  "distilml",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "TinyBrain | Compact Model Generator",
+        "author":  "edgelabs",
+        "category":  "Model Distillation",
+        "price":  "$79",
+        "sales":  "456 Sales",
+        "seed":  "tinybrain",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "InstructLab | Instruction Dataset Creator",
+        "author":  "datagenix",
+        "category":  "Dataset Prep",
+        "price":  "$49",
+        "sales":  "789 Sales",
+        "seed":  "instructlab",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "QLoRATune | Memory-Efficient 4-bit Tuning",
+        "author":  "quantlabs",
+        "category":  "LLM Tuning",
+        "price":  "$99",
+        "sales":  "423 Sales",
+        "seed":  "qloratune",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "DPOTrainer | Direct Preference Optimization",
+        "author":  "preflabs",
+        "category":  "RLHF",
+        "price":  "$139",
+        "sales":  "167 Sales",
+        "seed":  "dpotrainer",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AdapterHub | Modular Adapter Manager",
+        "author":  "plugforge",
+        "category":  "LLM Tuning",
+        "price":  "$59",
+        "sales":  "678 Sales",
+        "seed":  "adapterhub",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "DatasetPro | Synthetic Data Generator",
+        "author":  "synthelabs",
+        "category":  "Dataset Prep",
+        "price":  "$44",
+        "sales":  "1.1k Sales",
+        "seed":  "datasetpro",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "EvalBench | LLM Evaluation Suite",
+        "author":  "testforge",
+        "category":  "Evaluation",
+        "price":  "$69",
+        "sales":  "534 Sales",
+        "seed":  "evalbench",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "PromptTune | Prompt Optimization Engine",
+        "author":  "promptlab",
+        "category":  "LLM Tuning",
+        "price":  "$39",
+        "sales":  "1.5k Sales",
+        "seed":  "prompttune",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "TokenPrune | Token Reduction for Inference",
+        "author":  "efficienlabs",
+        "category":  "Optimization",
+        "price":  "$74",
+        "sales":  "312 Sales",
+        "seed":  "tokenprune",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "MergeKit | Model Merging Toolkit",
+        "author":  "fuselabs",
+        "category":  "LLM Tuning",
+        "price":  "$54",
+        "sales":  "867 Sales",
+        "seed":  "mergekit",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "SFTTrainer | Supervised Fine-Tuning CLI",
+        "author":  "trainhub",
+        "category":  "LLM Tuning",
+        "price":  "$84",
+        "sales":  "345 Sales",
+        "seed":  "sfttrainer",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "LabelForge | Annotation Workflow Manager",
+        "author":  "labelmind",
+        "category":  "Dataset Prep",
+        "price":  "$34",
+        "sales":  "2.3k Sales",
+        "seed":  "labelforge",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "KnowledgeDistill | Cross-model Knowledge Transfer",
+        "author":  "transferai",
+        "category":  "Model Distillation",
+        "price":  "$119",
+        "sales":  "189 Sales",
+        "seed":  "knowledgedistill",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "RAGFineTune | Retriever-Augmented Tuning",
+        "author":  "retrievix",
+        "category":  "LLM Tuning",
+        "price":  "$94",
+        "sales":  "267 Sales",
+        "seed":  "ragfinetune",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "PruneSage | Structured Weight Pruning",
+        "author":  "slimml",
+        "category":  "Optimization",
+        "price":  "$64",
+        "sales":  "423 Sales",
+        "seed":  "prunesage",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "HyperTune | Hyperparameter Optimization",
+        "author":  "optilab",
+        "category":  "LLM Tuning",
+        "price":  "$79",
+        "sales":  "345 Sales",
+        "seed":  "hypertune",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "DataAugment | Text Augmentation Pipeline",
+        "author":  "augmentix",
+        "category":  "Dataset Prep",
+        "price":  "$29",
+        "sales":  "1.8k Sales",
+        "seed":  "dataaugment",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "BiasDetect | Fairness \u0026 Bias Evaluation",
+        "author":  "fairlabs",
+        "category":  "Evaluation",
+        "price":  "$89",
+        "sales":  "234 Sales",
+        "seed":  "biasdetect",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "LLMComparer | Model Benchmarking Tool",
+        "author":  "comparelabs",
+        "category":  "Evaluation",
+        "price":  "$49",
+        "sales":  "567 Sales",
+        "seed":  "llmcomparer",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "SparseFineTune | Sparse Model Fine-Tuning",
+        "author":  "sparselab",
+        "category":  "Optimization",
+        "price":  "$69",
+        "sales":  "198 Sales",
+        "seed":  "sparsefinetune",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ChatDataset | Conversational Data Builder",
+        "author":  "dialogix",
+        "category":  "Dataset Prep",
+        "price":  "$39",
+        "sales":  "1.4k Sales",
+        "seed":  "chatdataset",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "OrpoTrainer | Odds Ratio Preference Tuning",
+        "author":  "advancelab",
+        "category":  "RLHF",
+        "price":  "$109",
+        "sales":  "145 Sales",
+        "seed":  "orpotrainer",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "ModelSlim | Quantization \u0026 Compression",
+        "author":  "packlabs",
+        "category":  "Model Distillation",
+        "price":  "$99",
+        "sales":  "278 Sales",
+        "seed":  "modelslim",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  5
+    }
 ]

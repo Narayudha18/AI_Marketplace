@@ -75,6 +75,9 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
+            <Link to="/favorites" className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>favorite</span>
+            </Link>
             <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
               {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
@@ -84,6 +87,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-text-main border-t border-white/5">
             <div className="px-4 sm:px-6 py-3 flex flex-col gap-1">

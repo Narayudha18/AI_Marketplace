@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
-import aiSkills from '../data/ai-skills.json'
-import aiWorkflows from '../data/ai-workflows.json'
-import aiAgents from '../data/ai-agents.json'
-import aiPrompts from '../data/ai-prompts.json'
-import aiTokens from '../data/ai-tokens.json'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -146,56 +142,6 @@ const categoryConfig = {
     nameKey: 'title',
     getRelated: (item) => monitoringData.filter(t => t.title !== item.title).slice(0, 3),
   },
-  'ai-skills': {
-    label: 'AI Skills', navLink: '/ai-skills', icon: 'psychology', badge: 'skills.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-skills', label: 'AI Skills', active: true },
-    ],
-    items: aiSkills,
-    nameKey: 'name',
-    getRelated: (item) => aiSkills.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-workflows': {
-    label: 'AI Workflows', navLink: '/ai-workflows', icon: 'account_tree', badge: 'workflows.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-workflows', label: 'AI Workflows', active: true },
-    ],
-    items: aiWorkflows,
-    nameKey: 'name',
-    getRelated: (item) => aiWorkflows.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-agents': {
-    label: 'AI Agents', navLink: '/ai-agents', icon: 'smart_toy', badge: 'agents.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-agents', label: 'AI Agents', active: true },
-    ],
-    items: aiAgents,
-    nameKey: 'name',
-    getRelated: (item) => aiAgents.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-prompts': {
-    label: 'AI Prompts', navLink: '/ai-prompts', icon: 'prompt', badge: 'prompts.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-prompts', label: 'AI Prompts', active: true },
-    ],
-    items: aiPrompts,
-    nameKey: 'name',
-    getRelated: (item) => aiPrompts.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-tokens': {
-    label: 'AI Tokens', navLink: '/ai-tokens', icon: 'token', badge: 'tokens.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-tokens', label: 'AI Tokens', active: true },
-    ],
-    items: aiTokens,
-    nameKey: 'name',
-    getRelated: (item) => aiTokens.filter(t => t.name !== item.name).slice(0, 3),
-  },
   security: {
     label: 'Security', navLink: '/security', icon: 'security', badge: 'secure.market',
     navLinks: [
@@ -224,17 +170,19 @@ export default function ProductDetail() {
   const relatedItems = config.getRelated(item)
 
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
+  const { currentUser } = useAuth()
   const [cartOpen, setCartOpen] = useState(false)
+  const [loginToast, setLoginToast] = useState(false)
   const { dark, toggle } = useTheme()
   const [activeTab, setActiveTab] = useState('product')
   const reviewKey = `reviews_${category}_${slug}`
   const commentKey = `comments_${category}_${slug}`
   const [reviews, setReviews] = useState(() => {
     try {
-        const local = JSON.parse(localStorage.getItem(reviewKey)) || []
-        const jsonReviews = item.reviews || []
-        return [...jsonReviews, ...local]
-      } catch { return item.reviews || [] }
+      const local = JSON.parse(localStorage.getItem(reviewKey)) || []
+      const jsonReviews = item.reviews || []
+      return [...jsonReviews, ...local]
+    } catch { return item.reviews || [] }
   })
   const [comments, setComments] = useState(() => {
     try { return JSON.parse(localStorage.getItem(commentKey)) || [] } catch { return [] }
@@ -410,17 +358,18 @@ export default function ProductDetail() {
                 <h1 className="text-[28px] md:text-[34px] font-bold text-text-main leading-tight tracking-tight">{name}</h1>
               </div>
               <div className="flex items-center gap-3 mt-2">
-                {'rating' in item && (
-                  <div className="flex items-center gap-1.5">
-                    {renderStars(item.rating)}
-                    <span className="text-xs font-semibold text-text-main">{item.rating}</span>
-                  </div>
+                <div className="flex items-center gap-1.5">
+                  {renderStars(avgRating ? parseFloat(avgRating) : (item.rating || 0))}
+                  <span className="text-xs font-semibold text-text-main">{avgRating || item.rating || '0.0'}</span>
+                </div>
+                {reviews.length > 0 && (
+                  <span className="text-xs font-medium text-text-muted">({reviews.length} review{reviews.length > 1 ? 's' : ''})</span>
                 )}
                 {'sales' in item && (
-                  <span className="text-xs font-medium text-text-muted">{item.sales}{'users' in item ? '' : ' users'}</span>
+                  <span className="text-xs font-medium text-text-muted">&middot; {item.sales}{'users' in item ? '' : ' users'}</span>
                 )}
                 {'users' in item && (
-                  <span className="text-xs font-medium text-text-muted">{item.users} users</span>
+                  <span className="text-xs font-medium text-text-muted">&middot; {item.users} users</span>
                 )}
               </div>
             </div>
@@ -464,7 +413,7 @@ export default function ProductDetail() {
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>visibility</span>
                   Live Preview
                 </button>
-                <button onClick={() => { addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
+                <button onClick={() => { if (!currentUser) { setLoginToast(true); setTimeout(() => navigate('/login'), 1500); return }; addToCart(cartItem); setCartOpen(true) }} className="px-4 py-3 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-all flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
                   Add to Cart
                 </button>
@@ -768,6 +717,15 @@ export default function ProductDetail() {
 
       </footer>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      {loginToast && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[999] bg-[#1a1a2e] text-white px-6 py-3.5 rounded-xl shadow-2xl border border-[#2a2a4e] flex items-center gap-3 animate-fade-in">
+          <span className="material-symbols-outlined text-[#f59e0b]" style={{ fontSize: 20 }}>info</span>
+          <span className="text-sm font-medium">Anda belum login, silakan login terlebih dahulu!</span>
+          <button onClick={() => setLoginToast(false)} className="ml-2 text-white/60 hover:text-white cursor-pointer">
+            <span className="material-symbols-outlined" style={{ fontSize: 18 }}>close</span>
+          </button>
+        </div>
+      )}
     </>
   );
 }

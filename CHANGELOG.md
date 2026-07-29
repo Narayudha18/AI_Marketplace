@@ -1,3 +1,106 @@
+## v7.4 — 2026-07-28
+
+### Ubah
+- **SellerDashboard** — Rewrite total jadi standalone: sidebar navigation (Overview, Products, Orders), forced dark mode, account dropdown, hapus Navbar/Footer [file: src/pages/SellerDashboard.jsx]
+- **AdminDashboard** — Data loading pake useState initializers langsung baca localStorage (bukan useEffect), tambah auto-refresh on focus + manual Refresh button [file: src/pages/AdminDashboard.jsx]
+- **StartSelling** — Kirim `onSuccess` ke SellerForm yang panggil `requestSeller()` dari AuthContext. Redirect otomatis ke `/seller/dashboard` jika sudah seller/pending. Tampilkan Sign In prompt jika belum login. [file: src/pages/StartSelling.jsx]
+- **AuthContext** — Cross-reference currentUser dengan users array di init + sync saat users berubah via useEffect [file: src/AuthContext.jsx]
+
+### Fix
+- [Fix] Seller request gak sampai ke admin — SellerForm panggil `onSuccess` yang undefined, sekarang panggil `requestSeller()` dari AuthContext [file: src/pages/StartSelling.jsx]
+- [Fix] SellerDashboard useEffect pake `[]` deps — sekarang `[currentUser, requestSeller]` biar gak race condition [file: src/pages/SellerDashboard.jsx]
+- [Fix] AdminDashboard baca data cuma sekali di useEffect — sekarang state initializer langsung baca localStorage + refresh on focus [file: src/pages/AdminDashboard.jsx]
+
+### Fitur
+- [Feat] Seller Dashboard standalone — sidebar 3 tabs, dark mode, account dropdown, orders tab
+- [Feat] Admin Dashboard Refresh — data auto-refresh saat window focus + manual Refresh button
+
+### Routing
+- Seller Dashboard route tetap `/seller/dashboard` (tidak berubah)
+
+## v7.3 — 2026-07-28
+
+### Ubah
+- **AdminDashboard** — Expand dari 3 tab jadi 6 tab: Overview, Users, Sellers, Products, Orders, Reviews. Sidebar navigation. Seller approval queue, order status management, review moderation. [file: src/pages/AdminDashboard.jsx]
+
+### Fitur
+- [Feat] Seller approval queue — request → admin approve/reject
+- [Feat] Order status management — dropdown (Completed/Processing/Shipped/Cancelled)
+- [Feat] Review moderation — lihat & hapus review dari localStorage
+
+## v7.2 — 2026-07-28
+
+### Komponen (Baru)
+- **AdminDashboard** — Halaman admin panel: stats (users/products/orders/revenue), 3 tab (users table, orders table, products by category) [file: src/pages/AdminDashboard.jsx]
+
+### Ubah
+- **AuthContext** — tambah `isAdmin` field + `becomeAdmin()` function, persist auth ke localStorage [file: src/AuthContext.jsx]
+- **AuthButton** — dropdown Admin Dashboard link (cuma untuk admin), icon admin_panel_settings, symmetrical layout [file: src/components/AuthButton.jsx]
+- **App.jsx** — tambah route /admin/dashboard [file: src/App.jsx]
+
+### Fitur
+- [Feat] Admin Dashboard — lihat statistik platform, daftar user, order history, produk per kategori
+- [Feat] Role system — user bisa jadi admin (lewat /admin/dashboard) atau seller (request → admin approve)
+
+### Mock JSON
+- `docs/mock/admin/get-dashboard.json` — endpoint baru GET /api/admin/dashboard
+- `docs/mock/admin/get-users.json` — endpoint baru GET /api/admin/users
+
+### Routing
+- Tambah route /admin/dashboard → AdminDashboard
+
+## v7.1 — 2026-07-28
+
+### Ubah
+- **Profile** — Redesign ala Shopee: avatar clickable (upload foto), stats cards (orders/items/spent), order history list expandable [file: src/pages/Profile.jsx]
+- **CartPage** — Simpan order ke `orders` array di localStorage (history semua order) [file: src/pages/CartPage.jsx]
+
+### Fitur
+- [Feat] Order history — semua order tersimpan dan bisa dilihat di halaman Profile
+- [Feat] Avatar upload — user bisa ganti foto profil dari halaman Profile
+
+### Mock JSON
+- `docs/mock/profile/get-orders.json` — endpoint baru GET /api/user/orders
+
+## v7.0 — 2026-07-28
+
+### Komponen (Baru)
+- **CartPage** — Halaman cart penuh: list item dengan qty +/- , order summary, proceed to checkout [file: src/pages/CartPage.jsx]
+- **OrderConfirmation** — Halaman konfirmasi order setelah bayar sukses: order ID, items, total [file: src/pages/OrderConfirmation.jsx]
+- **Favorites** — Halaman wishlist dedicated: grid produk favorit, unfavorite button, empty state [file: src/pages/Favorites.jsx]
+- **SellerDashboard** — Dashboard penjual: stats cards, form add product, product table dengan delete [file: src/pages/SellerDashboard.jsx]
+
+### Ubah
+- **CartContext** — add `updateQty` (qty +/- di cart), `totalItems` sekarang akumulasi qty [file: src/CartContext.jsx]
+- **Navbar** — tambah icon hati link ke /favorites [file: src/components/Navbar.jsx]
+- **CartDrawer** — tambah tombol "View Cart" link ke /cart [file: src/components/CartDrawer.jsx]
+- **AuthButton** — dropdown tambah "Seller Dashboard" link [file: src/components/AuthButton.jsx]
+
+### Fitur
+- [Feat] Checkout flow — CartPage → PaymentModal → OrderConfirmation
+- [Feat] Seller Dashboard — CRUD produk sendiri (localStorage)
+- [Feat] Wishlist page — /favorites menampilkan semua produk favorit dari seluruh kategori
+
+### Routing
+- Tambah route /cart → CartPage
+- Tambah route /order-confirmation → OrderConfirmation
+- Tambah route /favorites → Favorites
+- Tambah route /seller/dashboard → SellerDashboard
+
+### Mock JSON
+- `docs/mock/cart/post-checkout.json` — endpoint baru POST /api/cart/checkout
+- `docs/mock/favorites/get-favorites.json` — endpoint baru GET /api/favorites
+- `docs/mock/seller/get-dashboard.json` — endpoint baru GET /api/seller/dashboard
+
+### Catatan
+- Reviews & Rating sudah ada di ProductDetail sejak v6.0 (tab "Review & Rating")
+- Semua data pakai localStorage, belum ada integrasi backend
+
+## v6.1 — 2026-07-24
+
+### Fix
+- [Fix] StartSelling — icon `guide` tidak valid di Material Symbols, ganti `menu_book` [file: src/pages/StartSelling.jsx]
+
 ## v6.0 — 2026-07-23
 
 ### Komponen

@@ -1,32 +1,1208 @@
 [
-  { "title": "GuardianAI | LLM Guardrails Suite", "author": "safetynet", "category": "Guardrails", "price": "$99", "sales": "456 Sales", "seed": "guardianai" },
-  { "title": "FenceKeep | Content Policy Enforcer", "author": "boundarylab", "category": "Guardrails", "price": "$69", "sales": "678 Sales", "seed": "fencekeep" },
-  { "title": "RedTeamX | AI Penetration Tester", "author": "cyberforge", "category": "Red Teaming", "price": "$149", "sales": "123 Sales", "seed": "redteamx" },
-  { "title": "AdversarySim | Attack Simulation", "author": "threatlabs", "category": "Red Teaming", "price": "$109", "sales": "89 Sales", "seed": "adversarysim" },
-  { "title": "RegulaAI | Compliance Auditor", "author": "complycore", "category": "Compliance", "price": "$129", "sales": "198 Sales", "seed": "regulaai" },
-  { "title": "DocuCheck | Policy & Regulation Tool", "author": "governlab", "category": "Compliance", "price": "$79", "sales": "267 Sales", "seed": "docucheck" },
-  { "title": "PrivyShield | Data Privacy Manager", "author": "privacore", "category": "Data Privacy", "price": "$89", "sales": "345 Sales", "seed": "privyshield" },
-  { "title": "AnonyFlow | Data Anonymization", "author": "masklayer", "category": "Data Privacy", "price": "$59", "sales": "512 Sales", "seed": "anonyflow" },
-  { "title": "PromptGuard | Prompt Injection Protector", "author": "filterlabs", "category": "Guardrails", "price": "$49", "sales": "1.2k Sales", "seed": "promptguard" },
-  { "title": "ModelVault | Encrypted Model Storage", "author": "cryptocore", "category": "Data Privacy", "price": "$119", "sales": "178 Sales", "seed": "modelvault" },
-  { "title": "ThreatScan | AI Vulnerability Scanner", "author": "vulnlab", "category": "Red Teaming", "price": "$89", "sales": "234 Sales", "seed": "threatscan" },
-  { "title": "AccessAI | Role-based API Access Control", "author": "gatewayix", "category": "Guardrails", "price": "$59", "sales": "678 Sales", "seed": "accessai" },
-  { "title": "GDPRCheck | Privacy Regulation Scanner", "author": "eurocomply", "category": "Compliance", "price": "$99", "sales": "145 Sales", "seed": "gdprcheck" },
-  { "title": "DataErasure | Right-to-Delete Automation", "author": "forgetlab", "category": "Data Privacy", "price": "$69", "sales": "312 Sales", "seed": "dataerasure" },
-  { "title": "PromptLeak | Data Leakage Detection", "author": "leakwatch", "category": "Guardrails", "price": "$79", "sales": "456 Sales", "seed": "promptleak" },
-  { "title": "AttackTree | Threat Modeling Tool", "author": "treehacker", "category": "Red Teaming", "price": "$139", "sales": "67 Sales", "seed": "attacktree" },
-  { "title": "SBOMGen | AI Supply Chain Bill of Materials", "author": "chainlab", "category": "Compliance", "price": "$54", "sales": "534 Sales", "seed": "sbomgen" },
-  { "title": "AnonymizeText | PII Redaction Engine", "author": "redactai", "category": "Data Privacy", "price": "$44", "sales": "1.5k Sales", "seed": "anonymizetext" },
-  { "title": "RateLimitGuard | Abuse Prevention Layer", "author": "doshield", "category": "Guardrails", "price": "$34", "sales": "1.8k Sales", "seed": "ratelimitguard" },
-  { "title": "ModelPoison | Backdoor Detection Tool", "author": "trojanlab", "category": "Red Teaming", "price": "$159", "sales": "45 Sales", "seed": "modelpoison" },
-  { "title": "HIPAAVault | Healthcare AI Compliance", "author": "medcomply", "category": "Compliance", "price": "$149", "sales": "89 Sales", "seed": "hipaavault" },
-  { "title": "TokenAnon | Anonymized Token Tracking", "author": "privytoken", "category": "Data Privacy", "price": "$39", "sales": "678 Sales", "seed": "tokenanon" },
-  { "title": "FirewallAI | Model Endpoint Protection", "author": "edgeguard", "category": "Guardrails", "price": "$89", "sales": "345 Sales", "seed": "firewallai" },
-  { "title": "JailbreakTest | Prompt Vulnerability Probe", "author": "breaklab", "category": "Red Teaming", "price": "$74", "sales": "312 Sales", "seed": "jailbreaktest" },
-  { "title": "SOC2Bot | SOC 2 Readiness Auditor", "author": "auditix", "category": "Compliance", "price": "$109", "sales": "123 Sales", "seed": "soc2bot" },
-  { "title": "Maskify | Data Masking Tool", "author": "obscurlab", "category": "Data Privacy", "price": "$29", "sales": "1.3k Sales", "seed": "maskify" },
-  { "title": "ContentFilter | Real-time Output Moderation", "author": "moderatelabs", "category": "Guardrails", "price": "$49", "sales": "987 Sales", "seed": "contentfilter" },
-  { "title": "RobustBench | Model Robustness Tester", "author": "stressml", "category": "Red Teaming", "price": "$99", "sales": "156 Sales", "seed": "robustbench" },
-  { "title": "ConsentFlow | User Data Consent Manager", "author": "permissix", "category": "Compliance", "price": "$64", "sales": "423 Sales", "seed": "consentflow" },
-  { "title": "EncryptInfer | Homomorphic Inference Proxy", "author": "cryptoml", "category": "Data Privacy", "price": "$199", "sales": "34 Sales", "seed": "encryptinfer" }
+    {
+        "title":  "GuardianAI | LLM Guardrails Suite",
+        "author":  "safetynet",
+        "category":  "Guardrails",
+        "price":  "$99",
+        "sales":  "456 Sales",
+        "seed":  "guardianai",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "FenceKeep | Content Policy Enforcer",
+        "author":  "boundarylab",
+        "category":  "Guardrails",
+        "price":  "$69",
+        "sales":  "678 Sales",
+        "seed":  "fencekeep",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "RedTeamX | AI Penetration Tester",
+        "author":  "cyberforge",
+        "category":  "Red Teaming",
+        "price":  "$149",
+        "sales":  "123 Sales",
+        "seed":  "redteamx",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "AdversarySim | Attack Simulation",
+        "author":  "threatlabs",
+        "category":  "Red Teaming",
+        "price":  "$109",
+        "sales":  "89 Sales",
+        "seed":  "adversarysim",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "RegulaAI | Compliance Auditor",
+        "author":  "complycore",
+        "category":  "Compliance",
+        "price":  "$129",
+        "sales":  "198 Sales",
+        "seed":  "regulaai",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "DocuCheck | Policy \u0026 Regulation Tool",
+        "author":  "governlab",
+        "category":  "Compliance",
+        "price":  "$79",
+        "sales":  "267 Sales",
+        "seed":  "docucheck",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "PrivyShield | Data Privacy Manager",
+        "author":  "privacore",
+        "category":  "Data Privacy",
+        "price":  "$89",
+        "sales":  "345 Sales",
+        "seed":  "privyshield",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "AnonyFlow | Data Anonymization",
+        "author":  "masklayer",
+        "category":  "Data Privacy",
+        "price":  "$59",
+        "sales":  "512 Sales",
+        "seed":  "anonyflow",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "PromptGuard | Prompt Injection Protector",
+        "author":  "filterlabs",
+        "category":  "Guardrails",
+        "price":  "$49",
+        "sales":  "1.2k Sales",
+        "seed":  "promptguard",
+        "rating":  4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "ModelVault | Encrypted Model Storage",
+        "author":  "cryptocore",
+        "category":  "Data Privacy",
+        "price":  "$119",
+        "sales":  "178 Sales",
+        "seed":  "modelvault",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  3,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "ThreatScan | AI Vulnerability Scanner",
+        "author":  "vulnlab",
+        "category":  "Red Teaming",
+        "price":  "$89",
+        "sales":  "234 Sales",
+        "seed":  "threatscan",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "AccessAI | Role-based API Access Control",
+        "author":  "gatewayix",
+        "category":  "Guardrails",
+        "price":  "$59",
+        "sales":  "678 Sales",
+        "seed":  "accessai",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "GDPRCheck | Privacy Regulation Scanner",
+        "author":  "eurocomply",
+        "category":  "Compliance",
+        "price":  "$99",
+        "sales":  "145 Sales",
+        "seed":  "gdprcheck",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "DataErasure | Right-to-Delete Automation",
+        "author":  "forgetlab",
+        "category":  "Data Privacy",
+        "price":  "$69",
+        "sales":  "312 Sales",
+        "seed":  "dataerasure",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "PromptLeak | Data Leakage Detection",
+        "author":  "leakwatch",
+        "category":  "Guardrails",
+        "price":  "$79",
+        "sales":  "456 Sales",
+        "seed":  "promptleak",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "AttackTree | Threat Modeling Tool",
+        "author":  "treehacker",
+        "category":  "Red Teaming",
+        "price":  "$139",
+        "sales":  "67 Sales",
+        "seed":  "attacktree",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "SBOMGen | AI Supply Chain Bill of Materials",
+        "author":  "chainlab",
+        "category":  "Compliance",
+        "price":  "$54",
+        "sales":  "534 Sales",
+        "seed":  "sbomgen",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "AnonymizeText | PII Redaction Engine",
+        "author":  "redactai",
+        "category":  "Data Privacy",
+        "price":  "$44",
+        "sales":  "1.5k Sales",
+        "seed":  "anonymizetext",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "RateLimitGuard | Abuse Prevention Layer",
+        "author":  "doshield",
+        "category":  "Guardrails",
+        "price":  "$34",
+        "sales":  "1.8k Sales",
+        "seed":  "ratelimitguard",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ModelPoison | Backdoor Detection Tool",
+        "author":  "trojanlab",
+        "category":  "Red Teaming",
+        "price":  "$159",
+        "sales":  "45 Sales",
+        "seed":  "modelpoison",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "HIPAAVault | Healthcare AI Compliance",
+        "author":  "medcomply",
+        "category":  "Compliance",
+        "price":  "$149",
+        "sales":  "89 Sales",
+        "seed":  "hipaavault",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "TokenAnon | Anonymized Token Tracking",
+        "author":  "privytoken",
+        "category":  "Data Privacy",
+        "price":  "$39",
+        "sales":  "678 Sales",
+        "seed":  "tokenanon",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "FirewallAI | Model Endpoint Protection",
+        "author":  "edgeguard",
+        "category":  "Guardrails",
+        "price":  "$89",
+        "sales":  "345 Sales",
+        "seed":  "firewallai",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "JailbreakTest | Prompt Vulnerability Probe",
+        "author":  "breaklab",
+        "category":  "Red Teaming",
+        "price":  "$74",
+        "sales":  "312 Sales",
+        "seed":  "jailbreaktest",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Olivia Brown",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "SOC2Bot | SOC 2 Readiness Auditor",
+        "author":  "auditix",
+        "category":  "Compliance",
+        "price":  "$109",
+        "sales":  "123 Sales",
+        "seed":  "soc2bot",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "Maskify | Data Masking Tool",
+        "author":  "obscurlab",
+        "category":  "Data Privacy",
+        "price":  "$29",
+        "sales":  "1.3k Sales",
+        "seed":  "maskify",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "ContentFilter | Real-time Output Moderation",
+        "author":  "moderatelabs",
+        "category":  "Guardrails",
+        "price":  "$49",
+        "sales":  "987 Sales",
+        "seed":  "contentfilter",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "RobustBench | Model Robustness Tester",
+        "author":  "stressml",
+        "category":  "Red Teaming",
+        "price":  "$99",
+        "sales":  "156 Sales",
+        "seed":  "robustbench",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "ConsentFlow | User Data Consent Manager",
+        "author":  "permissix",
+        "category":  "Compliance",
+        "price":  "$64",
+        "sales":  "423 Sales",
+        "seed":  "consentflow",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "EncryptInfer | Homomorphic Inference Proxy",
+        "author":  "cryptoml",
+        "category":  "Data Privacy",
+        "price":  "$199",
+        "sales":  "34 Sales",
+        "seed":  "encryptinfer",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        }
+                    ],
+        "reviewsCount":  4
+    }
 ]

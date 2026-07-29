@@ -1,16 +1,21 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, Navigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
 import SellerForm from '../components/SellerForm'
+import { useAuth } from '../AuthContext'
 
 export default function StartSelling() {
   const { totalItems } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
   const { dark, toggle } = useTheme()
   const location = useLocation()
+  const { currentUser, requestSeller } = useAuth()
+
+  if (currentUser?.isSeller) return <Navigate to="/seller/dashboard" replace />
+  if (currentUser?.sellerRequested) return <Navigate to="/seller/dashboard" replace />
 
   return (
     <>
@@ -58,10 +63,6 @@ export default function StartSelling() {
         {/* Hero Section */}
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-2 bg-primary-container/10 text-primary px-4 py-1.5 rounded-full text-[11px] font-semibold w-fit">
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>rocket_launch</span>
-              New Seller Registration
-            </div>
             <h1 className="text-[30px] md:text-[38px] font-bold leading-[1.2] tracking-tight text-text-main">
               Sell Your AI Products to Thousands of Buyers
             </h1>
@@ -122,7 +123,16 @@ export default function StartSelling() {
               <div className="bg-surface rounded-xl border border-border-light p-6 md:p-8">
                 <h2 className="text-[24px] font-semibold text-text-main mb-1">Seller Registration Form</h2>
                 <p className="text-xs text-text-muted mb-8">Fill in your details and store info to start selling.</p>
-                <SellerForm />
+                {!currentUser ? (
+                  <div className="bg-surface rounded-xl border border-border-light p-8 text-center">
+                    <span className="material-symbols-outlined text-4xl text-text-muted mb-3 inline-block" style={{ fontSize: 40 }}>login</span>
+                    <h3 className="text-lg font-bold text-text-main mb-2">Sign in Required</h3>
+                    <p className="text-sm text-text-muted mb-5">Please sign in first to register as a seller.</p>
+                    <Link to="/login" className="bg-primary text-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:opacity-90 transition-opacity">Sign In</Link>
+                  </div>
+                ) : (
+                  <SellerForm onSuccess={() => requestSeller()} />
+                )}
               </div>
             </div>
 

@@ -1,32 +1,1113 @@
 [
-  { "title": "PixelForge | Text-to-Image Generator", "author": "artivision", "category": "Text-to-Image", "price": "$49", "sales": "4.2k Sales", "seed": "pixelforge" },
-  { "title": "DreamCanvas | AI Art Studio", "author": "creativemind", "category": "Text-to-Image", "price": "$39", "sales": "3.8k Sales", "seed": "dreamcanvas" },
-  { "title": "RetouchAI | Smart Image Editor", "author": "editlabs", "category": "Image Editing", "price": "$29", "sales": "2.5k Sales", "seed": "retouchai" },
-  { "title": "StyleShift | Image Transformation", "author": "pixelpulse", "category": "Image Editing", "price": "$44", "sales": "1.6k Sales", "seed": "styleshift" },
-  { "title": "MotionCraft | AI Video Generator", "author": "framelabs", "category": "Video Gen", "price": "$99", "sales": "978 Sales", "seed": "motioncraft" },
-  { "title": "ClipForge | Short Video Creator", "author": "reelcraft", "category": "Video Gen", "price": "$59", "sales": "1.3k Sales", "seed": "clipforge" },
-  { "title": "ShapeMind | 3D Model Generator", "author": "depthlabs", "category": "3D Models", "price": "$129", "sales": "445 Sales", "seed": "shapemind" },
-  { "title": "VoxelForge | Procedural 3D Assets", "author": "polycraft", "category": "3D Models", "price": "$89", "sales": "623 Sales", "seed": "voxelforge" },
-  { "title": "PhotoReal | Photorealistic Renderer", "author": "raylabs", "category": "Text-to-Image", "price": "$69", "sales": "2.1k Sales", "seed": "photoreal" },
-  { "title": "InpaintPro | Smart Object Removal", "author": "heallabs", "category": "Image Editing", "price": "$24", "sales": "3.4k Sales", "seed": "inpaintpro" },
-  { "title": "UpscaleAI | AI Image Enlarger", "author": "sharplens", "category": "Image Editing", "price": "$19", "sales": "5.6k Sales", "seed": "upscaleai" },
-  { "title": "ColorizeAI | B&W Photo Colorization", "author": "vintagelab", "category": "Image Editing", "price": "$14", "sales": "4.3k Sales", "seed": "colorizeai" },
-  { "title": "FaceSwap | AI Face Replacement", "author": "pixelshift", "category": "Image Editing", "price": "$34", "sales": "2.8k Sales", "seed": "faceswap" },
-  { "title": "BannerCraft | Social Media Banner Gen", "author": "marketchamp", "category": "Text-to-Image", "price": "$19", "sales": "6.2k Sales", "seed": "bannercraft" },
-  { "title": "LogoMind | AI Logo Generator", "author": "brandmind", "category": "Text-to-Image", "price": "$29", "sales": "4.7k Sales", "seed": "logomind" },
-  { "title": "AnimeGen | Anime Style Generator", "author": "waifulabs", "category": "Text-to-Image", "price": "$24", "sales": "3.9k Sales", "seed": "animegen" },
-  { "title": "ProductShot | E-commerce Image Creator", "author": "storefront", "category": "Text-to-Image", "price": "$39", "sales": "1.5k Sales", "seed": "productshot" },
-  { "title": "VideoTrim | Smart Scene Detection", "author": "cutlabs", "category": "Video Gen", "price": "$44", "sales": "1.2k Sales", "seed": "videotrim" },
-  { "title": "AvatarCraft | 3D Avatar Generator", "author": "characterlab", "category": "3D Models", "price": "$59", "sales": "1.8k Sales", "seed": "avatarcraft" },
-  { "title": "TextureGen | AI Material & Texture Creator", "author": "surfacemind", "category": "3D Models", "price": "$49", "sales": "678 Sales", "seed": "texturegen" },
-  { "title": "QRArt | AI Stylized QR Generator", "author": "codecraft", "category": "Image Editing", "price": "$14", "sales": "7.1k Sales", "seed": "qrart" },
-  { "title": "CollageAI | Smart Photo Collage Maker", "author": "mosaiclab", "category": "Image Editing", "price": "$19", "sales": "3.2k Sales", "seed": "collageai" },
-  { "title": "MemeCraft | AI Meme Generator", "author": "funpixel", "category": "Image Editing", "price": "$9", "sales": "9.8k Sales", "seed": "memecraft" },
-  { "title": "StoryBoard | AI Storyboard Creator", "author": "directorpix", "category": "Video Gen", "price": "$74", "sales": "456 Sales", "seed": "storyboard" },
-  { "title": "FontForge | AI Typography Art Generator", "author": "typelab", "category": "Text-to-Image", "price": "$24", "sales": "2.3k Sales", "seed": "fontforge" },
-  { "title": "DepthMap | AI Depth Estimation", "author": "depthlabs", "category": "Image Editing", "price": "$39", "sales": "1.1k Sales", "seed": "depthmap" },
-  { "title": "PatternBot | Seamless Pattern Generator", "author": "designwave", "category": "Text-to-Image", "price": "$19", "sales": "4.5k Sales", "seed": "patternbot" },
-  { "title": "InteriorAI | Room Design Visualizer", "author": "spacelab", "category": "Text-to-Image", "price": "$49", "sales": "1.9k Sales", "seed": "interiorai" },
-  { "title": "SketchToImage", "desc": "Convert rough sketches to detailed art", "author": "drawlabs", "category": "Text-to-Image", "price": "$34", "sales": "2.6k Sales", "seed": "sketchtoimage" },
-  { "title": "VideoFace | Face Reenactment Tool", "author": "motionpixel", "category": "Video Gen", "price": "$89", "sales": "345 Sales", "seed": "videoface" }
+    {
+        "title":  "PixelForge | Text-to-Image Generator",
+        "author":  "artivision",
+        "category":  "Text-to-Image",
+        "price":  "$49",
+        "sales":  "4.2k Sales",
+        "seed":  "pixelforge",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "DreamCanvas | AI Art Studio",
+        "author":  "creativemind",
+        "category":  "Text-to-Image",
+        "price":  "$39",
+        "sales":  "3.8k Sales",
+        "seed":  "dreamcanvas",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "RetouchAI | Smart Image Editor",
+        "author":  "editlabs",
+        "category":  "Image Editing",
+        "price":  "$29",
+        "sales":  "2.5k Sales",
+        "seed":  "retouchai",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "StyleShift | Image Transformation",
+        "author":  "pixelpulse",
+        "category":  "Image Editing",
+        "price":  "$44",
+        "sales":  "1.6k Sales",
+        "seed":  "styleshift",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "MotionCraft | AI Video Generator",
+        "author":  "framelabs",
+        "category":  "Video Gen",
+        "price":  "$99",
+        "sales":  "978 Sales",
+        "seed":  "motioncraft",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "ClipForge | Short Video Creator",
+        "author":  "reelcraft",
+        "category":  "Video Gen",
+        "price":  "$59",
+        "sales":  "1.3k Sales",
+        "seed":  "clipforge",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  3,
+                            "name":  "Alex Johnson",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "ShapeMind | 3D Model Generator",
+        "author":  "depthlabs",
+        "category":  "3D Models",
+        "price":  "$129",
+        "sales":  "445 Sales",
+        "seed":  "shapemind",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Daniel Lee",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Carlos Garcia",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "VoxelForge | Procedural 3D Assets",
+        "author":  "polycraft",
+        "category":  "3D Models",
+        "price":  "$89",
+        "sales":  "623 Sales",
+        "seed":  "voxelforge",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PhotoReal | Photorealistic Renderer",
+        "author":  "raylabs",
+        "category":  "Text-to-Image",
+        "price":  "$69",
+        "sales":  "2.1k Sales",
+        "seed":  "photoreal",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "InpaintPro | Smart Object Removal",
+        "author":  "heallabs",
+        "category":  "Image Editing",
+        "price":  "$24",
+        "sales":  "3.4k Sales",
+        "seed":  "inpaintpro",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "UpscaleAI | AI Image Enlarger",
+        "author":  "sharplens",
+        "category":  "Image Editing",
+        "price":  "$19",
+        "sales":  "5.6k Sales",
+        "seed":  "upscaleai",
+        "rating":  4.3,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "ColorizeAI | B\u0026W Photo Colorization",
+        "author":  "vintagelab",
+        "category":  "Image Editing",
+        "price":  "$14",
+        "sales":  "4.3k Sales",
+        "seed":  "colorizeai",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "FaceSwap | AI Face Replacement",
+        "author":  "pixelshift",
+        "category":  "Image Editing",
+        "price":  "$34",
+        "sales":  "2.8k Sales",
+        "seed":  "faceswap",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "BannerCraft | Social Media Banner Gen",
+        "author":  "marketchamp",
+        "category":  "Text-to-Image",
+        "price":  "$19",
+        "sales":  "6.2k Sales",
+        "seed":  "bannercraft",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "LogoMind | AI Logo Generator",
+        "author":  "brandmind",
+        "category":  "Text-to-Image",
+        "price":  "$29",
+        "sales":  "4.7k Sales",
+        "seed":  "logomind",
+        "rating":  5,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  4,
+                            "name":  "Priya Patel",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "AnimeGen | Anime Style Generator",
+        "author":  "waifulabs",
+        "category":  "Text-to-Image",
+        "price":  "$24",
+        "sales":  "3.9k Sales",
+        "seed":  "animegen",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "ProductShot | E-commerce Image Creator",
+        "author":  "storefront",
+        "category":  "Text-to-Image",
+        "price":  "$39",
+        "sales":  "1.5k Sales",
+        "seed":  "productshot",
+        "rating":  4.8,
+        "reviews":  [
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  3,
+                            "name":  "Alice Chen",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  3,
+                            "name":  "Sarah Kim",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "VideoTrim | Smart Scene Detection",
+        "author":  "cutlabs",
+        "category":  "Video Gen",
+        "price":  "$44",
+        "sales":  "1.2k Sales",
+        "seed":  "videotrim",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "AvatarCraft | 3D Avatar Generator",
+        "author":  "characterlab",
+        "category":  "3D Models",
+        "price":  "$59",
+        "sales":  "1.8k Sales",
+        "seed":  "avatarcraft",
+        "rating":  4.5,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Marcus Rivera",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Alex Johnson",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "TextureGen | AI Material \u0026 Texture Creator",
+        "author":  "surfacemind",
+        "category":  "3D Models",
+        "price":  "$49",
+        "sales":  "678 Sales",
+        "seed":  "texturegen",
+        "rating":  4.7,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "QRArt | AI Stylized QR Generator",
+        "author":  "codecraft",
+        "category":  "Image Editing",
+        "price":  "$14",
+        "sales":  "7.1k Sales",
+        "seed":  "qrart",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        }
+                    ],
+        "reviewsCount":  5
+    },
+    {
+        "title":  "CollageAI | Smart Photo Collage Maker",
+        "author":  "mosaiclab",
+        "category":  "Image Editing",
+        "price":  "$19",
+        "sales":  "3.2k Sales",
+        "seed":  "collageai",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  5,
+                            "name":  "Olivia Brown",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Priya Patel",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "MemeCraft | AI Meme Generator",
+        "author":  "funpixel",
+        "category":  "Image Editing",
+        "price":  "$9",
+        "sales":  "9.8k Sales",
+        "seed":  "memecraft",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "StoryBoard | AI Storyboard Creator",
+        "author":  "directorpix",
+        "category":  "Video Gen",
+        "price":  "$74",
+        "sales":  "456 Sales",
+        "seed":  "storyboard",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-04-02",
+                            "rating":  5,
+                            "name":  "Daniel Lee",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        },
+                        {
+                            "date":  "2026-03-15",
+                            "rating":  4,
+                            "name":  "Alice Chen",
+                            "text":  "Made a huge difference to our productivity. Worth every penny."
+                        },
+                        {
+                            "date":  "2026-07-18",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Sarah Kim",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "FontForge | AI Typography Art Generator",
+        "author":  "typelab",
+        "category":  "Text-to-Image",
+        "price":  "$24",
+        "sales":  "2.3k Sales",
+        "seed":  "fontforge",
+        "rating":  4.2,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  3,
+                            "name":  "Priya Patel",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Maria Santos",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  3,
+                            "name":  "Emma Wilson",
+                            "text":  "Been using this for 3 months now. Performance is excellent and regular updates keep getting better."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "DepthMap | AI Depth Estimation",
+        "author":  "depthlabs",
+        "category":  "Image Editing",
+        "price":  "$39",
+        "sales":  "1.1k Sales",
+        "seed":  "depthmap",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        },
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Perfect for our use case. Customization options are extensive and the defaults are sensible."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        }
+                    ],
+        "reviewsCount":  4
+    },
+    {
+        "title":  "PatternBot | Seamless Pattern Generator",
+        "author":  "designwave",
+        "category":  "Text-to-Image",
+        "price":  "$19",
+        "sales":  "4.5k Sales",
+        "seed":  "patternbot",
+        "rating":  4.9,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-02",
+                            "rating":  4,
+                            "name":  "Maria Santos",
+                            "text":  "Reliable and well maintained. The team clearly cares about the product quality."
+                        },
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Emma Wilson",
+                            "text":  "Works well but the learning curve is a bit steep. Once you get it though, it\u0027s powerful."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  4,
+                            "name":  "Marcus Rivera",
+                            "text":  "Good value for the price. Does everything it claims and integrates well with our stack."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-04-11",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-03-28",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  6
+    },
+    {
+        "title":  "InteriorAI | Room Design Visualizer",
+        "author":  "spacelab",
+        "category":  "Text-to-Image",
+        "price":  "$49",
+        "sales":  "1.9k Sales",
+        "seed":  "interiorai",
+        "rating":  4.1,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-03",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Used it in production for 6 months. Rock solid stability and great performance at scale."
+                        },
+                        {
+                            "date":  "2026-05-14",
+                            "rating":  4,
+                            "name":  "James Thompson",
+                            "text":  "Impressive quality. Saved us weeks of development time. Would definitely recommend."
+                        },
+                        {
+                            "date":  "2026-04-19",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Exactly what I needed for my project. The documentation is clear and setup was straightforward."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "SketchToImage",
+        "desc":  "Convert rough sketches to detailed art",
+        "author":  "drawlabs",
+        "category":  "Text-to-Image",
+        "price":  "$34",
+        "sales":  "2.6k Sales",
+        "seed":  "sketchtoimage",
+        "rating":  4.6,
+        "reviews":  [
+                        {
+                            "date":  "2026-06-17",
+                            "rating":  5,
+                            "name":  "Alice Chen",
+                            "text":  "The API is well designed and the SDK makes integration painless. Love it."
+                        },
+                        {
+                            "date":  "2026-05-22",
+                            "rating":  5,
+                            "name":  "Carlos Garcia",
+                            "text":  "Decent product but could use more examples in the docs. Support team is helpful though."
+                        },
+                        {
+                            "date":  "2026-05-01",
+                            "rating":  5,
+                            "name":  "Sarah Kim",
+                            "text":  "Solid product with great support. Had a minor issue but the team resolved it within hours."
+                        }
+                    ],
+        "reviewsCount":  3
+    },
+    {
+        "title":  "VideoFace | Face Reenactment Tool",
+        "author":  "motionpixel",
+        "category":  "Video Gen",
+        "price":  "$89",
+        "sales":  "345 Sales",
+        "seed":  "videoface",
+        "rating":  4.4,
+        "reviews":  [
+                        {
+                            "date":  "2026-07-24",
+                            "rating":  5,
+                            "name":  "Yuki Tanaka",
+                            "text":  "Great community around this product. Found answers to most questions in the forums."
+                        },
+                        {
+                            "date":  "2026-07-10",
+                            "rating":  5,
+                            "name":  "James Thompson",
+                            "text":  "Best in class for this category. We evaluated 5 alternatives and this was the clear winner."
+                        },
+                        {
+                            "date":  "2026-06-25",
+                            "rating":  5,
+                            "name":  "Alex Johnson",
+                            "text":  "Outstanding! This has become an essential part of our workflow. Five stars."
+                        }
+                    ],
+        "reviewsCount":  3
+    }
 ]
