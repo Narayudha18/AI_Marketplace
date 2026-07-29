@@ -13,7 +13,6 @@ import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
-import { getRating } from '../ratingUtils'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -434,7 +433,7 @@ export default function CategoryListing() {
                             )}
                             <div className="flex items-center gap-1 text-[11px] text-text-muted">
                               <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                              <span className="font-medium">{getRating(category, slug, item.rating)}</span>
+                              <span className="font-medium">{item.rating}</span>
                               <span>·</span>
                               <span>{item.reviews.length} reviews</span>
                             </div>

@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import integrations from '../data/integrations.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
-import { getRating } from '../ratingUtils'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -216,7 +215,7 @@ export default function Integrations() {
                     <div className="mt-auto px-5 pb-4 flex items-center justify-between border-t border-border-light pt-3">
                       <div className="flex items-center gap-2 text-[11px] text-text-muted">
                         <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 14 }}>star</span>
-                        <span className="font-medium">{getRating('integrations', toSlug(item.name), item.rating)}</span>
+                        <span className="font-medium">{item.rating}</span>
                         <span className="text-text-muted">·</span>
                         <span>{item.reviews.length} reviews</span>
                       </div>

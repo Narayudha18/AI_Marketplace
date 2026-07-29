@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import chatbots from '../data/chatbots.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
-import { getRating } from '../ratingUtils'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -195,7 +194,7 @@ export default function Chatbots() {
                           <span className="text-lg font-semibold text-text-main">{b.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            {getRating('chatbots', toSlug(b.name), b.rating)} · {b.reviews.length} reviews
+                            {b.rating} · {b.reviews.length} reviews
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/chatbots/${toSlug(b.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
