@@ -25,10 +25,20 @@ jobs:
           node-version: 20
 
       - name: Install deps
-        run: npm ci
+        run: |
+          if [ -f "package.json" ]; then
+            npm ci
+          else
+            echo "No package.json found — skipping npm ci"
+          fi
 
       - name: Build
-        run: npm run build
+        run: |
+          if [ -f "package.json" ]; then
+            npm run build
+          else
+            echo "No package.json found — skipping build"
+          fi
 
       - name: Install rsync
         run: sudo apt-get update -qq && sudo apt-get install -y -qq rsync
