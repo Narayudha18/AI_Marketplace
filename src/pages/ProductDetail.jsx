@@ -4,6 +4,7 @@ import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
+import { updateRating } from '../ratingUtils'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -193,7 +194,8 @@ export default function ProductDetail() {
 
   useEffect(() => {
     localStorage.setItem(reviewKey, JSON.stringify(reviews))
-  }, [reviews, reviewKey])
+    updateRating(category, slug)
+  }, [reviews, reviewKey, category, slug])
   useEffect(() => {
     localStorage.setItem(commentKey, JSON.stringify(comments))
   }, [comments, commentKey])

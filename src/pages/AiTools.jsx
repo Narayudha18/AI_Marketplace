@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import tools from '../data/aitools.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { getRating } from '../ratingUtils'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -197,7 +198,7 @@ export default function AiTools() {
                           <span className="text-xs font-semibold text-text-main">{t.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            <span className="font-medium">{t.rating}</span>
+                            <span className="font-medium">{getRating('ai-tools', toSlug(t.name), t.rating)}</span>
                             <span>·</span>
                             <span>{t.reviews.length} reviews</span>
                           </div>

@@ -13,6 +13,7 @@ import analytics from '../data/analytics.json'
 import fineTuning from '../data/fine-tuning.json'
 import monitoring from '../data/monitoring.json'
 import security from '../data/security.json'
+import { getRating } from '../ratingUtils'
 
 const dataMap = {
   templates: { items: templates, nameKey: 'title', nav: '/templates' },
@@ -83,7 +84,7 @@ export default function Favorites() {
                       {'rating' in item && (
                         <div className="flex items-center gap-1 mt-1">
                           <span className="material-symbols-outlined text-yellow-500 text-xs" style={{ fontSize: 12 }}>star</span>
-                          <span className="text-[10px] font-medium text-text-muted">{item.rating}</span>
+                          <span className="text-[10px] font-medium text-text-muted">{getRating(item.category, slug, item.rating)}</span>
                         </div>
                       )}
                       <p className="text-[10px] text-text-muted mt-0.5 capitalize">{item.category}</p>

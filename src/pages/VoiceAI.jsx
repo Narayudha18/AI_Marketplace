@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import voiceAI from '../data/voice-ai.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { getRating } from '../ratingUtils'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -235,7 +236,7 @@ export default function VoiceAI() {
                           <span className="text-[24px] font-semibold text-text-main block">{t.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            <span className="font-medium">{t.rating}</span>
+                            <span className="font-medium">{getRating('voice-ai', toSlug(t.title), t.rating)}</span>
                             <span>·</span>
                             <span>{t.reviews.length} reviews</span>
                           </div>
