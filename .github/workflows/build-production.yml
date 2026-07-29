@@ -20,24 +20,25 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Node
+        if: ${{ !env.ACT }}
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install deps
         run: |
-          if [ -f "package.json" ]; then
-            npm ci
+          if [ -d "dist" ] && [ "$(ls -A dist)" ]; then
+            echo "dist already built — skipping npm ci"
           else
-            echo "No package.json found — skipping npm ci"
+            npm install
           fi
 
       - name: Build
         run: |
-          if [ -f "package.json" ]; then
-            npm run build
+          if [ -d "dist" ] && [ "$(ls -A dist)" ]; then
+            echo "dist already built — skipping build"
           else
-            echo "No package.json found — skipping build"
+            npm run build
           fi
 
       - name: Install rsync
