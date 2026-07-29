@@ -355,17 +355,18 @@ export default function ProductDetail() {
                 <h1 className="text-[28px] md:text-[34px] font-bold text-text-main leading-tight tracking-tight">{name}</h1>
               </div>
               <div className="flex items-center gap-3 mt-2">
-                {'rating' in item && (
-                  <div className="flex items-center gap-1.5">
-                    {renderStars(item.rating)}
-                    <span className="text-xs font-semibold text-text-main">{item.rating}</span>
-                  </div>
+                <div className="flex items-center gap-1.5">
+                  {renderStars(avgRating ? parseFloat(avgRating) : (item.rating || 0))}
+                  <span className="text-xs font-semibold text-text-main">{avgRating || item.rating || '0.0'}</span>
+                </div>
+                {reviews.length > 0 && (
+                  <span className="text-xs font-medium text-text-muted">({reviews.length} review{reviews.length > 1 ? 's' : ''})</span>
                 )}
                 {'sales' in item && (
-                  <span className="text-xs font-medium text-text-muted">{item.sales}{'users' in item ? '' : ' users'}</span>
+                  <span className="text-xs font-medium text-text-muted">&middot; {item.sales}{'users' in item ? '' : ' users'}</span>
                 )}
                 {'users' in item && (
-                  <span className="text-xs font-medium text-text-muted">{item.users} users</span>
+                  <span className="text-xs font-medium text-text-muted">&middot; {item.users} users</span>
                 )}
               </div>
             </div>
