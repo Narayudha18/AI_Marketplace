@@ -72,6 +72,7 @@ export default function Profile() {
   const switchTab = (id) => {
     setPrevTab(activeTab)
     setActiveTab(id)
+    if (id !== 'profile') setPendingPicture(null)
   }
 
   if (!currentUser) {
@@ -218,9 +219,7 @@ export default function Profile() {
               onClick={() => fileRef.current?.click()}
               className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 flex-shrink-0 overflow-hidden backdrop-blur-sm ring-2 ring-white/30 mb-3 cursor-pointer transition-all hover:ring-white/60 ${dragOver ? 'ring-white/80 scale-105' : ''}`}
             >
-              {pendingPicture ? (
-                <img src={pendingPicture} alt="" className="w-full h-full object-cover" />
-              ) : currentUser.picture ? (
+              {currentUser.picture ? (
                 <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
               ) : (
                 <span className="text-2xl md:text-3xl font-bold flex items-center justify-center w-full h-full">
