@@ -1,3 +1,25 @@
+## v7.6 — 2026-07-30
+
+### Komponen
+- **Profile** — Redesain jadi Dashboard Profile: sidebar tabs (My Profile, Orders, Addresses, Settings), edit profile inline, address management, change password, dark mode toggle, toast notifications [file: src/pages/Profile.jsx]
+
+### Ubah
+- **AuthContext** — tambah `updateProfile({ name, email, bio })`, `addAddress(address)`, `removeAddress(id)` methods [file: src/AuthContext.jsx]
+
+### Fitur
+- [Feat] Dashboard Profile — sidebar navigasi 4 tab, layout responsive
+- [Feat] Edit Profile — edit name, email, bio secara inline dengan save/cancel
+- [Feat] Address Management — tambah/hapus alamat (label, street, city, phone)
+- [Feat] Account Settings — change password dengan validasi, dark mode toggle, sign out
+- [Feat] Toast notifications — feedback visual untuk semua aksi (save, update, add, remove)
+
+### Mock JSON
+- `docs/mock/profile/get-profile.json` — GET /api/user/profile
+- `docs/mock/profile/put-profile.json` — PUT /api/user/profile
+- `docs/mock/profile/get-addresses.json` — GET /api/user/addresses
+- `docs/mock/profile/post-address.json` — POST /api/user/addresses
+- `docs/mock/profile/delete-address.json` — DELETE /api/user/addresses/:id
+
 ## v7.5 — 2026-07-30
 
 ### Mock JSON

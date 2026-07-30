@@ -1,0 +1,21 @@
+{
+  "endpoint": "GET /api/user/addresses",
+  "response": {
+    "addresses": [
+      {
+        "id": 1,
+        "label": "Home",
+        "street": "123 Main Street, Apt 4B",
+        "city": "Jakarta",
+        "phone": "+628123456789"
+      },
+      {
+        "id": 2,
+        "label": "Office",
+        "street": "456 Business Blvd, Floor 12",
+        "city": "Bandung",
+        "phone": "+628987654321"
+      }
+    ]
+  }
+}

@@ -866,7 +866,7 @@ test
 
 ## Mock JSON Reference
 
-Daftar lengkap seluruh endpoint mock JSON yang sudah siap (36 endpoint, status ✅ semua):
+Daftar lengkap seluruh endpoint mock JSON yang sudah siap (41 endpoint, status ✅ semua):
 
 | # | Endpoint | File | Status |
 |---|----------|------|--------|
@@ -934,19 +934,24 @@ Daftar lengkap seluruh endpoint mock JSON yang sudah siap (36 endpoint, status �
 | 18 | `POST /api/favorites` | `docs/mock/favorites/post-favorite.json` | ✅ |
 | 19 | `DELETE /api/favorites/:id` | `docs/mock/favorites/delete-favorite.json` | ✅ |
 | 20 | `GET /api/search` | `docs/mock/search/get-search.json` | ✅ |
-| 21 | `GET /api/profile/orders` | `docs/mock/profile/get-orders.json` | ✅ |
-| 22 | `POST /api/orders` | `docs/mock/orders/post-orders.json` | ✅ |
-| 23 | `GET /api/orders/:id` | `docs/mock/orders/get-order-id.json` | ✅ |
-| 24 | `POST /api/seller/register` | `docs/mock/seller/post-register.json` | ✅ |
-| 25 | `GET /api/seller/dashboard` | `docs/mock/seller/get-dashboard.json` | ✅ |
-| 26 | `GET /api/admin/dashboard` | `docs/mock/admin/get-dashboard.json` | ✅ |
-| 27 | `GET /api/admin/users` | `docs/mock/admin/get-users.json` | ✅ |
-| 28 | `PUT /api/admin/orders/:id` | `docs/mock/admin/put-order-id.json` | ✅ |
-| 29 | `DELETE /api/admin/reviews/:id` | `docs/mock/admin/delete-review-id.json` | ✅ |
-| 30 | `PUT /api/admin/sellers/:id/approve` | `docs/mock/admin/put-seller-id-approve.json` | ✅ |
-| 31 | `PUT /api/admin/sellers/:id/reject` | `docs/mock/admin/put-seller-id-reject.json` | ✅ |
-| 32 | `GET /api/ai-agents` | `docs/mock/ai-agents/get-ai-agents.json` | ✅ |
-| 33 | `GET /api/ai-prompts` | `docs/mock/ai-prompts/get-ai-prompts.json` | ✅ |
-| 34 | `GET /api/ai-skills` | `docs/mock/ai-skills/get-ai-skills.json` | ✅ |
-| 35 | `GET /api/ai-tokens` | `docs/mock/ai-tokens/get-ai-tokens.json` | ✅ |
-| 36 | `GET /api/ai-workflows` | `docs/mock/ai-workflows/get-ai-workflows.json` | ✅ |
+| 21 | `GET /api/profile` | `docs/mock/profile/get-profile.json` | ✅ |
+| 22 | `PUT /api/profile` | `docs/mock/profile/put-profile.json` | ✅ |
+| 23 | `GET /api/profile/orders` | `docs/mock/profile/get-orders.json` | ✅ |
+| 24 | `GET /api/profile/addresses` | `docs/mock/profile/get-addresses.json` | ✅ |
+| 25 | `POST /api/profile/addresses` | `docs/mock/profile/post-address.json` | ✅ |
+| 26 | `DELETE /api/profile/addresses/:id` | `docs/mock/profile/delete-address.json` | ✅ |
+| 27 | `POST /api/orders` | `docs/mock/orders/post-orders.json` | ✅ |
+| 28 | `GET /api/orders/:id` | `docs/mock/orders/get-order-id.json` | ✅ |
+| 29 | `POST /api/seller/register` | `docs/mock/seller/post-register.json` | ✅ |
+| 30 | `GET /api/seller/dashboard` | `docs/mock/seller/get-dashboard.json` | ✅ |
+| 31 | `GET /api/admin/dashboard` | `docs/mock/admin/get-dashboard.json` | ✅ |
+| 32 | `GET /api/admin/users` | `docs/mock/admin/get-users.json` | ✅ |
+| 33 | `PUT /api/admin/orders/:id` | `docs/mock/admin/put-order-id.json` | ✅ |
+| 34 | `DELETE /api/admin/reviews/:id` | `docs/mock/admin/delete-review-id.json` | ✅ |
+| 35 | `PUT /api/admin/sellers/:id/approve` | `docs/mock/admin/put-seller-id-approve.json` | ✅ |
+| 36 | `PUT /api/admin/sellers/:id/reject` | `docs/mock/admin/put-seller-id-reject.json` | ✅ |
+| 37 | `GET /api/ai-agents` | `docs/mock/ai-agents/get-ai-agents.json` | ✅ |
+| 38 | `GET /api/ai-prompts` | `docs/mock/ai-prompts/get-ai-prompts.json` | ✅ |
+| 39 | `GET /api/ai-skills` | `docs/mock/ai-skills/get-ai-skills.json` | ✅ |
+| 40 | `GET /api/ai-tokens` | `docs/mock/ai-tokens/get-ai-tokens.json` | ✅ |
+| 41 | `GET /api/ai-workflows` | `docs/mock/ai-workflows/get-ai-workflows.json` | ✅ |

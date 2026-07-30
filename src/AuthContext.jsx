@@ -66,9 +66,33 @@ export function AuthProvider({ children }) {
     return { ok: true }
   }
 
+  const updateProfile = (fields) => {
+    if (!currentUser) return null
+    const updated = { ...currentUser, ...fields }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+    return updated
+  }
+
   const updatePicture = (dataUrl) => {
     if (!currentUser) return
     const updated = { ...currentUser, picture: dataUrl }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }
+
+  const addAddress = (address) => {
+    if (!currentUser) return
+    const addresses = currentUser.addresses || []
+    const updated = { ...currentUser, addresses: [...addresses, { ...address, id: Date.now() }] }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }
+
+  const removeAddress = (addressId) => {
+    if (!currentUser) return
+    const addresses = (currentUser.addresses || []).filter(a => a.id !== addressId)
+    const updated = { ...currentUser, addresses }
     setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
     setCurrentUser(updated)
   }
@@ -88,7 +112,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updatePicture, requestSeller, becomeAdmin }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updateProfile, updatePicture, requestSeller, becomeAdmin, addAddress, removeAddress }}>
       {children}
     </AuthContext.Provider>
   )

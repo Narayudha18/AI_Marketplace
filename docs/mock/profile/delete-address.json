@@ -1,0 +1,7 @@
+{
+  "endpoint": "DELETE /api/user/addresses/:id",
+  "response": {
+    "ok": true,
+    "message": "Address removed successfully"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "endpoint": "GET /api/user/profile",
+  "response": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "bio": "AI enthusiast and full-stack developer.",
+    "picture": null,
+    "isSeller": false,
+    "isAdmin": false,
+    "memberSince": "2026-01-15",
+    "stats": {
+      "totalOrders": 2,
+      "totalItems": 4,
+      "totalSpent": 249.96
+    }
+  }
+}

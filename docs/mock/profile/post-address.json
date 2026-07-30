@@ -1,0 +1,19 @@
+{
+  "endpoint": "POST /api/user/addresses",
+  "request": {
+    "label": "Home",
+    "street": "123 Main Street",
+    "city": "Jakarta",
+    "phone": "+628123456789"
+  },
+  "response": {
+    "ok": true,
+    "address": {
+      "id": 3,
+      "label": "Home",
+      "street": "123 Main Street",
+      "city": "Jakarta",
+      "phone": "+628123456789"
+    }
+  }
+}

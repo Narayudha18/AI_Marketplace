@@ -1,0 +1,18 @@
+{
+  "endpoint": "PUT /api/user/profile",
+  "request": {
+    "name": "John Doe Updated",
+    "email": "john.new@example.com",
+    "bio": "Updated bio text"
+  },
+  "response": {
+    "ok": true,
+    "user": {
+      "id": 1,
+      "name": "John Doe Updated",
+      "email": "john.new@example.com",
+      "bio": "Updated bio text",
+      "picture": null
+    }
+  }
+}
