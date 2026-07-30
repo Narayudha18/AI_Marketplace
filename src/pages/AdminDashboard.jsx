@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
+import UserProfileModal from '../components/UserProfileModal'
 
 const categoryData = [
   { name: 'Templates', count: 38 },
@@ -32,6 +33,7 @@ export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
   const [expandedOrder, setExpandedOrder] = useState(null)
+  const [selectedSeller, setSelectedSeller] = useState(null)
 
   const readUsers = () => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({ ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false })) } catch { return [] } }
   const readOrders = () => {
@@ -431,6 +433,7 @@ export default function AdminDashboard() {
                             <td className="py-3.5 px-5 text-gray-400">{u.email}</td>
                             <td className="py-3.5 px-5 text-right">
                               <div className="flex gap-1.5 justify-end">
+                                <button onClick={() => setSelectedSeller(u)} className="text-[10px] bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">View</button>
                                 <button onClick={() => approveSeller(u.id)} className="text-[10px] bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Approve</button>
                                 <button onClick={() => rejectSeller(u.id)} className="text-[10px] bg-red-500/10 text-red-400 hover:bg-red-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Reject</button>
                               </div>
@@ -477,8 +480,12 @@ export default function AdminDashboard() {
                               <td className="py-3.5 px-5 text-gray-400">{u.email}</td>
                               <td className="py-3.5 px-5 text-gray-300">{productCount}</td>
                               <td className="py-3.5 px-5 text-right">
-                                <button onClick={() => toggleSellerStatus(u.id)}
-                                  className="text-[10px] bg-red-500/10 text-red-400 hover:bg-red-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Revoke</button>
+                                <div className="flex gap-1.5 justify-end">
+                                  <button onClick={() => setSelectedSeller(u)}
+                                    className="text-[10px] bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">View</button>
+                                  <button onClick={() => toggleSellerStatus(u.id)}
+                                    className="text-[10px] bg-red-500/10 text-red-400 hover:bg-red-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Revoke</button>
+                                </div>
                               </td>
                             </tr>
                           )
@@ -668,6 +675,14 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+
+      {selectedSeller && (
+        <UserProfileModal
+          user={selectedSeller}
+          productCount={sellerProducts.filter(p => p.sellerId === selectedSeller.id).length}
+          onClose={() => setSelectedSeller(null)}
+        />
+      )}
     </div>
   )
 }
