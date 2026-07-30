@@ -12,6 +12,14 @@ const TABS = [
   { id: 'settings', label: 'Settings', icon: 'tune' },
 ]
 
+function TabContent({ tabKey, children }) {
+  return (
+    <div key={tabKey} className="animate-fade-in-up">
+      {children}
+    </div>
+  )
+}
+
 function MiniChart({ color, type }) {
   if (type === 'bar') {
     return (
@@ -266,12 +274,6 @@ export default function Profile() {
     </aside>
   )
 
-  const TabContent = ({ children }) => (
-    <div key={activeTab} className="animate-fade-in-up">
-      {children}
-    </div>
-  )
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-surface to-background">
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -325,7 +327,7 @@ export default function Profile() {
 
             {/* Overview */}
             {activeTab === 'overview' && (
-              <TabContent>
+              <TabContent tabKey={activeTab}>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {statCards.map((s, i) => (
                     <div key={i}
@@ -398,7 +400,7 @@ export default function Profile() {
 
             {/* Profile */}
             {activeTab === 'profile' && (
-              <TabContent>
+              <TabContent tabKey={activeTab}>
                 <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
                   <div className="px-5 md:px-6 py-4 border-b border-border-light/60 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
@@ -489,7 +491,7 @@ export default function Profile() {
 
             {/* Orders */}
             {activeTab === 'orders' && (
-              <TabContent>
+              <TabContent tabKey={activeTab}>
                 <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
                   <div className="px-5 md:px-6 py-4 border-b border-border-light/60 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
@@ -574,7 +576,7 @@ export default function Profile() {
 
             {/* Addresses */}
             {activeTab === 'addresses' && (
-              <TabContent>
+              <TabContent tabKey={activeTab}>
                 <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
                   <div className="px-5 md:px-6 py-4 border-b border-border-light/60 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
@@ -669,7 +671,7 @@ export default function Profile() {
 
             {/* Settings */}
             {activeTab === 'settings' && (
-              <TabContent>
+              <TabContent tabKey={activeTab}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                   <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
                     <div className="px-5 md:px-6 py-4 border-b border-border-light/60">
