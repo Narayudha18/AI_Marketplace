@@ -36,6 +36,7 @@ export default function AdminDashboard() {
   const [accountOpen, setAccountOpen] = useState(false)
   const [expandedOrder, setExpandedOrder] = useState(null)
   const [selectedSeller, setSelectedSeller] = useState(null)
+  const [selectedUser, setSelectedUser] = useState(null)
 
   const readUsers = () => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({ ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false })) } catch { return [] } }
   const readOrders = () => {
@@ -392,6 +393,8 @@ export default function AdminDashboard() {
                         <td className="py-3.5 px-5 text-right">
                           {!u.isAdmin && (
                             <div className="flex gap-1.5 justify-end">
+                              <button onClick={() => setSelectedUser(u)}
+                                className="text-[10px] bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">View</button>
                               {!u.isSeller ? (
                                 <button onClick={() => approveSeller(u.id)}
                                   className="text-[10px] bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 font-bold px-2 py-1 rounded-md transition-colors cursor-pointer">Make Seller</button>
@@ -690,6 +693,13 @@ export default function AdminDashboard() {
           user={selectedSeller}
           productCount={sellerProducts.filter(p => p.sellerId === selectedSeller.id).length}
           onClose={() => setSelectedSeller(null)}
+        />
+      )}
+      {selectedUser && (
+        <UserProfileModal
+          user={selectedUser}
+          productCount={sellerProducts.filter(p => p.sellerId === selectedUser.id).length}
+          onClose={() => setSelectedUser(null)}
         />
       )}
     </div>

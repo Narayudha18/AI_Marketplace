@@ -1,4 +1,4 @@
-export default function UserProfileModal({ user, productCount, onClose }) {
+export default function UserProfileModal({ user, productCount = 0, onClose }) {
   const memberSince = user.id
     ? new Date(Number.isFinite(user.id) ? user.id : Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
     : 'Unknown'
@@ -11,9 +11,9 @@ export default function UserProfileModal({ user, productCount, onClose }) {
           <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-blue-400" style={{ fontSize: 18 }}>storefront</span>
+                <span className="material-symbols-outlined text-blue-400" style={{ fontSize: 18 }}>{user.isSeller ? 'storefront' : 'person'}</span>
               </div>
-              <h2 className="text-sm font-bold text-on-surface">Seller Profile</h2>
+              <h2 className="text-sm font-bold text-on-surface">{user.isSeller ? 'Seller Profile' : 'User Profile'}</h2>
             </div>
             <button onClick={onClose} className="text-text-muted hover:text-text-main transition-colors cursor-pointer p-1">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>close</span>
