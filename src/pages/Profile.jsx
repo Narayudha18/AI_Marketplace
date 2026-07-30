@@ -43,6 +43,7 @@ export default function Profile() {
   const [orders, setOrders] = useState([])
   const [expandedOrder, setExpandedOrder] = useState(null)
   const [cropImage, setCropImage] = useState(null)
+  const [pendingPicture, setPendingPicture] = useState(null)
   const [toast, setToast] = useState(null)
   const [prevTab, setPrevTab] = useState('overview')
 
@@ -131,16 +132,20 @@ export default function Profile() {
   const handleDragLeave = () => setDragOver(false)
 
   const handleCropSave = (cropped) => {
-    updatePicture(cropped)
-    trackActivity('picture', 'Updated profile picture')
+    setPendingPicture(cropped)
     setCropImage(null)
-    showToast('Profile picture updated')
+    showToast('Picture staged — save changes to apply')
   }
 
   const handleSaveProfile = () => {
     setSaving(true)
     const updated = updateProfile({ name: editForm.name, email: editForm.email, bio: editForm.bio })
     if (updated) {
+      if (pendingPicture) {
+        updatePicture(pendingPicture)
+        setPendingPicture(null)
+        trackActivity('picture', 'Updated profile picture')
+      }
       trackActivity('profile', 'Updated profile information')
       showToast('Profile updated')
     }
@@ -211,9 +216,11 @@ export default function Profile() {
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onClick={() => fileRef.current?.click()}
-              className={`w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/20 flex-shrink-0 overflow-hidden backdrop-blur-sm ring-2 ring-white/30 mb-3 cursor-pointer transition-all hover:ring-white/60 ${dragOver ? 'ring-white/80 scale-105' : ''}`}
+              className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 flex-shrink-0 overflow-hidden backdrop-blur-sm ring-2 ring-white/30 mb-3 cursor-pointer transition-all hover:ring-white/60 ${dragOver ? 'ring-white/80 scale-105' : ''}`}
             >
-              {currentUser.picture ? (
+              {pendingPicture ? (
+                <img src={pendingPicture} alt="" className="w-full h-full object-cover" />
+              ) : currentUser.picture ? (
                 <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
               ) : (
                 <span className="text-2xl md:text-3xl font-bold flex items-center justify-center w-full h-full">
@@ -407,26 +414,35 @@ export default function Profile() {
                           onDrop={handleDrop}
                           onDragOver={handleDragOver}
                           onDragLeave={handleDragLeave}
-                          className={`relative group w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-container/20 to-primary-container/5 overflow-hidden cursor-pointer ring-2 transition-all ${
+                          className={`relative group w-24 h-24 rounded-full bg-gradient-to-br from-primary-container/20 to-primary-container/5 overflow-hidden cursor-pointer ring-2 transition-all ${
                             dragOver ? 'ring-primary-container border-primary-container scale-105' : 'ring-border-light/60 hover:ring-primary-container/40'
                           }`}
                         >
-                          {currentUser.picture ? (
+                          {pendingPicture ? (
+                            <img src={pendingPicture} alt="" className="w-full h-full object-cover" />
+                          ) : currentUser.picture ? (
                             <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
                           ) : (
                             <span className="text-4xl font-bold text-primary-container flex items-center justify-center w-full h-full">
                               {currentUser.name?.[0]?.toUpperCase() || 'U'}
                             </span>
                           )}
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all rounded-2xl backdrop-blur-[2px]">
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all rounded-full backdrop-blur-[2px]">
                             <div className="flex flex-col items-center gap-1">
                               <span className="material-symbols-outlined text-surface text-xl">photo_camera</span>
                               <span className="text-[10px] text-surface font-semibold">Change</span>
                             </div>
                           </div>
+                          {pendingPicture && (
+                            <button onClick={(e) => { e.stopPropagation(); setPendingPicture(null) }}
+                              className="absolute -top-1 -right-1 w-5 h-5 bg-red-400 text-surface rounded-full flex items-center justify-center shadow-md hover:bg-red-500 transition-colors">
+                              <span className="material-symbols-outlined" style={{ fontSize: 12 }}>close</span>
+                            </button>
+                          )}
                         </button>
                         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handlePicture} />
                         <span className="text-[10px] text-text-muted/60">Click or drag image</span>
+                        {pendingPicture && <span className="text-[10px] text-amber-500 font-semibold">Picture staged — click Save</span>}
                       </div>
 
                       <div className="flex-1 space-y-4 min-w-0">
