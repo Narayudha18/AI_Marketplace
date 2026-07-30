@@ -29,7 +29,7 @@ const sidebarItems = [
 
 export default function AdminDashboard() {
   const { currentUser, logout, becomeAdmin } = useAuth()
-  const { dark } = useTheme()
+  const { dark, toggle } = useTheme()
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('overview')
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -237,16 +237,23 @@ export default function AdminDashboard() {
             </div>
             <span className="text-xs font-bold text-text-main">Admin Panel</span>
           </div>
-          <div className="w-6" />
+          <button onClick={toggle} className="text-text-muted hover:text-text-main transition-colors cursor-pointer p-1 flex items-center justify-center">
+            <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{dark ? 'light_mode' : 'dark_mode'}</span>
+          </button>
         </div>
 
         <div className="p-4 md:p-6 lg:p-8 max-w-[1200px]">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-lg md:text-xl font-bold text-on-surface capitalize">{activeTab === 'overview' ? 'Dashboard Overview' : `${activeTab} Management`}</h1>
-            <button onClick={refresh} className="flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-text-main bg-surface-container-low hover:bg-surface-container px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
-              <span className="material-symbols-outlined" style={{ fontSize: 14 }}>refresh</span>
-              Refresh
-            </button>
+            <div className="flex items-center gap-2">
+              <button onClick={toggle} className="text-text-muted hover:text-text-main transition-colors cursor-pointer p-1.5 flex items-center justify-center">
+                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{dark ? 'light_mode' : 'dark_mode'}</span>
+              </button>
+              <button onClick={refresh} className="flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-text-main bg-surface-container-low hover:bg-surface-container px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 14 }}>refresh</span>
+                Refresh
+              </button>
+            </div>
           </div>
 
           {/* OVERVIEW */}
