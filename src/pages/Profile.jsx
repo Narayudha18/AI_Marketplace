@@ -398,7 +398,7 @@ export default function Profile() {
               </TabContent>
             )}
 
-            {/* Profile */}
+            {/* Profile — pure view */}
             {activeTab === 'profile' && (
               <TabContent tabKey={activeTab}>
                 <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
@@ -409,77 +409,47 @@ export default function Profile() {
                       </div>
                       <h2 className="text-sm font-bold text-text-main">Personal Information</h2>
                     </div>
+                    <span className="text-[10px] text-text-muted/60 px-2.5 py-1 rounded-lg bg-surface-container-low/40 border border-border-light/40">View only</span>
                   </div>
                   <div className="p-5 md:p-6">
                     <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
                       <div className="flex flex-col items-center gap-3 flex-shrink-0">
-                        <button
-                          onClick={() => fileRef.current?.click()}
-                          onDrop={handleDrop}
-                          onDragOver={handleDragOver}
-                          onDragLeave={handleDragLeave}
-                          className={`relative group w-24 h-24 rounded-full bg-gradient-to-br from-primary-container/20 to-primary-container/5 overflow-hidden cursor-pointer ring-2 transition-all ${
-                            dragOver ? 'ring-primary-container border-primary-container scale-105' : 'ring-border-light/60 hover:ring-primary-container/40'
-                          }`}
-                        >
-                          {pendingPicture ? (
-                            <img src={pendingPicture} alt="" className="w-full h-full object-cover" />
-                          ) : currentUser.picture ? (
+                        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-container/20 to-primary-container/5 overflow-hidden ring-2 ring-border-light/60">
+                          {currentUser.picture ? (
                             <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
                           ) : (
                             <span className="text-4xl font-bold text-primary-container flex items-center justify-center w-full h-full">
                               {currentUser.name?.[0]?.toUpperCase() || 'U'}
                             </span>
                           )}
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all rounded-full backdrop-blur-[2px]">
-                            <div className="flex flex-col items-center gap-1">
-                              <span className="material-symbols-outlined text-surface text-xl">photo_camera</span>
-                              <span className="text-[10px] text-surface font-semibold">Change</span>
-                            </div>
-                          </div>
-                          {pendingPicture && (
-                            <button onClick={(e) => { e.stopPropagation(); setPendingPicture(null) }}
-                              className="absolute -top-1 -right-1 w-5 h-5 bg-red-400 text-surface rounded-full flex items-center justify-center shadow-md hover:bg-red-500 transition-colors">
-                              <span className="material-symbols-outlined" style={{ fontSize: 12 }}>close</span>
-                            </button>
-                          )}
-                        </button>
-                        <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handlePicture} />
-                        <span className="text-[10px] text-text-muted/60">Click or drag image</span>
-                        {pendingPicture && <span className="text-[10px] text-amber-500 font-semibold">Picture staged — click Save</span>}
+                        </div>
+                        <span className="text-[10px] text-text-muted/60">{currentUser.isAdmin ? 'Administrator' : currentUser.isSeller ? 'Seller' : 'Member'}</span>
                       </div>
 
                       <div className="flex-1 space-y-4 min-w-0">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Full Name</label>
-                            <input value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })}
-                              className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
+                            <p className="text-sm text-text-main font-medium">{currentUser.name}</p>
                           </div>
                           <div>
                             <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Email Address</label>
-                            <input value={editForm.email} onChange={e => setEditForm({ ...editForm, email: e.target.value })}
-                              className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
+                            <p className="text-sm text-text-main font-medium">{currentUser.email}</p>
                           </div>
                         </div>
                         <div>
                           <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Bio</label>
-                          <textarea value={editForm.bio} onChange={e => setEditForm({ ...editForm, bio: e.target.value })} rows={3}
-                            className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all resize-none" placeholder="Tell the world about yourself..." />
+                          <p className="text-sm text-text-main font-medium">{currentUser.bio || '-'}</p>
                         </div>
                         <div className="flex items-center gap-2 text-[11px] text-text-muted">
                           <span className="material-symbols-outlined text-xs">calendar_month</span>
                           Member since {memberSince}
                         </div>
-                        <div className="flex gap-3 pt-2">
-                          <button onClick={handleSaveProfile} disabled={saving}
-                            className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer">
-                            {saving ? (
-                              <span className="material-symbols-outlined animate-spin" style={{ fontSize: 16 }}>progress_activity</span>
-                            ) : (
-                              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>save</span>
-                            )}
-                            Save Changes
+                        <div className="pt-2">
+                          <button onClick={() => switchTab('settings')}
+                            className="flex items-center gap-1.5 text-xs text-primary-container font-semibold hover:underline cursor-pointer">
+                            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>settings</span>
+                            Edit in Settings
                           </button>
                         </div>
                       </div>
@@ -673,6 +643,90 @@ export default function Profile() {
             {activeTab === 'settings' && (
               <TabContent tabKey={activeTab}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+                  {/* Personal Information */}
+                  <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm lg:col-span-2">
+                    <div className="px-5 md:px-6 py-4 border-b border-border-light/60 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-container/20 to-primary-container/10 flex items-center justify-center">
+                          <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>person</span>
+                        </div>
+                        <h2 className="text-sm font-bold text-text-main">Personal Information</h2>
+                      </div>
+                    </div>
+                    <div className="p-5 md:p-6">
+                      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                        <div className="flex flex-col items-center gap-3 flex-shrink-0">
+                          <button
+                            onClick={() => fileRef.current?.click()}
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                            onDragLeave={handleDragLeave}
+                            className={`relative group w-24 h-24 rounded-full bg-gradient-to-br from-primary-container/20 to-primary-container/5 overflow-hidden cursor-pointer ring-2 transition-all ${
+                              dragOver ? 'ring-primary-container border-primary-container scale-105' : 'ring-border-light/60 hover:ring-primary-container/40'
+                            }`}
+                          >
+                            {pendingPicture ? (
+                              <img src={pendingPicture} alt="" className="w-full h-full object-cover" />
+                            ) : currentUser.picture ? (
+                              <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
+                            ) : (
+                              <span className="text-4xl font-bold text-primary-container flex items-center justify-center w-full h-full">
+                                {currentUser.name?.[0]?.toUpperCase() || 'U'}
+                              </span>
+                            )}
+                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all rounded-full backdrop-blur-[2px]">
+                              <div className="flex flex-col items-center gap-1">
+                                <span className="material-symbols-outlined text-surface text-xl">photo_camera</span>
+                                <span className="text-[10px] text-surface font-semibold">Change</span>
+                              </div>
+                            </div>
+                            {pendingPicture && (
+                              <button onClick={(e) => { e.stopPropagation(); setPendingPicture(null) }}
+                                className="absolute -top-1 -right-1 w-5 h-5 bg-red-400 text-surface rounded-full flex items-center justify-center shadow-md hover:bg-red-500 transition-colors">
+                                <span className="material-symbols-outlined" style={{ fontSize: 12 }}>close</span>
+                              </button>
+                            )}
+                          </button>
+                          <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handlePicture} />
+                          <span className="text-[10px] text-text-muted/60">Click or drag image</span>
+                          {pendingPicture && <span className="text-[10px] text-amber-500 font-semibold">Picture staged</span>}
+                        </div>
+
+                        <div className="flex-1 space-y-4 min-w-0">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Full Name</label>
+                              <input value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })}
+                                className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
+                            </div>
+                            <div>
+                              <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Email Address</label>
+                              <input value={editForm.email} onChange={e => setEditForm({ ...editForm, email: e.target.value })}
+                                className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
+                            </div>
+                          </div>
+                          <div>
+                            <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Bio</label>
+                            <textarea value={editForm.bio} onChange={e => setEditForm({ ...editForm, bio: e.target.value })} rows={3}
+                              className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all resize-none" placeholder="Tell the world about yourself..." />
+                          </div>
+                          <div className="flex gap-3 pt-2">
+                            <button onClick={handleSaveProfile} disabled={saving}
+                              className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer">
+                              {saving ? (
+                                <span className="material-symbols-outlined animate-spin" style={{ fontSize: 16 }}>progress_activity</span>
+                              ) : (
+                                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>save</span>
+                              )}
+                              Save Changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
                     <div className="px-5 md:px-6 py-4 border-b border-border-light/60">
                       <div className="flex items-center gap-2.5">
