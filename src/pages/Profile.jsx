@@ -67,7 +67,7 @@ export default function Profile() {
       setOrders(saved)
     } catch {}
     setEditForm({ name: currentUser.name || '', email: currentUser.email || '', bio: currentUser.bio || '' })
-  }, [currentUser])
+  }, [currentUser.id])
 
   const switchTab = (id) => {
     setPrevTab(activeTab)
