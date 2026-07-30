@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
+import { useTheme } from '../ThemeContext'
 import UserProfileModal from '../components/UserProfileModal'
 
 const categoryData = [
@@ -28,6 +29,7 @@ const sidebarItems = [
 
 export default function AdminDashboard() {
   const { currentUser, logout, becomeAdmin } = useAuth()
+  const { dark } = useTheme()
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('overview')
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -137,14 +139,14 @@ export default function AdminDashboard() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-[#0f1117] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center">
           <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mx-auto mb-5 ring-1 ring-blue-500/20">
             <span className="material-symbols-outlined text-blue-400" style={{ fontSize: 32 }}>admin_panel_settings</span>
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Admin Access</h1>
-          <p className="text-gray-400 mb-6 text-sm">Sign in to manage your marketplace.</p>
-          <Link to="/login" className="bg-blue-500 text-white px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:bg-blue-400 transition-colors">Sign In</Link>
+          <h1 className="text-2xl font-bold text-on-surface mb-2">Admin Access</h1>
+          <p className="text-text-muted mb-6 text-sm">Sign in to manage your marketplace.</p>
+          <Link to="/login" className="bg-blue-500 text-on-surface px-6 py-2.5 rounded-lg text-sm font-bold inline-block hover:bg-blue-400 transition-colors">Sign In</Link>
         </div>
       </div>
     )
@@ -160,60 +162,60 @@ export default function AdminDashboard() {
   const totalProducts = totalJSON + sellerProducts.length
 
   return (
-    <div className="min-h-screen bg-[#0f1117] flex">
+    <div className="min-h-screen bg-background flex">
       {sidebarOpen && <div className="fixed inset-0 bg-black/50 z-20 md:hidden" onClick={() => setSidebarOpen(false)} />}
 
-      <aside className={`fixed md:sticky top-0 left-0 z-30 h-screen w-60 bg-[#1a1d23] border-r border-gray-800 flex flex-col transition-transform md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="h-14 flex items-center gap-2.5 px-5 border-b border-gray-800">
+      <aside className={`fixed md:sticky top-0 left-0 z-30 h-screen w-60 bg-surface border-r border-border-light flex flex-col transition-transform md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="h-14 flex items-center gap-2.5 px-5 border-b border-border-light">
           <div className="w-7 h-7 rounded-md bg-blue-500 flex items-center justify-center">
-            <span className="material-symbols-outlined text-white" style={{ fontSize: 16 }}>admin_panel_settings</span>
+            <span className="material-symbols-outlined text-on-surface" style={{ fontSize: 16 }}>admin_panel_settings</span>
           </div>
-          <span className="text-sm font-bold text-white">Admin Panel</span>
+          <span className="text-sm font-bold text-on-surface">Admin Panel</span>
         </div>
 
         <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
           {sidebarItems.map(item => (
             <button key={item.key} onClick={() => { setActiveTab(item.key); setSidebarOpen(false) }}
-              className={`w-full flex items-center gap-2.5 text-xs font-semibold px-3 py-2.5 rounded-lg transition-colors cursor-pointer ${activeTab === item.key ? 'bg-blue-500/10 text-blue-400' : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'}`}>
+              className={`w-full flex items-center gap-2.5 text-xs font-semibold px-3 py-2.5 rounded-lg transition-colors cursor-pointer ${activeTab === item.key ? 'bg-blue-500/10 text-blue-400' : 'text-text-muted hover:text-text-main hover:bg-surface-container-low'}`}>
               <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{item.icon}</span>
               {item.label}
               {item.key === 'sellers' && pendingSellers.length > 0 && (
-                <span className="ml-auto bg-red-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{pendingSellers.length}</span>
+                <span className="ml-auto bg-red-500 text-on-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{pendingSellers.length}</span>
               )}
               {item.key === 'reviews' && allReviews.length > 0 && (
-                <span className="ml-auto bg-white/10 text-gray-400 text-[9px] font-bold px-1.5 py-0.5 rounded-full">{allReviews.length}</span>
+                <span className="ml-auto bg-surface-container text-text-muted text-[9px] font-bold px-1.5 py-0.5 rounded-full">{allReviews.length}</span>
               )}
             </button>
           ))}
         </nav>
 
-        <div className="p-3 border-t border-gray-800">
+        <div className="p-3 border-t border-border-light">
           <div className="relative">
             <button onClick={() => setAccountOpen(!accountOpen)}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer">
               <span className="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold flex items-center justify-center overflow-hidden flex-shrink-0">
                 {currentUser.picture
                   ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
                   : currentUser.name[0].toUpperCase()}
               </span>
               <div className="flex-1 text-left min-w-0">
-                <p className="text-xs font-semibold text-gray-200 truncate">{currentUser.name}</p>
-                <p className="text-[10px] text-gray-500 truncate">{currentUser.email}</p>
+                <p className="text-xs font-semibold text-text-main truncate">{currentUser.name}</p>
+                <p className="text-[10px] text-text-muted/70 truncate">{currentUser.email}</p>
               </div>
-              <span className="material-symbols-outlined text-gray-500" style={{ fontSize: 16 }}>more_vert</span>
+              <span className="material-symbols-outlined text-text-muted/70" style={{ fontSize: 16 }}>more_vert</span>
             </button>
 
             {accountOpen && (
               <>
                 <div className="fixed inset-0 z-10" onClick={() => setAccountOpen(false)} />
-                <div className="absolute bottom-full left-0 right-0 mb-1 bg-[#25282d] border border-gray-700 rounded-xl shadow-2xl z-20 py-1.5">
+                <div className="absolute bottom-full left-0 right-0 mb-1 bg-surface-container border border-border-light rounded-xl shadow-2xl z-20 py-1.5">
                   <Link to="/" onClick={() => setAccountOpen(false)}
-                    className="flex items-center gap-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 transition-colors">
+                    className="flex items-center gap-2 text-xs text-text-main/90 hover:text-on-surface hover:bg-surface-container-low px-3 py-2 transition-colors">
                     <span className="material-symbols-outlined" style={{ fontSize: 14 }}>store</span>
                     Back to Store
                   </Link>
                   <button onClick={handleLogout}
-                    className="w-full flex items-center gap-2 text-xs text-red-400 hover:text-red-300 hover:bg-white/5 px-3 py-2 transition-colors cursor-pointer">
+                    className="w-full flex items-center gap-2 text-xs text-red-400 hover:text-red-300 hover:bg-surface-container-low px-3 py-2 transition-colors cursor-pointer">
                     <span className="material-symbols-outlined" style={{ fontSize: 14 }}>logout</span>
                     Sign Out
                   </button>
@@ -225,23 +227,23 @@ export default function AdminDashboard() {
       </aside>
 
       <div className="flex-1 min-w-0">
-        <div className="md:hidden h-14 bg-[#1a1d23] border-b border-gray-800 flex items-center justify-between px-4">
-          <button onClick={() => setSidebarOpen(true)} className="text-gray-400 cursor-pointer">
+        <div className="md:hidden h-14 bg-surface border-b border-border-light flex items-center justify-between px-4">
+          <button onClick={() => setSidebarOpen(true)} className="text-text-muted cursor-pointer">
             <span className="material-symbols-outlined" style={{ fontSize: 22 }}>menu</span>
           </button>
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-blue-500 flex items-center justify-center">
-              <span className="material-symbols-outlined text-white" style={{ fontSize: 14 }}>admin_panel_settings</span>
+              <span className="material-symbols-outlined text-on-surface" style={{ fontSize: 14 }}>admin_panel_settings</span>
             </div>
-            <span className="text-xs font-bold text-gray-200">Admin Panel</span>
+            <span className="text-xs font-bold text-text-main">Admin Panel</span>
           </div>
           <div className="w-6" />
         </div>
 
         <div className="p-4 md:p-6 lg:p-8 max-w-[1200px]">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-lg md:text-xl font-bold text-white capitalize">{activeTab === 'overview' ? 'Dashboard Overview' : `${activeTab} Management`}</h1>
-            <button onClick={refresh} className="flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-gray-200 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+            <h1 className="text-lg md:text-xl font-bold text-on-surface capitalize">{activeTab === 'overview' ? 'Dashboard Overview' : `${activeTab} Management`}</h1>
+            <button onClick={refresh} className="flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-text-main bg-surface-container-low hover:bg-surface-container px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
               <span className="material-symbols-outlined" style={{ fontSize: 14 }}>refresh</span>
               Refresh
             </button>
@@ -257,33 +259,33 @@ export default function AdminDashboard() {
                   { label: 'Total Orders', value: orders.length, icon: 'receipt_long' },
                   { label: 'Revenue', value: `$${totalRevenue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`, icon: 'payments' },
                 ].map((card, i) => (
-                  <div key={i} className="bg-[#1a1d23] border border-gray-800 rounded-xl p-4 md:p-5">
+                  <div key={i} className="bg-surface border border-border-light rounded-xl p-4 md:p-5">
                     <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
                       <span className="material-symbols-outlined text-blue-400" style={{ fontSize: 18 }}>{card.icon}</span>
                     </div>
-                    <p className="text-xl md:text-2xl font-bold text-white">{card.value}</p>
-                    <p className="text-[11px] text-gray-500 mt-0.5">{card.label}</p>
+                    <p className="text-xl md:text-2xl font-bold text-on-surface">{card.value}</p>
+                    <p className="text-[11px] text-text-muted/70 mt-0.5">{card.label}</p>
                   </div>
                 ))}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Recent Orders */}
-                <div className="bg-[#1a1d23] border border-gray-800 rounded-xl p-5">
-                  <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Recent Orders</h2>
+                <div className="bg-surface border border-border-light rounded-xl p-5">
+                  <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">Recent Orders</h2>
                   {orders.length === 0 ? (
-                    <p className="text-xs text-gray-500 py-4 text-center">No orders yet.</p>
+                    <p className="text-xs text-text-muted/70 py-4 text-center">No orders yet.</p>
                   ) : (
                     <div className="space-y-3">
                       {orders.slice(0, 5).map((o, i) => (
-                        <div key={i} className="flex items-center justify-between bg-white/[0.03] rounded-lg px-3.5 py-2.5">
+                        <div key={i} className="flex items-center justify-between bg-surface-container-low rounded-lg px-3.5 py-2.5">
                           <div>
-                            <p className="text-xs font-bold text-gray-200 font-mono">{o.orderId}</p>
-                            <p className="text-[10px] text-gray-500 mt-0.5">{o.date}</p>
+                            <p className="text-xs font-bold text-text-main font-mono">{o.orderId}</p>
+                            <p className="text-[10px] text-text-muted/70 mt-0.5">{o.date}</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-xs font-bold text-gray-200">{o.total}</p>
-                            <p className="text-[10px] text-gray-500 capitalize">{o.paymentMethod || 'qris'}</p>
+                            <p className="text-xs font-bold text-text-main">{o.total}</p>
+                            <p className="text-[10px] text-text-muted/70 capitalize">{o.paymentMethod || 'qris'}</p>
                           </div>
                         </div>
                       ))}
@@ -292,22 +294,22 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Pending Sellers */}
-                <div className="bg-[#1a1d23] border border-gray-800 rounded-xl p-5">
+                <div className="bg-surface border border-border-light rounded-xl p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Pending Seller Requests</h2>
-                    {pendingSellers.length > 0 && <span className="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full">{pendingSellers.length}</span>}
+                    <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">Pending Seller Requests</h2>
+                    {pendingSellers.length > 0 && <span className="bg-red-500 text-on-surface text-[9px] font-bold px-1.5 py-0.5 rounded-full">{pendingSellers.length}</span>}
                   </div>
                   {pendingSellers.length === 0 ? (
-                    <p className="text-xs text-gray-500 py-4 text-center">No pending requests.</p>
+                    <p className="text-xs text-text-muted/70 py-4 text-center">No pending requests.</p>
                   ) : (
                     <div className="space-y-2">
                       {pendingSellers.map((u, i) => (
-                        <div key={i} className="flex items-center justify-between bg-white/[0.03] rounded-lg px-3.5 py-2.5">
+                        <div key={i} className="flex items-center justify-between bg-surface-container-low rounded-lg px-3.5 py-2.5">
                           <div className="flex items-center gap-2.5">
                             <span className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-[9px] font-bold flex items-center justify-center flex-shrink-0">{u.name[0].toUpperCase()}</span>
                             <div>
-                              <p className="text-xs font-semibold text-gray-200">{u.name}</p>
-                              <p className="text-[10px] text-gray-500">{u.email}</p>
+                              <p className="text-xs font-semibold text-text-main">{u.name}</p>
+                              <p className="text-[10px] text-text-muted/70">{u.email}</p>
                             </div>
                           </div>
                           <div className="flex gap-1.5">
@@ -321,8 +323,8 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="bg-[#1a1d23] border border-gray-800 rounded-xl p-5">
-                <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Quick Actions</h2>
+              <div className="bg-surface border border-border-light rounded-xl p-5">
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
                     { label: 'Manage Users', tab: 'users', icon: 'people', color: 'blue' },
@@ -331,11 +333,11 @@ export default function AdminDashboard() {
                     { label: 'Moderate Reviews', tab: 'reviews', icon: 'rate_review', color: 'violet' },
                   ].map((action, i) => (
                     <button key={i} onClick={() => setActiveTab(action.tab)}
-                      className="flex items-center gap-2.5 bg-white/[0.03] hover:bg-white/[0.06] border border-gray-800 rounded-xl p-3.5 transition-colors text-left cursor-pointer">
+                      className="flex items-center gap-2.5 bg-surface-container-low hover:bg-surface-container-high border border-border-light rounded-xl p-3.5 transition-colors text-left cursor-pointer">
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${action.color === 'blue' ? 'bg-blue-500/10' : action.color === 'emerald' ? 'bg-emerald-500/10' : action.color === 'amber' ? 'bg-amber-500/10' : 'bg-violet-500/10'}`}>
                         <span className={`material-symbols-outlined ${action.color === 'blue' ? 'text-blue-400' : action.color === 'emerald' ? 'text-emerald-400' : action.color === 'amber' ? 'text-amber-400' : 'text-violet-400'}`} style={{ fontSize: 18 }}>{action.icon}</span>
                       </div>
-                      <span className="text-xs font-semibold text-gray-200">{action.label}</span>
+                      <span className="text-xs font-semibold text-text-main">{action.label}</span>
                     </button>
                   ))}
                 </div>
@@ -345,15 +347,15 @@ export default function AdminDashboard() {
 
           {/* USERS */}
           {activeTab === 'users' && (
-            <div className="bg-[#1a1d23] border border-gray-800 rounded-xl overflow-hidden">
-              <div className="px-5 py-4 border-b border-gray-800 flex items-center justify-between">
-                <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">All Users</h2>
-                <span className="text-[11px] text-gray-500">{users.length} total</span>
+            <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+              <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">All Users</h2>
+                <span className="text-[11px] text-text-muted/70">{users.length} total</span>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className="text-gray-500 bg-white/[0.02]">
+                    <tr className="text-text-muted/70 bg-surface-container-low/50">
                       <th className="text-left py-3 px-5 font-semibold">User</th>
                       <th className="text-left py-3 px-5 font-semibold">Email</th>
                       <th className="text-left py-3 px-5 font-semibold">Role</th>
@@ -362,22 +364,22 @@ export default function AdminDashboard() {
                   </thead>
                   <tbody>
                     {users.map((u, i) => (
-                      <tr key={i} className="border-t border-gray-800 hover:bg-white/[0.02] transition-colors">
+                      <tr key={i} className="border-t border-border-light hover:bg-surface-container-low transition-colors">
                         <td className="py-3.5 px-5">
                           <div className="flex items-center gap-2.5">
                             <span className="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0 overflow-hidden">
                               {u.picture ? <img src={u.picture} alt="" className="w-full h-full object-cover" /> : u.name?.[0]?.toUpperCase() || 'U'}
                             </span>
-                            <span className="font-semibold text-gray-200">{u.name}</span>
+                            <span className="font-semibold text-text-main">{u.name}</span>
                           </div>
                         </td>
-                        <td className="py-3.5 px-5 text-gray-400">{u.email}</td>
+                        <td className="py-3.5 px-5 text-text-muted">{u.email}</td>
                         <td className="py-3.5 px-5">
                           <div className="flex gap-1">
                             {u.isAdmin && <span className="bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full text-[10px] font-bold">Admin</span>}
                             {u.isSeller && !u.isAdmin && <span className="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full text-[10px] font-bold">Seller</span>}
                             {u.sellerRequested && <span className="bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded-full text-[10px] font-bold">Pending</span>}
-                            {!u.isAdmin && !u.isSeller && !u.sellerRequested && <span className="bg-white/10 text-gray-400 px-2 py-0.5 rounded-full text-[10px] font-bold">Buyer</span>}
+                            {!u.isAdmin && !u.isSeller && !u.sellerRequested && <span className="bg-surface-container text-text-muted px-2 py-0.5 rounded-full text-[10px] font-bold">Buyer</span>}
                           </div>
                         </td>
                         <td className="py-3.5 px-5 text-right">
@@ -407,15 +409,15 @@ export default function AdminDashboard() {
           {activeTab === 'sellers' && (
             <div className="space-y-6">
               {pendingSellers.length > 0 && (
-                <div className="bg-[#1a1d23] border border-amber-500/20 rounded-xl overflow-hidden">
-                  <div className="px-5 py-4 border-b border-gray-800 flex items-center gap-2">
+                <div className="bg-surface border border-amber-500/20 rounded-xl overflow-hidden">
+                  <div className="px-5 py-4 border-b border-border-light flex items-center gap-2">
                     <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 16 }}>hourglass_empty</span>
-                    <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Pending Approval ({pendingSellers.length})</h2>
+                    <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">Pending Approval ({pendingSellers.length})</h2>
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-xs">
                       <thead>
-                        <tr className="text-gray-500 bg-white/[0.02]">
+                        <tr className="text-text-muted/70 bg-surface-container-low/50">
                           <th className="text-left py-3 px-5 font-semibold">User</th>
                           <th className="text-left py-3 px-5 font-semibold">Email</th>
                           <th className="text-right py-3 px-5 font-semibold">Action</th>
@@ -423,14 +425,14 @@ export default function AdminDashboard() {
                       </thead>
                       <tbody>
                         {pendingSellers.map((u, i) => (
-                          <tr key={i} className="border-t border-gray-800">
+                          <tr key={i} className="border-t border-border-light">
                             <td className="py-3.5 px-5">
                               <div className="flex items-center gap-2.5">
                                 <span className="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0">{u.name[0].toUpperCase()}</span>
-                                <span className="font-semibold text-gray-200">{u.name}</span>
+                                <span className="font-semibold text-text-main">{u.name}</span>
                               </div>
                             </td>
-                            <td className="py-3.5 px-5 text-gray-400">{u.email}</td>
+                            <td className="py-3.5 px-5 text-text-muted">{u.email}</td>
                             <td className="py-3.5 px-5 text-right">
                               <div className="flex gap-1.5 justify-end">
                                 <button onClick={() => setSelectedSeller(u)} className="text-[10px] bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">View</button>
@@ -446,15 +448,15 @@ export default function AdminDashboard() {
                 </div>
               )}
 
-              <div className="bg-[#1a1d23] border border-gray-800 rounded-xl overflow-hidden">
-                <div className="px-5 py-4 border-b border-gray-800 flex items-center justify-between">
-                  <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Active Sellers</h2>
-                  <span className="text-[11px] text-gray-500">{sellers.length} registered</span>
+              <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+                <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
+                  <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">Active Sellers</h2>
+                  <span className="text-[11px] text-text-muted/70">{sellers.length} registered</span>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs">
                     <thead>
-                      <tr className="text-gray-500 bg-white/[0.02]">
+                      <tr className="text-text-muted/70 bg-surface-container-low/50">
                         <th className="text-left py-3 px-5 font-semibold">Seller</th>
                         <th className="text-left py-3 px-5 font-semibold">Email</th>
                         <th className="text-left py-3 px-5 font-semibold">Products</th>
@@ -463,22 +465,22 @@ export default function AdminDashboard() {
                     </thead>
                     <tbody>
                       {sellers.length === 0 ? (
-                        <tr><td colSpan={4} className="py-12 text-center text-gray-500">No approved sellers yet.</td></tr>
+                        <tr><td colSpan={4} className="py-12 text-center text-text-muted/70">No approved sellers yet.</td></tr>
                       ) : (
                         sellers.map((u, i) => {
                           const productCount = sellerProducts.filter(p => p.sellerId === u.id).length
                           return (
-                            <tr key={i} className="border-t border-gray-800 hover:bg-white/[0.02] transition-colors">
+                            <tr key={i} className="border-t border-border-light hover:bg-surface-container-low transition-colors">
                               <td className="py-3.5 px-5">
                                 <div className="flex items-center gap-2.5">
                                   <span className="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0 overflow-hidden">
                                     {u.picture ? <img src={u.picture} alt="" className="w-full h-full object-cover" /> : u.name?.[0]?.toUpperCase() || 'U'}
                                   </span>
-                                  <span className="font-semibold text-gray-200">{u.name}</span>
+                                  <span className="font-semibold text-text-main">{u.name}</span>
                                 </div>
                               </td>
-                              <td className="py-3.5 px-5 text-gray-400">{u.email}</td>
-                              <td className="py-3.5 px-5 text-gray-300">{productCount}</td>
+                              <td className="py-3.5 px-5 text-text-muted">{u.email}</td>
+                              <td className="py-3.5 px-5 text-text-main/90">{productCount}</td>
                               <td className="py-3.5 px-5 text-right">
                                 <div className="flex gap-1.5 justify-end">
                                   <button onClick={() => setSelectedSeller(u)}
@@ -501,33 +503,33 @@ export default function AdminDashboard() {
           {/* PRODUCTS */}
           {activeTab === 'products' && (
             <div className="space-y-6">
-              <div className="bg-[#1a1d23] border border-gray-800 rounded-xl p-5">
-                <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">JSON Products by Category</h2>
+              <div className="bg-surface border border-border-light rounded-xl p-5">
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">JSON Products by Category</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {categoryData.map((cat, i) => (
-                    <div key={i} className="bg-white/[0.03] rounded-xl p-3.5 md:p-4">
-                      <p className="text-xs font-semibold text-gray-200 truncate">{cat.name}</p>
+                    <div key={i} className="bg-surface-container-low rounded-xl p-3.5 md:p-4">
+                      <p className="text-xs font-semibold text-text-main truncate">{cat.name}</p>
                       <p className="text-xl font-bold text-blue-400 mt-1">{cat.count}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-gray-200">Total JSON Products</span>
+                  <span className="text-xs font-semibold text-text-main">Total JSON Products</span>
                   <span className="text-lg font-bold text-blue-400">{totalJSON}</span>
                 </div>
               </div>
 
-              <div className="bg-[#1a1d23] border border-gray-800 rounded-xl overflow-hidden">
-                <div className="px-5 py-4 border-b border-gray-800 flex items-center justify-between">
-                  <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Seller Products ({sellerProducts.length})</h2>
+              <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+                <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
+                  <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">Seller Products ({sellerProducts.length})</h2>
                 </div>
                 {sellerProducts.length === 0 ? (
-                  <div className="py-12 text-center text-gray-500 text-xs">No seller products listed yet.</div>
+                  <div className="py-12 text-center text-text-muted/70 text-xs">No seller products listed yet.</div>
                 ) : (
                   <div className="overflow-x-auto">
                     <table className="w-full text-xs">
                       <thead>
-                        <tr className="text-gray-500 bg-white/[0.02]">
+                        <tr className="text-text-muted/70 bg-surface-container-low/50">
                           <th className="text-left py-3 px-5 font-semibold">Product</th>
                           <th className="text-left py-3 px-5 font-semibold">Category</th>
                           <th className="text-left py-3 px-5 font-semibold">Price</th>
@@ -536,10 +538,10 @@ export default function AdminDashboard() {
                       </thead>
                       <tbody>
                         {sellerProducts.map((p, i) => (
-                          <tr key={i} className="border-t border-gray-800 hover:bg-white/[0.02] transition-colors">
-                            <td className="py-3.5 px-5 font-semibold text-gray-200">{p.title}</td>
-                            <td className="py-3.5 px-5 capitalize text-gray-400">{p.category}</td>
-                            <td className="py-3.5 px-5 text-gray-300">{p.price}</td>
+                          <tr key={i} className="border-t border-border-light hover:bg-surface-container-low transition-colors">
+                            <td className="py-3.5 px-5 font-semibold text-text-main">{p.title}</td>
+                            <td className="py-3.5 px-5 capitalize text-text-muted">{p.category}</td>
+                            <td className="py-3.5 px-5 text-text-main/90">{p.price}</td>
                             <td className="py-3.5 px-5 text-right">
                               <button onClick={() => deleteProduct(p.id)}
                                 className="text-[10px] bg-red-500/10 text-red-400 hover:bg-red-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Delete</button>
@@ -556,15 +558,15 @@ export default function AdminDashboard() {
 
           {/* ORDERS */}
           {activeTab === 'orders' && (
-            <div className="bg-[#1a1d23] border border-gray-800 rounded-xl overflow-hidden">
-              <div className="px-5 py-4 border-b border-gray-800 flex items-center justify-between">
-                <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">All Orders</h2>
-                <span className="text-[11px] text-gray-500">{orders.length} total</span>
+            <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+              <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">All Orders</h2>
+                <span className="text-[11px] text-text-muted/70">{orders.length} total</span>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className="text-gray-500 bg-white/[0.02]">
+                    <tr className="text-text-muted/70 bg-surface-container-low/50">
                       <th className="text-left py-3 px-5 font-semibold">Order ID</th>
                       <th className="text-left py-3 px-5 font-semibold">Payment</th>
                       <th className="text-left py-3 px-5 font-semibold">Items</th>
@@ -575,7 +577,7 @@ export default function AdminDashboard() {
                   </thead>
                   <tbody>
                     {orders.length === 0 ? (
-                      <tr><td colSpan={6} className="py-12 text-center text-gray-500">No orders placed yet.</td></tr>
+                      <tr><td colSpan={6} className="py-12 text-center text-text-muted/70">No orders placed yet.</td></tr>
                     ) : (
                       orders.map((o, i) => {
                         const isOpen = expandedOrder === i
@@ -588,13 +590,13 @@ export default function AdminDashboard() {
                         }
                         return (
                           <>
-                            <tr key={i} className="border-t border-gray-800 hover:bg-white/[0.02] transition-colors cursor-pointer" onClick={() => setExpandedOrder(isOpen ? null : i)}>
-                              <td className="py-3.5 px-5 font-mono font-bold text-gray-200 text-[11px]">{o.orderId}</td>
+                            <tr key={i} className="border-t border-border-light hover:bg-surface-container-low transition-colors cursor-pointer" onClick={() => setExpandedOrder(isOpen ? null : i)}>
+                              <td className="py-3.5 px-5 font-mono font-bold text-text-main text-[11px]">{o.orderId}</td>
                               <td className="py-3.5 px-5"><span className="bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full text-[10px] font-bold capitalize">{o.paymentMethod || 'qris'}</span></td>
-                              <td className="py-3.5 px-5 text-gray-400">{o.items?.reduce((s, it) => s + (it.qty || 1), 0) || 0} items</td>
+                              <td className="py-3.5 px-5 text-text-muted">{o.items?.reduce((s, it) => s + (it.qty || 1), 0) || 0} items</td>
                               <td className="py-3.5 px-5">
                                 <select value={status} onChange={e => { e.stopPropagation(); updateOrderStatus(o.orderId, e.target.value) }}
-                                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full border-0 outline-none cursor-pointer ${statusColors[status] || 'bg-white/10 text-gray-400'}`}
+                                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full border-0 outline-none cursor-pointer ${statusColors[status] || 'bg-surface-container text-text-muted'}`}
                                   onClick={e => e.stopPropagation()}>
                                   <option value="completed">Completed</option>
                                   <option value="processing">Processing</option>
@@ -602,13 +604,13 @@ export default function AdminDashboard() {
                                   <option value="cancelled">Cancelled</option>
                                 </select>
                               </td>
-                              <td className="py-3.5 px-5 text-gray-400">{o.date}</td>
-                              <td className="py-3.5 px-5 text-right font-bold text-gray-200">{o.total}</td>
+                              <td className="py-3.5 px-5 text-text-muted">{o.date}</td>
+                              <td className="py-3.5 px-5 text-right font-bold text-text-main">{o.total}</td>
                             </tr>
                             {isOpen && (
                               <tr key={`${i}-detail`} className="bg-white/[0.015]">
                                 <td colSpan={6} className="px-5 py-4">
-                                  <div className="bg-white/[0.03] rounded-xl p-4 space-y-2.5 max-w-lg">
+                                  <div className="bg-surface-container-low rounded-xl p-4 space-y-2.5 max-w-lg">
                                     {o.items?.map((item, idx) => {
                                       const itemName = item.title || item.name
                                       const itemTotal = item.price ? parseFloat(item.price.replace(/[^0-9.,]/g, '').replace(',', '.')) * (item.qty || 1) : 0
@@ -616,10 +618,10 @@ export default function AdminDashboard() {
                                         <div key={idx} className="flex items-center gap-3">
                                           <img src={`https://picsum.photos/seed/${item.seed}/40/40`} alt="" className="w-8 h-8 rounded-md object-cover flex-shrink-0" />
                                           <div className="flex-1 min-w-0">
-                                            <p className="text-xs font-semibold text-gray-200 truncate">{itemName}</p>
-                                            <p className="text-[10px] text-gray-500">Qty: {item.qty || 1}</p>
+                                            <p className="text-xs font-semibold text-text-main truncate">{itemName}</p>
+                                            <p className="text-[10px] text-text-muted/70">Qty: {item.qty || 1}</p>
                                           </div>
-                                          <p className="text-xs font-bold text-gray-200">{item.price}</p>
+                                          <p className="text-xs font-bold text-text-main">{item.price}</p>
                                         </div>
                                       )
                                     })}
@@ -639,30 +641,30 @@ export default function AdminDashboard() {
 
           {/* REVIEWS */}
           {activeTab === 'reviews' && (
-            <div className="bg-[#1a1d23] border border-gray-800 rounded-xl overflow-hidden">
-              <div className="px-5 py-4 border-b border-gray-800 flex items-center justify-between">
-                <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider">All Reviews</h2>
-                <span className="text-[11px] text-gray-500">{allReviews.length} total</span>
+            <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+              <div className="px-5 py-4 border-b border-border-light flex items-center justify-between">
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">All Reviews</h2>
+                <span className="text-[11px] text-text-muted/70">{allReviews.length} total</span>
               </div>
               {allReviews.length === 0 ? (
-                <div className="py-12 text-center text-gray-500 text-xs">No reviews from users yet.</div>
+                <div className="py-12 text-center text-text-muted/70 text-xs">No reviews from users yet.</div>
               ) : (
                 <div className="divide-y divide-gray-800">
                   {allReviews.map((r, i) => (
-                    <div key={i} className="px-5 py-4 hover:bg-white/[0.02] transition-colors">
+                    <div key={i} className="px-5 py-4 hover:bg-surface-container-low transition-colors">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-xs font-semibold text-gray-200">{r.name}</span>
-                            <span className="text-[10px] text-gray-500">{r.date}</span>
-                            <span className="text-[10px] bg-white/10 text-gray-400 px-1.5 py-0.5 rounded-full">{r._category}</span>
+                            <span className="text-xs font-semibold text-text-main">{r.name}</span>
+                            <span className="text-[10px] text-text-muted/70">{r.date}</span>
+                            <span className="text-[10px] bg-surface-container text-text-muted px-1.5 py-0.5 rounded-full">{r._category}</span>
                             <div className="flex gap-0.5">
                               {[1, 2, 3, 4, 5].map(s => (
-                                <span key={s} className={`material-symbols-outlined ${s <= (r.rating || 0) ? 'text-amber-400' : 'text-gray-600'}`} style={{ fontSize: 12 }}>star</span>
+                                <span key={s} className={`material-symbols-outlined ${s <= (r.rating || 0) ? 'text-amber-400' : 'text-text-muted'}`} style={{ fontSize: 12 }}>star</span>
                               ))}
                             </div>
                           </div>
-                          <p className="text-xs text-gray-400 mt-1.5">{r.text}</p>
+                          <p className="text-xs text-text-muted mt-1.5">{r.text}</p>
                         </div>
                         <button onClick={() => deleteReview(r._key, i)}
                           className="text-[10px] text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 px-2 py-1 rounded-md transition-colors flex-shrink-0 cursor-pointer">Delete</button>
@@ -686,3 +688,8 @@ export default function AdminDashboard() {
     </div>
   )
 }
+
+
+
+
+
