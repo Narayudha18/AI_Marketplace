@@ -47,7 +47,11 @@ export default function Profile() {
   const [toast, setToast] = useState(null)
   const [prevTab, setPrevTab] = useState('overview')
 
-  const [editForm, setEditForm] = useState({ name: '', email: '', bio: '' })
+  const [editForm, setEditForm] = useState(() => ({
+    name: currentUser?.name || '',
+    email: currentUser?.email || '',
+    bio: currentUser?.bio || ''
+  }))
   const [saving, setSaving] = useState(false)
 
   const [newAddress, setNewAddress] = useState({ label: '', street: '', city: '', phone: '' })
@@ -66,7 +70,6 @@ export default function Profile() {
       const saved = JSON.parse(localStorage.getItem('orders_' + currentUser.id) || '[]')
       setOrders(saved)
     } catch {}
-    setEditForm({ name: currentUser.name || '', email: currentUser.email || '', bio: currentUser.bio || '' })
   }, [currentUser.id])
 
   const switchTab = (id) => {
