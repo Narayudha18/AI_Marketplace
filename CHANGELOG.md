@@ -1,3 +1,18 @@
+## v7.7 — 2026-07-30
+
+### Komponen
+- **Profile** — Redesain total: standalone page (no Navbar/Footer), modern UI dengan glassmorphism + gradients, sidebar profile card, 5 tabs (Overview, Profile, Orders, Addresses, Settings), activity timeline, notification preferences, smooth animations [file: src/pages/Profile.jsx]
+
+### Ubah
+- **AuthContext** — tambah `trackActivity(action, detail)`, `getUserActivities()`, `updateNotifPrefs(prefs)` methods [file: src/AuthContext.jsx]
+- **index.css** — tambah `animate-fade-in-up` keyframes + `animate-spin` keyframes [file: src/index.css]
+
+### Fitur
+- [Feat] Overview tab — stats cards (gradient icons), recent activity timeline with time-ago
+- [Feat] Activity tracking — otomatis track profile update, password change, address add/remove, picture change
+- [Feat] Notification Preferences — toggle order updates, promotions, product updates
+- [Style] Modern UI — glassmorphism cards (backdrop-blur), gradient accents, smooth transitions, rounded-2xl everywhere, animated toast
+
 ## v7.6 — 2026-07-30
 
 ### Komponen

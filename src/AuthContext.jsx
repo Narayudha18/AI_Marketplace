@@ -97,6 +97,25 @@ export function AuthProvider({ children }) {
     setCurrentUser(updated)
   }
 
+  const [activities, setActivities] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('auth_activities')) || [] } catch { return [] }
+  })
+
+  useEffect(() => {
+    localStorage.setItem('auth_activities', JSON.stringify(activities))
+  }, [activities])
+
+  const trackActivity = (action, detail) => {
+    if (!currentUser) return
+    const entry = { id: Date.now(), userId: currentUser.id, action, detail, time: new Date().toISOString() }
+    setActivities(prev => [entry, ...prev].slice(0, 50))
+  }
+
+  const getUserActivities = () => {
+    if (!currentUser) return []
+    return activities.filter(a => a.userId === currentUser.id).slice(0, 20)
+  }
+
   const requestSeller = () => {
     if (!currentUser) return
     const updated = { ...currentUser, sellerRequested: true }
@@ -111,8 +130,15 @@ export function AuthProvider({ children }) {
     setCurrentUser(updated)
   }
 
+  const updateNotifPrefs = (prefs) => {
+    if (!currentUser) return
+    const updated = { ...currentUser, notificationPrefs: { ...(currentUser.notificationPrefs || {}), ...prefs } }
+    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
+    setCurrentUser(updated)
+  }
+
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updateProfile, updatePicture, requestSeller, becomeAdmin, addAddress, removeAddress }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updateProfile, updatePicture, requestSeller, becomeAdmin, addAddress, removeAddress, trackActivity, getUserActivities, updateNotifPrefs }}>
       {children}
     </AuthContext.Provider>
   )
