@@ -448,18 +448,18 @@ export default function Profile() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Full Name</label>
-                            <input value={editForm.name} onChange={e => setEditForm(f => ({ ...f, name: e.target.value }))}
+                            <input value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })}
                               className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
                           </div>
                           <div>
                             <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Email Address</label>
-                            <input value={editForm.email} onChange={e => setEditForm(f => ({ ...f, email: e.target.value }))}
+                            <input value={editForm.email} onChange={e => setEditForm({ ...editForm, email: e.target.value })}
                               className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all" />
                           </div>
                         </div>
                         <div>
                           <label className="text-[11px] text-text-muted font-semibold block mb-1.5">Bio</label>
-                          <textarea value={editForm.bio} onChange={e => setEditForm(f => ({ ...f, bio: e.target.value }))} rows={3}
+                          <textarea value={editForm.bio} onChange={e => setEditForm({ ...editForm, bio: e.target.value })} rows={3}
                             className="w-full text-sm text-text-main bg-surface-container-low/70 border border-border-light/60 rounded-xl px-3.5 py-2.5 outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-all resize-none" placeholder="Tell the world about yourself..." />
                         </div>
                         <div className="flex items-center gap-2 text-[11px] text-text-muted">
