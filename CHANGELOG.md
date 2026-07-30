@@ -1,3 +1,12 @@
+## v7.5 — 2026-07-30
+
+### Mock JSON
+- `docs/mock/admin/put-order-id.json` — PUT /api/admin/orders/:id (update status order)
+- `docs/mock/admin/delete-review-id.json` — DELETE /api/admin/reviews/:id (hapus review)
+- `docs/mock/admin/put-seller-id-approve.json` — PUT /api/admin/sellers/:id/approve
+- `docs/mock/admin/put-seller-id-reject.json` — PUT /api/admin/sellers/:id/reject
+- `docs/mock/orders/get-order-id.json` — GET /api/orders/:id (detail order)
+
 ## v7.4 — 2026-07-28
 
 ### Ubah

@@ -344,7 +344,21 @@ App.jsx (Routes)
 
 ## 5. Future API Endpoints (REST)
 
-### 5.0. Seller
+### 5.0. Admin
+
+| Method | Path | Description | Body |
+|---|---|---|---|
+| `GET` | `/api/admin/dashboard` | Admin dashboard stats | — |
+| `GET` | `/api/admin/users` | List all users | — |
+| `GET` | `/api/admin/sellers` | List sellers | — |
+| `PUT` | `/api/admin/sellers/:id/approve` | Approve seller | — |
+| `PUT` | `/api/admin/sellers/:id/reject` | Reject seller | — |
+| `GET` | `/api/admin/orders` | List all orders | — |
+| `PUT` | `/api/admin/orders/:id` | Update order status | `{ status }` |
+| `GET` | `/api/admin/reviews` | List all reviews | — |
+| `DELETE` | `/api/admin/reviews/:id` | Delete review | — |
+
+### 5.0b. Seller
 
 | Method | Path | Description | Body |
 |---|---|---|---|
@@ -352,8 +366,6 @@ App.jsx (Routes)
 | `GET` | `/api/seller/dashboard` | Seller dashboard stats + products | — |
 | `POST` | `/api/seller/products` | Add seller product | `{ title, category, price, desc }` |
 | `DELETE` | `/api/seller/products/:id` | Delete seller product | — |
-
-### 5.1. Products
 
 ### 5.1. Products
 

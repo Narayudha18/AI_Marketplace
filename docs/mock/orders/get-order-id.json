@@ -1,0 +1,23 @@
+{
+  "endpoint": "GET /api/orders/:id",
+  "response": {
+    "data": {
+      "id": "ORD-001",
+      "userId": "user-1",
+      "items": [
+        {
+          "slug": "adminpro-dashboard-template",
+          "category": "templates",
+          "title": "AdminPro | Dashboard Template",
+          "price": "$49",
+          "qty": 1,
+          "seed": "adminpro"
+        }
+      ],
+      "total": "$49",
+      "status": "completed",
+      "paymentMethod": "bank_transfer",
+      "createdAt": "2026-07-30T10:30:00Z"
+    }
+  }
+}

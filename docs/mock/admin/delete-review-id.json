@@ -1,0 +1,7 @@
+{
+  "endpoint": "DELETE /api/admin/reviews/:id",
+  "response": {
+    "success": true,
+    "message": "Review deleted"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "endpoint": "PUT /api/admin/sellers/:id/approve",
+  "response": {
+    "success": true,
+    "message": "Seller approved"
+  }
+}

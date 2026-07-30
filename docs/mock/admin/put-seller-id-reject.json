@@ -1,0 +1,7 @@
+{
+  "endpoint": "PUT /api/admin/sellers/:id/reject",
+  "response": {
+    "success": true,
+    "message": "Seller rejected"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "endpoint": "PUT /api/admin/orders/:id",
+  "request": {
+    "status": "completed"
+  },
+  "response": {
+    "success": true,
+    "message": "Order status updated"
+  }
+}
