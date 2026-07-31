@@ -15,21 +15,37 @@ export default function CartPage() {
   const { currentUser } = useAuth()
   const navigate = useNavigate()
   const [paymentOpen, setPaymentOpen] = useState(false)
+  const [selected, setSelected] = useState(() => new Set(cart.map(i => `${i.category}-${i.slug}`)))
 
   const parsePrice = (price) => {
     if (!price) return 0
     return parseFloat(price.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0
   }
 
-  const subtotal = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0)
-  const formattedSubtotal = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+  const toggleItem = (key) => {
+    setSelected(prev => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
+
+  const toggleAll = () => {
+    setSelected(prev => prev.size === cart.length ? new Set() : new Set(cart.map(i => `${i.category}-${i.slug}`)))
+  }
+
+  const selectedItems = cart.filter(i => selected.has(`${i.category}-${i.slug}`))
+  const selectedQty = selectedItems.reduce((s, i) => s + i.qty, 0)
+  const selectedSubtotal = selectedItems.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0)
+  const formattedSelected = `$${selectedSubtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
   const handlePaymentSuccess = (method) => {
     if (!currentUser) return
-    cart.forEach(item => markAsPurchased(item.slug, item.category))
+    selectedItems.forEach(item => markAsPurchased(item.slug, item.category))
     const orderData = {
-      items: [...cart],
-      total: formattedSubtotal,
+      items: selectedItems,
+      total: formattedSelected,
       date: (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` })(),
       orderId: 'ORD-' + Date.now().toString(36).toUpperCase(),
       paymentMethod: method,
@@ -39,7 +55,7 @@ export default function CartPage() {
     localStorage.setItem('lastOrder_' + uid, JSON.stringify(orderData))
     const existingOrders = JSON.parse(localStorage.getItem('orders_' + uid) || '[]')
     localStorage.setItem('orders_' + uid, JSON.stringify([orderData, ...existingOrders]))
-    clearCart()
+    selectedItems.forEach(item => removeFromCart(item.slug, item.category))
     setPaymentOpen(false)
     navigate('/order-confirmation')
   }
@@ -77,12 +93,25 @@ export default function CartPage() {
         ) : (
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex-1 space-y-3">
+              <button onClick={toggleAll}
+                className="flex items-center gap-2 text-xs font-semibold text-text-muted hover:text-text-main transition-colors cursor-pointer mb-3">
+                <span className={`w-4 h-4 rounded-md border-2 flex items-center justify-center transition-colors ${selected.size === cart.length ? 'bg-primary border-primary' : 'border-border-strong'}`}>
+                  {selected.size === cart.length && <span className="material-symbols-outlined text-surface" style={{ fontSize: 12 }}>check</span>}
+                </span>
+                Select All ({selected.size}/{cart.length} selected)
+              </button>
               {cart.map(item => {
                 const itemName = item.title || item.name
                 const slug = toSlug(itemName)
                 const price = parsePrice(item.price)
+                const itemKey = `${item.category}-${item.slug}`
+                const isSelected = selected.has(itemKey)
                 return (
-                  <div key={`${item.category}-${item.slug}`} className="bg-surface border border-border-light rounded-xl p-4 flex gap-4">
+                  <div key={itemKey} className={`bg-surface border rounded-xl p-4 flex gap-4 transition-colors ${isSelected ? 'border-primary/40' : 'border-border-light'}`}>
+                    <button onClick={() => toggleItem(itemKey)}
+                      className={`self-center w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-colors cursor-pointer ${isSelected ? 'bg-primary border-primary' : 'border-border-strong hover:border-primary'}`}>
+                      {isSelected && <span className="material-symbols-outlined text-surface" style={{ fontSize: 14 }}>check</span>}
+                    </button>
                     <Link to={`/${item.category}/${slug}`} className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-low">
                       <img src={`https://picsum.photos/seed/${item.seed}/150/150`} alt={itemName} className="w-full h-full object-cover" />
                     </Link>
@@ -114,8 +143,8 @@ export default function CartPage() {
                 <h3 className="text-sm font-bold text-text-main mb-4">Order Summary</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-text-muted">Subtotal ({cart.reduce((s, i) => s + i.qty, 0)} items)</span>
-                    <span className="font-semibold text-text-main">{formattedSubtotal}</span>
+                    <span className="text-text-muted">Subtotal ({selectedQty} selected item{selectedQty !== 1 ? 's' : ''})</span>
+                    <span className="font-semibold text-text-main">{formattedSelected}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-text-muted">Service Fee</span>
@@ -123,13 +152,16 @@ export default function CartPage() {
                   </div>
                   <div className="border-t border-border-light pt-3 flex justify-between">
                     <span className="font-bold text-text-main">Total</span>
-                    <span className="font-bold text-lg text-text-main">{formattedSubtotal}</span>
+                    <span className="font-bold text-lg text-text-main">{formattedSelected}</span>
                   </div>
                 </div>
-                <button onClick={() => setPaymentOpen(true)}
-                  className="w-full bg-primary text-surface py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity mt-6 cursor-pointer">
+                <button onClick={() => setPaymentOpen(true)} disabled={selectedItems.length === 0}
+                  className={`w-full bg-primary text-surface py-3 rounded-lg text-sm font-semibold mt-6 transition-opacity ${selectedItems.length === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-90 cursor-pointer'}`}>
                   Proceed to Checkout
                 </button>
+                {selectedItems.length === 0 && (
+                  <p className="text-[11px] text-red-500 text-center mt-2">Pilih minimal satu produk untuk checkout</p>
+                )}
                 <Link to="/templates" className="block text-center text-xs text-text-muted hover:text-primary mt-3 transition-colors">Continue Shopping</Link>
               </div>
             </div>
@@ -137,7 +169,7 @@ export default function CartPage() {
         )}
       </main>
       <Footer />
-      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedSubtotal} cart={cart} onSuccess={handlePaymentSuccess} />
+      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedSelected} cart={selectedItems} onSuccess={handlePaymentSuccess} />
     </>
   )
 }

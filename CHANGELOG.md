@@ -1,3 +1,8 @@
+## v8.2 — 2026-07-31
+
+### Ubah
+- **CartPage** — user bisa memilih produk mana yang mau dibayar (checkbox per item + Select All); subtotal, total, dan checkout hanya untuk item terpilih. Setelah bayar sukses, hanya item terpilih yang dihapus dari keranjang dan masuk riwayat order; sisanya tetap di keranjang. Tombol checkout nonaktif jika tidak ada item terpilih [file: src/pages/CartPage.jsx]
+
 ## v8.1 — 2026-07-31
 
 ### Ubah
