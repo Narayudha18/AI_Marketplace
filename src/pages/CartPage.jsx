@@ -48,6 +48,11 @@ export default function CartPage() {
     <>
       <Navbar />
       <main className="w-full max-w-[1200px] mx-auto px-6 py-12">
+        <button onClick={() => navigate(-1)}
+          className="flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-text-main transition-colors cursor-pointer mb-6">
+          <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_back</span>
+          Kembali ke Halaman Produk
+        </button>
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-text-main">Shopping Cart</h1>

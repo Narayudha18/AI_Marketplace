@@ -1,3 +1,11 @@
+## v8.1 — 2026-07-31
+
+### Ubah
+- **CartPage** — tombol "Kembali ke Halaman Produk" di bagian atas halaman keranjang, balik ke halaman sebelumnya via `navigate(-1)` [file: src/pages/CartPage.jsx]
+
+### Fitur
+- [Feat] Tombol balik di halaman keranjang — user bisa balik ke halaman produk sebelum lanjut proses pembayaran
+
 ## v8.0 — 2026-07-31
 
 ### Komponen
