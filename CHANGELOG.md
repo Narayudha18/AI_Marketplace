@@ -1,3 +1,17 @@
+## v8.0 — 2026-07-31
+
+### Komponen
+- **AdminPreview** — halaman preview standalone khusus admin: `AdminSellerPreview` (`/admin/preview/seller/:sellerId`) + `AdminProductPreview` (`/admin/preview/product/:productId`), lengkap dengan header admin + back button [file: src/pages/AdminPreview.jsx]
+
+### Ubah
+- **AdminDashboard** — tombol View seller & Preview produk sekarang navigate ke halaman preview standalone (bukan modal), aktif tab dari location state biar back button balik ke tab yang benar [file: src/pages/AdminDashboard.jsx]
+- **App** — route baru `/admin/preview/seller/:sellerId` dan `/admin/preview/product/:productId` [file: src/App.jsx]
+
+### Fitur
+- [Feat] Preview seller standalone — profil lengkap seller + grid produk + tombol "View Public Store"
+- [Feat] Preview produk standalone — gambar besar, harga, rating, sales, deskripsi, info seller + tombol "View in Marketplace"
+- [Feat] Back button cerdas — dari preview balik ke tab Sellers/Products yang sesuai
+
 ## v7.9 — 2026-07-31
 
 ### Komponen

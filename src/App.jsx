@@ -44,6 +44,7 @@ import Favorites from './pages/Favorites'
 import SellerDashboard from './pages/SellerDashboard'
 import AdminDashboard from './pages/AdminDashboard'
 import SellerStore from './pages/SellerStore'
+import { AdminSellerPreview, AdminProductPreview } from './pages/AdminPreview'
 
 function Home() {
   return (
@@ -132,6 +133,8 @@ export default function App() {
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/seller/dashboard" element={<SellerDashboard />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/preview/seller/:sellerId" element={<AdminSellerPreview />} />
+      <Route path="/admin/preview/product/:productId" element={<AdminProductPreview />} />
       <Route path="/seller/:sellerId" element={<SellerStore />} />
     </Routes>
     </>
