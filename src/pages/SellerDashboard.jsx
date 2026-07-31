@@ -62,6 +62,7 @@ export default function SellerDashboard() {
       date: new Date().toISOString().split('T')[0],
       sales: 0,
       rating: 0,
+      sellerId: currentUser.id,
     }
     saveProducts([newProduct, ...products])
     setForm({ name: '', category: 'templates', price: '', desc: '' })
@@ -160,6 +161,13 @@ export default function SellerDashboard() {
                     <span className="material-symbols-outlined" style={{ fontSize: 14 }}>storefront</span>
                     Back to Store
                   </Link>
+                  {currentUser?.isSeller && (
+                    <Link to={`/seller/${currentUser.id}`} onClick={() => setAccountOpen(false)}
+                      className="flex items-center gap-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 transition-colors">
+                      <span className="material-symbols-outlined" style={{ fontSize: 14 }}>public</span>
+                      View My Store
+                    </Link>
+                  )}
                   <button onClick={handleLogout}
                     className="w-full flex items-center gap-2 text-xs text-red-400 hover:text-red-300 hover:bg-white/5 px-3 py-2 transition-colors cursor-pointer">
                     <span className="material-symbols-outlined" style={{ fontSize: 14 }}>logout</span>

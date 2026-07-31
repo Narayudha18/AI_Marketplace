@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function UserProfileModal({ user, productCount = 0, onClose }) {
   const memberSince = user.id
     ? new Date(Number.isFinite(user.id) ? user.id : Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
@@ -35,10 +37,10 @@ export default function UserProfileModal({ user, productCount = 0, onClose }) {
                 <p className="text-sm font-bold text-on-surface">{user.name}</p>
                 <p className="text-xs text-text-muted/70">{user.email}</p>
               </div>
-              <div className="flex gap-1.5">
-                {user.isAdmin && <span className="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full font-bold">Admin</span>}
-                {user.isSeller && <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full font-bold">Seller</span>}
-              </div>
+            <div className="flex gap-1.5">
+              {user.isSeller && <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full font-bold">Seller</span>}
+              {user.isAdmin && <span className="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full font-bold">Admin</span>}
+            </div>
             </div>
 
             <div className="space-y-3.5">
@@ -94,8 +96,15 @@ export default function UserProfileModal({ user, productCount = 0, onClose }) {
               </div>
             </div>
 
+            {user.isSeller && (
+              <Link to={`/seller/${user.id}`} onClick={onClose}
+                className="w-full mt-2 text-xs font-bold text-primary bg-primary-container/10 hover:bg-primary-container/20 border border-primary/20 px-4 py-2.5 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2">
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>storefront</span>
+                View Public Store
+              </Link>
+            )}
             <button onClick={onClose}
-              className="w-full mt-6 text-xs font-bold text-text-muted bg-surface-container-low hover:bg-surface-container-high border border-border-light px-4 py-2.5 rounded-xl transition-colors cursor-pointer">
+              className="w-full mt-2 text-xs font-bold text-text-muted bg-surface-container-low hover:bg-surface-container-high border border-border-light px-4 py-2.5 rounded-xl transition-colors cursor-pointer">
               Close
             </button>
           </div>

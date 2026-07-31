@@ -5,6 +5,7 @@ import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
+import { readSellerProducts, getUserById } from '../lib/storage'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -161,11 +162,14 @@ export default function ProductDetail() {
   const category = parts[1]
   const slug = parts[2]
   const config = categoryConfig[category]
-  if (!config) return null
+  let item = config ? config.items.find(i => toSlug(i[config.nameKey]) === slug) : undefined
 
-  const item = config.items.find(i => toSlug(i[config.nameKey]) === slug)
-  if (!item) return null
+  if (!item) {
+    item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
+  }
+  if (!item || !config) return null
 
+  const seller = item.sellerId ? getUserById(item.sellerId) : null
   const name = item.title || item.name
   const relatedItems = config.getRelated(item)
 
@@ -366,7 +370,7 @@ export default function ProductDetail() {
                   <span className="text-xs font-medium text-text-muted">({reviews.length} review{reviews.length > 1 ? 's' : ''})</span>
                 )}
                 {'sales' in item && (
-                  <span className="text-xs font-medium text-text-muted">&middot; {item.sales}{'users' in item ? '' : ' users'}</span>
+                  <span className="text-xs font-medium text-text-muted">&middot; {item.sales}{'users' in item ? '' : item.sellerId ? ' sales' : ' users'}</span>
                 )}
                 {'users' in item && (
                   <span className="text-xs font-medium text-text-muted">&middot; {item.users} users</span>
@@ -395,7 +399,11 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {'author' in item && (
+            {item.sellerId && seller ? (
+              <p className="text-xs font-medium text-text-muted">
+                by <Link to={`/seller/${item.sellerId}`} className="text-primary cursor-pointer hover:underline">{seller.name}</Link>
+              </p>
+            ) : 'author' in item && (
               <p className="text-xs font-medium text-text-muted">
                 by <span className="text-primary cursor-pointer hover:underline">{item.author}</span>
               </p>
@@ -602,7 +610,7 @@ export default function ProductDetail() {
             <div className="space-y-4">
               <p className="text-[15px] text-text-muted leading-relaxed">
                 {name} is a premium {config.label.toLowerCase().slice(0, -1)} available exclusively
-                on the AI Agents Marketplace. Designed by <strong className="text-text-main">{item.author || 'AI Agents Team'}</strong>,
+                on the AI Agents Marketplace. Designed by <strong className="text-text-main">{item.sellerId && seller ? seller.name : (item.author || 'AI Agents Team')}</strong>,
                 this product combines cutting-edge technology with an intuitive user experience.
               </p>
               <p className="text-[15px] text-text-muted leading-relaxed">

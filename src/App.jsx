@@ -43,6 +43,7 @@ import OrderConfirmation from './pages/OrderConfirmation'
 import Favorites from './pages/Favorites'
 import SellerDashboard from './pages/SellerDashboard'
 import AdminDashboard from './pages/AdminDashboard'
+import SellerStore from './pages/SellerStore'
 
 function Home() {
   return (
@@ -131,6 +132,7 @@ export default function App() {
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/seller/dashboard" element={<SellerDashboard />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/seller/:sellerId" element={<SellerStore />} />
     </Routes>
     </>
   );

@@ -1,3 +1,25 @@
+## v7.9 — 2026-07-31
+
+### Komponen
+- **SellerStore** — halaman publik profil seller (`/seller/:sellerId`): kartu profil (avatar, nama, email, bio, member since, total sales) + grid produk yang dijual seller [file: src/pages/SellerStore.jsx]
+
+### Ubah
+- **AuthContext** — seed dummy sellers (3 aktif + 2 pending) biar tab Sellers admin punya data, plus seed 6 produk seller [file: src/AuthContext.jsx]
+- **ProductDetail** — resolve produk seller dari localStorage (`seller_products`), "by author" jadi link ke halaman seller buat produk seller [file: src/pages/ProductDetail.jsx]
+- **SellerDashboard** — produk baru otomatis di-tag `sellerId: currentUser.id` + menu "View My Store" [file: src/pages/SellerDashboard.jsx]
+- **UserProfileModal** — tombol "View Public Store" biar admin bisa liat toko publik seller [file: src/components/UserProfileModal.jsx]
+- **App** — route baru `/seller/:sellerId` [file: src/App.jsx]
+- **lib/storage** — helper `readUsers`, `readSellerProducts`, `getUserById`, `getSellerProductsBySeller` [file: src/lib/storage.js]
+
+### Fitur
+- [Feat] Halaman seller store publik — buyer bisa lihat profil seller & produk yang dijual
+- [Feat] Produk seller bisa diakses lewat route produk biasa (`/:category/:slug`)
+- [Feat] Link profil seller di ProductDetail — klik nama seller buat liat tokonya
+- [Feat] AdminDashboard — tombol dark mode toggle di header (mobile & desktop) + tombol View di tab Users buat liat profil user lewat modal
+- [Feat] UserProfileModal jadi generic — title & icon menyesuaikan (Seller/User Profile)
+- [Feat] Seed produk — 6 produk dummy dengan `sellerId` biar jumlah produk di profil seller muncul
+- [Feat] Admin light mode — admin dashboard pakai semantic theme variables, ngikut toggle dark/light
+
 ## v7.8 — 2026-07-31
 
 ### Ubah
