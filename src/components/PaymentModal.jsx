@@ -36,7 +36,7 @@ function generateQRPattern(seed) {
   return pattern
 }
 
-export default function PaymentModal({ open, onClose, onBack, total, onSuccess }) {
+export default function PaymentModal({ open, onClose, total, onSuccess }) {
   const [step, setStep] = useState('select')
   const [selected, setSelected] = useState(null)
   const canvasRef = useRef(null)
@@ -63,14 +63,7 @@ export default function PaymentModal({ open, onClose, onBack, total, onSuccess }
           {step === 'select' && (
             <>
               <div className="flex items-center justify-between px-6 py-4 border-b border-border-light">
-                <div className="flex items-center gap-2">
-                  {onBack && (
-                    <button onClick={() => { setSelected(null); onBack() }} className="p-1 hover:bg-surface-container-low rounded transition-colors cursor-pointer" title="Kembali ke halaman produk">
-                      <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 20 }}>arrow_back</span>
-                    </button>
-                  )}
-                  <h2 className="text-sm font-semibold text-text-main">Pilih Metode Pembayaran</h2>
-                </div>
+                <h2 className="text-sm font-semibold text-text-main">Pilih Metode Pembayaran</h2>
                 <button onClick={() => { setSelected(null); onClose() }} className="p-1 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 20 }}>close</span>
                 </button>
@@ -116,13 +109,6 @@ export default function PaymentModal({ open, onClose, onBack, total, onSuccess }
                       <span className="material-symbols-outlined text-text-muted ml-auto" style={{ fontSize: 18 }}>chevron_right</span>
                     </button>
                   ))}
-                  {onBack && (
-                    <button onClick={() => { setSelected(null); onBack() }}
-                      className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-text-muted border border-border-light rounded-xl py-2.5 mt-4 hover:bg-surface-container-low hover:text-text-main transition-colors cursor-pointer">
-                      <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_back</span>
-                      Kembali ke Halaman Produk
-                    </button>
-                  )}
                 </div>
               </div>
             </>

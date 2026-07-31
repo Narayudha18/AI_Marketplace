@@ -132,7 +132,7 @@ export default function CartPage() {
         )}
       </main>
       <Footer />
-      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} onBack={() => { setPaymentOpen(false); navigate('/templates') }} total={formattedSubtotal} cart={cart} onSuccess={handlePaymentSuccess} />
+      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} total={formattedSubtotal} cart={cart} onSuccess={handlePaymentSuccess} />
     </>
   )
 }
