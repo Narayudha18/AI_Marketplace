@@ -1,3 +1,12 @@
+## v8.1 — 2026-07-31
+
+### Ubah
+- **PaymentModal** — tambah prop `onBack`: tombol panah di header + tombol "Kembali ke Halaman Produk" di langkah pilih metode pembayaran [file: src/components/PaymentModal.jsx]
+- **CartPage** — tombol balik ke produk menutup modal & navigate ke `/templates` [file: src/pages/CartPage.jsx]
+
+### Fitur
+- [Feat] Tombol balik di proses pembayaran — user bisa keluar dari pilihan metode pembayaran dan balik ke halaman produk tanpa kehilangan isi keranjang
+
 ## v8.0 — 2026-07-31
 
 ### Komponen
