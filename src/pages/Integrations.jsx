@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import integrations from '../data/integrations.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -54,7 +55,9 @@ export default function Integrations() {
     setAppliedSearch(''); setAppliedSidebar(''); setAppliedCategories(['All']); setAppliedType('All'); setAppliedRating('Any Rating')
   }
 
-  const filteredIntegrations = integrations.filter(i => {
+  const allItems = mergeCategoryItems(integrations, 'integrations', 'name')
+
+  const filteredIntegrations = allItems.filter(i => {
     const q = (appliedSearch || appliedSidebar).toLowerCase()
     if (q && !i.name.toLowerCase().includes(q) && !i.desc.toLowerCase().includes(q) && !i.category.toLowerCase().includes(q)) return false
     if (!appliedCategories.includes('All') && !appliedCategories.includes(i.category)) return false
@@ -201,13 +204,13 @@ export default function Integrations() {
                     </button>
                     <div className="p-5 flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-primary" style={{ fontSize: 24 }}>{item.icon}</span>
+                        <span className="material-symbols-outlined text-primary" style={{ fontSize: 24 }}>{item.icon || 'api'}</span>
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="text-sm font-semibold text-text-main">{item.name}</h4>
                         <p className="text-[11px] text-text-muted mt-0.5 line-clamp-2">{item.desc}</p>
                         <div className="flex items-center gap-3 mt-2">
-                          <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{item.type}</span>
+                          <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{item.type || item.category}</span>
                           <span className="text-[11px] font-medium text-text-muted">{item.category}</span>
                         </div>
                       </div>
@@ -217,7 +220,7 @@ export default function Integrations() {
                         <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 14 }}>star</span>
                         <span className="font-medium">{item.rating}</span>
                         <span className="text-text-muted">·</span>
-                        <span>{item.reviews.length} reviews</span>
+                        <span>{(item.reviews?.length ?? 0)} reviews</span>
                       </div>
                       <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/integrations/${toSlug(item.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
                         Connect

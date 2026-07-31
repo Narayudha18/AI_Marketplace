@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import voiceAI from '../data/voice-ai.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems, getSellerName } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -13,8 +14,11 @@ function parsePrice(price) {
 }
 
 function parseSales(sales) {
-  const num = parseFloat(sales.replace(/[^0-9.]/g, ''))
-  return sales.includes('k') ? num * 1000 : num
+  if (typeof sales === 'number') return sales
+  if (!sales) return 0
+  const str = String(sales)
+  const num = parseFloat(str.replace(/[^0-9.]/g, ''))
+  return str.includes('k') ? num * 1000 : num
 }
 
 export default function VoiceAI() {
@@ -78,9 +82,11 @@ export default function VoiceAI() {
     setAppliedSearch(''); setAppliedSidebar(''); setAppliedCategories(['All Voice AI']); setAppliedPrice('All Prices'); setAppliedSort('Newest')
   }
 
-  const filteredTemplates = voiceAI.filter(t => {
+  const allItems = mergeCategoryItems(voiceAI, 'voice-ai', 'title')
+
+  const filteredTemplates = allItems.filter(t => {
     const q = (appliedSearch || appliedSidebar).toLowerCase()
-    if (q && !t.title.toLowerCase().includes(q) && !t.author.toLowerCase().includes(q) && !t.category.toLowerCase().includes(q)) return false
+    if (q && !t.title.toLowerCase().includes(q) && !String(t.author || '').toLowerCase().includes(q) && !String(t.category || '').toLowerCase().includes(q)) return false
     if (!appliedCategories.includes('All Voice AI') && !appliedCategories.includes(t.category)) return false
     const priceNum = parsePrice(t.price)
     if (appliedPrice === 'Under $20' && (priceNum >= 20 || priceNum === 0)) return false
@@ -228,7 +234,7 @@ export default function VoiceAI() {
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{t.title}</h4>
                       <p className="text-[11px] font-medium text-text-muted mb-3">
-                        by <span className="text-primary cursor-pointer hover:underline">{t.author}</span> in {t.category}
+                        by <span className="text-primary cursor-pointer hover:underline">{t.author || getSellerName(t) || 'AI Agents Team'}</span> in {t.category}
                       </p>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <div>
@@ -237,7 +243,7 @@ export default function VoiceAI() {
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                             <span className="font-medium">{t.rating}</span>
                             <span>·</span>
-                            <span>{t.reviews.length} reviews</span>
+                            <span>{(t.reviews?.length ?? 0)} reviews</span>
                           </div>
                         </div>
                         <div className="flex gap-2">

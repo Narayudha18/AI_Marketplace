@@ -20,7 +20,10 @@ export default function SellerDashboard() {
   const [activeTab, setActiveTab] = useState('overview')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
-  const [products, setProducts] = useState(loadProducts)
+  const [products, setProducts] = useState(() => {
+    if (!currentUser) return []
+    return loadProducts().filter(p => p.sellerId === currentUser.id)
+  })
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', category: 'templates', price: '', desc: '' })
   const [expandedOrder, setExpandedOrder] = useState(null)
@@ -46,7 +49,8 @@ export default function SellerDashboard() {
 
   const saveProducts = (updated) => {
     setProducts(updated)
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
+    const others = loadProducts().filter(p => p.sellerId !== currentUser.id)
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...updated, ...others]))
   }
 
   const addProduct = (e) => {

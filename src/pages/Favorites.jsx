@@ -13,6 +13,7 @@ import analytics from '../data/analytics.json'
 import fineTuning from '../data/fine-tuning.json'
 import monitoring from '../data/monitoring.json'
 import security from '../data/security.json'
+import { readSellerProducts } from '../lib/storage'
 
 const dataMap = {
   templates: { items: templates, nameKey: 'title', nav: '/templates' },
@@ -36,10 +37,12 @@ export default function Favorites() {
   const { favorites, toggleFavorite } = useCart()
 
   const favItems = []
+  const sellerProducts = readSellerProducts()
   for (const fav of favorites) {
     const source = dataMap[fav.category]
     if (!source) continue
-    const item = source.items.find(i => toSlug(i[source.nameKey]) === fav.slug)
+    let item = source.items.find(i => toSlug(i[source.nameKey]) === fav.slug)
+    if (!item) item = sellerProducts.find(p => p.category === fav.category && toSlug(p.title) === fav.slug)
     if (item) favItems.push({ ...item, category: fav.category, nav: source.nav, nameKey: source.nameKey })
   }
 

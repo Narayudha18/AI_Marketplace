@@ -44,9 +44,13 @@ export default function SellerStore() {
   }
 
   const totalSales = products.reduce((s, p) => s + (Number(p.sales) || 0), 0)
-  const memberSince = seller.id
-    ? new Date(Number.isFinite(Number(seller.id)) ? Number(seller.id) : Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
-    : 'Unknown'
+  const memberSince = (() => {
+    const ts = Number(seller.createdAt) || (Number.isFinite(Number(seller.id)) ? Number(seller.id) : 0)
+    if (ts > 1000000000000) {
+      return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+    }
+    return seller.createdAt || '2025'
+  })()
 
   return (
     <>

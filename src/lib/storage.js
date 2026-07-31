@@ -15,3 +15,27 @@ export function getSellerProductsBySeller(sellerId) {
   const num = Number(sellerId)
   return readSellerProducts().filter(p => Number(p.sellerId) === num)
 }
+
+export function toSlug(str) {
+  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+export function getSellerName(item) {
+  if (!item || !item.sellerId) return null
+  const user = getUserById(item.sellerId)
+  return user ? user.name : null
+}
+
+export function mergeCategoryItems(items, category, nameKey = 'title') {
+  const sellerProducts = readSellerProducts().filter(p => p.category === category)
+  if (!sellerProducts.length) return items
+  const slugSet = new Set(items.map(i => toSlug(String(i[nameKey] || i.title || i.name))))
+  const merged = [...items]
+  for (const p of sellerProducts) {
+    const slug = toSlug(p.title)
+    if (slugSet.has(slug)) continue
+    slugSet.add(slug)
+    merged.push({ ...p, name: p.name || p.title })
+  }
+  return merged
+}

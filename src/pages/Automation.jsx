@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import automations from '../data/automation.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -48,7 +49,9 @@ export default function Automation() {
     setAppliedSearch(''); setAppliedSidebar(''); setAppliedCategory('All'); setAppliedPrice('All')
   }
 
-  const filteredAutomations = automations.filter(a => {
+  const allItems = mergeCategoryItems(automations, 'automation', 'name')
+
+  const filteredAutomations = allItems.filter(a => {
     const q = (appliedSearch || appliedSidebar).toLowerCase()
     if (q && !a.name.toLowerCase().includes(q) && !a.desc.toLowerCase().includes(q) && !a.category.toLowerCase().includes(q)) return false
     if (appliedCategory !== 'All' && a.category !== appliedCategory) return false
@@ -186,7 +189,7 @@ export default function Automation() {
                           <span className="text-lg font-semibold text-text-main">{a.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            {a.rating} · {a.reviews.length} reviews
+                            {a.rating} · {(a.reviews?.length ?? 0)} reviews
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/automation/${toSlug(a.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">

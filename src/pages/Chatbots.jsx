@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import chatbots from '../data/chatbots.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -45,10 +46,12 @@ export default function Chatbots() {
     setAppliedSearch(''); setAppliedSidebar(''); setAppliedPlatform('All'); setAppliedRating('Any Rating')
   }
 
-  const filteredChatbots = chatbots.filter(b => {
+  const allItems = mergeCategoryItems(chatbots, 'chatbots', 'name')
+
+  const filteredChatbots = allItems.filter(b => {
     const q = (appliedSearch || appliedSidebar).toLowerCase()
-    if (q && !b.name.toLowerCase().includes(q) && !b.desc.toLowerCase().includes(q)) return false
-    if (appliedPlatform !== 'All' && !b.platform.toLowerCase().includes(appliedPlatform.toLowerCase())) return false
+    if (q && !String(b.name || '').toLowerCase().includes(q) && !String(b.desc || '').toLowerCase().includes(q)) return false
+    if (appliedPlatform !== 'All' && !String(b.platform || '').toLowerCase().includes(appliedPlatform.toLowerCase())) return false
     if (appliedRating !== 'Any Rating') {
       const min = parseFloat(appliedRating)
       if (b.rating < min) return false
@@ -187,14 +190,14 @@ export default function Chatbots() {
                       <h4 className="text-xs font-semibold text-text-main mb-1">{b.name}</h4>
                       <p className="text-[11px] font-medium text-text-muted mb-2">{b.desc}</p>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{b.platform}</span>
+                        <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{b.platform || b.category}</span>
                       </div>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <div>
                           <span className="text-lg font-semibold text-text-main">{b.price}</span>
                           <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
-                            {b.rating} · {b.reviews.length} reviews
+                            {b.rating} · {(b.reviews?.length ?? 0)} reviews
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/chatbots/${toSlug(b.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">

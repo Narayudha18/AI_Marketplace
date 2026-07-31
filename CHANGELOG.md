@@ -1,3 +1,15 @@
+## v8.3 — 2026-07-31
+
+### Ubah
+- **Produk Seller** — produk dummy seller sekarang tergabung & terdeteksi di seluruh marketplace: halaman kategori (Templates, Image Gen, Voice AI, Analytics, Fine-tuning, Monitoring, Security, Integrations, Chatbots, Automation, AI Tools), grid produk di home, preview produk (ProductGallery), halaman kategori dinamis (CategoryListing), dan halaman favorit
+- **`lib/storage.js`** — helper baru `mergeCategoryItems` (gabung produk seller per kategori, dedup by slug, lengkapi field `name`), `getSellerName`, `toSlug` untuk dipakai semua halaman listing [file: src/lib/storage.js]
+- **Semua halaman listing** — guard anti-crash untuk produk seller: `parseSales` tahan angka/undefined, fallback author `t.author || getSellerName(t) || 'AI Agents Team'`, review `(t.reviews?.length ?? 0)`, fallback icon/type/platform agar tidak blank
+- **SellerDashboard** — hanya menampilkan produk milik seller yang login; saat simpan/hapus produk, produk milik seller lain tidak ikut terhapus [file: src/pages/SellerDashboard.jsx]
+- **SellerStore** — "Member Since" tidak lagi menunjukkan Januari 1970 (id demo numerik kecil dipakai sebagai tanggal); fallback ke `createdAt` atau 2025 [file: src/pages/SellerStore.jsx]
+
+### Fitur
+- [Feat] Produk dummy seller tampil normal di marketplace — bisa dicari, difavoritkan, dibuka preview, dan masuk halaman kategori seperti produk bawaan
+
 ## v8.2 — 2026-07-31
 
 ### Ubah

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import tools from '../data/aitools.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -46,9 +47,11 @@ export default function AiTools() {
     setAppliedSearch(''); setAppliedSidebar(''); setAppliedCategory('All'); setAppliedPricing('All')
   }
 
-  const filteredTools = tools.filter(t => {
+  const allItems = mergeCategoryItems(tools, 'ai-tools', 'name')
+
+  const filteredTools = allItems.filter(t => {
     const q = (appliedSearch || appliedSidebar).toLowerCase()
-    if (q && !t.name.toLowerCase().includes(q) && !t.desc.toLowerCase().includes(q) && !t.category.toLowerCase().includes(q)) return false
+    if (q && !String(t.name || '').toLowerCase().includes(q) && !String(t.desc || '').toLowerCase().includes(q) && !String(t.category || '').toLowerCase().includes(q)) return false
     if (appliedCategory !== 'All') {
       const mapped = categoryMap[appliedCategory]
       if (mapped && t.category !== mapped) return false
@@ -199,7 +202,7 @@ export default function AiTools() {
                             <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
                             <span className="font-medium">{t.rating}</span>
                             <span>·</span>
-                            <span>{t.reviews.length} reviews</span>
+                            <span>{(t.reviews?.length ?? 0)} reviews</span>
                           </div>
                         </div>
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/ai-tools/${toSlug(t.name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">

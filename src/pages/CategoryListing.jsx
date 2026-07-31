@@ -13,6 +13,7 @@ import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
+import { mergeCategoryItems, getUserById } from '../lib/storage'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -267,6 +268,7 @@ export default function CategoryListing() {
   const filterSlug = parts[3] || ''
   const config = categoryConfig[category]
   if (!config) return null
+  const categoryItems = mergeCategoryItems(config.items, category, config.nameKey)
   const gridRef = useRef(null)
   const productRef = useRef(null)
   useEffect(() => {
@@ -289,8 +291,8 @@ export default function CategoryListing() {
   const filterValue = config.filterMap[filterName]
 
   const subFiltered = isAll
-    ? config.items
-    : config.items.filter(item => {
+    ? categoryItems
+    : categoryItems.filter(item => {
         if (filterValue !== undefined) return item[config.dataFilterKey] === filterValue
         return item[config.dataFilterKey] && toSlug(item[config.dataFilterKey]) === filterSlug
       })
@@ -414,6 +416,11 @@ export default function CategoryListing() {
                         <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{itemName}</h4>
                         {'desc' in item && (
                           <p className="text-[11px] font-medium text-text-muted mb-2">{item.desc}</p>
+                        )}
+                        {item.sellerId && (
+                          <p className="text-[11px] font-medium text-text-muted mb-3">
+                            by <Link to={`/seller/${item.sellerId}`} className="text-primary hover:underline">{getUserById(item.sellerId)?.name || 'Seller'}</Link>
+                          </p>
                         )}
                         {'author' in item && (
                           <p className="text-[11px] font-medium text-text-muted mb-3">

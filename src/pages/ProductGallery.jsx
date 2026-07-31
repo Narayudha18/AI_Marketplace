@@ -16,10 +16,7 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
-
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { readSellerProducts, toSlug } from '../lib/storage'
 
 const dataMap = {
   templates: { items: templates, nameKey: 'title' },
@@ -70,9 +67,10 @@ export default function ProductGallery() {
   const navigate = useNavigate()
   const location = useLocation()
   const source = dataMap[category]
-  if (!source) return null
-
-  const item = source.items.find(i => toSlug(i[source.nameKey]) === slug)
+  let item = source ? source.items.find(i => toSlug(i[source.nameKey]) === slug) : undefined
+  if (!item) {
+    item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
+  }
   if (!item) return null
 
   const name = item.title || item.name
