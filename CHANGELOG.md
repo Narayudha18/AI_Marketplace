@@ -1,3 +1,15 @@
+## v7.8 — 2026-07-31
+
+### Ubah
+- **AuthContext** — seed dummy sellers (3 aktif + 2 pending) biar tab Sellers admin punya data, plus seed 6 produk seller [file: src/AuthContext.jsx]
+- **AdminDashboard** — tombol dark mode toggle di header (mobile & desktop) + tombol View di tab Users buat liat profil user lewat modal [file: src/pages/AdminDashboard.jsx]
+- **UserProfileModal** — jadi generic, title & icon menyesuaikan (Seller/User Profile) [file: src/components/UserProfileModal.jsx]
+
+### Fitur
+- [Feat] Seed seller — Rina Wijaya, Budi Santoso, Dewi Lestari (aktif) + Andi Pratama, Siti Rahma (pending), password `seller123`
+- [Feat] Seed produk — 6 produk dummy dengan `sellerId` biar jumlah produk di profil seller muncul
+- [Feat] Admin light mode — admin dashboard pakai semantic theme variables, ngikut toggle dark/light
+
 ## v7.7 — 2026-07-30
 
 ### Komponen

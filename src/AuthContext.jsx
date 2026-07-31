@@ -2,15 +2,31 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
-const SEED_ADMIN = { id: 1, name: 'Admin', email: 'admin@gmail.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true, sellerRequested: false }
+const SEED_USERS = [
+  { id: 1, name: 'Admin', email: 'admin@gmail.com', password: 'admin123', picture: null, isSeller: false, isAdmin: true, sellerRequested: false },
+  { id: 2, name: 'Rina Wijaya', email: 'rina.wijaya@gmail.com', password: 'seller123', picture: null, isSeller: true, isAdmin: false, sellerRequested: false, bio: 'Creative designer specializing in website templates and AI-powered design tools.' },
+  { id: 3, name: 'Budi Santoso', email: 'budi.santoso@gmail.com', password: 'seller123', picture: null, isSeller: true, isAdmin: false, sellerRequested: false, bio: 'Full-stack developer building image generation and automation solutions.' },
+  { id: 4, name: 'Dewi Lestari', email: 'dewi.lestari@gmail.com', password: 'seller123', picture: null, isSeller: true, isAdmin: false, sellerRequested: false, bio: 'AI consultant crafting chatbots and conversational AI experiences.' },
+  { id: 5, name: 'Andi Pratama', email: 'andi.pratama@gmail.com', password: 'seller123', picture: null, isSeller: false, isAdmin: false, sellerRequested: true, bio: 'Data enthusiast exploring AI analytics and monitoring tools.' },
+  { id: 6, name: 'Siti Rahma', email: 'siti.rahma@gmail.com', password: 'seller123', picture: null, isSeller: false, isAdmin: false, sellerRequested: true, bio: 'Content creator passionate about AI writing and productivity tools.' },
+]
+
+const SEED_SELLER_PRODUCTS = [
+  { id: 2001, title: 'Modern SaaS Landing Template', category: 'templates', price: '$49', desc: 'A clean, conversion-focused landing page template.', sellerId: 2, seed: 'seller-2001', date: '2026-05-12', sales: 34, rating: 4.8 },
+  { id: 2002, title: 'Portfolio Website Template', category: 'templates', price: '$29', desc: 'Minimal portfolio template for creatives.', sellerId: 2, seed: 'seller-2002', date: '2026-06-03', sales: 21, rating: 4.6 },
+  { id: 3001, title: 'AI Image Upscaler Bot', category: 'image-gen', price: '$79', desc: 'Bulk image upscaling powered by AI.', sellerId: 3, seed: 'seller-3001', date: '2026-04-18', sales: 15, rating: 4.5 },
+  { id: 3002, title: 'Auto Workflow Builder', category: 'automation', price: '$99', desc: 'Visual workflow automation for teams.', sellerId: 3, seed: 'seller-3002', date: '2026-05-27', sales: 12, rating: 4.7 },
+  { id: 4001, title: 'Support Chatbot Kit', category: 'chatbots', price: '$59', desc: 'Ready-to-train customer support chatbot.', sellerId: 4, seed: 'seller-4001', date: '2026-06-15', sales: 28, rating: 4.9 },
+  { id: 4002, title: 'AI Voice Assistant', category: 'voice-ai', price: '$69', desc: 'Custom voice assistant for your business.', sellerId: 4, seed: 'seller-4002', date: '2026-07-01', sales: 9, rating: 4.4 },
+]
 
 export function AuthProvider({ children }) {
   const [users, setUsers] = useState(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('auth_users')) || []
-      const hasAdmin = stored.some(u => u.email === SEED_ADMIN.email)
-      return hasAdmin ? stored : [SEED_ADMIN, ...stored]
-    } catch { return [SEED_ADMIN] }
+      const missing = SEED_USERS.filter(seed => !stored.some(u => u.email === seed.email))
+      return missing.length ? [...stored, ...missing] : stored
+    } catch { return [...SEED_USERS] }
   })
   const [currentUser, setCurrentUser] = useState(() => {
     try {
@@ -20,6 +36,13 @@ export function AuthProvider({ children }) {
       return latest || saved
     } catch { return null }
   })
+
+  useEffect(() => {
+    try {
+      const existing = JSON.parse(localStorage.getItem('seller_products') || '[]')
+      if (existing.length === 0) localStorage.setItem('seller_products', JSON.stringify(SEED_SELLER_PRODUCTS))
+    } catch {}
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('auth_users', JSON.stringify(users))
