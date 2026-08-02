@@ -4,6 +4,7 @@ import automations from '../data/automation.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -182,6 +183,11 @@ export default function Automation() {
                     </div>
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1">{a.name}</h4>
+                      {a.sellerId && (
+                        <p className="text-[11px] font-medium text-text-muted mb-2">
+                          by <SellerLink sellerId={a.sellerId} />
+                        </p>
+                      )}
                       <p className="text-[11px] font-medium text-text-muted mb-2">{a.desc}</p>
                       <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded self-start mb-3">{a.category}</span>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">

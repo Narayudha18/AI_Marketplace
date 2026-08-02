@@ -4,6 +4,7 @@ import chatbots from '../data/chatbots.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -188,6 +189,11 @@ export default function Chatbots() {
                     </div>
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1">{b.name}</h4>
+                      {b.sellerId && (
+                        <p className="text-[11px] font-medium text-text-muted mb-2">
+                          by <SellerLink sellerId={b.sellerId} />
+                        </p>
+                      )}
                       <p className="text-[11px] font-medium text-text-muted mb-2">{b.desc}</p>
                       <div className="flex items-center gap-2 mb-3">
                         <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{b.platform || b.category}</span>

@@ -11,7 +11,8 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
-import { readSellerProducts, getSellerName } from '../lib/storage'
+import { readSellerProducts } from '../lib/storage'
+import SellerLink from './SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -86,7 +87,7 @@ export default function ProductGrid() {
             <div className="p-4 flex flex-col flex-1">
               <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p._name}</h4>
               <p className="text-[11px] font-medium text-text-muted mb-3">
-                by <span className="text-primary cursor-pointer hover:underline">{p.author || getSellerName(p) || 'AI Agents Team'}</span>
+                by <SellerLink sellerId={p.sellerId} author={p.author} />
                 {'category' in p && <span> in {p.category}</span>}
               </p>
               <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">

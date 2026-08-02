@@ -3,20 +3,16 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { useTheme } from '../ThemeContext'
 import UserProfileModal from '../components/UserProfileModal'
+import { ALL_SEED_PRODUCTS } from '../data/seed-sellers'
 
-const categoryData = [
-  { name: 'Templates', count: 38 },
-  { name: 'Integrations', count: 34 },
-  { name: 'Chatbots', count: 30 },
-  { name: 'Automation', count: 30 },
-  { name: 'AI Tools', count: 36 },
-  { name: 'Voice AI', count: 30 },
-  { name: 'Image Gen', count: 30 },
-  { name: 'Analytics', count: 30 },
-  { name: 'Fine-Tuning', count: 30 },
-  { name: 'Monitoring', count: 30 },
-  { name: 'Security', count: 30 },
-]
+const categoryData = (() => {
+  const map = {}
+  for (const p of ALL_SEED_PRODUCTS) {
+    const key = p.category || 'Other'
+    map[key] = (map[key] || 0) + 1
+  }
+  return Object.entries(map).map(([name, count]) => ({ name, count }))
+})()
 
 const sidebarItems = [
   { key: 'overview', label: 'Overview', icon: 'dashboard' },
@@ -37,6 +33,8 @@ export default function AdminDashboard() {
   const [accountOpen, setAccountOpen] = useState(false)
   const [expandedOrder, setExpandedOrder] = useState(null)
   const [selectedUser, setSelectedUser] = useState(null)
+  const [productQuery, setProductQuery] = useState('')
+  const [productCategory, setProductCategory] = useState('All')
 
   const readUsers = () => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').map(user => ({ ...user, isAdmin: user.isAdmin || false, isSeller: user.isSeller || false, sellerRequested: user.sellerRequested || false })) } catch { return [] } }
   const readOrders = () => {
@@ -159,8 +157,7 @@ export default function AdminDashboard() {
     const num = parseFloat(o.total?.replace(/[^0-9.,]/g, '').replace(/,/g, '')) || 0
     return sum + num
   }, 0)
-  const totalJSON = categoryData.reduce((s, c) => s + c.count, 0)
-  const totalProducts = totalJSON + sellerProducts.length
+  const totalProducts = ALL_SEED_PRODUCTS.length + sellerProducts.length
 
   return (
     <div className="min-h-screen bg-background flex">
@@ -514,7 +511,7 @@ export default function AdminDashboard() {
           {activeTab === 'products' && (
             <div className="space-y-6">
               <div className="bg-surface border border-border-light rounded-xl p-5">
-                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">JSON Products by Category</h2>
+                <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">Products by Category</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {categoryData.map((cat, i) => (
                     <div key={i} className="bg-surface-container-low rounded-xl p-3.5 md:p-4">
@@ -524,8 +521,84 @@ export default function AdminDashboard() {
                   ))}
                 </div>
                 <div className="mt-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-text-main">Total JSON Products</span>
-                  <span className="text-lg font-bold text-blue-400">{totalJSON}</span>
+                  <span className="text-xs font-semibold text-text-main">Total Marketplace Products</span>
+                  <span className="text-lg font-bold text-blue-400">{ALL_SEED_PRODUCTS.length}</span>
+                </div>
+              </div>
+
+              <div className="bg-surface border border-border-light rounded-xl overflow-hidden">
+                <div className="px-5 py-4 border-b border-border-light space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <h2 className="text-xs font-bold text-text-muted uppercase tracking-wider">All Marketplace Products ({ALL_SEED_PRODUCTS.length})</h2>
+                    <div className="flex items-center gap-2">
+                      <input value={productQuery} onChange={e => setProductQuery(e.target.value)} placeholder="Search products..."
+                        className="bg-surface-container-low border border-border-light rounded-lg px-3 py-1.5 text-xs text-text-main outline-none focus:border-blue-500/40 w-40 md:w-56" />
+                      <select value={productCategory} onChange={e => setProductCategory(e.target.value)}
+                        className="bg-surface-container-low border border-border-light rounded-lg px-2.5 py-1.5 text-xs text-text-main outline-none cursor-pointer">
+                        <option value="All">All categories</option>
+                        {categoryData.map((c, i) => <option key={i} value={c.name}>{c.name}</option>)}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="overflow-x-auto max-h-[480px] overflow-y-auto">
+                  <table className="w-full text-xs">
+                    <thead className="sticky top-0 bg-surface">
+                      <tr className="text-text-muted/70 bg-surface-container-low/50">
+                        <th className="text-left py-3 px-5 font-semibold">Product</th>
+                        <th className="text-left py-3 px-5 font-semibold">Category</th>
+                        <th className="text-left py-3 px-5 font-semibold">Seller</th>
+                        <th className="text-left py-3 px-5 font-semibold">Price</th>
+                        <th className="text-left py-3 px-5 font-semibold">Rating</th>
+                        <th className="text-right py-3 px-5 font-semibold">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ALL_SEED_PRODUCTS
+                        .filter(p => {
+                          const name = p.title || p.name || ''
+                          const matchQ = !productQuery || name.toLowerCase().includes(productQuery.toLowerCase())
+                          const matchC = productCategory === 'All' || (p.category || 'Other') === productCategory
+                          return matchQ && matchC
+                        })
+                        .map((p, i) => {
+                          const name = p.title || p.name || ''
+                          const pcat = p._cat
+                          const slug = String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                          return (
+                            <tr key={i} className="border-t border-border-light hover:bg-surface-container-low transition-colors">
+                              <td className="py-3 px-5">
+                                <div className="flex items-center gap-2.5">
+                                  <img src={`https://picsum.photos/seed/${p.seed || name}/40/40`} alt="" className="w-8 h-8 rounded-md object-cover flex-shrink-0" />
+                                  <span className="font-semibold text-text-main truncate max-w-[220px]">{name}</span>
+                                </div>
+                              </td>
+                              <td className="py-3 px-5 capitalize text-text-muted">{p.category || 'Other'}</td>
+                              <td className="py-3 px-5 text-text-muted">{p.author || 'AI Agents Team'}</td>
+                              <td className="py-3 px-5 text-text-main/90">{p.price}</td>
+                              <td className="py-3 px-5">
+                                <span className="flex items-center gap-1 text-text-main/90">
+                                  <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
+                                  {p.rating || '0.0'}
+                                </span>
+                              </td>
+                              <td className="py-3 px-5 text-right">
+                                <button onClick={() => navigate(`/${pcat}/${slug}/preview`)}
+                                  className="text-[10px] bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 font-bold px-2.5 py-1 rounded-md transition-colors cursor-pointer">Preview</button>
+                              </td>
+                            </tr>
+                          )
+                        })}
+                      {ALL_SEED_PRODUCTS.filter(p => {
+                        const name = p.title || p.name || ''
+                        const matchQ = !productQuery || name.toLowerCase().includes(productQuery.toLowerCase())
+                        const matchC = productCategory === 'All' || (p.category || 'Other') === productCategory
+                        return matchQ && matchC
+                      }).length === 0 && (
+                        <tr><td colSpan={6} className="py-12 text-center text-text-muted/70">No products found.</td></tr>
+                      )}
+                    </tbody>
+                  </table>
                 </div>
               </div>
 

@@ -14,6 +14,7 @@ import fineTuning from '../data/fine-tuning.json'
 import monitoring from '../data/monitoring.json'
 import security from '../data/security.json'
 import { readSellerProducts } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 const dataMap = {
   templates: { items: templates, nameKey: 'title', nav: '/templates' },
@@ -82,6 +83,11 @@ export default function Favorites() {
                     </div>
                     <div className="p-3">
                       <p className="text-xs font-semibold text-text-main line-clamp-1 group-hover:text-primary transition-colors">{itemName}</p>
+                      {item.sellerId && (
+                        <p className="text-[10px] text-text-muted mt-0.5">
+                          by <SellerLink sellerId={item.sellerId} />
+                        </p>
+                      )}
                       {'price' in item && <p className="text-[11px] font-semibold text-text-main mt-0.5">{item.price}</p>}
                       {'rating' in item && (
                         <div className="flex items-center gap-1 mt-1">

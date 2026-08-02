@@ -5,7 +5,8 @@ import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
-import { readSellerProducts, getUserById } from '../lib/storage'
+import { readSellerProducts } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 import templates from '../data/templates.json'
 import integrations from '../data/integrations.json'
 import chatbots from '../data/chatbots.json'
@@ -169,7 +170,6 @@ export default function ProductDetail() {
   }
   if (!item || !config) return null
 
-  const seller = item.sellerId ? getUserById(item.sellerId) : null
   const name = item.title || item.name
   const relatedItems = config.getRelated(item)
 
@@ -399,13 +399,9 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {item.sellerId && seller ? (
+            {(item.sellerId || 'author' in item) && (
               <p className="text-xs font-medium text-text-muted">
-                by <Link to={`/seller/${item.sellerId}`} className="text-primary cursor-pointer hover:underline">{seller.name}</Link>
-              </p>
-            ) : 'author' in item && (
-              <p className="text-xs font-medium text-text-muted">
-                by <span className="text-primary cursor-pointer hover:underline">{item.author}</span>
+                by <SellerLink sellerId={item.sellerId} author={item.author} />
               </p>
             )}
 
@@ -610,7 +606,7 @@ export default function ProductDetail() {
             <div className="space-y-4">
               <p className="text-[15px] text-text-muted leading-relaxed">
                 {name} is a premium {config.label.toLowerCase().slice(0, -1)} available exclusively
-                on the AI Agents Marketplace. Designed by <strong className="text-text-main">{item.sellerId && seller ? seller.name : (item.author || 'AI Agents Team')}</strong>,
+                on the AI Agents Marketplace. Designed by <strong className="text-text-main">{item.sellerId || item.author ? <SellerLink sellerId={item.sellerId} author={item.author} /> : 'AI Agents Team'}</strong>,
                 this product combines cutting-edge technology with an intuitive user experience.
               </p>
               <p className="text-[15px] text-text-muted leading-relaxed">

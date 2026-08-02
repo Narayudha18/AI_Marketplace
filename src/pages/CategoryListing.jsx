@@ -13,7 +13,8 @@ import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
-import { mergeCategoryItems, getUserById } from '../lib/storage'
+import { mergeCategoryItems } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -417,14 +418,9 @@ export default function CategoryListing() {
                         {'desc' in item && (
                           <p className="text-[11px] font-medium text-text-muted mb-2">{item.desc}</p>
                         )}
-                        {item.sellerId && (
+                        {(item.sellerId || 'author' in item) && (
                           <p className="text-[11px] font-medium text-text-muted mb-3">
-                            by <Link to={`/seller/${item.sellerId}`} className="text-primary hover:underline">{getUserById(item.sellerId)?.name || 'Seller'}</Link>
-                          </p>
-                        )}
-                        {'author' in item && (
-                          <p className="text-[11px] font-medium text-text-muted mb-3">
-                            by <span className="text-primary hover:underline">{item.author}</span> in {item.category}
+                            by <SellerLink sellerId={item.sellerId} author={item.author} />{!item.sellerId && 'author' in item && <> in {item.category}</>}
                           </p>
                         )}
                         {'category' in item && item.category && !('author' in item) && (

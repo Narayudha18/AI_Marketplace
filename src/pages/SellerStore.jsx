@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useMemo, useState } from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { getUserById, getSellerProductsBySeller } from '../lib/storage'
+import { getUserById, getAllProductsForSeller } from '../lib/storage'
 
 function toSlug(str) {
   return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -23,8 +23,10 @@ function renderStars(rating) {
 
 export default function SellerStore() {
   const { sellerId } = useParams()
+  const navigate = useNavigate()
+  const [activeIndex, setActiveIndex] = useState(0)
   const seller = useMemo(() => getUserById(sellerId), [sellerId])
-  const products = useMemo(() => getSellerProductsBySeller(sellerId), [sellerId])
+  const products = useMemo(() => getAllProductsForSeller(sellerId), [sellerId])
 
   if (!seller) {
     return (
@@ -57,7 +59,7 @@ export default function SellerStore() {
       <Navbar />
       <div className="bg-gradient-to-b from-primary-container/15 to-transparent">
         <div className="max-w-[1200px] mx-auto px-6 py-10">
-          <nav className="flex items-center gap-2 text-xs mb-8">
+          <nav className="flex items-center gap-2 text-xs mb-6">
             <Link to="/" className="text-text-muted hover:text-primary transition-colors">Home</Link>
             <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 14 }}>chevron_right</span>
             <span className="text-text-main font-semibold">Seller Store</span>
@@ -104,7 +106,11 @@ export default function SellerStore() {
 
       <main className="max-w-[1200px] mx-auto px-6 pb-16">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold text-text-main">Products by {seller.name}</h2>
+          <button onClick={() => navigate(-1)}
+            className="flex items-center gap-1 text-xs font-semibold text-text-muted hover:text-primary transition-colors cursor-pointer">
+            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_back</span>
+            Back
+          </button>
           <span className="text-xs text-text-muted">{products.length} product{products.length !== 1 ? 's' : ''}</span>
         </div>
 
@@ -114,40 +120,70 @@ export default function SellerStore() {
             <p className="text-sm text-text-muted mt-4">This seller hasn't listed any products yet.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map(p => {
-              const slug = toSlug(p.title)
-              const detailPath = `/${p.category}/${slug}`
+          <>
+            <div className="flex items-center gap-6 border-b border-border-light mb-8 overflow-x-auto">
+              {products.map((p, i) => {
+                const pname = p.title || p.name
+                return (
+                  <button key={p.id || pname} onClick={() => setActiveIndex(i)}
+                    className={`pb-3 text-sm font-semibold whitespace-nowrap border-b-2 -mb-px transition-colors cursor-pointer max-w-[220px] truncate ${
+                      activeIndex === i ? 'border-primary text-primary' : 'border-transparent text-text-muted hover:text-text-main'
+                    }`}>
+                    {pname}
+                  </button>
+                )
+              })}
+            </div>
+
+            {(() => {
+              const p = products[activeIndex]
+              if (!p) return null
+              const pname = p.title || p.name
+              const pcat = p._cat || p.category
+              const slug = toSlug(pname)
+              const detailPath = `/${pcat}/${slug}`
               return (
-                <Link key={p.id} to={detailPath}
-                  className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
-                  <div className="relative h-40 overflow-hidden bg-surface-container-low">
-                    <img src={`https://picsum.photos/seed/${p.seed || p.id}/400/200`} alt={p.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="bg-surface border border-border-light rounded-2xl overflow-hidden">
+                  <div className="relative h-56 md:h-64 overflow-hidden bg-surface-container-low">
+                    <img src={`https://picsum.photos/seed/${p.seed || pname}/800/400`} alt={pname}
+                      className="w-full h-full object-cover" />
+                    <span className="absolute top-4 left-4 text-[11px] font-medium text-primary bg-surface/90 px-2.5 py-1 rounded capitalize">{p.category}</span>
                   </div>
-                  <div className="p-4 flex flex-col flex-1">
-                    <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded self-start mb-2 capitalize">{p.category}</span>
-                    <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p.title}</h4>
-                    <p className="text-[11px] font-medium text-text-muted mb-3 line-clamp-2">{p.desc}</p>
-                    <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
+                  <div className="p-6 md:p-8">
+                    <h2 className="text-xl font-bold text-text-main mb-2">{pname}</h2>
+                    <p className="text-sm text-text-muted leading-relaxed mb-6">{p.desc}</p>
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border-light pt-5 mb-6">
                       <div>
-                        <span className="text-lg font-semibold text-text-main block">{p.price}</span>
-                        <div className="flex items-center gap-1 text-[11px] text-text-muted">
-                          {renderStars(p.rating)}
-                          <span className="font-medium">{p.rating || '0.0'}</span>
-                          <span>·</span>
-                          <span>{p.sales || 0} sales</span>
-                        </div>
+                        <p className="text-2xl font-bold text-text-main">{p.price}</p>
+                        <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mt-0.5">Price</p>
                       </div>
-                      <span className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
-                        Preview
-                      </span>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          {renderStars(p.rating)}
+                          <span className="text-sm font-medium text-text-main">{p.rating || '0.0'}</span>
+                        </div>
+                        <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mt-0.5">Rating</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-text-main">{p.sales || 0}</p>
+                        <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mt-0.5">Sales</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <Link to={detailPath}
+                        className="bg-primary text-surface px-6 py-2.5 rounded-lg text-xs font-semibold hover:opacity-90 transition-opacity">
+                        View Full Product
+                      </Link>
+                      <Link to={`${detailPath}/preview`}
+                        className="px-6 py-2.5 border border-primary text-primary rounded-lg text-xs font-semibold hover:bg-primary hover:text-surface transition-colors">
+                        Live Preview
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               )
-            })}
-          </div>
+            })()}
+          </>
         )}
       </main>
       <Footer />

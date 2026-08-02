@@ -4,6 +4,7 @@ import integrations from '../data/integrations.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -208,6 +209,11 @@ export default function Integrations() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="text-sm font-semibold text-text-main">{item.name}</h4>
+                        {item.sellerId && (
+                          <p className="text-[11px] font-medium text-text-muted mt-0.5">
+                            by <SellerLink sellerId={item.sellerId} />
+                          </p>
+                        )}
                         <p className="text-[11px] text-text-muted mt-0.5 line-clamp-2">{item.desc}</p>
                         <div className="flex items-center gap-3 mt-2">
                           <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded">{item.type || item.category}</span>

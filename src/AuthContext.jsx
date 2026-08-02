@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { AUTHOR_SELLERS } from './data/seed-sellers'
+import { seedTransactions } from './data/seed-transactions'
 
 const AuthContext = createContext()
 
@@ -24,7 +26,8 @@ export function AuthProvider({ children }) {
   const [users, setUsers] = useState(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('auth_users')) || []
-      const missing = SEED_USERS.filter(seed => !stored.some(u => u.email === seed.email))
+      const allSeeds = [...SEED_USERS, ...AUTHOR_SELLERS]
+      const missing = allSeeds.filter(seed => !stored.some(u => u.email === seed.email))
       return missing.length ? [...stored, ...missing] : stored
     } catch { return [...SEED_USERS] }
   })
@@ -42,6 +45,7 @@ export function AuthProvider({ children }) {
       const existing = JSON.parse(localStorage.getItem('seller_products') || '[]')
       if (existing.length === 0) localStorage.setItem('seller_products', JSON.stringify(SEED_SELLER_PRODUCTS))
     } catch {}
+    seedTransactions()
   }, [])
 
   useEffect(() => {

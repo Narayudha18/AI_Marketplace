@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { getUserById, getSellerProductsBySeller, readSellerProducts } from '../lib/storage'
+import { getUserById, getAllProductsForSeller, readSellerProducts } from '../lib/storage'
 
 function toSlug(str) {
   return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -80,7 +80,7 @@ export function AdminSellerPreview() {
   const { sellerId } = useParams()
   const navigate = useNavigate()
   const seller = useMemo(() => getUserById(sellerId), [sellerId])
-  const products = useMemo(() => getSellerProductsBySeller(sellerId), [sellerId])
+  const products = useMemo(() => getAllProductsForSeller(sellerId), [sellerId])
 
   if (!seller) {
     return (

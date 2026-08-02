@@ -1,3 +1,5 @@
+import { getAuthorBySellerId, getSeedProductsByAuthor } from '../data/seed-sellers'
+
 export function readUsers() {
   try { return JSON.parse(localStorage.getItem('auth_users') || '[]') } catch { return [] }
 }
@@ -14,6 +16,13 @@ export function getUserById(id) {
 export function getSellerProductsBySeller(sellerId) {
   const num = Number(sellerId)
   return readSellerProducts().filter(p => Number(p.sellerId) === num)
+}
+
+export function getAllProductsForSeller(sellerId) {
+  const local = getSellerProductsBySeller(sellerId)
+  const author = getAuthorBySellerId(sellerId)
+  const seed = author ? getSeedProductsByAuthor(author) : []
+  return [...local, ...seed]
 }
 
 export function toSlug(str) {

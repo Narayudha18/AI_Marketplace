@@ -5,6 +5,7 @@ import { useCart } from '../CartContext'
 import CartDrawer from '../components/CartDrawer'
 import AuthButton from '../components/AuthButton'
 import { useTheme } from '../ThemeContext'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -332,7 +333,7 @@ export default function PromptsPage() {
                     <div className="p-4 flex flex-col flex-1">
                       <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{t.name}</h4>
                       <p className="text-[11px] font-medium text-text-muted mb-3">
-                        by <span className="text-primary cursor-pointer hover:underline">{t.author}</span> in {t.category}
+                        by <SellerLink sellerId={t.sellerId} author={t.author} /> in {t.category}
                       </p>
                       <div className="flex items-center gap-2 text-[11px] text-text-muted mb-3">
                         <span className="bg-surface-container-low px-2 py-0.5 rounded">{t.promptLength}</span>

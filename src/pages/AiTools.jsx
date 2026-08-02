@@ -4,6 +4,7 @@ import tools from '../data/aitools.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
+import SellerLink from '../components/SellerLink'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -194,6 +195,11 @@ export default function AiTools() {
                         )}
                       </div>
                       <p className="text-[11px] font-medium text-text-muted mb-2">{t.desc}</p>
+                      {t.sellerId && (
+                        <p className="text-[11px] font-medium text-text-muted mb-2">
+                          by <SellerLink sellerId={t.sellerId} />
+                        </p>
+                      )}
                       <span className="text-[11px] font-medium text-primary bg-primary-container/10 px-2 py-0.5 rounded self-start mb-3">{t.category}</span>
                       <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
                         <div>
