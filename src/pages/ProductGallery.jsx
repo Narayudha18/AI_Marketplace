@@ -66,6 +66,7 @@ export default function ProductGallery() {
   const { category, slug } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
+  const { dark, toggle } = useTheme()
   const source = dataMap[category]
   let item = source ? source.items.find(i => toSlug(i[source.nameKey]) === slug) : undefined
   if (!item) {
@@ -74,7 +75,6 @@ export default function ProductGallery() {
   if (!item) return null
 
   const name = item.title || item.name
-  const { dark, toggle } = useTheme()
 
   const totalImages = 30
 

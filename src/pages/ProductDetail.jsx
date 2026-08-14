@@ -18,6 +18,11 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
+import agents from '../data/ai-agents.json'
+import prompts from '../data/ai-prompts.json'
+import skills from '../data/ai-skills.json'
+import tokens from '../data/ai-tokens.json'
+import workflows from '../data/ai-workflows.json'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -154,6 +159,56 @@ const categoryConfig = {
     nameKey: 'title',
     getRelated: (item) => securityData.filter(t => t.title !== item.title).slice(0, 3),
   },
+  'ai-agents': {
+    label: 'AI Agents', navLink: '/ai-agents', icon: 'smart_toy', badge: 'aiagents.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents', active: true },
+      { href: '/ai-agents', label: 'AI Agents', active: true },
+    ],
+    items: agents,
+    nameKey: 'name',
+    getRelated: (item) => agents.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-prompts': {
+    label: 'AI Prompts', navLink: '/ai-prompts', icon: 'edit_note', badge: 'aiprompts.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-prompts', label: 'AI Prompts', active: true },
+    ],
+    items: prompts,
+    nameKey: 'name',
+    getRelated: (item) => prompts.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-skills': {
+    label: 'AI Skills', navLink: '/ai-skills', icon: 'psychology', badge: 'aiskills.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-skills', label: 'AI Skills', active: true },
+    ],
+    items: skills,
+    nameKey: 'name',
+    getRelated: (item) => skills.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-tokens': {
+    label: 'AI Tokens', navLink: '/ai-tokens', icon: 'token', badge: 'aitokens.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-tokens', label: 'AI Tokens', active: true },
+    ],
+    items: tokens,
+    nameKey: 'name',
+    getRelated: (item) => tokens.filter(t => t.name !== item.name).slice(0, 3),
+  },
+  'ai-workflows': {
+    label: 'AI Workflows', navLink: '/ai-workflows', icon: 'account_tree', badge: 'aiworkflows.market',
+    navLinks: [
+      { href: '/', label: 'AI Agents' },
+      { href: '/ai-workflows', label: 'AI Workflows', active: true },
+    ],
+    items: workflows,
+    nameKey: 'name',
+    getRelated: (item) => workflows.filter(t => t.name !== item.name).slice(0, 3),
+  },
 };
 
 export default function ProductDetail() {
@@ -168,10 +223,6 @@ export default function ProductDetail() {
   if (!item) {
     item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
   }
-  if (!item || !config) return null
-
-  const name = item.title || item.name
-  const relatedItems = config.getRelated(item)
 
   const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const { currentUser } = useAuth()
@@ -184,9 +235,9 @@ export default function ProductDetail() {
   const [reviews, setReviews] = useState(() => {
     try {
       const local = JSON.parse(localStorage.getItem(reviewKey)) || []
-      const jsonReviews = item.reviews || []
+      const jsonReviews = (item && item.reviews) || []
       return [...jsonReviews, ...local]
-    } catch { return item.reviews || [] }
+    } catch { return (item && item.reviews) || [] }
   })
   const [comments, setComments] = useState(() => {
     try { return JSON.parse(localStorage.getItem(commentKey)) || [] } catch { return [] }
@@ -204,6 +255,11 @@ export default function ProductDetail() {
   useEffect(() => {
     localStorage.setItem(commentKey, JSON.stringify(comments))
   }, [comments, commentKey])
+
+  if (!item || !config) return null
+
+  const name = item.title || item.name
+  const relatedItems = config.getRelated(item)
 
   const cartItem = { slug, category, seed: item.seed, title: item.title, name: item.name, price: item.price }
 
@@ -280,7 +336,7 @@ export default function ProductDetail() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
+      <div className="bg-primary-container text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
         <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
         <span>Discover premium {config.label.toLowerCase()} on AI Agents Marketplace.</span>
         <button onClick={() => navigate(config.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">Browse All</button>
@@ -378,7 +434,7 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            <p className="text-[15px] text-text-muted leading-relaxed">{item.desc}</p>
+            <p className="text-[15px] text-text-muted leading-relaxed">{item.desc || item.description}</p>
 
             <div className="flex flex-wrap gap-2">
               {'category' in item && item.category && (

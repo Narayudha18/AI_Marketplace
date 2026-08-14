@@ -11,6 +11,11 @@ import analyticsData from '../data/analytics.json'
 import fineTuningData from '../data/fine-tuning.json'
 import monitoringData from '../data/monitoring.json'
 import securityData from '../data/security.json'
+import agentsData from '../data/ai-agents.json'
+import promptsData from '../data/ai-prompts.json'
+import skillsData from '../data/ai-skills.json'
+import tokensData from '../data/ai-tokens.json'
+import workflowsData from '../data/ai-workflows.json'
 import { readSellerProducts } from '../lib/storage'
 import SellerLink from './SellerLink'
 
@@ -30,6 +35,11 @@ const allProducts = [
   ...fineTuningData.map(p => ({ ...p, _cat: 'fine-tuning', _name: p.title })),
   ...monitoringData.map(p => ({ ...p, _cat: 'monitoring', _name: p.title })),
   ...securityData.map(p => ({ ...p, _cat: 'security', _name: p.title })),
+  ...agentsData.map(p => ({ ...p, _cat: 'ai-agents', _name: p.name })),
+  ...promptsData.map(p => ({ ...p, _cat: 'ai-prompts', _name: p.name })),
+  ...skillsData.map(p => ({ ...p, _cat: 'ai-skills', _name: p.name })),
+  ...tokensData.map(p => ({ ...p, _cat: 'ai-tokens', _name: p.name })),
+  ...workflowsData.map(p => ({ ...p, _cat: 'ai-workflows', _name: p.name })),
 ]
 
 const filters = [
@@ -39,6 +49,11 @@ const filters = [
   { label: 'Automation', to: '/automation', match: (p) => p._cat === 'automation' || (p.category || '').toLowerCase() === 'automation' || p._name?.toLowerCase().includes('workflow') || p._name?.toLowerCase().includes('auto') },
   { label: 'RAG', to: '/integrations', match: (p) => (p.category || '').toLowerCase().includes('rag') || p._name?.toLowerCase().includes('rag') || p._name?.toLowerCase().includes('knowledge') || p._name?.toLowerCase().includes('vector') },
   { label: 'Vision', to: '/ai-tools', match: (p) => (p.category || '').toLowerCase() === 'computer vision' || p._name?.toLowerCase().includes('vision') || p._name?.toLowerCase().includes('cortex') || p._name?.toLowerCase().includes('image') },
+  { label: 'AI Agents', to: '/ai-agents', match: (p) => p._cat === 'ai-agents' || (p.category || '').toLowerCase() === 'ai agents' || p._name?.toLowerCase().includes('agent') },
+  { label: 'AI Prompts', to: '/ai-prompts', match: (p) => p._cat === 'ai-prompts' || (p.category || '').toLowerCase() === 'ai prompts' || p._name?.toLowerCase().includes('prompt') },
+  { label: 'AI Skills', to: '/ai-skills', match: (p) => p._cat === 'ai-skills' || (p.category || '').toLowerCase() === 'ai skills' || p._name?.toLowerCase().includes('skill') },
+  { label: 'AI Tokens', to: '/ai-tokens', match: (p) => p._cat === 'ai-tokens' || (p.category || '').toLowerCase() === 'ai tokens' || p._name?.toLowerCase().includes('token') || p._name?.toLowerCase().includes('credit') || p._name?.toLowerCase().includes('quota') },
+  { label: 'AI Workflows', to: '/ai-workflows', match: (p) => p._cat === 'ai-workflows' || (p.category || '').toLowerCase() === 'ai workflows' || p._name?.toLowerCase().includes('workflow') },
 ]
 
 export default function ProductGrid() {
@@ -54,58 +69,90 @@ export default function ProductGrid() {
   }
 
   return (
-    <section className="px-6 py-16">
-      <div className="text-center mb-10">
-        <h2 className="text-[24px] font-semibold text-text-main mb-4">
-          Check out our newest AI agents & tools
-        </h2>
-        <p className="text-[15px] text-text-muted max-w-3xl mx-auto leading-relaxed">
-          We carefully review new entries from our community to make sure they meet high-quality standards for production AI deployment.
+    <section className="px-6 sm:px-10 py-20">
+      <div className="flex flex-col gap-4 border-b border-dashed border-[var(--color-border-light)] pb-8 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
+            — 02 / catalog
+          </span>
+          <h2 className="mt-3 text-[clamp(2rem,6vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.05em] text-[var(--color-text-main)]">
+            newest ai agents &amp; tools
+          </h2>
+        </div>
+        <p className="max-w-md text-sm leading-relaxed text-[var(--color-text-muted)]">
+          We carefully review new entries from our community to make sure they meet high-quality
+          standards for production AI deployment.
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="mt-8 flex gap-7 overflow-x-auto pb-1">
         {filters.map((f) => (
-          <button key={f.label} onClick={() => handleFilterClick(f.label)}
-            className={`px-6 py-2 rounded-full text-xs font-semibold shadow-sm transition-colors cursor-pointer ${
+          <button
+            key={f.label}
+            onClick={() => handleFilterClick(f.label)}
+            className={`whitespace-nowrap border-b-2 pb-1 text-[11px] font-medium uppercase tracking-[0.18em] transition-colors ${
               activeFilter === f.label
-                ? 'bg-surface border-2 border-primary text-primary'
-                : 'bg-surface border border-border-light text-text-muted hover:border-outline-variant hover:text-text-main'
-            }`}>
+                ? 'border-[var(--color-primary)] text-[var(--color-primary)]'
+                : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
+            }`}
+          >
             {f.label}
           </button>
         ))}
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div ref={gridRef} className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filtered.slice(0, 8).map((p) => (
-          <Link key={p._name} to={`/${p._cat}/${toSlug(p._name)}`}
-            className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
-            <div className="relative h-40 overflow-hidden bg-surface-container-low">
-              <img src={`https://picsum.photos/seed/${p.seed || p._name}/400/200`} alt={p._name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <Link
+            key={p._name}
+            to={`/${p._cat}/${toSlug(p._name)}`}
+            className="group flex flex-col border border-[var(--color-border-light)] bg-[var(--color-surface)] transition-colors hover:border-[var(--color-primary)]"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-surface-container-low)]">
+              <img
+                src={`https://picsum.photos/seed/${p.seed || p._name}/400/300`}
+                alt={p._name}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute left-0 top-0 bg-[var(--color-background)] px-2 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+                {'category' in p ? p.category : p._cat}
+              </span>
             </div>
-            <div className="p-4 flex flex-col flex-1">
-              <h4 className="text-xs font-semibold text-text-main mb-1 line-clamp-1">{p._name}</h4>
-              <p className="text-[11px] font-medium text-text-muted mb-3">
+            <div className="flex flex-1 flex-col gap-3 p-4">
+              <div className="flex items-start justify-between gap-2">
+                <h4 className="line-clamp-1 text-sm font-medium text-[var(--color-text-main)]">{p._name}</h4>
+                <span
+                  className="material-symbols-outlined shrink-0 text-[var(--color-text-muted)] transition-all group-hover:translate-x-1 group-hover:-translate-y-0.5 group-hover:text-[var(--color-primary)]"
+                  style={{ fontSize: 18 }}
+                >
+                  north_east
+                </span>
+              </div>
+              <p className="text-[11px] text-[var(--color-text-muted)]">
                 by <SellerLink sellerId={p.sellerId} author={p.author} />
-                {'category' in p && <span> in {p.category}</span>}
               </p>
-              <div className="mt-auto flex items-center justify-between border-t border-border-light pt-3">
+              <div className="mt-auto flex items-center justify-between border-t border-dashed border-[var(--color-border-light)] pt-3">
                 <div>
-                  <span className="text-[24px] font-semibold text-text-main block">{p.price || 'Free'}</span>
-                  <div className="flex items-center gap-1 text-[11px] text-text-muted mt-0.5">
-                    <span className="material-symbols-outlined text-amber-400" style={{ fontSize: 12 }}>star</span>
+                  <span className="block text-lg font-medium text-[var(--color-text-main)]">{p.price || 'Free'}</span>
+                  <div className="mt-0.5 flex items-center gap-1 text-[11px] text-[var(--color-text-muted)]">
+                    <span className="material-symbols-outlined text-amber-500" style={{ fontSize: 12 }}>star</span>
                     <span className="font-medium">{p.rating}</span>
                     <span>·</span>
-                    <span>{(p.reviews?.length ?? 0)} reviews</span>
+                    <span>{p.reviews?.length ?? 0} reviews</span>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <button className="p-2 border border-border-light rounded hover:bg-surface-container-low text-text-muted transition-colors">
-                    <span className="material-symbols-outlined" style={{ fontSize: 18 }}>shopping_cart</span>
+                <div className="flex items-center gap-1">
+                  <button
+                    aria-label="Add to cart"
+                    className="flex h-8 w-8 items-center justify-center border border-dashed border-[var(--color-border-light)] text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: 16 }}>shopping_cart</span>
                   </button>
-                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${p._cat}/${toSlug(p._name)}/preview`) }} className="px-3 py-1.5 border border-primary text-primary rounded hover:bg-primary hover:text-surface transition-colors text-[11px] font-medium">
-                    Live Preview
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/${p._cat}/${toSlug(p._name)}/preview`) }}
+                    className="border border-transparent px-2 py-1.5 text-[10px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-primary)]"
+                  >
+                    Preview
                   </button>
                 </div>
               </div>
@@ -114,12 +161,14 @@ export default function ProductGrid() {
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
-        <Link to={filters.find(f => f.label === activeFilter).to}
-          className="inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold hover:opacity-90 transition-opacity">
-          View more new items
+      <div className="mt-12 flex justify-center border-t border-b border-dashed border-[var(--color-border-light)]">
+        <Link
+          to={filters.find(f => f.label === activeFilter).to}
+          className="py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-main)] transition-colors hover:text-[var(--color-primary)]"
+        >
+          View more new items <span aria-hidden="true">→</span>
         </Link>
       </div>
     </section>
-  );
+  )
 }

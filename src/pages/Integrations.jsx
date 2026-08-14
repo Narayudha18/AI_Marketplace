@@ -5,6 +5,7 @@ import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
 import SellerLink from '../components/SellerLink'
+import ViewToggle from '../components/ViewToggle'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -33,6 +34,7 @@ export default function Integrations() {
   const [appliedType, setAppliedType] = useState('All')
   const [appliedRating, setAppliedRating] = useState('Any Rating')
   const [visibleCount, setVisibleCount] = useState(6)
+  const [viewMode, setViewMode] = useState('grid')
   const [showFilters, setShowFilters] = useState(false)
 
   const toggleCategory = (cat) => {
@@ -181,17 +183,10 @@ export default function Integrations() {
             <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-medium text-text-muted">{filteredIntegrations.length} integrations found</span>
-                <div className="flex gap-2">
-                  <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>grid_view</span>
-                  </button>
-                  <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>view_list</span>
-                  </button>
-                </div>
+                <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className={`grid gap-6 ${viewMode === 'list' ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'}`}>
                 {filteredIntegrations.slice(0, visibleCount).map((item) => (
                   <Link key={item.name} to={`/integrations/${toSlug(item.name)}`}
                     className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col relative">

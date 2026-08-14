@@ -2,18 +2,23 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Agentation } from 'agentation'
 import Navbar from './components/Navbar'
+import RecommendationAssistant from './components/RecommendationAssistant'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
 import ProductGrid from './components/ProductGrid'
 import Featured from './components/Featured'
+import BigCTA from './components/BigCTA'
 import FavoriteRecommendations from './components/FavoriteRecommendations'
 import Footer from './components/Footer'
+import Preloader from './components/Preloader'
+import CustomCursor from './components/CustomCursor'
 import Templates from './pages/Templates'
 import Integrations from './pages/Integrations'
 import Chatbots from './pages/Chatbots'
 import Automation from './pages/Automation'
 import AiTools from './pages/AiTools'
 import ProductDetail from './pages/ProductDetail'
+import SearchPage from './pages/SearchPage'
 import CategoryListing from './pages/CategoryListing'
 import ProductGallery from './pages/ProductGallery'
 import StartSelling from './pages/StartSelling'
@@ -53,8 +58,9 @@ function Home() {
       <main className="w-full max-w-[1440px] mx-auto pb-16">
         <Hero />
         <Categories />
-        <ProductGrid />
         <Featured />
+        <ProductGrid />
+        <BigCTA />
         <FavoriteRecommendations />
       </main>
       <Footer />
@@ -68,8 +74,11 @@ export default function App() {
   return (
     <>
       {import.meta.env.DEV && <Agentation endpoint="http://localhost:4747" />}
+      <Preloader />
+      <CustomCursor />
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/search" element={<SearchPage />} />
       <Route path="/templates" element={<Templates />} />
       <Route path="/templates/c/:filter" element={<CategoryListing />} />
       <Route path="/templates/:slug" element={<ProductDetail />} />
@@ -137,6 +146,7 @@ export default function App() {
       <Route path="/admin/preview/product/:productId" element={<AdminProductPreview />} />
       <Route path="/seller/:sellerId" element={<SellerStore />} />
     </Routes>
+    <RecommendationAssistant />
     </>
   );
 }

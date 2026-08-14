@@ -1,27 +1,79 @@
 import { Link } from 'react-router-dom'
 
+const featuredCards = [
+  {
+    kicker: "GPT Agents '26",
+    title: 'chatgpt agents',
+    desc: 'GPT-4 powered autonomous agents',
+    to: '/chatbots',
+    seed: 'featured-agents',
+  },
+  {
+    kicker: "Autonomous '26",
+    title: 'ai agents & workflows',
+    desc: 'Multi-step pipelines for real ops',
+    to: '/ai-agents',
+    seed: 'featured-autonomous',
+  },
+  {
+    kicker: "Prompts '26",
+    title: 'ai prompts & skills',
+    desc: 'Reusable expertise for any model',
+    to: '/ai-prompts',
+    seed: 'featured-prompts',
+  },
+]
+
 export default function Featured() {
   return (
-    <section className="px-6 py-16 my-6 bg-surface-container-lowest border-y border-border-light">
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="w-full lg:w-1/3 flex flex-col justify-center border border-border-light border-dashed rounded-xl p-8 bg-surface">
-          <h2 className="text-[24px] font-semibold text-text-main mb-4">Featured AI Agents</h2>
-          <p className="text-[15px] text-text-muted leading-relaxed mb-8">
-            Every week, our team hand-picks the best new AI agents, tools, and automation workflows from our collection.
-          </p>
-          <Link to="/templates"
-            className="bg-primary-container text-on-primary-container px-6 py-3 rounded text-xs font-semibold self-start hover:opacity-90 transition-opacity">
-            View all featured items
+    <section className="px-6 sm:px-10 py-20">
+      <div className="flex flex-col gap-4 border-b border-dashed border-[var(--color-border-light)] pb-8 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
+            — 03 / featured
+          </span>
+          <h2 className="mt-3 text-[clamp(2rem,6vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.05em] text-[var(--color-text-main)]">
+            featured work
+          </h2>
+        </div>
+        <Link
+          to="/templates"
+          className="text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-main)] transition-colors hover:text-[var(--color-primary)]"
+        >
+          View all featured items <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+
+      <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredCards.map((card) => (
+          <Link key={card.to} to={card.to} className="group">
+            <div className="relative aspect-[4/3] overflow-hidden border border-[var(--color-border-light)] transition-colors group-hover:border-[var(--color-primary)]">
+              <img
+                src={`https://picsum.photos/seed/${card.seed}/800/600`}
+                alt={card.title}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute left-0 top-0 bg-[var(--color-background)] px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+                {card.kicker}
+              </span>
+            </div>
+            <div className="mt-4 flex items-start justify-between gap-3 border-t border-dashed border-[var(--color-border-light)] pt-4">
+              <div>
+                <h3 className="text-xl font-medium lowercase tracking-[-0.03em] text-[var(--color-text-main)] transition-colors group-hover:text-[var(--color-primary)]">
+                  {card.title}
+                </h3>
+                <p className="mt-1 text-[13px] text-[var(--color-text-muted)]">{card.desc}</p>
+              </div>
+              <span
+                className="material-symbols-outlined mt-1 text-[var(--color-text-main)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-primary)]"
+                style={{ fontSize: 22 }}
+              >
+                arrow_outward
+              </span>
+            </div>
           </Link>
-        </div>
-        <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <img
-            src="https://picsum.photos/seed/featured-ai/800/200"
-            alt="Featured AI Agents"
-            className="col-span-1 sm:col-span-2 h-48 object-cover rounded-xl border border-border-light"
-          />
-        </div>
+        ))}
       </div>
     </section>
-  );
+  )
 }

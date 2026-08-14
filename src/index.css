@@ -1,13 +1,14 @@
+@import "@fontsource-variable/geist";
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #162D6D;
-  --color-primary-container: #2563EB;
+  --color-primary: #DE7356;
+  --color-primary-container: #F3B4A2;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #DBEAFE;
-  --color-primary-fixed: #DBEAFE;
-  --color-primary-fixed-dim: #93C5FD;
-  --color-inverse-primary: #60A5FA;
+  --color-on-primary-container: #4f4f4f;
+  --color-primary-fixed: #F3B4A2;
+  --color-primary-fixed-dim: #E2866A;
+  --color-inverse-primary: #F3B4A2;
   --color-secondary: #5f5e5e;
   --color-on-secondary: #ffffff;
   --color-secondary-container: #e2dfde;
@@ -20,27 +21,27 @@
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
-  --color-background: #f8f9fb;
-  --color-on-background: #191c1e;
-  --color-surface: #FFFFFF;
-  --color-on-surface: #191c1e;
-  --color-surface-dim: #d9dadc;
-  --color-surface-bright: #f8f9fb;
+  --color-background: #f7f7f7;
+  --color-on-background: #4f4f4f;
+  --color-surface: #f7f7f7;
+  --color-on-surface: #4f4f4f;
+  --color-surface-dim: #e6e6e6;
+  --color-surface-bright: #f7f7f7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f3f4f6;
-  --color-surface-container: #edeef0;
-  --color-surface-container-high: #e7e8ea;
-  --color-surface-container-highest: #e1e2e4;
+  --color-surface-container-low: #f1f1f1;
+  --color-surface-container: #ececec;
+  --color-surface-container-high: #d5d5d5;
+  --color-surface-container-highest: #d5d5d5;
   --color-surface-variant: #e1e2e4;
-  --color-on-surface-variant: #424938;
-  --color-inverse-surface: #2e3132;
-  --color-inverse-on-surface: #f0f1f3;
+  --color-on-surface-variant: #4f4f4f;
+  --color-inverse-surface: #4f4f4f;
+  --color-inverse-on-surface: #f7f7f7;
   --color-outline: #727a66;
-  --color-outline-variant: #c1cab3;
-  --color-surface-tint: #162D6D;
-  --color-text-main: #222222;
-  --color-text-muted: #555555;
-  --color-border-light: #E5E7EB;
+  --color-outline-variant: #b5b5b5;
+  --color-surface-tint: #DE7356;
+  --color-text-main: #4f4f4f;
+  --color-text-muted: #6f6f6f;
+  --color-border-light: #222222;
   --color-secondary-fixed: #e5e2e1;
   --color-secondary-fixed-dim: #c8c6c5;
   --color-on-secondary-fixed: #1b1c1c;
@@ -50,7 +51,7 @@
   --color-on-tertiary-fixed: #3b002c;
   --color-on-tertiary-fixed-variant: #860967;
 
-  --font-family-sans: "Inter", sans-serif;
+  --font-family-sans: "Geist Variable", "Inter", sans-serif;
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -61,33 +62,33 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 .dark {
-  --color-background: #0f1117;
-  --color-on-background: #e8eaed;
-  --color-surface: #1a1d23;
-  --color-on-surface: #e3e5e8;
-  --color-surface-dim: #1a1d23;
-  --color-surface-bright: #2a2d33;
-  --color-surface-container-lowest: #111318;
-  --color-surface-container-low: #1e2025;
-  --color-surface-container: #25282d;
-  --color-surface-container-high: #2d3035;
-  --color-surface-container-highest: #35383d;
-  --color-surface-variant: #35383d;
-  --color-on-surface-variant: #c4c7bd;
-  --color-inverse-surface: #e3e5e8;
+  --color-background: #201f1e;
+  --color-on-background: #f7f7f7;
+  --color-surface: #201f1e;
+  --color-on-surface: #f7f7f7;
+  --color-surface-dim: #201f1e;
+  --color-surface-bright: #2b2a29;
+  --color-surface-container-lowest: #171616;
+  --color-surface-container-low: #262524;
+  --color-surface-container: #2b2a29;
+  --color-surface-container-high: #333231;
+  --color-surface-container-highest: #3a3938;
+  --color-surface-variant: #333231;
+  --color-on-surface-variant: #d5d2cf;
+  --color-inverse-surface: #f7f7f7;
   --color-inverse-on-surface: #2e3132;
   --color-text-main: #e5e7eb;
   --color-text-muted: #9ca3af;
-  --color-border-light: #374151;
+  --color-border-light: #3a3938;
   --color-outline: #939b87;
   --color-outline-variant: #434a3d;
-  --color-primary: #60A5FA;
-  --color-primary-container: #1D4ED8;
+  --color-primary: #DE7356;
+  --color-primary-container: #5a3a30;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #1e3a5f;
-  --color-primary-fixed: #1e3a5f;
-  --color-primary-fixed-dim: #162D6D;
-  --color-inverse-primary: #2563EB;
+  --color-on-primary-container: #f3c9bd;
+  --color-primary-fixed: #f3c9bd;
+  --color-primary-fixed-dim: #a55a44;
+  --color-inverse-primary: #DE7356;
   --color-secondary: #a09e9e;
   --color-on-secondary: #1c1c1c;
   --color-secondary-container: #3a3939;
@@ -108,16 +109,16 @@
   --color-on-error: #690005;
   --color-error-container: #93000a;
   --color-on-error-container: #ffdad6;
-  --color-surface-tint: #60A5FA;
+  --color-surface-tint: #DE7356;
 }
 
 .dark .bg-text-main {
   --color-surface: #ffffff;
-  background-color: #111318;
+  background-color: #171616;
 }
 
 .dark .bg-text-main .text-surface-variant {
-  color: #ffffff;
+  color: #f7f7f7;
 }
 
 .bg-text-main + .bg-surface {
@@ -125,9 +126,52 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Geist Variable", "Inter", sans-serif;
   background-color: var(--color-background);
   color: var(--color-on-background);
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+html.has-custom-cursor .cursor-pill {
+  display: flex;
+}
+
+@media (hover: none), (pointer: coarse) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
 }
 
 @keyframes fade-in-up {
@@ -145,4 +189,13 @@ body {
 
 .animate-spin {
   animation: spin 0.8s linear infinite;
+}
+
+.text-display-ghost {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #d5d5d5;
+}
+
+.dark .text-display-ghost {
+  -webkit-text-stroke: 1.5px #4a4948;
 }

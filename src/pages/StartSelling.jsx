@@ -19,7 +19,7 @@ export default function StartSelling() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold">
+      <div className="bg-primary-container text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold">
         <span>Start selling your AI products on the largest AI marketplace.</span>
       </div>
 

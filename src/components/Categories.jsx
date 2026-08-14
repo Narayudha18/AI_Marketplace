@@ -1,16 +1,42 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
-
 const allCategories = [
   {
     icon: 'smart_toy',
     title: 'ChatGPT Agents',
     desc: 'GPT-4 powered autonomous agents',
     tags: ['GPT-4o', 'Fine-tuned', 'Custom', 'Support', 'Sales'],
+  },
+  {
+    icon: 'robot',
+    title: 'AI Agents',
+    desc: 'Autonomous agents for code, support, research & ops',
+    tags: ['Autonomous', 'Support', 'Research', 'DevOps', 'Marketing'],
+  },
+  {
+    icon: 'text_snippet',
+    title: 'AI Prompts',
+    desc: 'Premium prompts for writing, coding & analysis',
+    tags: ['Creative Writing', 'Coding', 'SEO', 'Data', 'Marketing'],
+  },
+  {
+    icon: 'school',
+    title: 'AI Skills',
+    desc: 'Reusable skills & expertise for Claude, OpenAI & Gemini',
+    tags: ['Claude', 'OpenAI', 'Gemini', 'Expertise', 'Reusable'],
+  },
+  {
+    icon: 'token',
+    title: 'AI Tokens',
+    desc: 'Prepaid credits & quotas for GPT, Claude & Llama',
+    tags: ['Credits', 'Quotas', 'GPT', 'Claude', 'Llama'],
+  },
+  {
+    icon: 'account_tree',
+    title: 'AI Workflows',
+    desc: 'Orchestrated multi-step AI pipelines & automations',
+    tags: ['Orchestration', 'Pipelines', 'Automation', 'Multi-step'],
   },
   {
     icon: 'dashboard',
@@ -100,6 +126,11 @@ const allCategories = [
 
 const catLinks = {
   'ChatGPT Agents': '/chatbots',
+  'AI Agents': '/ai-agents',
+  'AI Prompts': '/ai-prompts',
+  'AI Skills': '/ai-skills',
+  'AI Tokens': '/ai-tokens',
+  'AI Workflows': '/ai-workflows',
   'Templates & Dashboards': '/templates',
   'LLM Integrations': '/integrations',
   'Voice AI': '/voice-ai',
@@ -123,34 +154,62 @@ export default function Categories() {
   const visible = expanded ? allCategories : allCategories.slice(0, INITIAL_COUNT)
 
   return (
-    <section className="px-6 py-10 bg-surface-container-low rounded-3xl mx-6 my-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {visible.map((cat) => (
-          <Link key={cat.title} to={catLinks[cat.title]}
-            className="bg-surface rounded-xl shadow-sm border border-border-light p-6 flex flex-col items-center text-center hover:shadow-md transition-shadow relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            <span className="material-symbols-outlined text-primary text-4xl mb-4">{cat.icon}</span>
-            <h3 className="text-[24px] font-semibold text-text-main mb-2">{cat.title}</h3>
-            <p className="text-xs font-semibold text-text-muted mb-4">{cat.desc}</p>
-            <div className="flex gap-4 text-[11px] font-medium text-primary flex-wrap justify-center">
-              {cat.tags.map((tag) => (
-                <span key={tag} className="hover:underline cursor-pointer">{tag}</span>
-              ))}
+    <section className="px-6 sm:px-10 py-20">
+      <div className="flex items-end justify-between gap-4 border-b border-dashed border-[var(--color-border-light)] pb-6">
+        <h2 className="text-[clamp(2rem,6vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.05em] text-[var(--color-text-main)]">
+          browse by category
+        </h2>
+        <span className="hidden text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)] sm:block">
+          Index — {allCategories.length}
+        </span>
+      </div>
+
+      <div>
+        {visible.map((cat, i) => (
+          <Link
+            key={cat.title}
+            to={catLinks[cat.title]}
+            className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border-t border-dashed border-[var(--color-border-light)] py-6 sm:gap-8"
+          >
+            <span className="w-8 text-xs tabular-nums text-[var(--color-text-muted)]">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div className="min-w-0">
+              <h3 className="truncate text-[clamp(1.5rem,3.5vw,2.6rem)] font-medium lowercase leading-[0.92] tracking-[-0.04em] text-[var(--color-text-main)] transition-colors group-hover:text-[var(--color-primary)]">
+                {cat.title}
+              </h3>
+              <p className="mt-1.5 text-sm text-[var(--color-text-muted)]">{cat.desc}</p>
+              <div className="mt-3 hidden flex-wrap gap-x-5 gap-y-1 text-[11px] font-medium text-[var(--color-text-muted)] sm:flex">
+                {cat.tags.slice(0, 4).map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
-            <img
-              src={`https://picsum.photos/seed/${cat.icon}/400/120`}
-              alt={cat.title}
-              className="mt-6 w-full h-32 object-cover rounded-lg border border-border-light"
-            />
+            <span
+              className="material-symbols-outlined text-[var(--color-text-main)] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-[var(--color-primary)]"
+              style={{ fontSize: 26 }}
+            >
+              arrow_forward
+            </span>
           </Link>
         ))}
       </div>
-      <div className="mt-8 flex justify-center">
-        <button onClick={() => { const y = window.scrollY; setExpanded(e => !e); setTimeout(() => window.scrollTo(0, y), 0) }}
-          className="inline-block bg-surface border border-border-light text-text-main px-8 py-2.5 rounded text-xs font-semibold shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer">
-          {expanded ? 'Show less' : 'View more categories'}
+
+      <div className="border-t border-b border-dashed border-[var(--color-border-light)]">
+        <button
+          onClick={() => {
+            const y = window.scrollY
+            setExpanded((e) => !e)
+            setTimeout(() => window.scrollTo(0, y), 0)
+          }}
+          className="flex w-full items-center justify-between gap-4 py-5 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-main)] transition-colors hover:text-[var(--color-primary)]"
+        >
+          <span>{expanded ? 'Show less' : 'View more categories'}</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+            {expanded ? 'expand_less' : 'expand_more'}
+          </span>
         </button>
       </div>
     </section>
-  );
+  )
 }

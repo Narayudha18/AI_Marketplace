@@ -2,49 +2,17 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automations from '../data/automation.json'
-import aitools from '../data/aitools.json'
-import voiceAi from '../data/voice-ai.json'
-import imageGen from '../data/image-gen.json'
-import analytics from '../data/analytics.json'
-import fineTuning from '../data/fine-tuning.json'
-import monitoring from '../data/monitoring.json'
-import security from '../data/security.json'
-import { readSellerProducts } from '../lib/storage'
+import { PRODUCT_CATALOG, findProduct, toSlug } from '../data/product-catalog'
 import SellerLink from '../components/SellerLink'
-
-const dataMap = {
-  templates: { items: templates, nameKey: 'title', nav: '/templates' },
-  integrations: { items: integrations, nameKey: 'name', nav: '/integrations' },
-  chatbots: { items: chatbots, nameKey: 'name', nav: '/chatbots' },
-  automation: { items: automations, nameKey: 'name', nav: '/automation' },
-  'ai-tools': { items: aitools, nameKey: 'name', nav: '/ai-tools' },
-  'voice-ai': { items: voiceAi, nameKey: 'title', nav: '/voice-ai' },
-  'image-gen': { items: imageGen, nameKey: 'title', nav: '/image-gen' },
-  analytics: { items: analytics, nameKey: 'title', nav: '/analytics' },
-  'fine-tuning': { items: fineTuning, nameKey: 'title', nav: '/fine-tuning' },
-  monitoring: { items: monitoring, nameKey: 'title', nav: '/monitoring' },
-  security: { items: security, nameKey: 'title', nav: '/security' },
-}
-
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
 
 export default function Favorites() {
   const { favorites, toggleFavorite } = useCart()
 
   const favItems = []
-  const sellerProducts = readSellerProducts()
   for (const fav of favorites) {
-    const source = dataMap[fav.category]
-    if (!source) continue
-    let item = source.items.find(i => toSlug(i[source.nameKey]) === fav.slug)
-    if (!item) item = sellerProducts.find(p => p.category === fav.category && toSlug(p.title) === fav.slug)
-    if (item) favItems.push({ ...item, category: fav.category, nav: source.nav, nameKey: source.nameKey })
+    const config = PRODUCT_CATALOG[fav.category]
+    const { item } = findProduct(fav.category, fav.slug)
+    if (item && config) favItems.push({ ...item, category: fav.category, nav: config.nav, nameKey: config.nameKey })
   }
 
   return (

@@ -2,12 +2,15 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { useTheme } from '../ThemeContext'
+import { useCart } from '../CartContext'
+import { findProduct, PRODUCT_CATALOG } from '../data/product-catalog'
 import AvatarCropModal from '../components/AvatarCropModal'
 
 const TABS = [
   { id: 'overview', label: 'Overview', icon: 'space_dashboard' },
   { id: 'profile', label: 'Profile', icon: 'person' },
   { id: 'orders', label: 'Orders', icon: 'receipt_long' },
+  { id: 'library', label: 'Library', icon: 'folder_open' },
   { id: 'addresses', label: 'Addresses', icon: 'home' },
   { id: 'settings', label: 'Settings', icon: 'tune' },
 ]
@@ -43,6 +46,7 @@ function MiniChart({ color, type }) {
 export default function Profile() {
   const { currentUser, updateProfile, updatePassword, updatePicture, addAddress, removeAddress, trackActivity, getUserActivities, updateNotifPrefs, logout } = useAuth()
   const { dark, toggle } = useTheme()
+  const { purchased } = useCart()
   const navigate = useNavigate()
   const fileRef = useRef(null)
   const dropRef = useRef(null)
@@ -90,13 +94,13 @@ export default function Profile() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-surface to-background flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-container to-blue-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-fixed-dim)] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20">
             <span className="material-symbols-outlined text-surface text-4xl">account_circle</span>
           </div>
           <h1 className="text-2xl font-bold text-text-main mb-2">Welcome Back</h1>
           <p className="text-text-muted text-sm mb-8">Sign in to access your dashboard</p>
           <Link to="/login"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-container to-blue-600 text-surface px-8 py-3 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] text-surface px-8 py-3 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
             <span className="material-symbols-outlined" style={{ fontSize: 18 }}>login</span>
             Sign In
           </Link>
@@ -107,6 +111,24 @@ export default function Profile() {
 
   const activities = getUserActivities()
   const totalOrders = orders.length
+
+  const libraryMap = new Map()
+  for (const o of orders) {
+    for (const it of o.items || []) {
+      if (!it.slug || !it.category) continue
+      const key = `${it.category}-${it.slug}`
+      if (!libraryMap.has(key)) libraryMap.set(key, { category: it.category, slug: it.slug, date: o.date })
+    }
+  }
+  for (const p of purchased) {
+    libraryMap.set(`${p.category}-${p.slug}`, { category: p.category, slug: p.slug, date: p.date })
+  }
+  const libraryItems = [...libraryMap.values()].map(p => {
+    const { item } = findProduct(p.category, p.slug)
+    if (!item) return null
+    const config = PRODUCT_CATALOG[p.category]
+    return { ...item, category: p.category, nav: config?.nav || `/${p.category}`, slug: p.slug, purchasedDate: p.date }
+  }).filter(Boolean)
   const totalItems = orders.reduce((sum, o) => sum + o.items.reduce((s, i) => s + (i.qty || 1), 0), 0)
   const totalSpent = orders.reduce((sum, o) => {
     const num = parseFloat(o.total.replace(/[^0-9.,]/g, '').replace(/,/g, '')) || 0
@@ -203,7 +225,7 @@ export default function Profile() {
   }
 
   const statCards = [
-    { label: 'Total Orders', value: totalOrders, icon: 'shopping_bag', color: 'from-primary-container to-blue-600' },
+    { label: 'Total Orders', value: totalOrders, icon: 'shopping_bag', color: 'from-[var(--color-primary)] to-[var(--color-primary-container)]' },
     { label: 'Items Purchased', value: totalItems, icon: 'inventory_2', color: 'from-violet-500 to-purple-600' },
     { label: 'Total Spent', value: `$${totalSpent.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`, icon: 'payments', color: 'from-emerald-500 to-teal-600' },
   ]
@@ -211,7 +233,7 @@ export default function Profile() {
   const sidebar = (
     <aside className="w-full md:w-60 lg:w-72 flex-shrink-0">
       <div className="md:sticky md:top-6 space-y-4">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-container via-blue-600 to-indigo-700 p-5 md:p-6 text-surface shadow-xl shadow-primary/25">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-primary-fixed-dim)] to-[var(--color-primary-container)] p-5 md:p-6 text-surface shadow-xl shadow-primary/25">
           <div className="absolute inset-0 opacity-10">
             <svg viewBox="0 0 200 200" className="w-full h-full">
               {Array.from({ length: 20 }).map((_, i) => (
@@ -281,7 +303,7 @@ export default function Profile() {
           <div className="flex items-center gap-3">
             <Link to="/"
               className="flex items-center gap-2 text-text-muted hover:text-text-main transition-colors">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-container to-blue-600 flex items-center justify-center shadow-sm">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-container)] flex items-center justify-center shadow-sm">
                 <span className="material-symbols-outlined text-surface text-sm">apps</span>
               </div>
             </Link>
@@ -482,7 +504,7 @@ export default function Profile() {
                       <p className="text-sm text-text-muted mb-1">No orders yet</p>
                       <p className="text-xs text-text-muted/70 mb-5">Start exploring our marketplace</p>
                       <Link to="/"
-                        className="inline-flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                        className="inline-flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all">
                         <span className="material-symbols-outlined" style={{ fontSize: 16 }}>explore</span>
                         Browse Products
                       </Link>
@@ -544,6 +566,72 @@ export default function Profile() {
               </TabContent>
             )}
 
+            {/* Library */}
+            {activeTab === 'library' && (
+              <TabContent tabKey={activeTab}>
+                <div className="rounded-2xl bg-surface/80 backdrop-blur-xl border border-border-light/60 overflow-hidden shadow-sm">
+                  <div className="px-5 md:px-6 py-4 border-b border-border-light/60 flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-container/20 to-primary-container/10 flex items-center justify-center">
+                        <span className="material-symbols-outlined text-primary-container" style={{ fontSize: 18 }}>folder_open</span>
+                      </div>
+                      <h2 className="text-sm font-bold text-text-main">My Library</h2>
+                    </div>
+                    {libraryItems.length > 0 && (
+                      <span className="text-[11px] bg-primary-container/10 text-primary-container px-2.5 py-1 rounded-lg font-semibold">{libraryItems.length} purchased</span>
+                    )}
+                  </div>
+                  {libraryItems.length === 0 ? (
+                    <div className="py-16 text-center">
+                      <div className="w-16 h-16 rounded-2xl bg-surface-container-low/50 flex items-center justify-center mx-auto mb-4">
+                        <span className="material-symbols-outlined text-text-muted text-3xl">download</span>
+                      </div>
+                      <p className="text-sm text-text-muted mb-1">No purchases yet</p>
+                      <p className="text-xs text-text-muted/70 mb-5">Products you buy will appear here for download</p>
+                      <Link to="/"
+                        className="inline-flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all">
+                        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>explore</span>
+                        Browse Products
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 md:p-6">
+                      {libraryItems.map(item => {
+                        const itemName = item.title || item.name
+                        return (
+                          <div key={`${item.category}-${item.slug}`} className="group flex gap-4 bg-surface-container-low/40 border border-border-light/40 rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
+                            <Link to={`${item.nav}/${item.slug}`} className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-surface/60">
+                              <img src={`https://picsum.photos/seed/${item.seed}/160/160`} alt={itemName}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                            </Link>
+                            <div className="flex-1 min-w-0 flex flex-col">
+                              <Link to={`${item.nav}/${item.slug}`} className="text-xs font-bold text-text-main hover:text-primary transition-colors line-clamp-1">{itemName}</Link>
+                              <p className="text-[11px] text-text-muted mt-0.5 capitalize">{item.category}</p>
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className="material-symbols-outlined text-yellow-500" style={{ fontSize: 12 }}>star</span>
+                                <span className="text-[11px] font-medium text-text-muted">{item.rating}</span>
+                              </div>
+                              <div className="flex items-center justify-between gap-2 mt-2.5">
+                                <span className="text-[11px] font-bold text-text-main">{item.price}</span>
+                                <button onClick={() => showToast(`Preparing download for ${itemName}...`)}
+                                  className="flex items-center gap-1 text-[11px] text-primary-container font-bold hover:underline cursor-pointer">
+                                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>download</span>
+                                  Download
+                                </button>
+                              </div>
+                              {item.purchasedDate && (
+                                <p className="text-[10px] text-text-muted/60 mt-1.5">Purchased {new Date(item.purchasedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                              )}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              </TabContent>
+            )}
+
             {/* Addresses */}
             {activeTab === 'addresses' && (
               <TabContent tabKey={activeTab}>
@@ -593,7 +681,7 @@ export default function Profile() {
                           <button onClick={() => { setShowAddressForm(false); setNewAddress({ label: '', street: '', city: '', phone: '' }) }}
                             className="text-xs text-text-muted hover:text-text-main font-semibold px-4 py-2.5 rounded-xl hover:bg-surface-container-low/50 transition-all cursor-pointer">Cancel</button>
                           <button onClick={handleAddAddress}
-                            className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all cursor-pointer">
+                            className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all cursor-pointer">
                             <span className="material-symbols-outlined" style={{ fontSize: 16 }}>add</span>
                             Save Address
                           </button>
@@ -713,7 +801,7 @@ export default function Profile() {
                           </div>
                           <div className="flex gap-3 pt-2">
                             <button onClick={handleSaveProfile} disabled={saving}
-                              className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer">
+                              className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer">
                               {saving ? (
                                 <span className="material-symbols-outlined animate-spin" style={{ fontSize: 16 }}>progress_activity</span>
                               ) : (
@@ -755,7 +843,7 @@ export default function Profile() {
                         </div>
                         {passError && <p className="text-xs text-red-400 flex items-center gap-1.5"><span className="material-symbols-outlined text-xs">warning</span>{passError}</p>}
                         <button onClick={handleChangePassword}
-                          className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-primary-container to-blue-600 px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all cursor-pointer">
+                          className="flex items-center gap-1.5 text-xs text-surface bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-container)] px-5 py-2.5 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all cursor-pointer">
                           <span className="material-symbols-outlined" style={{ fontSize: 16 }}>lock_reset</span>
                           Update Password
                         </button>

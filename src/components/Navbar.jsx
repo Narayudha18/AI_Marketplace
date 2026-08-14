@@ -1,41 +1,71 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import CartDrawer from './CartDrawer'
 import AuthButton from './AuthButton'
+import ScrambleText from './ScrambleText'
 import { useTheme } from '../ThemeContext'
+import { PRODUCT_CATALOG } from '../data/product-catalog'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const CATEGORY_ICONS = {
+  templates: 'dashboard',
+  integrations: 'integration_instructions',
+  chatbots: 'chat',
+  automation: 'sync_alt',
+  'ai-tools': 'code',
+  'voice-ai': 'record_voice_over',
+  'image-gen': 'image',
+  analytics: 'analytics',
+  'fine-tuning': 'tune',
+  monitoring: 'monitoring',
+  security: 'security',
+  'ai-agents': 'robot',
+  'ai-prompts': 'text_snippet',
+  'ai-skills': 'school',
+  'ai-tokens': 'token',
+  'ai-workflows': 'account_tree',
 }
+
+const categoryItems = Object.entries(PRODUCT_CATALOG).map(([key, config]) => ({
+  key,
+  label: config.label,
+  nav: config.nav,
+  icon: CATEGORY_ICONS[key] || 'category',
+}))
 
 const navSubLinks = {
   'All Items': '',
   'GPT Agents': 'chatbots',
-  'Voice AI': 'integrations',
-  'Image Gen': 'integrations',
+  'AI Agents': 'ai-agents',
+  'AI Prompts': 'ai-prompts',
+  'AI Skills': 'ai-skills',
+  'AI Tokens': 'ai-tokens',
+  'AI Workflows': 'ai-workflows',
+  'Voice AI': 'voice-ai',
+  'Image Gen': 'image-gen',
   'RAG Pipelines': 'integrations',
   'Workflow': 'automation',
-  'Analytics': 'ai-tools',
-  'Fine-tuning': 'ai-tools',
+  'Analytics': 'analytics',
+  'Fine-tuning': 'fine-tuning',
   'Deployment': 'templates',
-  'Monitoring': 'integrations',
-  'Security': 'ai-tools',
+  'Monitoring': 'monitoring',
+  'Security': 'security',
 }
+
+const quickSubLinks = ['All Items', 'GPT Agents', 'AI Agents', 'AI Prompts', 'AI Skills', 'AI Tokens', 'AI Workflows']
 
 export default function Navbar() {
   const { totalItems } = useCart()
   const [cartOpen, setCartOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [catsOpen, setCatsOpen] = useState(false)
   const { dark, toggle } = useTheme()
   const location = useLocation()
-  const isActive = (path) => {
-    if (path === '/') return location.pathname === '/'
-    return location.pathname.startsWith(path)
-  }
+
+  useEffect(() => { setCatsOpen(false) }, [location.pathname])
 
   const navLinks = [
-    { to: '/', label: 'AI Agents' },
+    { to: '/', label: 'Home' },
     { to: '/templates', label: 'Templates' },
     { to: '/integrations', label: 'Integrations' },
     { to: '/chatbots', label: 'Chatbots' },
@@ -43,65 +73,101 @@ export default function Navbar() {
     { to: '/ai-tools', label: 'AI Tools' },
   ]
 
+  const subNavPaths = ['/ai-agents', '/ai-prompts', '/ai-skills', '/ai-tokens', '/ai-workflows']
+  const showSubNav = location.pathname === '/' || subNavPaths.some(p => location.pathname.startsWith(p))
+
+  const desktopNavLabel = 'text-[11px] font-medium uppercase tracking-[0.18em] transition-colors'
+
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-4 sm:px-6 py-2.5 text-center text-xs font-semibold flex flex-wrap justify-center items-center gap-2 sm:gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span className="text-[11px] sm:text-xs">All-in-one AI agent marketplace. Deploy, integrate & scale intelligent automation.</span>
-        <Link to="/templates" className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity whitespace-nowrap">Explore Now</Link>
-      </div>
-
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-4 sm:px-6 h-14 flex items-center justify-between border-b border-white/5">
+      <header className="sticky top-0 z-40 border-b border-dashed border-[var(--color-border-light)] bg-[var(--color-background)]">
+        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex items-center gap-2">
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="cursor-pointer p-1.5 text-[var(--color-text-main)] md:hidden"
+            >
               <span className="material-symbols-outlined" style={{ fontSize: 22 }}>{mobileMenuOpen ? 'close' : 'menu'}</span>
             </button>
-            <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
+            <Link to="/" className="text-lg font-medium lowercase tracking-tight text-[var(--color-text-main)]">
+              aiagents<span className="text-[var(--color-primary)]">.</span>
+            </Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-1">
+          <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map(link => {
               const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
               return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  state={{ skipScroll: true }}
+                  className={`relative py-3 ${desktopNavLabel} ${isNavActive ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'}`}
+                >
+                  <ScrambleText text={link.label} />
+                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 transition-opacity ${isNavActive ? 'bg-[var(--color-primary)] opacity-100' : 'opacity-0'}`} />
                 </Link>
               )
             })}
-          </div>
+          </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <Link to="/favorites" className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
+            <Link
+              to="/start-selling"
+              className={`hidden ${desktopNavLabel} text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-main)] sm:block`}
+            >
+              Start Selling
+            </Link>
+            <Link to="/favorites" className="cursor-pointer p-1.5 text-[var(--color-text-main)]">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>favorite</span>
             </Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
+            <button onClick={() => setCartOpen(true)} className="relative cursor-pointer p-1.5 text-[var(--color-text-main)]">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+              {totalItems > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-primary)] text-[9px] font-bold text-[var(--color-on-primary)]">
+                  {totalItems}
+                </span>
+              )}
             </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
+            <button onClick={toggle} className="cursor-pointer p-1.5 text-[var(--color-text-main)]">
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span>
+            </button>
             <AuthButton />
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-text-main border-t border-white/5">
-            <div className="px-4 sm:px-6 py-3 flex flex-col gap-1">
-              {navLinks.map(link => {
-                const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-                return (
-                  <Link key={link.to} to={link.to} onClick={() => setMobileMenuOpen(false)}
-                    className={`text-sm font-semibold px-3 py-2.5 rounded-md transition-all ${isNavActive ? 'text-primary bg-primary/10' : 'text-surface-variant hover:text-surface hover:bg-surface/5'}`}>
-                    {link.label}
+          <div className="border-t border-dashed border-[var(--color-border-light)] bg-[var(--color-background)] md:hidden">
+            <div className="flex flex-col gap-1 px-4 py-3 sm:px-6">
+              {navLinks.map(link => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-main)]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-2 border-t border-dashed border-[var(--color-border-light)] pt-3">
+                <p className="px-1 py-1.5 text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">Categories</p>
+                {categoryItems.map(cat => (
+                  <Link
+                    key={cat.key}
+                    to={cat.nav}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2.5 px-1 py-2 text-[13px] text-[var(--color-text-main)]"
+                  >
+                    <span className="material-symbols-outlined text-[var(--color-primary)]" style={{ fontSize: 18 }}>{cat.icon}</span>
+                    {cat.label}
                   </Link>
-                )
-              })}
-              <Link to="/start-selling" onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-semibold px-3 py-2.5 rounded-md text-surface-variant hover:text-surface hover:bg-surface/5 transition-all md:hidden">
+                ))}
+              </div>
+              <Link
+                to="/start-selling"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-muted)]"
+              >
                 Start Selling
               </Link>
             </div>
@@ -109,24 +175,65 @@ export default function Navbar() {
         )}
       </header>
 
-      {location.pathname === '/' && (
-        <div className="bg-surface border-b border-border-light">
-          <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
-            {['All Items', 'GPT Agents', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Workflow', 'Analytics', 'Fine-tuning', 'Deployment', 'Monitoring', 'Security'].map(item => {
-              const linkPath = navSubLinks[item]
-              const fullPath = linkPath ? `/${linkPath}` : '/'
-              const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
-              return (
-                <Link key={item} to={fullPath}
-                  className={`text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
-                  {item}
-                </Link>
-              )
-            })}
+      {showSubNav && (
+        <div className="border-b border-dashed border-[var(--color-border-light)] bg-[var(--color-surface-container-lowest)]">
+          <div className="mx-auto flex h-11 max-w-[1440px] items-center justify-between gap-2 px-4 sm:px-6">
+            <div className="flex min-w-0 items-center gap-6 overflow-x-auto">
+              {quickSubLinks.map(item => {
+                const linkPath = navSubLinks[item]
+                const fullPath = linkPath ? `/${linkPath}` : '/'
+                const isSubActive = linkPath ? location.pathname.startsWith(`/${linkPath}`) : location.pathname === '/'
+                return (
+                  <Link
+                    key={item}
+                    to={fullPath}
+                    className={`whitespace-nowrap border-b-2 py-2 text-[11px] font-medium uppercase tracking-[0.18em] transition-colors ${
+                      isSubActive
+                        ? 'border-[var(--color-primary)] text-[var(--color-primary)]'
+                        : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                )
+              })}
+            </div>
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={() => setCatsOpen(!catsOpen)}
+                className={`flex cursor-pointer items-center gap-1 border-b-2 py-2 text-[11px] font-medium uppercase tracking-[0.18em] transition-colors ${
+                  catsOpen
+                    ? 'border-[var(--color-primary)] text-[var(--color-primary)]'
+                    : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
+                }`}
+              >
+                All Categories
+                <span className="material-symbols-outlined" style={{ fontSize: 14 }}>{catsOpen ? 'expand_less' : 'expand_more'}</span>
+              </button>
+              {catsOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setCatsOpen(false)} />
+                  <div className="absolute right-0 top-full z-50 mt-2 w-[680px] max-w-[calc(100vw-32px)] border border-dashed border-[var(--color-border-light)] bg-[var(--color-surface)] p-4 shadow-2xl grid grid-cols-2 gap-1 sm:grid-cols-4">
+                    {categoryItems.map(cat => (
+                      <Link
+                        key={cat.key}
+                        to={cat.nav}
+                        onClick={() => setCatsOpen(false)}
+                        className="flex items-center gap-2.5 px-3 py-2.5 transition-colors hover:bg-[var(--color-surface-container-low)]"
+                      >
+                        <span className="material-symbols-outlined text-[var(--color-primary)]" style={{ fontSize: 18 }}>{cat.icon}</span>
+                        <span className="text-[12px] font-medium text-[var(--color-text-main)]">{cat.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
+
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
-  );
+  )
 }

@@ -42,7 +42,8 @@ export default function CartPage() {
 
   const handlePaymentSuccess = (method) => {
     if (!currentUser) return
-    selectedItems.forEach(item => markAsPurchased(item.slug, item.category))
+    const purchaseDate = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` })()
+    selectedItems.forEach(item => markAsPurchased(item.slug, item.category, purchaseDate))
     const orderData = {
       items: selectedItems,
       total: formattedSelected,

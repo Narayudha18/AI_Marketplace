@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import skills from '../data/ai-skills.json'
 import { useCart } from '../CartContext'
-import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import Navbar from '../components/Navbar'
 import SellerLink from '../components/SellerLink'
+import ViewToggle from '../components/ViewToggle'
 
 function toSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -21,9 +20,7 @@ function parseSales(sales) {
 }
 
 export default function SkillsPage() {
-  const { totalItems, toggleFavorite, isFavorite } = useCart()
-  const [cartOpen, setCartOpen] = useState(false)
-  const { dark, toggle } = useTheme()
+  const { toggleFavorite, isFavorite } = useCart()
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarSearch, setSidebarSearch] = useState('')
   const [selectedCategories, setSelectedCategories] = useState(['All Skills'])
@@ -45,6 +42,7 @@ export default function SkillsPage() {
   const [appliedPrice, setAppliedPrice] = useState('All Prices')
   const [appliedSort, setAppliedSort] = useState('Newest')
   const [visibleCount, setVisibleCount] = useState(6)
+  const [viewMode, setViewMode] = useState('grid')
 
   useEffect(() => {
     const params = new URLSearchParams(location.search)
@@ -102,67 +100,7 @@ export default function SkillsPage() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-primary-container to-blue-600 text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
-        <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
-        <span>AI skill packs — teach your agent new abilities with ready-to-use skill files.</span>
-        <button onClick={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap">
-          Browse All
-        </button>
-      </div>
-
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/ai-skills', label: 'Skills' },
-              { to: '/ai-workflows', label: 'Workflows' },
-              { to: '/ai-agents', label: 'Agents' },
-              { to: '/ai-prompts', label: 'Prompts' },
-              { to: '/ai-tokens', label: 'Tokens' },
-              { to: '/templates', label: 'Templates' },
-            ].map(link => {
-              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-surface-variant hover:text-surface transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-            </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
-
-      <div className="bg-surface border-b border-border-light">
-        <div className="max-w-[1440px] mx-auto px-6 h-11 flex items-center gap-1 overflow-x-auto">
-          {['All Skills', 'Data Science', 'Automation', 'Machine Learning', 'Databases', 'Integration', 'Developer Tools', 'DevOps', 'Computer Vision', 'Blockchain', 'API Development'].map(item => {
-            const slug = item === 'All Skills' ? '' : toSlug(item)
-            const target = slug ? `/ai-skills/c/${slug}` : '/ai-skills'
-            const isSubActive = location.pathname === target
-            return (
-              <Link key={item} to={target}
-                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 whitespace-nowrap transition-all rounded-md ${isSubActive ? 'bg-primary/10 text-primary shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'}`}>
-                {item}
-              </Link>
-            )
-          })}
-        </div>
-      </div>
+      <Navbar />
 
       <main className="w-full max-w-[1440px] mx-auto pb-16">
         <section className="px-6 py-16 flex flex-col lg:flex-row items-center gap-10">
@@ -173,16 +111,6 @@ export default function SkillsPage() {
             <p className="text-[15px] text-text-muted leading-relaxed max-w-xl">
               Equip your AI agent with specialised skills — from data analysis to DevOps. One file, one new ability.
             </p>
-            <div className="flex w-full max-w-lg bg-surface rounded-lg shadow-sm border border-border-light p-1">
-              <input type="text" placeholder="e.g. Python data analysis" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && applyFilters()}
-                className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none" />
-              <button onClick={applyFilters}
-                className="bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity px-6 rounded text-xs font-semibold flex items-center gap-2">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>search</span>
-                Search
-              </button>
-            </div>
           </div>
           <div className="w-full lg:w-1/2 relative h-[400px]">
             <img
@@ -308,21 +236,14 @@ export default function SkillsPage() {
             <div ref={productRef} className="flex-1">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-medium text-text-muted">{filteredSkills.length} skills found</span>
-                <div className="flex gap-2">
-                  <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>grid_view</span>
-                  </button>
-                  <button className="p-2 bg-surface border border-border-light rounded-lg hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 18 }}>view_list</span>
-                  </button>
-                </div>
+                <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className={`grid gap-6 ${viewMode === 'list' ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'}`}>
                 {filteredSkills.slice(0, visibleCount).map((t) => (
                   <Link key={t.name} to={`/ai-skills/${toSlug(t.name)}`}
-                    className="bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
-                    <div className="relative h-40 overflow-hidden bg-surface-container-low">
+                    className={`bg-surface rounded-lg shadow-sm border border-border-light overflow-hidden hover:shadow-md transition-shadow group flex ${viewMode === 'list' ? 'flex-row' : 'flex-col'}`}>
+                    <div className={`relative overflow-hidden bg-surface-container-low flex-shrink-0 ${viewMode === 'list' ? 'w-40 md:w-56' : 'h-40 w-full'}`}>
                       <img src={`https://picsum.photos/seed/${t.seed}/400/200`} alt={t.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       <button onClick={e => { e.preventDefault(); e.stopPropagation(); toggleFavorite(toSlug(t.name), 'ai-skills') }}
@@ -422,7 +343,6 @@ export default function SkillsPage() {
           </div>
         </div>
       </footer>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }
