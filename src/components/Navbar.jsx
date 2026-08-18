@@ -122,8 +122,17 @@ export default function Navbar() {
             >
               Start Selling
             </Link>
-            <Link to="/favorites" className="cursor-pointer p-1.5 text-[var(--color-text-main)]">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>favorite</span>
+            <Link
+              to="/favorites"
+              aria-label="Favorites"
+              className={`relative cursor-pointer p-1.5 transition-colors ${location.pathname === '/favorites' ? 'text-red-500' : 'text-[var(--color-text-main)]'}`}
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: 20, fontVariationSettings: location.pathname === '/favorites' ? '"FILL" 1' : undefined }}
+              >
+                favorite
+              </span>
             </Link>
             <button onClick={() => setCartOpen(true)} className="relative cursor-pointer p-1.5 text-[var(--color-text-main)]">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>

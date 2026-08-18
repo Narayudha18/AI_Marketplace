@@ -3,8 +3,7 @@ import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import Navbar from '../components/Navbar'
 import { readSellerProducts } from '../lib/storage'
 import SellerLink from '../components/SellerLink'
 import templates from '../data/templates.json'
@@ -224,11 +223,10 @@ export default function ProductDetail() {
     item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
   }
 
-  const { addToCart, inCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
+  const { addToCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const { currentUser } = useAuth()
   const [cartOpen, setCartOpen] = useState(false)
   const [loginToast, setLoginToast] = useState(false)
-  const { dark, toggle } = useTheme()
   const [activeTab, setActiveTab] = useState('product')
   const reviewKey = `reviews_${category}_${slug}`
   const commentKey = `comments_${category}_${slug}`
@@ -342,41 +340,7 @@ export default function ProductDetail() {
         <button onClick={() => navigate(config.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">Browse All</button>
       </div>
 
-      <header className="bg-[var(--color-background)] flex flex-col w-full sticky top-0 z-40 border-b border-dashed border-[var(--color-border-light)]">
-        <div className="px-6 h-14 flex items-center justify-between">
-          <Link to="/" className="text-lg font-bold text-[var(--color-text-main)] tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
-            ].map(link => {
-              const isNavActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isNavActive ? 'text-primary' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'}`}>
-                  {link.label}
-                  {isNavActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="hidden sm:flex text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-[var(--color-text-main)] transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {inCart(slug, category) && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
-            </button>
-            <button onClick={toggle} className="text-[var(--color-text-main)] transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-2 text-xs">
         <a href="/" className="text-text-muted hover:text-primary transition-colors">Home</a>
