@@ -11,7 +11,6 @@ import BigCTA from './components/BigCTA'
 import FavoriteRecommendations from './components/FavoriteRecommendations'
 import Footer from './components/Footer'
 import Preloader from './components/Preloader'
-import CustomCursor from './components/CustomCursor'
 import Templates from './pages/Templates'
 import Integrations from './pages/Integrations'
 import Chatbots from './pages/Chatbots'
@@ -75,7 +74,6 @@ export default function App() {
     <>
       {import.meta.env.DEV && <Agentation endpoint="http://localhost:4747" />}
       <Preloader />
-      <CustomCursor />
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/search" element={<SearchPage />} />

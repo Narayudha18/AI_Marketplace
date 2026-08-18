@@ -20,6 +20,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-svh flex-col justify-center px-6 sm:px-10 py-16">
+      <div className="relative">
       <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
         The one-stop AI agent marketplace <span aria-hidden="true">→</span>
       </p>
@@ -75,6 +76,22 @@ export default function Hero() {
             Search
           </button>
         </div>
+      </div>
+
+      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 bottom-12 hidden lg:block">
+        <div className="absolute -inset-4 border border-dashed border-[var(--color-border-light)]" />
+        <figure className="relative flex h-full flex-col">
+          <img
+            src="https://picsum.photos/seed/ai-agents-hero/720/900"
+            alt=""
+            className="min-h-0 w-[min(30vw,400px)] flex-1 border border-[var(--color-border-light)] bg-[var(--color-surface-container-low)] object-cover"
+          />
+          <figcaption className="mt-3 flex items-center justify-between gap-6 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+            <span>featured — agent stack</span>
+            <span>01</span>
+          </figcaption>
+        </figure>
+      </div>
       </div>
 
       <div className="mt-16 hidden items-end justify-between sm:flex">

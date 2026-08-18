@@ -114,7 +114,11 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               to="/start-selling"
-              className={`hidden ${desktopNavLabel} text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-main)] sm:block`}
+              className={`hidden border-b-2 py-3 ${desktopNavLabel} transition-colors sm:block ${
+                location.pathname.startsWith('/start-selling')
+                  ? 'border-[var(--color-primary)] text-[var(--color-primary)]'
+                  : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]'
+              }`}
             >
               Start Selling
             </Link>

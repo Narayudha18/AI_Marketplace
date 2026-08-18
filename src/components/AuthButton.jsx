@@ -9,7 +9,7 @@ export default function AuthButton() {
   if (!currentUser) {
     return (
       <Link to="/login"
-        className="text-surface text-xs font-semibold border border-white/20 px-3.5 py-1.5 rounded-md hover:bg-surface hover:text-text-main transition-all">
+        className="text-text-main text-xs font-semibold border border-border-light px-3.5 py-1.5 rounded-md hover:bg-surface-container-low hover:text-primary transition-all">
         Sign In
       </Link>
     )
@@ -19,7 +19,7 @@ export default function AuthButton() {
     <div className="relative flex items-center gap-0">
       <div className="flex bg-primary-container/15 rounded-md hover:bg-primary-container/25 transition-colors">
         <Link to="/profile"
-          className="flex items-center gap-2 text-primary-container text-xs font-semibold pl-2.5 py-1.5">
+          className="flex items-center gap-2 text-text-main text-xs font-semibold pl-2.5 py-1.5">
           <span className="w-5 h-5 rounded-full bg-primary-container text-surface text-[10px] font-bold flex items-center justify-center overflow-hidden">
             {currentUser.picture
               ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
@@ -28,7 +28,7 @@ export default function AuthButton() {
           {currentUser.name.split(' ')[0]}
         </Link>
         <button onClick={() => setOpen(!open)}
-          className="text-primary-container px-1.5 py-1.5 flex items-center justify-center cursor-pointer">
+          className="text-text-main px-1.5 py-1.5 flex items-center justify-center cursor-pointer">
           <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_drop_down</span>
         </button>
       </div>

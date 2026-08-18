@@ -1,17 +1,9 @@
-import { useState } from 'react'
-import { Link, useLocation, Navigate } from 'react-router-dom'
-import { useCart } from '../CartContext'
-import CartDrawer from '../components/CartDrawer'
-import AuthButton from '../components/AuthButton'
-import { useTheme } from '../ThemeContext'
+import { Link, Navigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 import SellerForm from '../components/SellerForm'
 import { useAuth } from '../AuthContext'
 
 export default function StartSelling() {
-  const { totalItems } = useCart()
-  const [cartOpen, setCartOpen] = useState(false)
-  const { dark, toggle } = useTheme()
-  const location = useLocation()
   const { currentUser, requestSeller } = useAuth()
 
   if (currentUser?.isSeller) return <Navigate to="/seller/dashboard" replace />
@@ -23,41 +15,7 @@ export default function StartSelling() {
         <span>Start selling your AI products on the largest AI marketplace.</span>
       </div>
 
-      <header className="bg-text-main flex flex-col w-full sticky top-0 z-40">
-        <div className="px-6 h-14 flex items-center justify-between border-b border-white/5">
-          <Link to="/" className="text-lg font-bold text-surface tracking-tight">AIAgents</Link>
-
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { to: '/', label: 'AI Agents' },
-              { to: '/templates', label: 'Templates' },
-              { to: '/integrations', label: 'Integrations' },
-              { to: '/chatbots', label: 'Chatbots' },
-              { to: '/automation', label: 'Automation' },
-              { to: '/ai-tools', label: 'AI Tools' },
-            ].map(link => {
-              const isActive = link.to === '/' ? location.pathname === '/' : location.pathname.startsWith(link.to)
-              return (
-                <Link key={link.to} to={link.to} state={{ skipScroll: true }}
-                  className={`text-xs font-semibold px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-primary' : 'text-surface-variant hover:text-surface'}`}>
-                  {link.label}
-                  {isActive && <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />}
-                </Link>
-              )
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/start-selling" className="text-primary text-xs font-semibold">Start Selling</Link>
-            <button onClick={() => setCartOpen(true)} className="relative text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center">
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>shopping_cart</span>
-              {totalItems > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-surface text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
-            </button>
-            <button onClick={toggle} className="text-surface-variant hover:text-surface transition-colors cursor-pointer p-1.5 flex items-center justify-center"><span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span></button>
-            <AuthButton />
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="w-full max-w-[1200px] mx-auto pb-16">
         {/* Hero Section */}
@@ -238,7 +196,6 @@ export default function StartSelling() {
           </div>
         </div>
       </footer>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   )
 }
