@@ -19,7 +19,22 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-center px-6 sm:px-10 py-16">
+    <section className="relative flex min-h-svh flex-col justify-center overflow-hidden px-6 sm:px-10 py-16">
+      <img
+        aria-hidden="true"
+        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80"
+        alt=""
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 hidden h-full w-full object-cover object-center lg:block"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/70 to-transparent lg:block"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-[var(--color-background)] to-transparent lg:block"
+      />
       <div className="relative">
       <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
         The one-stop AI agent marketplace <span aria-hidden="true">→</span>
@@ -76,21 +91,6 @@ export default function Hero() {
             Search
           </button>
         </div>
-      </div>
-
-      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-0 bottom-12 hidden lg:block">
-        <div className="absolute -inset-4 border border-dashed border-[var(--color-border-light)]" />
-        <figure className="relative flex h-full flex-col">
-          <img
-            src="https://picsum.photos/seed/ai-agents-hero/720/900"
-            alt=""
-            className="min-h-0 w-[min(30vw,400px)] flex-1 border border-[var(--color-border-light)] bg-[var(--color-surface-container-low)] object-cover"
-          />
-          <figcaption className="mt-3 flex items-center justify-between gap-6 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
-            <span>featured — agent stack</span>
-            <span>01</span>
-          </figcaption>
-        </figure>
       </div>
       </div>
 
