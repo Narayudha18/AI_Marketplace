@@ -25,15 +25,15 @@ export default function Hero() {
         src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80"
         alt=""
         loading="lazy"
-        className="pointer-events-none absolute inset-0 hidden h-full w-full object-cover object-center lg:block"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/70 to-transparent lg:block"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-[var(--color-background)] to-transparent lg:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--color-background)] to-transparent"
       />
       <div className="relative">
       <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
@@ -94,7 +94,7 @@ export default function Hero() {
       </div>
       </div>
 
-      <div className="mt-16 hidden items-end justify-between sm:flex">
+      <div className="mt-16 flex items-end justify-between">
         <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
           2.4M+ agents deployed
         </span>
