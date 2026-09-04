@@ -14,6 +14,7 @@ import workflows from './ai-workflows.json'
 import agents from './ai-agents.json'
 import prompts from './ai-prompts.json'
 import tokens from './ai-tokens.json'
+import { toSlug } from '../lib/helpers'
 
 const CATEGORY_MAP = [
   ['templates', templates],
@@ -33,10 +34,6 @@ const CATEGORY_MAP = [
   ['ai-prompts', prompts],
   ['ai-tokens', tokens],
 ]
-
-function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
 
 export const ALL_SEED_PRODUCTS = CATEGORY_MAP.flatMap(([cat, items]) =>
   items.map(p => ({ ...p, _cat: cat }))

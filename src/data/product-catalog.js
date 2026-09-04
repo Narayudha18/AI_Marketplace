@@ -15,6 +15,9 @@ import skills from './ai-skills.json'
 import tokens from './ai-tokens.json'
 import workflows from './ai-workflows.json'
 import { readSellerProducts } from '../lib/storage'
+import { toSlug, parsePrice } from '../lib/helpers'
+
+export { toSlug, parsePrice }
 
 export const PRODUCT_CATALOG = {
   templates: { items: templates, nameKey: 'title', nav: '/templates', label: 'Templates', keywords: 'template starter landing website react next dashboard app' },
@@ -33,10 +36,6 @@ export const PRODUCT_CATALOG = {
   'ai-skills': { items: skills, nameKey: 'name', nav: '/ai-skills', label: 'AI Skills', keywords: 'skill claude openai gemini expertise capability ability' },
   'ai-tokens': { items: tokens, nameKey: 'name', nav: '/ai-tokens', label: 'AI Tokens', keywords: 'token credit api quota gpt claude llama usage' },
   'ai-workflows': { items: workflows, nameKey: 'name', nav: '/ai-workflows', label: 'AI Workflows', keywords: 'workflow orchestration pipeline process automate steps' },
-}
-
-export function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
 export function getProductLabel(item) {
@@ -89,12 +88,6 @@ export function getAllProductEntries() {
     }
   }
   return entries
-}
-
-export function parsePrice(price) {
-  if (!price) return Infinity
-  const num = parseFloat(String(price).replace(/[^0-9.,]/g, '').replace(',', '.'))
-  return Number.isFinite(num) ? num : Infinity
 }
 
 export function scoreEntry(entry, tokens) {

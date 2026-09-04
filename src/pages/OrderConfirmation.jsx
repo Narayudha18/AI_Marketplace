@@ -69,7 +69,7 @@ export default function OrderConfirmation() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-text-muted">Email</span>
-                  <span className="text-xs font-semibold text-text-main">buyer@example.com</span>
+                  <span className="text-xs font-semibold text-text-main">{currentUser?.email || 'N/A'}</span>
                 </div>
               </div>
             </div>

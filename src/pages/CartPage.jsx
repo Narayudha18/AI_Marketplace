@@ -6,9 +6,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PaymentModal from '../components/PaymentModal'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug, parsePrice } from '../lib/helpers'
 
 export default function CartPage() {
   const { cart, updateQty, removeFromCart, clearCart, markAsPurchased } = useCart()
@@ -16,11 +14,6 @@ export default function CartPage() {
   const navigate = useNavigate()
   const [paymentOpen, setPaymentOpen] = useState(false)
   const [selected, setSelected] = useState(() => new Set(cart.map(i => `${i.category}-${i.slug}`)))
-
-  const parsePrice = (price) => {
-    if (!price) return 0
-    return parseFloat(price.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0
-  }
 
   const toggleItem = (key) => {
     setSelected(prev => {
@@ -68,7 +61,7 @@ export default function CartPage() {
         <button onClick={() => navigate(-1)}
           className="flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-text-main transition-colors cursor-pointer mb-6">
           <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_back</span>
-          Kembali ke Halaman Produk
+          Back to Products
         </button>
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -161,7 +154,7 @@ export default function CartPage() {
                   Proceed to Checkout
                 </button>
                 {selectedItems.length === 0 && (
-                  <p className="text-[11px] text-red-500 text-center mt-2">Pilih minimal satu produk untuk checkout</p>
+                  <p className="text-[11px] text-red-500 text-center mt-2">Select at least one product to checkout</p>
                 )}
                 <Link to="/templates" className="block text-center text-xs text-text-muted hover:text-primary mt-3 transition-colors">Continue Shopping</Link>
               </div>

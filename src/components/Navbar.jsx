@@ -111,7 +111,7 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <Link
               to="/start-selling"
               className={`hidden border-b-2 py-3 ${desktopNavLabel} transition-colors sm:block ${
@@ -142,7 +142,7 @@ export default function Navbar() {
                 </span>
               )}
             </button>
-            <button onClick={toggle} className="cursor-pointer p-1.5 text-[var(--color-text-main)]">
+            <button onClick={toggle} className="cursor-pointer p-1.5 text-[var(--color-text-main)] hidden sm:flex items-center justify-center">
               <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{dark ? 'light_mode' : 'dark_mode'}</span>
             </button>
             <AuthButton />
@@ -183,6 +183,11 @@ export default function Navbar() {
               >
                 Start Selling
               </Link>
+              <button onClick={() => { toggle(); setMobileMenuOpen(false) }}
+                className="flex items-center gap-2.5 py-2.5 text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-muted)] cursor-pointer">
+                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{dark ? 'light_mode' : 'dark_mode'}</span>
+                {dark ? 'Light Mode' : 'Dark Mode'}
+              </button>
             </div>
           </div>
         )}

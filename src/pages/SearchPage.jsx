@@ -28,7 +28,7 @@ export default function SearchPage() {
               type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              placeholder="Cari produk, mis. 'chatbot support'"
+              placeholder="Search products, e.g. 'chatbot support'"
               className="flex-1 border-none focus:ring-0 px-4 py-3 text-[15px] bg-transparent outline-none"
             />
             <button type="submit"
@@ -47,14 +47,14 @@ export default function SearchPage() {
         {!q ? (
           <div className="text-center py-20">
             <span className="material-symbols-outlined text-text-muted text-6xl mb-4 block">search</span>
-            <h2 className="text-lg font-semibold text-text-main mb-2">Ketik kata kunci untuk mencari</h2>
-            <p className="text-sm text-text-muted">Cari di semua 16 kategori: AI Agents, AI Prompts, Chatbots, Templates, dan lainnya.</p>
+            <h2 className="text-lg font-semibold text-text-main mb-2">Type a keyword to search</h2>
+            <p className="text-sm text-text-muted">Search across all 16 categories: AI Agents, AI Prompts, Chatbots, Templates, and more.</p>
           </div>
         ) : results.length === 0 ? (
           <div className="text-center py-20">
             <span className="material-symbols-outlined text-text-muted text-6xl mb-4 block">search_off</span>
-            <h2 className="text-lg font-semibold text-text-main mb-2">Tidak ada hasil untuk "{q}"</h2>
-            <p className="text-sm text-text-muted">Coba kata kunci lain seperti "image", "prompt", atau "monitor".</p>
+            <h2 className="text-lg font-semibold text-text-main mb-2">No results for "{q}"</h2>
+            <p className="text-sm text-text-muted">Try other keywords like "image", "prompt", or "monitor".</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

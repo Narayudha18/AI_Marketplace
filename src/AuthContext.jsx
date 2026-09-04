@@ -95,7 +95,12 @@ export function AuthProvider({ children }) {
 
   const updateProfile = (fields) => {
     if (!currentUser) return null
-    const updated = { ...currentUser, ...fields }
+    const allowed = ['name', 'email', 'bio', 'picture', 'addresses', 'notificationPrefs']
+    const safe = {}
+    for (const key of allowed) {
+      if (key in fields) safe[key] = fields[key]
+    }
+    const updated = { ...currentUser, ...safe }
     setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
     setCurrentUser(updated)
     return updated
@@ -143,16 +148,10 @@ export function AuthProvider({ children }) {
     return activities.filter(a => a.userId === currentUser.id).slice(0, 20)
   }
 
-  const requestSeller = () => {
+  const requestSeller = (formFields) => {
     if (!currentUser) return
-    const updated = { ...currentUser, sellerRequested: true }
-    setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
-    setCurrentUser(updated)
-  }
-
-  const becomeAdmin = () => {
-    if (!currentUser) return
-    const updated = { ...currentUser, isAdmin: true }
+    const sellerData = formFields ? { ...formFields } : {}
+    const updated = { ...currentUser, sellerRequested: true, sellerForm: sellerData }
     setUsers(prev => prev.map(u => u.id === currentUser.id ? updated : u))
     setCurrentUser(updated)
   }
@@ -165,7 +164,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updateProfile, updatePicture, requestSeller, becomeAdmin, addAddress, removeAddress, trackActivity, getUserActivities, updateNotifPrefs }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout, updatePassword, updateProfile, updatePicture, requestSeller, addAddress, removeAddress, trackActivity, getUserActivities, updateNotifPrefs }}>
       {children}
     </AuthContext.Provider>
   )

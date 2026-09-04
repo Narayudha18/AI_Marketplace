@@ -25,7 +25,7 @@ export default function AuthButton() {
               ? <img src={currentUser.picture} alt="" className="w-full h-full object-cover" />
               : currentUser.name[0]}
           </span>
-          {currentUser.name.split(' ')[0]}
+          <span className="hidden sm:inline">{currentUser.name.split(' ')[0]}</span>
         </Link>
         <button onClick={() => setOpen(!open)}
           className="text-text-main px-1.5 py-1.5 flex items-center justify-center cursor-pointer">

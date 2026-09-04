@@ -3,10 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { getUserById, getAllProductsForSeller } from '../lib/storage'
-
-function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug } from '../lib/helpers'
 
 function renderStars(rating) {
   const full = Math.floor(rating || 0)
@@ -83,7 +80,7 @@ export default function SellerStore() {
                   {seller.isAdmin && <span className="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full font-bold">Admin</span>}
                 </div>
               </div>
-              <p className="text-xs text-text-muted mt-1">{seller.email}</p>
+              <p className="text-xs text-text-muted mt-1 italic">Contact seller via marketplace</p>
               {seller.bio && <p className="text-sm text-text-muted mt-3 leading-relaxed max-w-2xl">{seller.bio}</p>}
             </div>
             <div className="flex md:flex-col gap-4 md:gap-2 md:text-right flex-shrink-0">

@@ -5,12 +5,12 @@ import { getAllProductEntries, toSlug, parsePrice, searchProducts } from '../dat
 const MAX_RESULTS = 5
 
 const QUICK_SUGGESTIONS = [
-  'chatbot yang murah',
-  'image generator terbaik',
-  'AI token top rating',
-  'workflow automasi',
-  'monitoring aplikasi',
-  'prompt untuk menulis',
+  'affordable chatbot',
+  'best image generator',
+  'top rated AI tokens',
+  'workflow automation',
+  'app monitoring',
+  'writing prompts',
 ]
 
 function topRated(n) {
@@ -38,17 +38,17 @@ function replyFor(text) {
 
   if (/^(halo|hai|hi|hello|hallo|helo|hei|yo|assalam|selamat)/.test(q)) {
     return {
-      text: 'Halo! Saya asisten rekomendasi produk di marketplace ini. Kamu bisa tanya soal chatbot, template, image generator, token AI, dan lainnya. Berikut beberapa produk populer:',
+      text: 'Hello! I\'m the product recommendation assistant for this marketplace. You can ask about chatbots, templates, image generators, AI tokens, and more. Here are some popular products:',
       products: topRated(3),
     }
   }
 
   if (/(makasih|terima kasih|terimakasih|thanks|thank you)/.test(q)) {
-    return { text: 'Sama-sama! Kalau butuh rekomendasi lain, tinggal tanya saja. Saya bantu carikan yang paling cocok.' }
+    return { text: 'You\'re welcome! If you need more recommendations, just ask. I\'ll help you find the best match.' }
   }
 
   if (/(bantuan|help|cara pakai|apa yang bisa|cara kerja|fitur kamu|kamu bisa|bisa apa)/.test(q)) {
-    return { text: 'Kamu bisa bertanya dengan gaya natural, misalnya "chatbot yang murah", "image generator terbaik", "token AI untuk coding", atau "workflow automasi". Saya juga bisa tunjukkan produk paling populer atau paling hemat.' }
+    return { text: 'You can ask naturally, for example "affordable chatbot", "best image generator", "AI tokens for coding", or "workflow automation". I can also show you the most popular or cheapest products.' }
   }
 
   const budgetWords = ['murah', 'hemat', 'budget', 'dibawah', 'di bawah', 'bawah', 'kurang dari', 'maksimal', 'max', 'termurah', 'gratis', 'free']
@@ -58,14 +58,14 @@ function replyFor(text) {
     if (numMatch) {
       const max = Number(numMatch[0])
       const list = cheapest(MAX_RESULTS, max)
-      if (list.length) return { text: `Dengan budget sampai ${max}, ini produk yang paling cocok buat kamu:`, products: list }
-      return { text: `Maaf, saya belum menemukan produk dengan harga di bawah ${max}. Coba naikkan budget atau gunakan kata kunci lain.` }
+      if (list.length) return { text: `With a budget up to ${max}, here are the best products for you:`, products: list }
+      return { text: `Sorry, I couldn't find products under ${max}. Try increasing your budget or using different keywords.` }
     }
-    return { text: 'Berikut pilihan paling hemat yang tersedia di marketplace:', products: cheapest(MAX_RESULTS) }
+    return { text: 'Here are the most affordable options available in the marketplace:', products: cheapest(MAX_RESULTS) }
   }
 
   if (/(terbaik|terpopuler|populer|best|top|rating|rekomendasi|recommend|favorit|unggulan)/.test(q)) {
-    return { text: 'Ini produk dengan rating tertinggi dari pengguna kami:', products: topRated(MAX_RESULTS) }
+    return { text: 'Here are the highest-rated products from our users:', products: topRated(MAX_RESULTS) }
   }
 
   const results = searchProducts(q)
@@ -74,14 +74,14 @@ function replyFor(text) {
     const dominant = dominantCategory(top)
     return {
       text: dominant
-        ? `Berdasarkan kebutuhanmu, kategori ${dominant} paling cocok. Berikut rekomendasinya:`
-        : 'Berikut produk yang paling cocok dengan kebutuhanmu:',
+        ? `Based on your needs, the ${dominant} category is the best match. Here are my recommendations:`
+        : 'Here are the products that best match your needs:',
       products: top,
     }
   }
 
   return {
-    text: 'Maaf, saya belum menemukan produk yang cocok. Coba kata kunci lain seperti "chatbot", "image", "prompt", atau "monitor".',
+    text: 'Sorry, I couldn\'t find matching products. Try different keywords like "chatbot", "image", "prompt", or "monitor".',
     products: topRated(2),
   }
 }
@@ -117,7 +117,7 @@ export default function RecommendationAssistant() {
   const [messages, setMessages] = useState(() => [{
     id: 0,
     role: 'assistant',
-    text: 'Halo! Saya asisten rekomendasi produk AI marketplace. Ceritakan kebutuhanmu, misalnya "chatbot yang murah" atau "image generator terbaik".',
+    text: 'Hello! I\'m the AI marketplace product recommendation assistant. Tell me what you need, for example "affordable chatbot" or "best image generator".',
     products: topRated(3),
   }])
   const scrollRef = useRef(null)
@@ -169,14 +169,14 @@ export default function RecommendationAssistant() {
                 <button
                   onClick={() => setFullscreen(f => !f)}
                   className="cursor-pointer rounded-none p-1 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-container-low)] hover:text-[var(--color-text-main)]"
-                  aria-label={fullscreen ? 'Keluar full screen' : 'Full screen'}
+                  aria-label={fullscreen ? 'Exit full screen' : 'Full screen'}
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{fullscreen ? 'close_fullscreen' : 'open_in_full'}</span>
                 </button>
                 <button
                   onClick={() => { setOpen(false); setFullscreen(false) }}
                   className="cursor-pointer rounded-none p-1 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-container-low)] hover:text-[var(--color-text-main)]"
-                  aria-label="Tutup AI Assistant"
+                  aria-label="Close AI Assistant"
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: 20 }}>close</span>
                 </button>
@@ -205,7 +205,7 @@ export default function RecommendationAssistant() {
               {typing && (
                 <div className="flex justify-start">
                   <div className="border border-dashed border-[var(--color-border-light)] bg-[var(--color-surface-container-low)] px-3.5 py-2.5">
-                    <p className="text-xs italic text-[var(--color-text-muted)]">mengetik…</p>
+                    <p className="text-xs italic text-[var(--color-text-muted)]">typing...</p>
                   </div>
                 </div>
               )}
@@ -228,13 +228,13 @@ export default function RecommendationAssistant() {
                   value={query}
                   onChange={e => setQuery(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && send()}
-                  placeholder="Tanya rekomendasi…"
+                  placeholder="Ask for recommendations..."
                   className="min-w-0 flex-1 border-b border-[var(--color-border-light)] bg-transparent py-2 text-sm text-[var(--color-text-main)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)]"
                 />
                 <button
                   onClick={() => send()}
                   className="flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center bg-primary text-on-primary transition-opacity hover:opacity-90"
-                  aria-label="Kirim"
+                  aria-label="Send"
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_upward</span>
                 </button>

@@ -1,4 +1,7 @@
 import { getAuthorBySellerId, getSeedProductsByAuthor } from '../data/seed-sellers'
+import { toSlug } from './helpers'
+
+export { toSlug }
 
 export function readUsers() {
   try { return JSON.parse(localStorage.getItem('auth_users') || '[]') } catch { return [] }
@@ -23,10 +26,6 @@ export function getAllProductsForSeller(sellerId) {
   const author = getAuthorBySellerId(sellerId)
   const seed = author ? getSeedProductsByAuthor(author) : []
   return [...local, ...seed]
-}
-
-export function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
 export function getSellerName(item) {

@@ -1,46 +1,13 @@
 import { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automations from '../data/automation.json'
-import aitools from '../data/aitools.json'
-import voiceAi from '../data/voice-ai.json'
-import imageGen from '../data/image-gen.json'
-import analyticsData from '../data/analytics.json'
-import fineTuningData from '../data/fine-tuning.json'
-import monitoringData from '../data/monitoring.json'
-import securityData from '../data/security.json'
-import agentsData from '../data/ai-agents.json'
-import promptsData from '../data/ai-prompts.json'
-import skillsData from '../data/ai-skills.json'
-import tokensData from '../data/ai-tokens.json'
-import workflowsData from '../data/ai-workflows.json'
 import { readSellerProducts } from '../lib/storage'
+import { toSlug } from '../lib/helpers'
+import { PRODUCT_CATALOG } from '../data/product-catalog'
 import SellerLink from './SellerLink'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
-
-const allProducts = [
-  ...templates.map(p => ({ ...p, _cat: 'templates', _name: p.title })),
-  ...integrations.map(p => ({ ...p, _cat: 'integrations', _name: p.name })),
-  ...chatbots.map(p => ({ ...p, _cat: 'chatbots', _name: p.name })),
-  ...automations.map(p => ({ ...p, _cat: 'automation', _name: p.name })),
-  ...aitools.map(p => ({ ...p, _cat: 'ai-tools', _name: p.name })),
-  ...voiceAi.map(p => ({ ...p, _cat: 'voice-ai', _name: p.title })),
-  ...imageGen.map(p => ({ ...p, _cat: 'image-gen', _name: p.title })),
-  ...analyticsData.map(p => ({ ...p, _cat: 'analytics', _name: p.title })),
-  ...fineTuningData.map(p => ({ ...p, _cat: 'fine-tuning', _name: p.title })),
-  ...monitoringData.map(p => ({ ...p, _cat: 'monitoring', _name: p.title })),
-  ...securityData.map(p => ({ ...p, _cat: 'security', _name: p.title })),
-  ...agentsData.map(p => ({ ...p, _cat: 'ai-agents', _name: p.name })),
-  ...promptsData.map(p => ({ ...p, _cat: 'ai-prompts', _name: p.name })),
-  ...skillsData.map(p => ({ ...p, _cat: 'ai-skills', _name: p.name })),
-  ...tokensData.map(p => ({ ...p, _cat: 'ai-tokens', _name: p.name })),
-  ...workflowsData.map(p => ({ ...p, _cat: 'ai-workflows', _name: p.name })),
-]
+const allProducts = Object.entries(PRODUCT_CATALOG).flatMap(([cat, config]) =>
+  config.items.map(p => ({ ...p, _cat: cat, _name: p[config.nameKey] }))
+)
 
 const filters = [
   { label: 'All categories', to: '/templates', match: () => true },

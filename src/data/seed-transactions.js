@@ -1,8 +1,5 @@
 import { ALL_SEED_PRODUCTS } from './seed-sellers'
-
-function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug } from '../lib/helpers'
 
 function bySeed(id) {
   return ALL_SEED_PRODUCTS.find(p => p.id === id || p.seed === id)

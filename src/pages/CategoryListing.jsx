@@ -1,27 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automations from '../data/automation.json'
-import tools from '../data/aitools.json'
-import voiceAi from '../data/voice-ai.json'
-import imageGen from '../data/image-gen.json'
-import analyticsData from '../data/analytics.json'
-import fineTuningData from '../data/fine-tuning.json'
-import monitoringData from '../data/monitoring.json'
-import securityData from '../data/security.json'
 import { useCart } from '../CartContext'
 import Navbar from '../components/Navbar'
 import { mergeCategoryItems } from '../lib/storage'
 import SellerLink from '../components/SellerLink'
 import ViewToggle from '../components/ViewToggle'
+import { toSlug, PRODUCT_CATALOG } from '../data/product-catalog'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
-
-const categoryConfig = {
+const categoryMeta = {
   templates: {
     label: 'Templates', icon: 'dashboard', badge: 'templates.market', singular: 'template',
     banner: 'Premium UI templates & starter kits for modern web apps.',
@@ -30,7 +16,6 @@ const categoryConfig = {
     heroImg: 'templates-hero',
     searchPlaceholder: 'e.g. Admin dashboard',
     allLabel: 'All Templates',
-    items: templates, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Templates', 'Dashboards', 'Landing Pages', 'E-commerce', 'Portfolios', 'Blogs', 'Mobile Apps', 'UI Kits', 'Admin Panels', 'Deployment'],
     filterMap: {},
@@ -51,7 +36,6 @@ const categoryConfig = {
     heroImg: 'integrations-hero',
     searchPlaceholder: 'e.g. OpenAI, LangChain, Pinecone',
     allLabel: 'All Integrations',
-    items: integrations, nameKey: 'name',
     dataFilterKey: 'category',
     filterCategories: ['All Integrations', 'LLM Providers', 'Vector DB', 'Voice AI', 'Image Gen', 'RAG Pipelines', 'Frameworks', 'Model Hosting', 'Compute', 'Monitoring'],
     filterMap: { 'LLM Providers': 'LLM Providers', 'Vector DB': 'Vector DB', 'Voice AI': 'Voice AI', 'Image Gen': 'Image Gen', 'Frameworks': 'Frameworks', 'Model Hosting': 'Model Hosting', 'Compute': 'Compute', 'RAG Pipelines': 'RAG Pipelines', 'Monitoring': 'Monitoring' },
@@ -72,7 +56,6 @@ const categoryConfig = {
     heroImg: 'chatbots-hero',
     searchPlaceholder: 'e.g. Customer support chatbot',
     allLabel: 'All Chatbots',
-    items: chatbots, nameKey: 'name',
     dataFilterKey: 'platform',
     filterCategories: ['All Chatbots', 'Customer Support', 'Sales', 'HR', 'Education', 'Healthcare', 'Finance', 'Developer Tools', 'Productivity'],
     filterMap: { 'Customer Support': 'Web', 'Sales': 'Web + API', 'HR': 'Slack + Web', 'Education': 'Web + Mobile', 'Healthcare': 'Web', 'Finance': 'API', 'Developer Tools': 'GitHub', 'Productivity': 'Web' },
@@ -93,7 +76,6 @@ const categoryConfig = {
     heroImg: 'automation-hero',
     searchPlaceholder: 'e.g. Email automation workflow',
     allLabel: 'All Automations',
-    items: automations, nameKey: 'name',
     dataFilterKey: 'category',
     filterCategories: ['All Automations', 'Workflow', 'Marketing', 'Sales', 'Data', 'Finance', 'DevOps', 'HR', 'Social Media'],
     filterMap: { 'Workflow': 'Workflow', 'Marketing': 'Marketing', 'Sales': 'Sales', 'Data': 'Data', 'Finance': 'Finance', 'DevOps': 'DevOps', 'HR': 'HR', 'Social Media': 'Social' },
@@ -114,7 +96,6 @@ const categoryConfig = {
     heroImg: 'aitools-hero',
     searchPlaceholder: 'e.g. GPT-4o, Stable Diffusion, Whisper',
     allLabel: 'All Tools',
-    items: tools, nameKey: 'name',
     dataFilterKey: 'category',
     filterCategories: ['All Tools', 'LLM APIs', 'Image Gen', 'Audio/Speech', 'Vector DB', 'Compute', 'Frameworks', 'Monitoring', 'Analytics', 'Fine-tuning', 'Security'],
     filterMap: { 'LLM APIs': 'LLM', 'Image Gen': 'Image', 'Audio/Speech': 'Audio', 'Vector DB': 'Infra', 'Compute': 'Compute', 'Frameworks': 'Framework', 'Monitoring': 'LLM', 'Analytics': 'Analytics', 'Fine-tuning': 'Fine-tuning', 'Security': 'Security' },
@@ -135,7 +116,6 @@ const categoryConfig = {
     heroImg: 'voice-ai-hero',
     searchPlaceholder: 'e.g. Speech recognition, TTS',
     allLabel: 'All Voice AI',
-    items: voiceAi, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Voice AI', 'Speech Recognition', 'Text-to-Speech', 'Voice Cloning', 'Audio Processing'],
     filterMap: {},
@@ -157,7 +137,6 @@ const categoryConfig = {
     heroImg: 'image-gen-hero',
     searchPlaceholder: 'e.g. Stable Diffusion, DALL-E',
     allLabel: 'All Image Gen',
-    items: imageGen, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Image Gen', 'Text-to-Image', 'Image Editing', 'Video Gen', '3D Models'],
     filterMap: {},
@@ -179,7 +158,6 @@ const categoryConfig = {
     heroImg: 'analytics-hero',
     searchPlaceholder: 'e.g. Dashboard, BI tool',
     allLabel: 'All Analytics',
-    items: analyticsData, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Analytics', 'Dashboards', 'Data Viz', 'BI Tools', 'Reporting'],
     filterMap: {},
@@ -201,7 +179,6 @@ const categoryConfig = {
     heroImg: 'finetuning-hero',
     searchPlaceholder: 'e.g. LLM fine-tuning, RLHF',
     allLabel: 'All Fine-tuning',
-    items: fineTuningData, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Fine-tuning', 'LLM Tuning', 'Embeddings', 'RLHF', 'Model Distillation'],
     filterMap: {},
@@ -223,7 +200,6 @@ const categoryConfig = {
     heroImg: 'monitoring-hero',
     searchPlaceholder: 'e.g. LLM monitoring, cost tracking',
     allLabel: 'All Monitoring',
-    items: monitoringData, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Monitoring', 'LLM Monitoring', 'Cost Tracking', 'Logging', 'Alerting'],
     filterMap: {},
@@ -245,7 +221,6 @@ const categoryConfig = {
     heroImg: 'security-hero',
     searchPlaceholder: 'e.g. Guardrails, compliance',
     allLabel: 'All Security',
-    items: securityData, nameKey: 'title',
     dataFilterKey: 'category',
     filterCategories: ['All Security', 'Guardrails', 'Red Teaming', 'Compliance', 'Data Privacy'],
     filterMap: {},
@@ -268,7 +243,8 @@ export default function CategoryListing() {
   const parts = location.pathname.split('/')
   const category = parts[1]
   const filterSlug = parts[3] || ''
-  const config = categoryConfig[category]
+  const config = categoryMeta[category]
+  const catalogConfig = PRODUCT_CATALOG[category]
   const gridRef = useRef(null)
   const productRef = useRef(null)
   useEffect(() => {
@@ -282,8 +258,8 @@ export default function CategoryListing() {
   const [viewMode, setViewMode] = useState('grid')
   const [showFilters, setShowFilters] = useState(false)
 
-  if (!config) return null
-  const categoryItems = mergeCategoryItems(config.items, category, config.nameKey)
+  if (!config || !catalogConfig) return null
+  const categoryItems = mergeCategoryItems(catalogConfig.items, category, catalogConfig.nameKey)
 
   const applyFilters = () => {
     setAppliedSidebar(sidebarSearch)

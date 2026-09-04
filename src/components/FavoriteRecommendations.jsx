@@ -1,32 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
-import aiSkills from '../data/ai-skills.json'
-import aiWorkflows from '../data/ai-workflows.json'
-import aiAgents from '../data/ai-agents.json'
-import aiPrompts from '../data/ai-prompts.json'
-import aiTokens from '../data/ai-tokens.json'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automation from '../data/automation.json'
-import aitools from '../data/aitools.json'
-
-const dataMap = {
-  'ai-skills': { items: aiSkills, nameKey: 'name', nav: '/ai-skills' },
-  'ai-workflows': { items: aiWorkflows, nameKey: 'name', nav: '/ai-workflows' },
-  'ai-agents': { items: aiAgents, nameKey: 'name', nav: '/ai-agents' },
-  'ai-prompts': { items: aiPrompts, nameKey: 'name', nav: '/ai-prompts' },
-  'ai-tokens': { items: aiTokens, nameKey: 'name', nav: '/ai-tokens' },
-  templates: { items: templates, nameKey: 'title', nav: '/templates' },
-  integrations: { items: integrations, nameKey: 'name', nav: '/integrations' },
-  chatbots: { items: chatbots, nameKey: 'name', nav: '/chatbots' },
-  automation: { items: automation, nameKey: 'name', nav: '/automation' },
-  'ai-tools': { items: aitools, nameKey: 'name', nav: '/ai-tools' },
-}
-
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug } from '../lib/helpers'
+import { PRODUCT_CATALOG } from '../data/product-catalog'
 
 export default function FavoriteRecommendations() {
   const { favorites } = useCart()
@@ -40,10 +15,10 @@ export default function FavoriteRecommendations() {
   const recommendations = []
 
   for (const dataKey of favDataKeys) {
-    const source = dataMap[dataKey]
+    const source = PRODUCT_CATALOG[dataKey]
     if (!source) continue
     for (const item of source.items) {
-      const slug = toSlug(item.title || item.name)
+      const slug = toSlug(item[source.nameKey] || item.name || item.title)
       const key = `${dataKey}-${slug}`
       if (!favKeys.has(key) && !seen.has(key)) {
         seen.add(key)

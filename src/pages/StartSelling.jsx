@@ -2,12 +2,19 @@ import { Link, Navigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import SellerForm from '../components/SellerForm'
 import { useAuth } from '../AuthContext'
+import { ALL_SEED_PRODUCTS } from '../data/seed-sellers'
 
 export default function StartSelling() {
   const { currentUser, requestSeller } = useAuth()
 
   if (currentUser?.isSeller) return <Navigate to="/seller/dashboard" replace />
   if (currentUser?.sellerRequested) return <Navigate to="/seller/dashboard" replace />
+
+  const totalProducts = ALL_SEED_PRODUCTS.length
+  const totalSales = ALL_SEED_PRODUCTS.reduce((s, p) => s + (p.sales || 0), 0)
+  const sellerProducts = (() => { try { return JSON.parse(localStorage.getItem('seller_products') || '[]') } catch { return [] } })()
+  const totalSellerProducts = sellerProducts.length
+  const activeSellers = (() => { try { return JSON.parse(localStorage.getItem('auth_users') || '[]').filter(u => u.isSeller).length } catch { return 0 } })()
 
   return (
     <>
@@ -55,9 +62,9 @@ export default function StartSelling() {
         <section className="px-6 mb-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: '12,430+', label: 'Products Listed', icon: 'inventory_2' },
-              { value: '89,450+', label: 'Products Sold', icon: 'trending_up' },
-              { value: '3,200+', label: 'Active Sellers', icon: 'groups' },
+              { value: `${totalProducts + totalSellerProducts}+`, label: 'Products Listed', icon: 'inventory_2' },
+              { value: `${totalSales.toLocaleString()}+`, label: 'Products Sold', icon: 'trending_up' },
+              { value: `${activeSellers || 1}+`, label: 'Active Sellers', icon: 'groups' },
               { value: '4.8/5', label: 'Avg. Rating', icon: 'star' },
             ].map(stat => (
               <div key={stat.label} className="bg-surface rounded-xl border border-border-light p-5 flex items-center gap-4">
@@ -169,7 +176,7 @@ export default function StartSelling() {
         <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
           <span className="text-xl font-bold text-surface tracking-tight">AIAgents</span>
           <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">
-            &copy; 2026 AI Agents Marketplace. All rights reserved. 12k+ products available.
+            &copy; 2026 AI Agents Marketplace. All rights reserved. {totalProducts + totalSellerProducts}+ products available.
           </p>
         </div>
         <div className="flex flex-col gap-3">
@@ -187,11 +194,11 @@ export default function StartSelling() {
         </div>
         <div className="col-span-2 md:col-span-1 flex flex-col gap-6 justify-end items-start md:items-end mt-8 md:mt-0">
           <div className="text-left md:text-right">
-            <div className="text-[24px] font-semibold text-surface mb-1">3,200+</div>
+            <div className="text-[24px] font-semibold text-surface mb-1">{activeSellers || 1}+</div>
             <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Active Sellers</div>
           </div>
           <div className="text-left md:text-right">
-            <div className="text-[24px] font-semibold text-surface mb-1">89,450</div>
+            <div className="text-[24px] font-semibold text-surface mb-1">{totalSales.toLocaleString()}</div>
             <div className="text-[11px] font-medium text-secondary-fixed-dim uppercase tracking-wider">Products Sold</div>
           </div>
         </div>

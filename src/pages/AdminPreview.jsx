@@ -1,10 +1,7 @@
 import { useMemo } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getUserById, getAllProductsForSeller, readSellerProducts } from '../lib/storage'
-
-function toSlug(str) {
-  return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug } from '../lib/helpers'
 
 function renderStars(rating) {
   const full = Math.floor(rating || 0)

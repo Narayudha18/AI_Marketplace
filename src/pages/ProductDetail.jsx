@@ -4,211 +4,51 @@ import { useCart } from '../CartContext'
 import { useAuth } from '../AuthContext'
 import CartDrawer from '../components/CartDrawer'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { readSellerProducts } from '../lib/storage'
 import SellerLink from '../components/SellerLink'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automations from '../data/automation.json'
-import tools from '../data/aitools.json'
-import voiceAi from '../data/voice-ai.json'
-import imageGen from '../data/image-gen.json'
-import analyticsData from '../data/analytics.json'
-import fineTuningData from '../data/fine-tuning.json'
-import monitoringData from '../data/monitoring.json'
-import securityData from '../data/security.json'
-import agents from '../data/ai-agents.json'
-import prompts from '../data/ai-prompts.json'
-import skills from '../data/ai-skills.json'
-import tokens from '../data/ai-tokens.json'
-import workflows from '../data/ai-workflows.json'
+import { toSlug, PRODUCT_CATALOG, findProduct, getAvgRating, getProductReviews } from '../data/product-catalog'
 
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const categoryMeta = {
+  templates: { badge: 'templates.market', icon: 'dashboard', navLink: '/templates' },
+  integrations: { badge: 'integrations.market', icon: 'api', navLink: '/integrations' },
+  chatbots: { badge: 'chatbots.market', icon: 'smart_toy', navLink: '/chatbots' },
+  automation: { badge: 'automation.market', icon: 'sync_alt', navLink: '/automation' },
+  'ai-tools': { badge: 'tools.market', icon: 'api', navLink: '/ai-tools' },
+  'voice-ai': { badge: 'voice.market', icon: 'record_voice_over', navLink: '/voice-ai' },
+  'image-gen': { badge: 'image.market', icon: 'image', navLink: '/image-gen' },
+  analytics: { badge: 'analytics.market', icon: 'analytics', navLink: '/analytics' },
+  'fine-tuning': { badge: 'finetune.market', icon: 'tune', navLink: '/fine-tuning' },
+  monitoring: { badge: 'monitor.market', icon: 'monitoring', navLink: '/monitoring' },
+  security: { badge: 'secure.market', icon: 'security', navLink: '/security' },
+  'ai-agents': { badge: 'aiagents.market', icon: 'smart_toy', navLink: '/ai-agents' },
+  'ai-prompts': { badge: 'aiprompts.market', icon: 'edit_note', navLink: '/ai-prompts' },
+  'ai-skills': { badge: 'aiskills.market', icon: 'psychology', navLink: '/ai-skills' },
+  'ai-tokens': { badge: 'aitokens.market', icon: 'token', navLink: '/ai-tokens' },
+  'ai-workflows': { badge: 'aiworkflows.market', icon: 'account_tree', navLink: '/ai-workflows' },
 }
 
-const categoryConfig = {
-  templates: {
-    label: 'Templates', navLink: '/templates', icon: 'dashboard', badge: 'templates.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/templates', label: 'Templates', active: true },
-      { href: '/integrations', label: 'Integrations' },
-      { href: '/chatbots', label: 'Chatbots' },
-      { href: '/automation', label: 'Automation' },
-      { href: '/ai-tools', label: 'AI Tools & APIs' },
-    ],
-    items: templates,
-    nameKey: 'title',
-    getRelated: (item) => templates.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  integrations: {
-    label: 'Integrations', navLink: '/integrations', icon: 'api', badge: 'integrations.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/templates', label: 'Templates' },
-      { href: '/integrations', label: 'Integrations', active: true },
-      { href: '/chatbots', label: 'Chatbots' },
-      { href: '/automation', label: 'Automation' },
-      { href: '/ai-tools', label: 'AI Tools & APIs' },
-    ],
-    items: integrations,
-    nameKey: 'name',
-    getRelated: (item) => integrations.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  chatbots: {
-    label: 'Chatbots', navLink: '/chatbots', icon: 'smart_toy', badge: 'chatbots.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/templates', label: 'Templates' },
-      { href: '/integrations', label: 'Integrations' },
-      { href: '/chatbots', label: 'Chatbots', active: true },
-      { href: '/automation', label: 'Automation' },
-      { href: '/ai-tools', label: 'AI Tools & APIs' },
-    ],
-    items: chatbots,
-    nameKey: 'name',
-    getRelated: (item) => chatbots.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  automation: {
-    label: 'Automation', navLink: '/automation', icon: 'sync_alt', badge: 'automation.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/templates', label: 'Templates' },
-      { href: '/integrations', label: 'Integrations' },
-      { href: '/chatbots', label: 'Chatbots' },
-      { href: '/automation', label: 'Automation', active: true },
-      { href: '/ai-tools', label: 'AI Tools & APIs' },
-    ],
-    items: automations,
-    nameKey: 'name',
-    getRelated: (item) => automations.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-tools': {
-    label: 'AI Tools & APIs', navLink: '/ai-tools', icon: 'api', badge: 'tools.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/templates', label: 'Templates' },
-      { href: '/integrations', label: 'Integrations' },
-      { href: '/chatbots', label: 'Chatbots' },
-      { href: '/automation', label: 'Automation' },
-      { href: '/ai-tools', label: 'AI Tools & APIs', active: true },
-    ],
-    items: tools,
-    nameKey: 'name',
-    getRelated: (item) => tools.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'voice-ai': {
-    label: 'Voice AI', navLink: '/voice-ai', icon: 'record_voice_over', badge: 'voice.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/voice-ai', label: 'Voice AI', active: true },
-    ],
-    items: voiceAi,
-    nameKey: 'title',
-    getRelated: (item) => voiceAi.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  'image-gen': {
-    label: 'Image Gen', navLink: '/image-gen', icon: 'image', badge: 'image.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/image-gen', label: 'Image Gen', active: true },
-    ],
-    items: imageGen,
-    nameKey: 'title',
-    getRelated: (item) => imageGen.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  analytics: {
-    label: 'Analytics', navLink: '/analytics', icon: 'analytics', badge: 'analytics.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/analytics', label: 'Analytics', active: true },
-    ],
-    items: analyticsData,
-    nameKey: 'title',
-    getRelated: (item) => analyticsData.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  'fine-tuning': {
-    label: 'Fine-tuning', navLink: '/fine-tuning', icon: 'tune', badge: 'finetune.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/fine-tuning', label: 'Fine-tuning', active: true },
-    ],
-    items: fineTuningData,
-    nameKey: 'title',
-    getRelated: (item) => fineTuningData.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  monitoring: {
-    label: 'Monitoring', navLink: '/monitoring', icon: 'monitoring', badge: 'monitor.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/monitoring', label: 'Monitoring', active: true },
-    ],
-    items: monitoringData,
-    nameKey: 'title',
-    getRelated: (item) => monitoringData.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  security: {
-    label: 'Security', navLink: '/security', icon: 'security', badge: 'secure.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/security', label: 'Security', active: true },
-    ],
-    items: securityData,
-    nameKey: 'title',
-    getRelated: (item) => securityData.filter(t => t.title !== item.title).slice(0, 3),
-  },
-  'ai-agents': {
-    label: 'AI Agents', navLink: '/ai-agents', icon: 'smart_toy', badge: 'aiagents.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents', active: true },
-      { href: '/ai-agents', label: 'AI Agents', active: true },
-    ],
-    items: agents,
-    nameKey: 'name',
-    getRelated: (item) => agents.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-prompts': {
-    label: 'AI Prompts', navLink: '/ai-prompts', icon: 'edit_note', badge: 'aiprompts.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-prompts', label: 'AI Prompts', active: true },
-    ],
-    items: prompts,
-    nameKey: 'name',
-    getRelated: (item) => prompts.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-skills': {
-    label: 'AI Skills', navLink: '/ai-skills', icon: 'psychology', badge: 'aiskills.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-skills', label: 'AI Skills', active: true },
-    ],
-    items: skills,
-    nameKey: 'name',
-    getRelated: (item) => skills.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-tokens': {
-    label: 'AI Tokens', navLink: '/ai-tokens', icon: 'token', badge: 'aitokens.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-tokens', label: 'AI Tokens', active: true },
-    ],
-    items: tokens,
-    nameKey: 'name',
-    getRelated: (item) => tokens.filter(t => t.name !== item.name).slice(0, 3),
-  },
-  'ai-workflows': {
-    label: 'AI Workflows', navLink: '/ai-workflows', icon: 'account_tree', badge: 'aiworkflows.market',
-    navLinks: [
-      { href: '/', label: 'AI Agents' },
-      { href: '/ai-workflows', label: 'AI Workflows', active: true },
-    ],
-    items: workflows,
-    nameKey: 'name',
-    getRelated: (item) => workflows.filter(t => t.name !== item.name).slice(0, 3),
-  },
-};
+const navLinks = [
+  { href: '/', label: 'AI Agents' },
+  { href: '/templates', label: 'Templates' },
+  { href: '/integrations', label: 'Integrations' },
+  { href: '/chatbots', label: 'Chatbots' },
+  { href: '/automation', label: 'Automation' },
+  { href: '/ai-tools', label: 'AI Tools & APIs' },
+]
+
+function renderStars(rating, size = 16) {
+  const full = Math.floor(rating)
+  return (
+    <span className="flex items-center gap-0.5">
+      {Array.from({ length: 5 }, (_, i) => (
+        <span key={i} className={`material-symbols-outlined ${i < full ? 'text-amber-400' : 'text-gray-300'}`} style={{ fontSize: size }}>
+          {i < full ? 'star' : 'star_border'}
+        </span>
+      ))}
+    </span>
+  )
+}
 
 export default function ProductDetail() {
   const location = useLocation()
@@ -216,12 +56,10 @@ export default function ProductDetail() {
   const parts = location.pathname.split('/')
   const category = parts[1]
   const slug = parts[2]
-  const config = categoryConfig[category]
-  let item = config ? config.items.find(i => toSlug(i[config.nameKey]) === slug) : undefined
+  const config = PRODUCT_CATALOG[category]
+  const meta = categoryMeta[category]
 
-  if (!item) {
-    item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
-  }
+  const { item } = findProduct(category, slug)
 
   const { addToCart, hasPurchased, toggleFavorite, isFavorite } = useCart()
   const { currentUser } = useAuth()
@@ -254,10 +92,12 @@ export default function ProductDetail() {
     localStorage.setItem(commentKey, JSON.stringify(comments))
   }, [comments, commentKey])
 
-  if (!item || !config) return null
+  if (!item || !config || !meta) return null
 
   const name = item.title || item.name
-  const relatedItems = config.getRelated(item)
+  const relatedItems = config.items
+    .filter(t => (t.title || t.name) !== name)
+    .slice(0, 3)
 
   const cartItem = { slug, category, seed: item.seed, title: item.title, name: item.name, price: item.price }
 
@@ -319,25 +159,12 @@ export default function ProductDetail() {
 
   const breadcrumbCat = category === 'ai-tools' ? 'AI Tools & APIs' : config.label
 
-  const renderStars = (rating, size = 16) => {
-    const full = Math.floor(rating)
-    return (
-      <span className="flex items-center gap-0.5">
-        {Array.from({ length: 5 }, (_, i) => (
-          <span key={i} className={`material-symbols-outlined ${i < full ? 'text-amber-400' : 'text-gray-300'}`} style={{ fontSize: size }}>
-            {i < full ? 'star' : 'star_border'}
-          </span>
-        ))}
-      </span>
-    )
-  }
-
   return (
     <>
       <div className="bg-primary-container text-on-primary-container px-6 py-2.5 text-center text-xs font-semibold flex justify-center items-center gap-3">
         <span className="bg-white/20 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
         <span>Discover premium {config.label.toLowerCase()} on AI Agents Marketplace.</span>
-        <button onClick={() => navigate(config.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">Browse All</button>
+        <button onClick={() => navigate(meta.navLink)} className="bg-text-main text-surface px-4 py-1.5 rounded text-[11px] font-bold hover:opacity-90 transition-opacity">Browse All</button>
       </div>
 
       <Navbar />
@@ -345,7 +172,7 @@ export default function ProductDetail() {
       <div className="bg-surface border-b border-border-light hidden md:flex px-6 h-12 items-center gap-2 text-xs">
         <a href="/" className="text-text-muted hover:text-primary transition-colors">Home</a>
         <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 14 }}>chevron_right</span>
-        <a href={config.navLink} className="text-text-muted hover:text-primary transition-colors">{breadcrumbCat}</a>
+        <a href={meta.navLink} className="text-text-muted hover:text-primary transition-colors">{breadcrumbCat}</a>
         <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 14 }}>chevron_right</span>
         <span className="text-text-main font-semibold truncate max-w-[300px]">{name}</span>
       </div>
@@ -353,7 +180,7 @@ export default function ProductDetail() {
       <section className="px-6 py-8 border-b border-border-light">
         <div className="flex gap-0">
           {[
-            { key: 'product', label: 'Produk', icon: 'shopping_bag' },
+            { key: 'product', label: 'Product', icon: 'shopping_bag' },
             { key: 'reviews', label: 'Review & Rating', icon: 'star_rate' },
             { key: 'comments', label: 'Comments', icon: 'forum' },
             { key: 'support', label: 'Support', icon: 'headset_mic' },
@@ -580,7 +407,7 @@ export default function ProductDetail() {
                       className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted" />
                   </div>
                   <div className="mb-4">
-                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Komentar</label>
+                    <label className="text-xs font-medium text-text-muted mb-1.5 block">Comment</label>
                     <textarea value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="Write a comment..." rows={3}
                       className="w-full text-xs bg-surface-container-low border border-border-light rounded-lg px-3 py-2.5 outline-none focus:border-primary placeholder:text-text-muted resize-none" />
                   </div>
@@ -720,31 +547,12 @@ export default function ProductDetail() {
         )}
       </main>
 
-      <footer className="bg-text-main text-surface w-full py-10 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-outline">
-        <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
-          <span className="text-xl font-bold text-surface tracking-tight">AIAgents</span>
-          <p className="text-[15px] text-secondary-fixed-dim mt-4 leading-relaxed">&copy; 2026 AI Agents Marketplace. All rights reserved.</p>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Marketplace</h4>
-          <Link to="/terms" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Terms</Link>
-          <Link to="/licenses" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Licenses</Link>
-          <Link to="/api" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">API</Link>
-          <Link to="/privacy" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Privacy</Link>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="text-xs font-semibold text-surface font-bold uppercase tracking-wider mb-2">Help</h4>
-          <Link to="/help" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Help Center</Link>
-          <Link to="/authors" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Authors</Link>
-          <Link to="/sitemap" className="text-[15px] text-secondary-fixed-dim hover:text-surface hover:underline decoration-primary transition-colors">Sitemap</Link>
-        </div>
-
-      </footer>
+      <Footer />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       {loginToast && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[999] bg-[#1a1a2e] text-white px-6 py-3.5 rounded-xl shadow-2xl border border-[#2a2a4e] flex items-center gap-3 animate-fade-in">
           <span className="material-symbols-outlined text-[#f59e0b]" style={{ fontSize: 20 }}>info</span>
-          <span className="text-sm font-medium">Anda belum login, silakan login terlebih dahulu!</span>
+          <span className="text-sm font-medium">You are not logged in, please log in first!</span>
           <button onClick={() => setLoginToast(false)} className="ml-2 text-white/60 hover:text-white cursor-pointer">
             <span className="material-symbols-outlined" style={{ fontSize: 18 }}>close</span>
           </button>

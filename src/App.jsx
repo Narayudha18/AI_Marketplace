@@ -1,8 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Agentation } from 'agentation'
 import Navbar from './components/Navbar'
 import RecommendationAssistant from './components/RecommendationAssistant'
+import ErrorBoundary from './components/ErrorBoundary'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
 import ProductGrid from './components/ProductGrid'
@@ -11,44 +12,47 @@ import BigCTA from './components/BigCTA'
 import FavoriteRecommendations from './components/FavoriteRecommendations'
 import Footer from './components/Footer'
 import Preloader from './components/Preloader'
-import Templates from './pages/Templates'
-import Integrations from './pages/Integrations'
-import Chatbots from './pages/Chatbots'
-import Automation from './pages/Automation'
-import AiTools from './pages/AiTools'
-import ProductDetail from './pages/ProductDetail'
-import SearchPage from './pages/SearchPage'
-import CategoryListing from './pages/CategoryListing'
-import ProductGallery from './pages/ProductGallery'
-import StartSelling from './pages/StartSelling'
-import SkillsPage from './pages/SkillsPage'
-import WorkflowsPage from './pages/WorkflowsPage'
-import AgentsPage from './pages/AgentsPage'
-import PromptsPage from './pages/PromptsPage'
-import TokensPage from './pages/TokensPage'
-import Terms from './pages/Terms'
-import Licenses from './pages/Licenses'
-import ApiDocs from './pages/ApiDocs'
-import Privacy from './pages/Privacy'
-import HelpCenter from './pages/HelpCenter'
-import Authors from './pages/Authors'
-import Sitemap from './pages/Sitemap'
-import VoiceAI from './pages/VoiceAI'
-import ImageGen from './pages/ImageGen'
-import Analytics from './pages/Analytics'
-import FineTuning from './pages/FineTuning'
-import Monitoring from './pages/Monitoring'
-import Security from './pages/Security'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Profile from './pages/Profile'
-import CartPage from './pages/CartPage'
-import OrderConfirmation from './pages/OrderConfirmation'
-import Favorites from './pages/Favorites'
-import SellerDashboard from './pages/SellerDashboard'
-import AdminDashboard from './pages/AdminDashboard'
-import SellerStore from './pages/SellerStore'
-import { AdminSellerPreview, AdminProductPreview } from './pages/AdminPreview'
+
+const SearchPage = lazy(() => import('./pages/SearchPage'))
+const Templates = lazy(() => import('./pages/Templates'))
+const Integrations = lazy(() => import('./pages/Integrations'))
+const Chatbots = lazy(() => import('./pages/Chatbots'))
+const Automation = lazy(() => import('./pages/Automation'))
+const AiTools = lazy(() => import('./pages/AiTools'))
+const VoiceAI = lazy(() => import('./pages/VoiceAI'))
+const ImageGen = lazy(() => import('./pages/ImageGen'))
+const Analytics = lazy(() => import('./pages/Analytics'))
+const FineTuning = lazy(() => import('./pages/FineTuning'))
+const Monitoring = lazy(() => import('./pages/Monitoring'))
+const Security = lazy(() => import('./pages/Security'))
+const SkillsPage = lazy(() => import('./pages/SkillsPage'))
+const WorkflowsPage = lazy(() => import('./pages/WorkflowsPage'))
+const AgentsPage = lazy(() => import('./pages/AgentsPage'))
+const PromptsPage = lazy(() => import('./pages/PromptsPage'))
+const TokensPage = lazy(() => import('./pages/TokensPage'))
+const ProductDetail = lazy(() => import('./pages/ProductDetail'))
+const CategoryListing = lazy(() => import('./pages/CategoryListing'))
+const ProductGallery = lazy(() => import('./pages/ProductGallery'))
+const StartSelling = lazy(() => import('./pages/StartSelling'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Licenses = lazy(() => import('./pages/Licenses'))
+const ApiDocs = lazy(() => import('./pages/ApiDocs'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const HelpCenter = lazy(() => import('./pages/HelpCenter'))
+const Authors = lazy(() => import('./pages/Authors'))
+const Sitemap = lazy(() => import('./pages/Sitemap'))
+const Login = lazy(() => import('./pages/Login'))
+const Register = lazy(() => import('./pages/Register'))
+const Profile = lazy(() => import('./pages/Profile'))
+const CartPage = lazy(() => import('./pages/CartPage'))
+const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'))
+const Favorites = lazy(() => import('./pages/Favorites'))
+const SellerDashboard = lazy(() => import('./pages/SellerDashboard'))
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
+const SellerStore = lazy(() => import('./pages/SellerStore'))
+
+const AdminSellerPreview = lazy(() => import('./pages/AdminPreview').then(m => ({ default: m.AdminSellerPreview })))
+const AdminProductPreview = lazy(() => import('./pages/AdminPreview').then(m => ({ default: m.AdminProductPreview })))
 
 function Home() {
   return (
@@ -74,6 +78,8 @@ export default function App() {
     <>
       {import.meta.env.DEV && <Agentation endpoint="http://localhost:4747" />}
       <Preloader />
+      <ErrorBoundary>
+      <Suspense fallback={null}>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/search" element={<SearchPage />} />
@@ -144,6 +150,8 @@ export default function App() {
       <Route path="/admin/preview/product/:productId" element={<AdminProductPreview />} />
       <Route path="/seller/:sellerId" element={<SellerStore />} />
     </Routes>
+    </Suspense>
+    </ErrorBoundary>
     <RecommendationAssistant />
     </>
   );

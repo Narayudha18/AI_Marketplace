@@ -1,50 +1,7 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { useTheme } from '../ThemeContext'
-import aiSkills from '../data/ai-skills.json'
-import aiWorkflows from '../data/ai-workflows.json'
-import aiAgents from '../data/ai-agents.json'
-import aiPrompts from '../data/ai-prompts.json'
-import aiTokens from '../data/ai-tokens.json'
-import templates from '../data/templates.json'
-import integrations from '../data/integrations.json'
-import chatbots from '../data/chatbots.json'
-import automations from '../data/automation.json'
-import tools from '../data/aitools.json'
-import voiceAi from '../data/voice-ai.json'
-import imageGen from '../data/image-gen.json'
-import analyticsData from '../data/analytics.json'
-import fineTuningData from '../data/fine-tuning.json'
-import monitoringData from '../data/monitoring.json'
-import securityData from '../data/security.json'
-import { readSellerProducts, toSlug } from '../lib/storage'
-
-const dataMap = {
-  templates: { items: templates, nameKey: 'title' },
-  integrations: { items: integrations, nameKey: 'name' },
-  chatbots: { items: chatbots, nameKey: 'name' },
-  automation: { items: automations, nameKey: 'name' },
-  'ai-tools': { items: tools, nameKey: 'name' },
-  'voice-ai': { items: voiceAi, nameKey: 'title' },
-  'image-gen': { items: imageGen, nameKey: 'title' },
-  analytics: { items: analyticsData, nameKey: 'title' },
-  'fine-tuning': { items: fineTuningData, nameKey: 'title' },
-  monitoring: { items: monitoringData, nameKey: 'title' },
-  'ai-skills': { items: aiSkills, nameKey: 'name' },
-  'ai-workflows': { items: aiWorkflows, nameKey: 'name' },
-  'ai-agents': { items: aiAgents, nameKey: 'name' },
-  'ai-prompts': { items: aiPrompts, nameKey: 'name' },
-  'ai-tokens': { items: aiTokens, nameKey: 'name' },
-  security: { items: securityData, nameKey: 'title' },
-}
-
-const categoryLabels = {
-  templates: 'Templates', integrations: 'Integrations', chatbots: 'Chatbots',
-  automation: 'Automation', 'ai-tools': 'AI Tools & APIs', 'voice-ai': 'Voice AI',
-  'image-gen': 'Image Gen', analytics: 'Analytics', 'fine-tuning': 'Fine-tuning',
-  monitoring: 'Monitoring', security: 'Security',
-  'ai-skills': 'AI Skills', 'ai-workflows': 'AI Workflows',
-  'ai-agents': 'AI Agents', 'ai-prompts': 'AI Prompts', 'ai-tokens': 'AI Tokens',
-}
+import { readSellerProducts } from '../lib/storage'
+import { toSlug, PRODUCT_CATALOG, findProduct } from '../data/product-catalog'
 
 const categoryNavLinks = {
   templates: '/templates', integrations: '/integrations', chatbots: '/chatbots',
@@ -67,11 +24,9 @@ export default function ProductGallery() {
   const navigate = useNavigate()
   const location = useLocation()
   const { dark, toggle } = useTheme()
-  const source = dataMap[category]
-  let item = source ? source.items.find(i => toSlug(i[source.nameKey]) === slug) : undefined
-  if (!item) {
-    item = readSellerProducts().find(p => p.category === category && toSlug(p.title) === slug)
-  }
+  const config = PRODUCT_CATALOG[category]
+
+  const { item } = findProduct(category, slug)
   if (!item) return null
 
   const name = item.title || item.name
@@ -101,7 +56,7 @@ export default function ProductGallery() {
           <div className="flex items-center gap-2 text-xs text-text-muted mb-6">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
-            <Link to={categoryNavLinks[category] || '/'} className="hover:text-primary transition-colors">{categoryLabels[category] || category}</Link>
+            <Link to={categoryNavLinks[category] || '/'} className="hover:text-primary transition-colors">{config?.label || category}</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
             <Link to={`/${category}/${slug}`} className="hover:text-primary transition-colors">{name}</Link>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>chevron_right</span>
@@ -132,6 +87,7 @@ export default function ProductGallery() {
                 className={`rounded-xl overflow-hidden border border-border-light bg-surface-container-low group ${i === 1 ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
                 <img src={`https://picsum.photos/seed/${seed}/${i === 1 ? '1400/650' : '800/500'}`}
                   alt={`${name} screenshot ${i}`}
+                  loading="lazy"
                   className={`w-full object-cover group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer ${i === 1 ? 'h-[250px] sm:h-[350px] md:h-[500px]' : 'h-40 sm:h-52 md:h-64'}`}
                   onClick={() => window.open(`https://picsum.photos/seed/${seed}/1920/1080`, '_blank')} />
               </div>
@@ -149,8 +105,8 @@ export default function ProductGallery() {
                   <video
                     src={v.src}
                     className="w-full h-48 sm:h-64 md:h-72 object-cover"
-                    autoPlay muted loop playsInline controls
-                    preload="auto"
+                    muted loop playsInline controls
+                    preload="metadata"
                     poster={`https://picsum.photos/seed/${item.seed}-vid${idx}/800/450`}
                   />
                 </div>

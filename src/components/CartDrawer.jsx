@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
-
-function toSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
+import { toSlug } from '../lib/helpers'
 
 export default function CartDrawer({ open, onClose }) {
   const { cart, removeFromCart } = useCart()
@@ -20,7 +17,7 @@ export default function CartDrawer({ open, onClose }) {
 
   const totalPrice = cart.reduce((sum, item) => {
     const price = parseFloat(item.price?.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0
-    return sum + price
+    return sum + price * (item.qty || 1)
   }, 0)
   const formattedTotal = `$${totalPrice.toLocaleString('en-US')}`
 
@@ -29,7 +26,7 @@ export default function CartDrawer({ open, onClose }) {
       {open && <div className="fixed inset-0 bg-black/40 z-40" onClick={onClose} />}
       <div className={`fixed top-0 right-0 h-full w-full max-w-sm bg-surface z-50 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-border-light">
-          <h2 className="text-sm font-semibold text-text-main">Keranjang ({cart.length})</h2>
+          <h2 className="text-sm font-semibold text-text-main">Cart ({cart.length})</h2>
           <button onClick={onClose} className="p-1 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
             <span className="material-symbols-outlined text-text-muted" style={{ fontSize: 20 }}>close</span>
           </button>
@@ -39,7 +36,7 @@ export default function CartDrawer({ open, onClose }) {
           {cart.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-text-muted text-5xl mb-4 block">shopping_cart</span>
-              <p className="text-sm text-text-muted">Keranjang kosong</p>
+              <p className="text-sm text-text-muted">Cart is empty</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -56,6 +53,7 @@ export default function CartDrawer({ open, onClose }) {
                         {itemName}
                       </Link>
                       {'price' in item && <p className="text-xs font-semibold text-text-main mt-1">{item.price}</p>}
+                      {item.qty > 1 && <p className="text-[11px] text-text-muted mt-0.5">Qty: {item.qty}</p>}
                       <p className="text-[11px] text-text-muted mt-0.5 capitalize">{item.category}</p>
                     </div>
                     <button onClick={() => removeFromCart(item.slug, item.category)} className="self-start p-1 hover:bg-surface rounded transition-colors cursor-pointer">

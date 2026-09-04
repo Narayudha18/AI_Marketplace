@@ -6,7 +6,7 @@ import { PRODUCT_CATALOG, findProduct, toSlug } from '../data/product-catalog'
 import SellerLink from '../components/SellerLink'
 
 export default function Favorites() {
-  const { favorites, toggleFavorite } = useCart()
+  const { favorites, toggleFavorite, addToCart } = useCart()
 
   const favItems = []
   for (const fav of favorites) {
@@ -66,6 +66,17 @@ export default function Favorites() {
                       <p className="text-[10px] text-text-muted mt-0.5 capitalize">{item.category}</p>
                     </div>
                   </Link>
+                  <div className="px-3 pb-3">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        addToCart({ ...item, category: item.category, slug: toSlug(item.title || item.name), seed: item.seed || item.title || item.name })
+                      }}
+                      className="w-full bg-primary text-surface text-[11px] font-semibold py-2 rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               )
             })}
